@@ -7,6 +7,7 @@
 
 namespace openloco::ui::WindowManager
 {
+    void init();
     void registerHooks();
     WindowType getCurrentModalType();
     void setCurrentModalType(WindowType type);
@@ -38,6 +39,7 @@ namespace openloco::ui::WindowManager
     void sub_4B93A5(window_number number);
     void closeTopmost();
     void allWheelInput();
+    void sub_4C98CF();
 }
 
 namespace openloco::ui::windows
