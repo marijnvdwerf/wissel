@@ -2179,3 +2179,1985 @@ strings:
   2123: hp
   2124: kW
   2125: "{COLOUR WINDOW_2}Language:"
+
+
+objects:
+  // Type 0x00:
+  INTERDEF:
+    - "Default Interface Style"
+  
+  // Type 0x01:
+  SNDA1:
+    - "Aircraft sound 1"
+  
+  SNDA2:
+    - "Aircraft sound 2"
+  
+  SNDA3:
+    - "Aircraft sound 3"
+  
+  SNDCH1A:
+    - "Chuff 1 (a)"
+  
+  SNDCH1AS:
+    - "Chuff 1 (a-st)"
+  
+  SNDCH1B:
+    - "Chuff 1 (b)"
+  
+  SNDCH1BS:
+    - "Chuff 1 (b-st)"
+  
+  SNDCH1C:
+    - "Chuff 1 (c)"
+  
+  SNDCH1CS:
+    - "Chuff 1 (c-st)"
+  
+  SNDCH1D:
+    - "Chuff 1 (d)"
+  
+  SNDCH1DS:
+    - "Chuff 1 (d-st)"
+  
+  SNDD1:
+    - "Diesel sound 1"
+  
+  SNDD10:
+    - "Diesel sound 10"
+  
+  SNDD11:
+    - "Diesel sound 11"
+  
+  SNDD12:
+    - "Diesel sound 12"
+  
+  SNDD2:
+    - "Diesel sound 2"
+  
+  SNDD3:
+    - "Diesel sound 3"
+  
+  SNDD4:
+    - "Diesel sound 4"
+  
+  SNDD5:
+    - "Diesel sound 5"
+  
+  SNDD6:
+    - "Diesel sound 6"
+  
+  SNDD7:
+    - "Diesel sound 7"
+  
+  SNDD8:
+    - "Diesel sound 8"
+  
+  SNDD9:
+    - "Diesel sound 9"
+  
+  SNDE1:
+    - "Electric sound 1"
+  
+  SNDH1:
+    - "Loco horn sound 1"
+  
+  SNDH2:
+    - "Loco horn sound 2"
+  
+  SNDH3:
+    - "Loco horn sound 3"
+  
+  SNDH4:
+    - "Boat Horn sound 4"
+  
+  SNDH5:
+    - "Boat Horn sound 5"
+  
+  SNDH6:
+    - "Boat Horn sound 6"
+  
+  SNDS1:
+    - "Steam idle sound 1"
+  
+  SNDTD1:
+    - "Aircraft touchdown sound 1"
+  
+  SNDTD2:
+    - "Aircraft touchdown sound 2"
+  
+  SNDTR1:
+    - "Track sound 1"
+  
+  SNDW1:
+    - "Loco whistle sound 1"
+  
+  SNDW2:
+    - "Loco whistle sound 2"
+  
+  SNDW3:
+    - "Loco whistle sound 3"
+  
+  SNDW4:
+    - "Loco whistle sound 4"
+  
+  SNDW5:
+    - "Loco whistle sound 5"
+  
+  SNDW6:
+    - "Loco whistle sound 6"
+  
+  SNDW7:
+    - "Loco whistle sound 7"
+  
+  SNDW8:
+    - "Loco whistle sound 8"
+  
+  // Type 0x02:
+  CURRDMRK:
+    - "Deutschmark"
+    - ""
+    - "£"
+  
+  CURRDOLL:
+    - "Dollars"
+    - "£"
+    - ""
+  
+  CURREURO:
+    - "Euros"
+    - "£"
+    - ""
+  
+  CURRFREN:
+    - "Franc"
+    - ""
+    - "£"
+  
+  CURRGUIL:
+    - "Guilders"
+    - ""
+    - "£"
+  
+  CURRKRON:
+    - "Krona"
+    - ""
+    - "£"
+  
+  CURRLIRA:
+    - "Lira"
+    - "£"
+    - ""
+  
+  CURRNTDL:
+    - "Taiwanese Dollars"
+    - "£"
+    - ""
+  
+  CURRPNDS:
+    - "Pounds"
+    - "£"
+    - ""
+  
+  CURRPSTA:
+    - "Peseta"
+    - ""
+    - "£"
+  
+  CURRWON:
+    - "Won"
+    - "£"
+    - ""
+  
+  CURRYEN:
+    - "Yen"
+    - "£"
+    - ""
+  
+  CURRZLOT:
+    - "Zlote"
+    - ""
+    - " £"
+  
+  // Type 0x03:
+  EXH1:
+    - "Diesel Exhaust"
+  
+  EXH2:
+    - "Diesel Exhaust"
+  
+  SPARK1:
+    - "Electric Spark"
+  
+  STEAM:
+    - "Steam Puff"
+  
+  WWAKE1:
+    - "Ship Wake 1"
+  
+  // Type 0x04:
+  LSBROWN:
+    - "Brown Rock"
+  
+  LSROCK:
+    - "Rock"
+  
+  // Type 0x05:
+  WATER1:
+    - "Water"
+  
+  // Type 0x06:
+  GRASS1:
+    - "Grass"
+  
+  GRASSBR:
+    - "Dry Grass"
+  
+  ROCK1:
+    - "Grey Rock"
+  
+  ROCK2:
+    - "Brown Rock"
+  
+  SAND1:
+    - "Sand"
+  
+  // Type 0x07:
+  ATOWNNAM:
+    - "North-American style town names"
+  
+  ETOWNNAM:
+    - "English style town names"
+  
+  FTOWNNAM:
+    - "French style town names"
+  
+  GTOWNNAM:
+    - "German style town names"
+  
+  LTOWNNAM:
+    - "Latin style town names"
+  
+  STOWNNAM:
+    - "Silly style town names"
+  
+  // Type 0x08:
+  CHEMICAL:
+    - "Chemicals"
+    - "tons of chemicals"
+    - "{ ton of Chemicals"
+    - "{ tons of Chemicals"
+  
+  COAL:
+    - "Coal"
+    - "tons of coal"
+    - "{ ton of Coal"
+    - "{ tons of Coal"
+  
+  FOOD:
+    - "Food"
+    - "tons of food"
+    - "{ ton of Food"
+    - "{ tons of Food"
+  
+  GOODS:
+    - "Goods"
+    - "crates of goods"
+    - "{ crate of Goods"
+    - "{ crates of Goods"
+  
+  GRAPES:
+    - "Grapes"
+    - "tons of grapes"
+    - "{ ton of Grapes"
+    - "{ tons of Grapes"
+  
+  IRONORE:
+    - "Iron Ore"
+    - "tons of iron ore"
+    - "{ ton of Iron Ore"
+    - "{ tons of Iron Ore"
+  
+  LIVESTCK:
+    - "Livestock"
+    - "items of livestock"
+    - "{ item of Livestock"
+    - "{ items of Livestock"
+  
+  MAIL:
+    - "Mail"
+    - "bags of mail"
+    - "{ bag of Mail"
+    - "{ bags of Mail"
+  
+  OIL:
+    - "Oil"
+    - "tons of oil"
+    - "{ ton of Oil"
+    - "{ tons of Oil"
+  
+  PAPER:
+    - "Paper"
+    - "tons of paper"
+    - "{ ton of Paper"
+    - "{ tons of Paper"
+  
+  PASS:
+    - "Passengers"
+    - "passengers"
+    - "{ Passenger"
+    - "{ Passengers"
+  
+  STEEL:
+    - "Steel"
+    - "tons of steel"
+    - "{ ton of Steel"
+    - "{ tons of Steel"
+  
+  TIMBER:
+    - "Lumber"
+    - "tons of lumber"
+    - "{ ton of Lumber"
+    - "{ tons of Lumber"
+  
+  GRAIN:
+    - "Grain"
+    - "tons of grain"
+    - "{ ton of Grain"
+    - "{ tons of Grain"
+  
+  // Type 0x09:
+  BRWNWALG:
+    - "Wall"
+  
+  BRWNWALL:
+    - "Wall"
+  
+  FENCE1:
+    - "Fence"
+  
+  FENCE1G:
+    - "Fence"
+  
+  SECFENCE:
+    - "Security Fence"
+  
+  SECFENCG:
+    - "Security Fence"
+  
+  STONWALG:
+    - "Stone Wall"
+  
+  STONWALL:
+    - "Stone Wall"
+  
+  // Type 0x0A:
+  SIGC3:
+    - "Colorlight"
+    - "3-Aspect Signal,\u0005British style"
+  
+  SIGC4:
+    - "Colorlight (4-aspect)"
+    - "4-Aspect Signal,\u0005British style"
+  
+  SIGCSW:
+    - "Colorlight"
+    - "Colorlight Signal,\u0005Swiss style"
+  
+  SIGCUS:
+    - "Colorlight"
+    - "Colorlight Signal,\u0005American style"
+  
+  SIGS:
+    - "Semaphore (UQ)"
+    - "Semaphore Signal,\u0005British style,\u0005Upper Quadrant"
+  
+  SIGSD:
+    - "Semaphore (UQD)"
+    - "Semaphore Signal,\u0005British style,\u0005Upper Quadrant with Distant"
+  
+  SIGSDL:
+    - "Semaphore (LQD)"
+    - "Semaphore Signal,\u0005British style,\u0005Lower Quadrant with Distant"
+  
+  SIGSL:
+    - "Semaphore (LQ)"
+    - "Semaphore Signal,\u0005British style,\u0005Lower Quadrant"
+  
+  SIGSUS:
+    - "Semaphore"
+    - "Semaphore Signal,\u0005American style"
+  
+  SIGSW:
+    - "Semaphore"
+    - "Semaphore Signal,\u0005Swiss style"
+  
+  // Type 0x0B:
+  LCROSS1:
+    - "Level Crossing Lights"
+  
+  LCROSS2:
+    - "Level Crossing Lights"
+  
+  LCROSS3:
+    - "Level Crossing Gates"
+  
+  LCROSS4:
+    - "Level Crossing Signs"
+  
+  // Type 0x0C:
+  SLIGHT1:
+    - "Street Lights"
+  
+  // Type 0x0D:
+  TUNNEL1:
+    - "Tunnel"
+  
+  TUNNEL2:
+    - "Tunnel"
+  
+  // Type 0x0E:
+  BRDGBRCK:
+    - "Brick Bridge"
+  
+  BRDGGIRD:
+    - "Steel Girder Bridge"
+  
+  BRDGSTAR:
+    - "Steel Arch Bridge"
+  
+  BRDGSUSP:
+    - "Suspension Bridge"
+  
+  BRDGWOOD:
+    - "Wooden Bridge"
+  
+  // Type 0x0F:
+  TRSTAT1:
+  
+  TRSTAT2:
+  
+  TRSTAT3:
+  
+  TRSTAT4:
+  
+  TRSTAT5:
+  
+  // Type 0x10:
+  TREX3RL:
+    - "Electric 3rd Rail"
+  
+  TREXCAT1:
+    - "Overhead Elec. Wires"
+  
+  TREXRACK:
+    - "Rack Rail"
+  
+  // Type 0x11:
+  TRACKNG:
+    - "Narrow Gauge Track"
+  
+  TRACKST:
+    - "Railroad Track"
+  
+  // Type 0x12:
+  BUSSTOP:
+    - "Passenger Stop"
+  
+  RDSTAT1:
+    - "Passenger Terminus"
+  
+  RDSTAT2:
+    - "Passenger Terminus"
+  
+  RDSTAT3:
+    - "Passenger Terminus"
+  
+  RDSTATL1:
+    - "Cargo Loading Bay"
+  
+  RDSTATL2:
+    - "Cargo Loading Bay"
+  
+  RDSTATL3:
+    - "Cargo Loading Bay"
+  
+  // Type 0x13:
+  RDEXCAT1:
+    - "Overhead Elec. Wires"
+  
+  // Type 0x14:
+  ROADONE:
+    - "One-Way Road"
+  
+  ROADRGH:
+    - "Rough Road"
+  
+  ROADTMC:
+    - "Road"
+  
+  ROADTRAM:
+    - "Tram Track"
+  
+  ROADUS1:
+    - "One-Way Road"
+  
+  ROADUS2:
+    - "Road"
+  
+  // Type 0x15:
+  AIRPORT1:
+    - "Large Airport"
+  
+  AIRPORT2:
+    - "Small Airport"
+  
+  AIRPORT3:
+    - "Medium Airport"
+  
+  HPORT1:
+    - "City Heliport"
+  
+  // Type 0x16:
+  SHIPST1:
+    - "Docks"
+  
+  // Type 0x17:
+  114:
+    - "Class 114 Diesel Multiple Unit"
+  
+  142:
+    - "Class 142 Diesel Railbus"
+  
+  158:
+    - "Class 158 Diesel Multiple Unit"
+  
+  2EPB:
+    - "2-EPB Electric Multiple Unit"
+  
+  36R:
+    - "Model 36R Bus"
+  
+  460:
+    - "Re 460"
+  
+  4F:
+    - "Fowler 4F"
+  
+  4MT:
+    - "BR Standard Class 4MT"
+  
+  508:
+    - "Class 508 Electric Multiple Unit"
+  
+  656:
+    - "Class 656"
+  
+  707:
+    - "707"
+  
+  737:
+    - "737"
+  
+  747:
+    - "747"
+  
+  777:
+    - "777"
+  
+  A3:
+    - "Gresley A3"
+  
+  A320:
+    - "A320"
+  
+  A380:
+    - "A380"
+  
+  A4:
+    - "Gresley A4"
+  
+  A5:
+    - "A5 Tri-Motor"
+  
+  AB139:
+    - "AB139 Helicopter"
+  
+  AE47:
+    - "Ae 4\/7"
+  
+  AILSA1:
+    - "Ailsa Bus"
+  
+  ALCOCENT:
+    - "Century"
+  
+  APT1:
+    - "APT Driving Carriage"
+  
+  APT2:
+    - "APT Passenger Carriage"
+  
+  APT3:
+    - "APT Power Car"
+  
+  BA146:
+    - "BAe 146"
+  
+  BALDWIN1:
+    - "Baldwin 2-8-0"
+  
+  BLACK5:
+    - "Stanier Black 5"
+  
+  C130:
+    - "C-130 Hercules"
+  
+  C33:
+    - "SLM C 3\/3"
+  
+  C56:
+    - "SLM C 5\/6"
+  
+  CARGOSH1:
+    - "Cargo Ship"
+  
+  CARGOSH2:
+    - "Merchant Freighter"
+  
+  CATTLE1:
+    - "Livestock Wagon"
+  
+  CATTLE2:
+    - "Stockcar"
+  
+  CATTLE3:
+    - "Livestock Wagon"
+  
+  CATTLEN1:
+    - "Livestock Wagon"
+  
+  CE68:
+    - "Ce 6\/8 Crocodile"
+  
+  CL20:
+    - "Class 20"
+  
+  CL37:
+    - "Class 37"
+  
+  CL47:
+    - "Class 47"
+  
+  CL55:
+    - "Class 55 'Deltic'"
+  
+  CL58:
+    - "Class 58"
+  
+  CL67:
+    - "Class 67"
+  
+  CL71:
+    - "Class 71"
+  
+  CL85:
+    - "Class 85"
+  
+  CL86:
+    - "Class 86"
+  
+  CL90:
+    - "Class 90"
+  
+  CLASSIC:
+    - "GM Classic"
+  
+  CLIPPER:
+    - "Clipper"
+  
+  COAL1:
+    - "Wagon"
+  
+  COALSH:
+    - "Bulk Ship"
+  
+  COMET:
+    - "Comet"
+  
+  CONCOR:
+    - "Concorde"
+  
+  COPTER1:
+    - "S55 Helicopter"
+  
+  CTRUCK1:
+    - "Cattle Truck"
+  
+  CTRUCK2:
+    - "Cattle Truck"
+  
+  CTRUCK3:
+    - "Cattle Truck"
+  
+  CTRUCK4:
+    - "Cattle Truck"
+  
+  DASH7:
+    - "Dash-7"
+  
+  DC3:
+    - "DC-3"
+  
+  DEH46:
+    - "Deh 4\/6"
+  
+  DH16:
+    - "DH-16"
+  
+  E8:
+    - "Class E8"
+  
+  EB35:
+    - "Eb 3\/5"
+  
+  EMU1:
+    - "Electric Multiple Unit"
+  
+  ESTAR1:
+    - "Electra-Star Power Car"
+  
+  ESTAR2:
+    - "Electra-Star Passenger Carriage"
+  
+  EWIV:
+    - "EW-IV Passenger Carriage"
+  
+  EWIVDT:
+    - "EW-IV Driving Carriage"
+  
+  F27:
+    - "F.27"
+  
+  F7:
+    - "F.7"
+  
+  FERRY1:
+    - "Diesel Ferry"
+  
+  FERRY2:
+    - "Steam Ferry"
+  
+  FLATBED1:
+    - "Flatbed Wagon"
+  
+  FLATBED2:
+    - "Flatbed Wagon"
+  
+  FLTBEDN1:
+    - "Flatbed Wagon"
+  
+  FTRUCK1:
+    - "Flatbed Truck"
+  
+  FTRUCK2:
+    - "Flatbed Truck"
+  
+  FTRUCK3:
+    - "Flatbed Truck"
+  
+  FTRUCK4:
+    - "Flatbed Truck"
+  
+  GE442:
+    - "Ge 4\/4 II"
+  
+  GE443:
+    - "Ge 4\/4 III"
+  
+  GE66:
+    - "Ge 6\/6"
+  
+  GOODS1:
+    - "Goods Wagon"
+  
+  GOODS2:
+    - "Boxcar"
+  
+  GOODS3:
+    - "Boxcar"
+  
+  GOODSN1:
+    - "Goods Wagon"
+  
+  GRAINHP1:
+    - "Covered Hopper Wagon"
+  
+  GRAINHP2:
+    - "Covered Hopper Wagon"
+  
+  GTRUCK1:
+    - "Goods Truck"
+  
+  GTRUCK2:
+    - "Goods Truck"
+  
+  GTRUCK3:
+    - "Goods Truck"
+  
+  GTRUCK4:
+    - "Goods Truck"
+  
+  HCRAFT1:
+    - "SRN4 Hovercraft"
+  
+  HFOIL1:
+    - "Hydrofoil"
+  
+  HG23:
+    - "SLM HG 2\/3"
+  
+  HGE44:
+    - "HGe 4\/4"
+  
+  HGE442:
+    - "HGe 4\/4 II"
+  
+  HOPPER:
+    - "Hopper Wagon"
+  
+  HOPPER2:
+    - "Hopper Wagon"
+  
+  HST:
+    - "HST Power Car"
+  
+  HTRUCK1:
+    - "Hopper Truck"
+  
+  HTRUCK2:
+    - "Hopper Truck"
+  
+  HTRUCK3:
+    - "Hopper Truck"
+  
+  HTRUCK4:
+    - "Hopper Truck"
+  
+  JFOIL1:
+    - "Jetfoil"
+  
+  JINTY:
+    - "3F 'Jinty'"
+  
+  JU52:
+    - "JU52"
+  
+  JUBILEE:
+    - "Stanier Jubilee"
+  
+  LEOP1:
+    - "Leopard Bus"
+  
+  MAILSW1:
+    - "Mail Car"
+  
+  MAILSW4:
+    - "Mail Car"
+  
+  MAILUS1:
+    - "Mail Car"
+  
+  MAILUS2:
+    - "Mail Car"
+  
+  MK1:
+    - "Mk1 Passenger Carriage"
+  
+  MK2:
+    - "Mk2 Passenger Carriage"
+  
+  MK3:
+    - "Mk3 Passenger Carriage"
+  
+  MTRUCK1:
+    - "Mail Truck"
+  
+  MTRUCK2:
+    - "Mail Truck"
+  
+  MTRUCK3:
+    - "Mail Truck"
+  
+  OIL1:
+    - "Tanker Wagon"
+  
+  OIL2:
+    - "Tanker Wagon"
+  
+  OILN1:
+    - "Tanker Wagon"
+  
+  OILSH:
+    - "Oil Tanker"
+  
+  OPENN1:
+    - "Wagon"
+  
+  PCAR1:
+    - "Passenger Carriage"
+  
+  PCAR2:
+    - "Passenger Carriage"
+  
+  PCARSW1:
+    - "Passenger Carriage"
+  
+  PCARUS2:
+    - "Passenger Carriage"
+  
+  PVAN1:
+    - "Mail Car"
+  
+  PVAN2:
+    - "Goods Car"
+  
+  RBE24:
+    - "RBe 2\/4 Railcar"
+  
+  RE441:
+    - "Re 4\/4 I"
+  
+  RE442:
+    - "Re 4\/4 II"
+  
+  RTMASTER:
+    - "RMT Bus"
+  
+  SD70MAC:
+    - "SD70"
+  
+  SPECIAL:
+    - "Special 2-4-2"
+  
+  ST8FT:
+    - "Stirling 8ft"
+  
+  STANCORR:
+    - "Stanier Coronation Pacific"
+  
+  SWISS1:
+    - "Passenger Carriage"
+  
+  SWISS2:
+    - "Passenger Carriage"
+  
+  SWISS3:
+    - "Passenger Carriage"
+  
+  SWISS4:
+    - "Passenger Carriage"
+  
+  SWISS5:
+    - "Passenger Carriage"
+  
+  TDH5301:
+    - "TDH 5301 Bus"
+  
+  TGV1:
+    - "TGV Power Car"
+  
+  TGV2:
+    - "TGV Passenger Carriage"
+  
+  TRAM1:
+    - "Be 4\/4 Tram"
+  
+  TRAM2:
+    - "Ce 2\/2 Tram"
+  
+  TRAM3:
+    - "Coronation Tram"
+  
+  TRAM4:
+    - "Be 4\/6 Tram"
+  
+  TTRAIL2:
+    - "Tanker Trailer"
+  
+  TTRUCK1:
+    - "Tanker Truck"
+  
+  TTRUCK2:
+    - "Tanker Truck"
+  
+  TTRUCK3:
+    - "Tanker Truck"
+  
+  TTRUCK4:
+    - "Tanker Truck"
+  
+  USPACIF:
+    - "Pacific"
+  
+  V2:
+    - "Gresley V2"
+  
+  VISCOUNT:
+    - "Viscount"
+  
+  VULCAN:
+    - "Vulcan VSD Bus"
+  
+  WMCBUS:
+    - "WMC Bus"
+  
+  PCARUS1:
+    - "Passenger Carriage"
+  
+  TRAMCOMB:
+    - "Combi Tram"
+  
+  // Type 0x18:
+  BEECH:
+    - "Common Beech Tree"
+  
+  BIRCH:
+    - "Silver Birch Tree"
+  
+  BIRCH2:
+    - "Silver Birch Tree"
+  
+  BSPRUCE:
+    - "Blue Spruce Tree"
+  
+  CACTUS1:
+    - "Cactus"
+  
+  CACTUS2:
+    - "Cactus"
+  
+  CACTUS3:
+    - "Cactus"
+  
+  CHESTNUT:
+    - "Chestnut Tree"
+  
+  COPBEACH:
+    - "Copper Beach Tree"
+  
+  DREDWOOD:
+    - "Dawn Redwood Tree"
+  
+  ELM:
+    - "Elm Tree"
+  
+  FRISIA:
+    - "Frisia Tree"
+  
+  GFIR:
+    - "Grand Fir Tree"
+  
+  HCYPRESS:
+    - "Golden Hinoki Cypress Tree"
+  
+  HSTRAW:
+    - "Hydrid Strawberry Tree"
+  
+  ICYPRESS:
+    - "Italian Cypress Tree"
+  
+  IYEW:
+    - "Irish Yew Tree"
+  
+  JAPCRAB:
+    - "Japanese Crab Tree"
+  
+  JOSHUA:
+    - "Joshua Tree"
+  
+  KBFIR:
+    - "King Boris's Fir Tree"
+  
+  LCEDAR:
+    - "Cedar of Lebanon Tree"
+  
+  NASH:
+    - "Narrow Leaf Ash Tree"
+  
+  NMAPLE:
+    - "Maple Tree"
+  
+  OAK:
+    - "Oak Tree"
+  
+  PCYPRESS:
+    - "Pond Cypress Tree"
+  
+  QPALM:
+    - "Queen Palm Tree"
+  
+  RCEDAR:
+    - "Red Cedar Tree"
+  
+  RFIR:
+    - "Red Fir Tree"
+  
+  ROBINIA:
+    - "Robinia Tree"
+  
+  SCPINE:
+    - "Scots Pine Tree"
+  
+  SCYPRESS:
+    - "Swamp Cypress Tree"
+  
+  SMAPLE:
+    - "Sugar Maple Tree"
+  
+  SNOWBELL:
+    - "Snowbell Tree"
+  
+  SPALM:
+    - "Silver Palm Tree"
+  
+  SVPINE:
+    - "Silver Pine Tree"
+  
+  WASH:
+    - "White Ash Tree"
+  
+  WILLOW:
+    - "Crack Willow Tree"
+  
+  YEW:
+    - "Yew Tree"
+  
+  YUKKA:
+    - "Yukka Plant"
+  
+  // Type 0x19:
+  SNOW:
+    - "Snow"
+  
+  // Type 0x1A:
+  CLIM1:
+    - "Alpine Climate"
+  
+  CLIM2:
+    - "British Climate"
+  
+  CLIM3:
+    - "North American Climate"
+  
+  CLIM4:
+    - "Australian Climate"
+  
+  CLIM5:
+    - "Low Alpine Climate"
+  
+  CLIM6:
+    - "North American, No Snow"
+  
+  // Type 0x1B:
+  HS1:
+    - "Hill Shapes 1"
+  
+  // Type 0x1C:
+  BLDALP1:
+    - "Building"
+  
+  BLDALP10:
+    - "Shops"
+  
+  BLDALP11:
+    - "House"
+  
+  BLDALP2:
+    - "Cottage"
+  
+  BLDALP3:
+    - "Cottage"
+  
+  BLDALP4:
+    - "House"
+  
+  BLDALP5:
+    - "House"
+  
+  BLDALP6:
+    - "House"
+  
+  BLDALP7:
+    - "Townhouse"
+  
+  BLDALP8:
+    - "Apartments"
+  
+  BLDALP9:
+    - "Townhouse"
+  
+  BLDCASTL:
+    - "Castle Ruins"
+  
+  BLDCRCH1:
+    - "Church"
+  
+  BLDCRCH2:
+    - "Church"
+  
+  BLDCRCH3:
+    - "Church"
+  
+  BLDCTY1:
+    - "Offices"
+  
+  BLDCTY11:
+    - "Offices"
+  
+  BLDCTY12:
+    - "Office Tower"
+  
+  BLDCTY13:
+    - "Office Block"
+  
+  BLDCTY14:
+    - "Offices"
+  
+  BLDCTY15:
+    - "Office Building"
+  
+  BLDCTY16:
+    - "Shops and Offices"
+  
+  BLDCTY17:
+    - "Flats"
+  
+  BLDCTY18:
+    - "Hotel"
+  
+  BLDCTY19:
+    - "Office Block"
+  
+  BLDCTY2:
+    - "Office Block"
+  
+  BLDCTY20:
+    - "Flats"
+  
+  BLDCTY21:
+    - "Court House"
+  
+  BLDCTY22:
+    - "Tenement Building"
+  
+  BLDCTY23:
+    - "Tenement Building"
+  
+  BLDCTY24:
+    - "Tenement Building"
+  
+  BLDCTY25:
+    - "Shops and Apartments"
+  
+  BLDCTY26:
+    - "Shops and Apartments"
+  
+  BLDCTY27:
+    - "Shops and Apartments"
+  
+  BLDCTY28:
+    - "Office Block"
+  
+  BLDCTY29:
+    - "Office Block"
+  
+  BLDCTY3:
+    - "Office Block"
+  
+  BLDCTY4:
+    - "Office Block"
+  
+  BLDCTY5:
+    - "Office Block"
+  
+  BLDCTY6:
+    - "Shops and Offices"
+  
+  BLDCTY7:
+    - "Offices"
+  
+  BLDCTY8:
+    - "Shops and Offices"
+  
+  BLDCTY9:
+    - "Shops and Offices"
+  
+  BLDFOUNT:
+    - "Fountain"
+  
+  BLDHALL1:
+    - "Concert Hall"
+  
+  BLDHOU10:
+    - "Cottage"
+  
+  BLDHOU11:
+    - "Semi-Detached Houses"
+  
+  BLDHOU12:
+    - "House"
+  
+  BLDHOU13:
+    - "House"
+  
+  BLDHOU14:
+    - "Bungalow"
+  
+  BLDHOU15:
+    - "House"
+  
+  BLDHOU16:
+    - "Shops and Offices"
+  
+  BLDHOU17:
+    - "Terraced Houses"
+  
+  BLDHOU18:
+    - "Bungalow"
+  
+  BLDHOU19:
+    - "House"
+  
+  BLDHOU20:
+    - "Cottage"
+  
+  BLDHOU21:
+    - "House"
+  
+  BLDHOU22:
+    - "House"
+  
+  BLDHOU23:
+    - "House"
+  
+  BLDHOU24:
+    - "House"
+  
+  BLDHOU25:
+    - "House"
+  
+  BLDHOUS2:
+    - "Terraced Houses"
+  
+  BLDHOUS3:
+    - "House"
+  
+  BLDHOUS4:
+    - "Cottage"
+  
+  BLDHOUS6:
+    - "Cottage"
+  
+  BLDHOUS7:
+    - "Cottage"
+  
+  BLDHOUS8:
+    - "Cottages"
+  
+  BLDHOUS9:
+    - "Cottage"
+  
+  BLDLIGHT:
+    - "Lighthouse"
+  
+  BLDOFF1:
+    - "Tower Block Flats"
+  
+  BLDPARK1:
+    - "Town Square"
+  
+  BLDPYLON:
+    - "Electricity Pylon"
+  
+  BLDSHOP1:
+    - "Shops"
+  
+  BLDTRANS:
+    - "Transmitter"
+  
+  HQ1:
+    - "Company Headquarters"
+  
+  BLDCTY10:
+    - "Offices"
+  
+  // Type 0x1D:
+  SCAFDEF:
+    - "Scaffolding"
+  
+  // Type 0x1E:
+  BREWERY:
+    - "Brewery"
+    - "„@  Brewery"
+    - "Brewery "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " brewery"
+    - " breweries"
+  
+  CHEMWORK:
+    - "Chemical Works"
+    - "„@  Chemical Works"
+    - "Chemical Works "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " chemical works"
+    - " chemical works"
+  
+  COALPS:
+    - "Coal-Fired Power Station"
+    - "„@  Power Station"
+    - "Power Station "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " coal-fired power station"
+    - " coal-fired power stations"
+  
+  FACTORY:
+    - "Factory"
+    - "„@  Factory"
+    - "Factory "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " factory"
+    - " factories"
+  
+  FARM:
+    - "Wheat Farm"
+    - "„@  Farm"
+    - "Farm "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " wheat farm"
+    - " wheat farms"
+  
+  FARMUS:
+    - "Wheat Farm"
+    - "„@  Farm"
+    - "Farm "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " wheat farm"
+    - " wheat farms"
+  
+  FOODPROC:
+    - "Food Processing Plant"
+    - "„@  Food Processing Plant"
+    - "Food Processing Plant "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " food processing plant"
+    - " food processing plants"
+  
+  FOREST:
+    - "Managed Forest"
+    - "„@  Forest"
+    - "Forest "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " managed forest"
+    - " managed forests"
+  
+  OILREFIN:
+    - "Oil Refinery"
+    - "„@  Oil Refinery"
+    - "Oil Refinery "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " oil refinery"
+    - " oil refineries"
+  
+  OILRIG:
+    - "Oil Rig"
+    - "„@  Oilfield"
+    - "Oilfield "
+    - "ƒ has run dry and is closing down!"
+    - "New oil reserves found at ƒ - Production up!"
+    - "Oil reserves running low at ƒ - Production down!"
+    - " oil rig"
+    - " oil rigs"
+  
+  OILWELL:
+    - "Oil Wells"
+    - "„@  Oil Wells"
+    - "Oil Wells "
+    - "ƒ have run dry and are closing down!"
+    - "New oil reserves found at ƒ - Production up!"
+    - "Oil reserves running low at ƒ - Production down!"
+    - " oil well"
+    - " oil wells"
+  
+  OREMINE:
+    - "Iron Ore Mines"
+    - "„@  Iron Ore Mines"
+    - "Iron Ore Mines "
+    - "ƒ are closing down!"
+    - "New ore reserves located at ƒ - Production up!"
+    - "ƒ production down!"
+    - " iron ore mine"
+    - " iron ore mines"
+  
+  PAPERMIL:
+    - "Paper Mill"
+    - "„@  Paper Mill"
+    - "Paper Mill "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " paper mill"
+    - " paper mills"
+  
+  PRINTWRK:
+    - "Printing Works"
+    - "„@  Printing Works"
+    - "Printing Works "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " printing works"
+    - " printing works"
+  
+  SAWMILL:
+    - "Sawmill"
+    - "„@  Sawmill"
+    - "Sawmill "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " sawmill"
+    - " sawmills"
+  
+  SKICENT:
+    - "Ski Centre"
+    - "„@  Ski Centre"
+    - "Ski Centre "
+    - "ƒ is closing down!"
+    - " "
+    - " "
+    - " ski centre"
+    - " ski centres"
+  
+  STEELMIL:
+    - "Steel Mill"
+    - "„@  Steel Mill"
+    - "Steel Mill "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " steel mill"
+    - " steel mills"
+  
+  STOCKFRM:
+    - "Livestock Farm"
+    - "„@  Farm"
+    - "Farm "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " livestock farm"
+    - " livestock farms"
+  
+  VINEYARD:
+    - "Vineyard"
+    - "„@  Vineyard"
+    - "Vineyard "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " vineyard"
+    - " vineyards"
+  
+  WINDMILL:
+    - "Flour Mill"
+    - "„@  Flour Mills"
+    - "Flour Mills "
+    - "ƒ are closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " flour mill"
+    - " flour mills"
+  
+  WINERY:
+    - "Winery"
+    - "„@  Winery"
+    - "Winery "
+    - "ƒ is closing down!"
+    - "ƒ production up!"
+    - "ƒ production down!"
+    - " winery"
+    - " wineries"
+  
+  COALMINE:
+    - "Coal Mines"
+    - "„@  Coal Mines"
+    - "Coal Mines "
+    - "ƒ have no more coal left and are closing down!"
+    - "New coal seam found at ƒ - Production up!"
+    - "Mine shaft collapse in ƒ - Production down!"
+    - " coal mine"
+    - " coal mines"
+  
+  // Type 0x1F:
+  REGALP:
+    - "Alpine Mountains"
+  
+  REGUK:
+    - "Great Britain"
+  
+  REGUS:
+    - "North America"
+  
+  // Type 0x20:
+  COMP1:
+    - "ˆRonnie Riddlesworth"
+    - "Riddlesworth"
+  
+  COMP10:
+    - "ˆCharles Chilblain"
+    - "Chilblain"
+  
+  COMP11:
+    - "ˆWalter Wellington"
+    - "Wellington"
+  
+  COMP12:
+    - "ˆFoo Fandango"
+    - "Fandango"
+  
+  COMP13:
+    - "ˆHarriet Hatstand"
+    - "Hatstand"
+  
+  COMP14:
+    - "ˆKathy Kilowatt"
+    - "Kilowatt"
+  
+  COMP15:
+    - "ˆLizzy Leopard"
+    - "Leopard"
+  
+  COMP16:
+    - "ˆMarmaduke Muddleshop"
+    - "Muddleshop"
+  
+  COMP17:
+    - "ˆReginald Rottenfish"
+    - "Rottenfish"
+  
+  COMP18:
+    - "ˆIsaac Imperial"
+    - "Imperial"
+  
+  COMP19:
+    - "ˆWodger Whamjet"
+    - "Whamjet"
+  
+  COMP2:
+    - "ˆJillie Jamjar"
+    - "Jamjar"
+  
+  COMP20:
+    - "ˆDorothy Dumblebum"
+    - "Dumblebum"
+  
+  COMP21:
+    - "ˆEvelyn Eggburt"
+    - "Eggburt"
+  
+  COMP22:
+    - "ˆBasil Boombox"
+    - "Boombox"
+  
+  COMP23:
+    - "ˆCecil Cityscape"
+    - "Cityscape"
+  
+  COMP24:
+    - "ˆGary Gangle"
+    - "Gangley"
+  
+  COMP25:
+    - "ˆTheresa Tops"
+    - "Topsy"
+  
+  COMP26:
+    - "ˆMick Motormouth"
+    - "Motormouth"
+  
+  COMP27:
+    - "ˆDaisy Dastardly"
+    - "Daisy"
+  
+  COMP28:
+    - "ˆBo Buzzball"
+    - "Buzzy"
+  
+  COMP29:
+    - "ˆMr Big"
+    - "Big"
+  
+  COMP3:
+    - "ˆRosie Redbone"
+    - "Redbone"
+  
+  COMP30:
+    - "ˆMaggie Munchkins"
+    - "Munchkins"
+  
+  COMP31:
+    - "ˆTheodore Thin"
+    - "Thin"
+  
+  COMP32:
+    - "ˆPete Pennyweight"
+    - "Penny"
+  
+  COMP33:
+    - "ˆFreddy Fiddlestick"
+    - "Fiddlestick"
+  
+  COMP34:
+    - "ˆNaomi Nevermore"
+    - "Nevermore"
+  
+  COMP35:
+    - "ˆOliver Organic"
+    - "Organic"
+  
+  COMP36:
+    - "ˆSue Shaker"
+    - "Shaker"
+  
+  COMP37:
+    - "ˆTony Terrific"
+    - "Terrific"
+  
+  COMP38:
+    - "ˆRicky Ripoff"
+    - "Ripoff"
+  
+  COMP4:
+    - "ˆGuiseppe Gluck"
+    - "Gluck"
+  
+  COMP5:
+    - "ˆAlfred Ashdown"
+    - "Ashdown"
+  
+  COMP6:
+    - "ˆCorina Cross"
+    - "Cross"
+  
+  COMP7:
+    - "ˆDave Doorknob"
+    - "Doorknob"
+  
+  COMP8:
+    - "ˆJeremy Jewelfish"
+    - "Jewelfish"
+  
+  COMP9:
+    - "ˆAgnes Armchair"
+    - "Armchair"
+  
+  // Type 0x21:
+  STEX000:
+    - "Great Britain & Ireland 1900"
+    - "Build passenger transport services in early 1900's Great Britain"
+  
+  STEX001:
+    - "Great Britain & Ireland 1930"
+    - "Build up a transport network in 1930's Great Britain"
+  
+  STEX002:
+    - "Great Britain & Ireland 1955"
+    - "Create a successful transport company in 1950's Great Britain"
+  
+  STEX003:
+    - "Great Britain & Ireland - 100 Year Challenge"
+    - "Create a transport empire in Great Britain and Ireland"
+  
+  STEX004:
+    - "North America (East) 1900"
+    - "Build passenger transport services in early 1900's America"
+  
+  STEX005:
+    - "North America (East) 1950"
+    - "Build up a transport network in 1950's America"
+  
+  STEX006:
+    - "North America (East) 1965"
+    - "Create a successful transport company in 60's\/70's America"
+  
+  STEX007:
+    - "North America (East) - 100 Year Challenge"
+    - "Create a transport empire in North America (East)"
+  
+  STEX008:
+    - "North America (Midwest) 1920"
+    - "Build passenger transport services in 1920's America"
+  
+  STEX009:
+    - "North America (Midwest) 1945"
+    - "Build up a transport network in late 1940's America"
+  
+  STEX010:
+    - "North America (Midwest) 1970"
+    - "Create a successful transport company in 1970's America"
+  
+  STEX011:
+    - "North America (Midwest) - 100 Year Challenge"
+    - "Create a transport empire in North America (Mid)"
+  
+  STEX012:
+    - "North America (West) 1910"
+    - "Build a profitable transport network in 1910's America"
+  
+  STEX013:
+    - "North America (West) 1955"
+    - "Build up a transport network in 1950's America"
+  
+  STEX014:
+    - "North America (West) 1980"
+    - "Build a successful transport company in 1980's America"
+  
+  STEX015:
+    - "North America (West) - 100 Year Challenge"
+    - "Create a transport empire in North America (West)"
+  
+  STEX016:
+    - "Swiss Alps 1905"
+    - "Start a transport company in 1900's Switzerland"
+  
+  STEX017:
+    - "Swiss Alps 1930"
+    - "Transport passengers in 1930's Switzerland"
+  
+  STEX018:
+    - "Swiss Alps 1960"
+    - "Create a successful transport company in 1960's Switzerland"
+  
+  STEX019:
+    - "Swiss Alps - 100 Year Challenge"
+    - "Create a transport empire in the Swiss Alps"
+  
+  STEX020:
+    - "Race to Read"
+    - "Move lumber to the paper mills then paper to the print works to satisfy the population's appetite for books and magazines"
+  
+  STEX021:
+    - "Cyclade Capers"
+    - "Transport livestock and grapes from the farms and vineyards of this set of Greek Islands"
+  
+  STEX022:
+    - "Dodecan Diaries"
+    - "Transport cargo between the far-apart islands"
+  
+  STEX023:
+    - "Mountain Mayhem"
+    - "Build a successful transport company in an area divided by a mountain range"
+  
+  STEX024:
+    - "Bottleneck Blues"
+    - "Overcome the challenges of a narrow pass between two mountain ranges"
+  
+  STEX025:
+    - "Desert Delirium"
+    - "Start a transport company in this desert area"
+  
+  STEX026:
+    - "Vache and Vineyards"
+    - "Make a profit transporting livestock and grapes in this rich agricultural area"
+  
+  STEX027:
+    - "Mixing Muscle"
+    - "Fight for transport superiority in this busy world"
+  
+  STEX028:
+    - "Santarinos"
+    - "Keep the passengers moving around this 'O' shaped island"
+  
+  STEX029:
+    - "Yew Island"
+    - "Build your transport company on the giant Yew Island"
+  
+  STEX030:
+    - "Lost Worlds"
+    - "Transport passengers and cargo around and over the tropical hills"
+  
+  STEX031:
+    - "Oil Oasis"
+    - "Build a transport network for transporting oil around this desert area"
+  
+  STEX032:
+    - "Smiley Isley"
+    - "Construct your transport empire on this island of fun"
+  
+  STEX033:
+    - "Stepping Stones"
+    - "Link up the islands to transport cargo from one coast to the other"
+  
+  STEX034:
+    - "Keystone Keys"
+    - "Master the transportation of cargo and passengers between the islands of Keystone Keys"
+  
+  STEX035:
+    - "Vapid Volcano"
+    - "Build your transport empire on this extinct volcano island"
+  
+  STEX036:
+    - "Feed Flintrock"
+    - "Keep the giant city of Flintrock supplied with passengers and goods"
+  
+  STEX037:
+    - "Sandbox Settler"
+    - "Make your first profit in this desert area"
+  
+  STEX038:
+    - "Boulder Breakers"
+    - "Provide the transport services on this little island"
+  
+  STEX039:
+    - "Snowy Heights"
+    - "Transport the tourists and keep the industries supplied in this mountainous terrain"
+  
+  STEX040:
+    - "Clifftop Climb"
+    - "Negotiate the giant cliff to make a profit transporting cargo between the industries on either side"
+  
+  STEX041:
+    - "Pothole Peril"
+    - "Keep the passengers and cargo moving in this potholed landscape"
+  
+  STEX042:
+    - "Rails Against Roads"
+    - "Build a successful rail-based transport network and beat the competing road transport companies"
+  
+  STEX043:
+    - "Aerophobia"
+    - "Can you compete with the aggressive airlines by building only land and sea based transport services?"
+  
+  STEX044:
+    - "Weatherworld"
+    - "Build a passenger service between the towns in Weatherworld"
+  

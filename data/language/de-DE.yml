@@ -2183,3 +2183,1985 @@ strings:
   2128: Fenstermodus
   2129: Vollbild
   2130: Vollbild (Randlos)
+
+
+objects:
+  // Type 0x00:
+  INTERDEF:
+    - "Standard-Benutzeroberfläche"
+  
+  // Type 0x01:
+  SNDA1:
+    - "Flugzeuggeräusch 1"
+  
+  SNDA2:
+    - "Flugzeuggeräusch 2"
+  
+  SNDA3:
+    - "Flugzeuggeräusch 3"
+  
+  SNDCH1A:
+    - "Lokomotivenpuffen 1 (a)"
+  
+  SNDCH1AS:
+    - "Lokomotivenpuffen 1 (a-st)"
+  
+  SNDCH1B:
+    - "Lokomotivenpuffen 1 (b)"
+  
+  SNDCH1BS:
+    - "Lokomotivenpuffen1 (b-st)"
+  
+  SNDCH1C:
+    - "Lokomotivenpuffen 1 (c)"
+  
+  SNDCH1CS:
+    - "Lokomotivenpuffen 1 (c-st)"
+  
+  SNDCH1D:
+    - "Lokomotivenpuffen 1 (d)"
+  
+  SNDCH1DS:
+    - "Lokomotivenpuffen 1 (d-st)"
+  
+  SNDD1:
+    - "Dieselmotorgeräusch 1"
+  
+  SNDD10:
+    - "Dieselmotorgeräusch 10"
+  
+  SNDD11:
+    - "Dieselmotorgeräusch 11"
+  
+  SNDD12:
+    - "Dieselmotorgeräusch 12"
+  
+  SNDD2:
+    - "Dieselmotorgeräusch 2"
+  
+  SNDD3:
+    - "Dieselmotorgeräusch 3"
+  
+  SNDD4:
+    - "Dieselmotorgeräusch 4"
+  
+  SNDD5:
+    - "Dieselmotorgeräusch 5"
+  
+  SNDD6:
+    - "Dieselmotorgeräusch 6"
+  
+  SNDD7:
+    - "Dieselmotorgeräusch 7"
+  
+  SNDD8:
+    - "Dieselmotorgeräusch 8"
+  
+  SNDD9:
+    - "Dieselmotorgeräusch 9"
+  
+  SNDE1:
+    - "Elektrisches Geräusch 1"
+  
+  SNDH1:
+    - "Lokomotivenhorn 1"
+  
+  SNDH2:
+    - "Lokomotivenhorn 2"
+  
+  SNDH3:
+    - "Lokomotivenhorn 3"
+  
+  SNDH4:
+    - "Bootshorn 4"
+  
+  SNDH5:
+    - "Bootshorn 5"
+  
+  SNDH6:
+    - "Bootshorn 6"
+  
+  SNDS1:
+    - "Dampfantrieb-Leerlaufgeräusch 1"
+  
+  SNDTD1:
+    - "Flugzeug-Landegeräusch 1"
+  
+  SNDTD2:
+    - "Flugzeug-Landegeräusch 2"
+  
+  SNDTR1:
+    - "Gleisgeräusch 1"
+  
+  SNDW1:
+    - "Lokomotivenpfeifen 1"
+  
+  SNDW2:
+    - "Lokomotivenpfeifen 2"
+  
+  SNDW3:
+    - "Lokomotivenpfeifen 3"
+  
+  SNDW4:
+    - "Lokomotivenpfeifen 4"
+  
+  SNDW5:
+    - "Lokomotivenpfeifen 5"
+  
+  SNDW6:
+    - "Lokomotivenpfeifen 6"
+  
+  SNDW7:
+    - "Lokomotivenpfeifen 7"
+  
+  SNDW8:
+    - "Lokomotivenpfeifen 8"
+  
+  // Type 0x02:
+  CURRDMRK:
+    - "Deutsche Mark"
+    - ""
+    - " £"
+  
+  CURRDOLL:
+    - "Dollar"
+    - "£"
+    - ""
+  
+  CURREURO:
+    - "Euro"
+    - "£"
+    - ""
+  
+  CURRFREN:
+    - "Francs"
+    - ""
+    - " £"
+  
+  CURRGUIL:
+    - "Gulden"
+    - ""
+    - " £"
+  
+  CURRKRON:
+    - "Kronen"
+    - ""
+    - " £"
+  
+  CURRLIRA:
+    - "Lira"
+    - "£"
+    - ""
+  
+  CURRNTDL:
+    - "Taiwanese Dollars"
+    - "£"
+    - ""
+  
+  CURRPNDS:
+    - "Pfund"
+    - "£"
+    - ""
+  
+  CURRPSTA:
+    - "Peseten"
+    - ""
+    - " £"
+  
+  CURRWON:
+    - "Won"
+    - "£"
+    - ""
+  
+  CURRYEN:
+    - "Yen"
+    - "£"
+    - ""
+  
+  CURRZLOT:
+    - "Zloty"
+    - ""
+    - " £"
+  
+  // Type 0x03:
+  EXH1:
+    - "Dieselabgase"
+  
+  EXH2:
+    - "Dieselabgase"
+  
+  SPARK1:
+    - "Elektrische Funken"
+  
+  STEAM:
+    - "Dampfausstoß"
+  
+  WWAKE1:
+    - "Schiffsgeräusch 1"
+  
+  // Type 0x04:
+  LSBROWN:
+    - "Braune Felsen"
+  
+  LSROCK:
+    - "Felsen"
+  
+  // Type 0x05:
+  WATER1:
+    - "Wasser"
+  
+  // Type 0x06:
+  GRASS1:
+    - "Gras"
+  
+  GRASSBR:
+    - "Trockenes Gras"
+  
+  ROCK1:
+    - "Graue Felsen"
+  
+  ROCK2:
+    - "Braune Felsen"
+  
+  SAND1:
+    - "Sand"
+  
+  // Type 0x07:
+  ATOWNNAM:
+    - "Städtenamen im nordamerikanischen Stil"
+  
+  ETOWNNAM:
+    - "Städtenamen im englischen Stil"
+  
+  FTOWNNAM:
+    - "Städtenamen im französischem Stil"
+  
+  GTOWNNAM:
+    - "Städtenamen im deutschen Stil"
+  
+  LTOWNNAM:
+    - "Städtenamen im spanischen Stil"
+  
+  STOWNNAM:
+    - "Städtenamen im komischen Stil"
+  
+  // Type 0x08:
+  CHEMICAL:
+    - "Chemikalien"
+    - "Tonnen Chemikalien"
+    - "{ Tonne Chemikalien"
+    - "{ Tonnen Chemikalien"
+  
+  COAL:
+    - "Kohle"
+    - "Tonnen Kohle"
+    - "{ Tonne Kohle"
+    - "{ Tonnen Kohle"
+  
+  FOOD:
+    - "Lebensmittel"
+    - "Tonnen Lebensmittel"
+    - "{ Tonne Lebensmittel"
+    - "{ Tonnen Lebensmittel"
+  
+  GOODS:
+    - "Waren"
+    - "Warenkisten"
+    - "{ Warenkiste"
+    - "{ Warenkisten"
+  
+  GRAPES:
+    - "Trauben"
+    - "Tonnen Trauben"
+    - "{ Tonne Trauben"
+    - "{ Tonnen Trauben"
+  
+  IRONORE:
+    - "Eisenerz"
+    - "Tonnen Eisenerz"
+    - "{ Tonne Eisenerz"
+    - "{ Tonnen Eisenerz"
+  
+  LIVESTCK:
+    - "Vieh"
+    - "Stücke Vieh"
+    - "{ Stück Vieh"
+    - "{ Stücke Vieh"
+  
+  MAIL:
+    - "Post"
+    - "Postsäcke"
+    - "{ Postsack"
+    - "{ Postsäcke"
+  
+  OIL:
+    - "Öl"
+    - "Tonnen Öl"
+    - "{ Tonne Öl"
+    - "{ Tonnen Öl"
+  
+  PAPER:
+    - "Papier"
+    - "Tonnen Papier"
+    - "{ Tonne Papier"
+    - "{ Tonnen Papier"
+  
+  PASS:
+    - "Passagiere"
+    - "Passagiere"
+    - "{ Passagier"
+    - "{ Passagiere"
+  
+  STEEL:
+    - "Stahl"
+    - "Tonnen Stahl"
+    - "{ Tonne Stahl"
+    - "{ Tonnen Stahl"
+  
+  TIMBER:
+    - "Rohholz"
+    - "Tonnen Rohholz"
+    - "{ Tonne Rohholz"
+    - "{ Tonnen Rohholz"
+  
+  GRAIN:
+    - "Getreide"
+    - "Tonnen Getreide"
+    - "{ Tonne Getreide"
+    - "{ Tonnen Getreide"
+  
+  // Type 0x09:
+  BRWNWALG:
+    - "Mauer"
+  
+  BRWNWALL:
+    - "Mauer"
+  
+  FENCE1:
+    - "Zaun"
+  
+  FENCE1G:
+    - "Zaun"
+  
+  SECFENCE:
+    - "Sicherheitszaun"
+  
+  SECFENCG:
+    - "Sicherheitszaun"
+  
+  STONWALG:
+    - "Steinmauer"
+  
+  STONWALL:
+    - "Steinmauer"
+  
+  // Type 0x0A:
+  SIGC3:
+    - "Lichtsignal"
+    - "3-Farbsignal,\u0005Britische Form"
+  
+  SIGC4:
+    - "Lichtsignal (4-farbig)"
+    - "4-Farbsignal,\u0005Britische Form"
+  
+  SIGCSW:
+    - "Lichtsignal"
+    - "Lichtsignal,\u0005Schweizer Form"
+  
+  SIGCUS:
+    - "Lichtsignal"
+    - "Lichtsignal,\u0005Amerikanische Form"
+  
+  SIGS:
+    - "Flügelsignal (aufsteigende Zeigerichtung)"
+    - "Flügelsignal,\u0005Britische Form,\u0005aufsteigende Zeigrichtung"
+  
+  SIGSD:
+    - "Flügelsignal (aufsteigende Zeigerichtung)"
+    - "Flügelsignal,\u0005Britische Form,\u0005Aufsteigende Zeigerichtung mit Vorsignal"
+  
+  SIGSDL:
+    - "Flügelsignal (sinkende Zeigerichtung)"
+    - "Flügelsignal,\u0005Britische Form,\u0005Sinkende Zeigerichtung mit Vorsignal"
+  
+  SIGSL:
+    - "Flügelsignal (LQ)"
+    - "Flügelsignal,\u0005Britische Form,\u0005Sinkende Zeigerichtung"
+  
+  SIGSUS:
+    - "Flügelsignal"
+    - "Flügelsignal,\u0005Amerikanische Form"
+  
+  SIGSW:
+    - "Flügelsignal"
+    - "Flügelsignal,\u0005Schweizer Form"
+  
+  // Type 0x0B:
+  LCROSS1:
+    - "Eisenbahnübergangs-Lichter"
+  
+  LCROSS2:
+    - "Eisenbahnübergangs-Lichter"
+  
+  LCROSS3:
+    - "Eisenbahnübergangs-Schranken"
+  
+  LCROSS4:
+    - "Eisenbahnübergangs-Zeichen"
+  
+  // Type 0x0C:
+  SLIGHT1:
+    - "Straßenbeleuchtung"
+  
+  // Type 0x0D:
+  TUNNEL1:
+    - "Tunnel"
+  
+  TUNNEL2:
+    - "Tunnel"
+  
+  // Type 0x0E:
+  BRDGBRCK:
+    - "Steinbrücke"
+  
+  BRDGGIRD:
+    - "Stahlträgerbrücke"
+  
+  BRDGSTAR:
+    - "Stahl-Bogenbrücke"
+  
+  BRDGSUSP:
+    - "Hängebrücke"
+  
+  BRDGWOOD:
+    - "Holzbrücke"
+  
+  // Type 0x0F:
+  TRSTAT1:
+  
+  TRSTAT2:
+  
+  TRSTAT3:
+  
+  TRSTAT4:
+  
+  TRSTAT5:
+  
+  // Type 0x10:
+  TREX3RL:
+    - "Gls. m. Zus.stromsch."
+  
+  TREXCAT1:
+    - "Gleise mit Oberleitung"
+  
+  TREXRACK:
+    - "Zahnradbahn"
+  
+  // Type 0x11:
+  TRACKNG:
+    - "Schmalspurgleise"
+  
+  TRACKST:
+    - "Eisenbahngleise"
+  
+  // Type 0x12:
+  BUSSTOP:
+    - "Passagier-Haltebahnhof"
+  
+  RDSTAT1:
+    - "Passagier-Endbahnhof"
+  
+  RDSTAT2:
+    - "Passagier-Endbahnhof"
+  
+  RDSTAT3:
+    - "Passagier-Endbahnhof"
+  
+  RDSTATL1:
+    - "Frachtladepunkt"
+  
+  RDSTATL2:
+    - "Frachtladepunkt"
+  
+  RDSTATL3:
+    - "Frachtladepunkt"
+  
+  // Type 0x13:
+  RDEXCAT1:
+    - "Elektr. Oberleitung"
+  
+  // Type 0x14:
+  ROADONE:
+    - "Einbahnstraße"
+  
+  ROADRGH:
+    - "Unbefestigte Straße"
+  
+  ROADTMC:
+    - "Straße"
+  
+  ROADTRAM:
+    - "Tram-Gleise"
+  
+  ROADUS1:
+    - "Einbahnstraße"
+  
+  ROADUS2:
+    - "Straße"
+  
+  // Type 0x15:
+  AIRPORT1:
+    - "Großer Flughafen"
+  
+  AIRPORT2:
+    - "Kleiner Flughafen"
+  
+  AIRPORT3:
+    - "Mittlerer Flughafen"
+  
+  HPORT1:
+    - "City-Hubschrauberlandeplatz"
+  
+  // Type 0x16:
+  SHIPST1:
+    - "Docks"
+  
+  // Type 0x17:
+  114:
+    - "Class 114 Diesel-Mehrzweckfahrzeug"
+  
+  142:
+    - "Class 142 Diesel-Schienenomnibus"
+  
+  158:
+    - "Class 158 Diesel-Mehrzweckfahrzeug"
+  
+  2EPB:
+    - "2-EPB Elektro-Mehrzweckfahrzeug"
+  
+  36R:
+    - "Model 36R Bus"
+  
+  460:
+    - "Re 460"
+  
+  4F:
+    - "Fowler 4F"
+  
+  4MT:
+    - "BR Standard Class 4MT"
+  
+  508:
+    - "Class 508 Elektro-Mehrzweckfahrzeug"
+  
+  656:
+    - "Class 656"
+  
+  707:
+    - "707"
+  
+  737:
+    - "737"
+  
+  747:
+    - "747"
+  
+  777:
+    - "777"
+  
+  A3:
+    - "Gresley A3"
+  
+  A320:
+    - "A320"
+  
+  A380:
+    - "A380"
+  
+  A4:
+    - "Gresley A4"
+  
+  A5:
+    - "A5 Tri-Motor"
+  
+  AB139:
+    - "AB139 Helikopter"
+  
+  AE47:
+    - "Ae 4\/7"
+  
+  AILSA1:
+    - "Ailsa Bus"
+  
+  ALCOCENT:
+    - "Century"
+  
+  APT1:
+    - "APT Triebwagen"
+  
+  APT2:
+    - "APT Personenwagen"
+  
+  APT3:
+    - "APT Triebwagen"
+  
+  BA146:
+    - "BAe 146"
+  
+  BALDWIN1:
+    - "Baldwin 2-8-0"
+  
+  BLACK5:
+    - "Stanier Black 5"
+  
+  C130:
+    - "C-130 Hercules"
+  
+  C33:
+    - "SLM C 3\/3"
+  
+  C56:
+    - "SLM C 5\/6"
+  
+  CARGOSH1:
+    - "Frachtschiff"
+  
+  CARGOSH2:
+    - "Handelsfrachter"
+  
+  CATTLE1:
+    - "Viehwaggon"
+  
+  CATTLE2:
+    - "Viehwagen"
+  
+  CATTLE3:
+    - "Viehtransporter"
+  
+  CATTLEN1:
+    - "Viehwaggon"
+  
+  CE68:
+    - "Ce 6\/8 Crocodile"
+  
+  CL20:
+    - "Class 20"
+  
+  CL37:
+    - "Class 37"
+  
+  CL47:
+    - "Class 47"
+  
+  CL55:
+    - "Class 55 'Deltic'"
+  
+  CL58:
+    - "Class 58"
+  
+  CL67:
+    - "Class 67"
+  
+  CL71:
+    - "Class 71"
+  
+  CL85:
+    - "Class 85"
+  
+  CL86:
+    - "Class 86"
+  
+  CL90:
+    - "Class 90"
+  
+  CLASSIC:
+    - "GM Classic"
+  
+  CLIPPER:
+    - "Clipper"
+  
+  COAL1:
+    - "Waggon"
+  
+  COALSH:
+    - "Massengutschiff"
+  
+  COMET:
+    - "Comet"
+  
+  CONCOR:
+    - "Concorde"
+  
+  COPTER1:
+    - "S55 Helikopter"
+  
+  CTRUCK1:
+    - "Viehtransporter"
+  
+  CTRUCK2:
+    - "Viehtransporter"
+  
+  CTRUCK3:
+    - "Viehtransporter"
+  
+  CTRUCK4:
+    - "Viehtransporter"
+  
+  DASH7:
+    - "Dash-7"
+  
+  DC3:
+    - "DC-3"
+  
+  DEH46:
+    - "Deh 4\/6"
+  
+  DH16:
+    - "DH-16"
+  
+  E8:
+    - "Class E8"
+  
+  EB35:
+    - "Eb 3\/5"
+  
+  EMU1:
+    - "Elektro-Mehrzweckfahrzeug"
+  
+  ESTAR1:
+    - "Electra-Star Triebwagen"
+  
+  ESTAR2:
+    - "Electra-Star Personenwagen"
+  
+  EWIV:
+    - "EW-IV Personenwagen"
+  
+  EWIVDT:
+    - "EW-IV Triebwagen"
+  
+  F27:
+    - "F.27"
+  
+  F7:
+    - "F.7"
+  
+  FERRY1:
+    - "Dieselmotor-Fähre"
+  
+  FERRY2:
+    - "Dampf-Fähre"
+  
+  FLATBED1:
+    - "Flachwaggon"
+  
+  FLATBED2:
+    - "Flachwaggon"
+  
+  FLTBEDN1:
+    - "Flachwaggon"
+  
+  FTRUCK1:
+    - "Flachlaster"
+  
+  FTRUCK2:
+    - "Flachlaster"
+  
+  FTRUCK3:
+    - "Flachlaster"
+  
+  FTRUCK4:
+    - "Flachlaster"
+  
+  GE442:
+    - "Ge 4\/4 II"
+  
+  GE443:
+    - "Ge 4\/4 III"
+  
+  GE66:
+    - "Ge 6\/6"
+  
+  GOODS1:
+    - "Güterwaggon"
+  
+  GOODS2:
+    - "Güterwagen geschlossen"
+  
+  GOODS3:
+    - "Güterwagen geschlossen"
+  
+  GOODSN1:
+    - "Güterwaggon"
+  
+  GRAINHP1:
+    - "Überdachter Trichterwagen"
+  
+  GRAINHP2:
+    - "Überdachter Trichterwagen"
+  
+  GTRUCK1:
+    - "Warenlaster"
+  
+  GTRUCK2:
+    - "Warenlaster"
+  
+  GTRUCK3:
+    - "Warenlaster"
+  
+  GTRUCK4:
+    - "Warenlaster"
+  
+  HCRAFT1:
+    - "SRN4 Luftkissenboot"
+  
+  HFOIL1:
+    - "Tragflügelboot"
+  
+  HG23:
+    - "SLM HG 2\/3"
+  
+  HGE44:
+    - "HGe 4\/4"
+  
+  HGE442:
+    - "HGe 4\/4 II"
+  
+  HOPPER:
+    - "Trichterwagen"
+  
+  HOPPER2:
+    - "Trichterwagen"
+  
+  HST:
+    - "HST Triebwagen"
+  
+  HTRUCK1:
+    - "Trichterlaster"
+  
+  HTRUCK2:
+    - "Trichterlaster"
+  
+  HTRUCK3:
+    - "Trichterlaster"
+  
+  HTRUCK4:
+    - "Trichterlaster"
+  
+  JFOIL1:
+    - "Düsenluftkissenboot"
+  
+  JINTY:
+    - "3F 'Jinty'"
+  
+  JU52:
+    - "JU52"
+  
+  JUBILEE:
+    - "Stanier Jubilee"
+  
+  LEOP1:
+    - "Leopard Bus"
+  
+  MAILSW1:
+    - "Post-LKW"
+  
+  MAILSW4:
+    - "Post-LKW"
+  
+  MAILUS1:
+    - "Post-Wagen"
+  
+  MAILUS2:
+    - "Post-Wagen"
+  
+  MK1:
+    - "Mk1 Personenwagen"
+  
+  MK2:
+    - "Mk2 Personenwagen"
+  
+  MK3:
+    - "Mk3 Personenwagen"
+  
+  MTRUCK1:
+    - "Post-Laster"
+  
+  MTRUCK2:
+    - "Post-LKW"
+  
+  MTRUCK3:
+    - "Post-LKW"
+  
+  OIL1:
+    - "Tanker Wagon"
+  
+  OIL2:
+    - "Tankwaggon"
+  
+  OILN1:
+    - "Tankwaggon"
+  
+  OILSH:
+    - "Öl-Tanker"
+  
+  OPENN1:
+    - "Waggon"
+  
+  PCAR1:
+    - "Personenwagen"
+  
+  PCAR2:
+    - "Personenwagen"
+  
+  PCARSW1:
+    - "Personenwagen"
+  
+  PCARUS2:
+    - "Personenwagen"
+  
+  PVAN1:
+    - "Paketwagen"
+  
+  PVAN2:
+    - "Güter-LKW"
+  
+  RBE24:
+    - "RBe 2\/4 Schienenfahrzeug"
+  
+  RE441:
+    - "Re 4\/4 I"
+  
+  RE442:
+    - "Re 4\/4 II"
+  
+  RTMASTER:
+    - "RMT Bus"
+  
+  SD70MAC:
+    - "SD70"
+  
+  SPECIAL:
+    - "Special 2-4-2"
+  
+  ST8FT:
+    - "Stirling 8ft"
+  
+  STANCORR:
+    - "Stanier Coronation Pacific"
+  
+  SWISS1:
+    - "Personenwagen"
+  
+  SWISS2:
+    - "Personenwagen"
+  
+  SWISS3:
+    - "Personenwagen"
+  
+  SWISS4:
+    - "Personenwagen"
+  
+  SWISS5:
+    - "Personenwagen"
+  
+  TDH5301:
+    - "TDH 5301 Bus"
+  
+  TGV1:
+    - "TGV Triebwagen"
+  
+  TGV2:
+    - "TGV Personenwagen"
+  
+  TRAM1:
+    - "Be 4\/4 Tram"
+  
+  TRAM2:
+    - "Ce 2\/2 Tram"
+  
+  TRAM3:
+    - "Coronation Tram"
+  
+  TRAM4:
+    - "Be 4\/6 Tram"
+  
+  TTRAIL2:
+    - "Tanklastwagen-Anhänger"
+  
+  TTRUCK1:
+    - "Tanklastwagen"
+  
+  TTRUCK2:
+    - "Tanklaster"
+  
+  TTRUCK3:
+    - "Tanklastwagen"
+  
+  TTRUCK4:
+    - "Tanklastwagen"
+  
+  USPACIF:
+    - "Pacific"
+  
+  V2:
+    - "Gresley V2"
+  
+  VISCOUNT:
+    - "Viscount"
+  
+  VULCAN:
+    - "Vulcan VSD Bus"
+  
+  WMCBUS:
+    - "WMC Bus"
+  
+  PCARUS1:
+    - "Personenwagen"
+  
+  TRAMCOMB:
+    - "Kombi-Tram"
+  
+  // Type 0x18:
+  BEECH:
+    - "Birke"
+  
+  BIRCH:
+    - "Silberbirke"
+  
+  BIRCH2:
+    - "Silberbirke"
+  
+  BSPRUCE:
+    - "Blaufichte"
+  
+  CACTUS1:
+    - "Caktus"
+  
+  CACTUS2:
+    - "Caktus"
+  
+  CACTUS3:
+    - "Caktus"
+  
+  CHESTNUT:
+    - "Kastanie"
+  
+  COPBEACH:
+    - "Blutbuche"
+  
+  DREDWOOD:
+    - "Urweltmammutbaum"
+  
+  ELM:
+    - "Ulme"
+  
+  FRISIA:
+    - "Gold-Robinie"
+  
+  GFIR:
+    - "Riesentanne"
+  
+  HCYPRESS:
+    - "Hinoki-Scheinzypresse"
+  
+  HSTRAW:
+    - "Erdbeerbaum"
+  
+  ICYPRESS:
+    - "Italienische Zypresse"
+  
+  IYEW:
+    - "Irische Eibe"
+  
+  JAPCRAB:
+    - "Japanischer Crab-Baum"
+  
+  JOSHUA:
+    - "Joshua-Baum"
+  
+  KBFIR:
+    - "King Boris-Tanne"
+  
+  LCEDAR:
+    - "Libanonzeder"
+  
+  NASH:
+    - "Schmalblättrige Esche"
+  
+  NMAPLE:
+    - "Ahorn"
+  
+  OAK:
+    - "Eiche"
+  
+  PCYPRESS:
+    - "Aufsteigende Sumpfzypresse"
+  
+  QPALM:
+    - "Königinpalme"
+  
+  RCEDAR:
+    - "Rotzeder"
+  
+  RFIR:
+    - "Rottanne"
+  
+  ROBINIA:
+    - "Robinie"
+  
+  SCPINE:
+    - "Waldkiefer"
+  
+  SCYPRESS:
+    - "Sumpfzypresse"
+  
+  SMAPLE:
+    - "Zuckerahorn"
+  
+  SNOWBELL:
+    - "Japanischer Storaxbaum"
+  
+  SPALM:
+    - "Silberpalme"
+  
+  SVPINE:
+    - "Blautanne"
+  
+  WASH:
+    - "Weißesche"
+  
+  WILLOW:
+    - "Bruchweide"
+  
+  YEW:
+    - "Eibe"
+  
+  YUKKA:
+    - "Yukka"
+  
+  // Type 0x19:
+  SNOW:
+    - "Schnee"
+  
+  // Type 0x1A:
+  CLIM1:
+    - "Alpines Klima"
+  
+  CLIM2:
+    - "Britisches Klima"
+  
+  CLIM3:
+    - "Nordamerikanisches Klima"
+  
+  CLIM4:
+    - "Australisches Klima"
+  
+  CLIM5:
+    - "Gemäßigt-alpines Klima"
+  
+  CLIM6:
+    - "Nordamerikanisches Klima ohne Schnee"
+  
+  // Type 0x1B:
+  HS1:
+    - "Hügelformen 1"
+  
+  // Type 0x1C:
+  BLDALP1:
+    - "Gebäude"
+  
+  BLDALP10:
+    - "Läden"
+  
+  BLDALP11:
+    - "Haus"
+  
+  BLDALP2:
+    - "Landhäuschen"
+  
+  BLDALP3:
+    - "Landhäuschen"
+  
+  BLDALP4:
+    - "Haus"
+  
+  BLDALP5:
+    - "Haus"
+  
+  BLDALP6:
+    - "Haus"
+  
+  BLDALP7:
+    - "Stadthaus"
+  
+  BLDALP8:
+    - "Appartements"
+  
+  BLDALP9:
+    - "Stadthaus"
+  
+  BLDCASTL:
+    - "Burgruinen"
+  
+  BLDCRCH1:
+    - "Kirche"
+  
+  BLDCRCH2:
+    - "Kirche"
+  
+  BLDCRCH3:
+    - "Kirche"
+  
+  BLDCTY1:
+    - "Büros"
+  
+  BLDCTY11:
+    - "Büros"
+  
+  BLDCTY12:
+    - "Büroturm"
+  
+  BLDCTY13:
+    - "Bürokomplex"
+  
+  BLDCTY14:
+    - "Büros"
+  
+  BLDCTY15:
+    - "Bürogebäude"
+  
+  BLDCTY16:
+    - "Läden und Büros"
+  
+  BLDCTY17:
+    - "Wohnungen"
+  
+  BLDCTY18:
+    - "Hotel"
+  
+  BLDCTY19:
+    - "Bürokomplex"
+  
+  BLDCTY2:
+    - "Bürokomplex"
+  
+  BLDCTY20:
+    - "Wohnungen"
+  
+  BLDCTY21:
+    - "Gerichtsgebäude"
+  
+  BLDCTY22:
+    - "Wohnblock"
+  
+  BLDCTY23:
+    - "Wohnblock"
+  
+  BLDCTY24:
+    - "Wohnblock"
+  
+  BLDCTY25:
+    - "Läden und Appartements"
+  
+  BLDCTY26:
+    - "Läden und Appartements"
+  
+  BLDCTY27:
+    - "Läden und Appartements"
+  
+  BLDCTY28:
+    - "Bürokomplex"
+  
+  BLDCTY29:
+    - "Bürokomplex"
+  
+  BLDCTY3:
+    - "Bürokomplex"
+  
+  BLDCTY4:
+    - "Bürokomplex"
+  
+  BLDCTY5:
+    - "Bürokomplex"
+  
+  BLDCTY6:
+    - "Läden und Büros"
+  
+  BLDCTY7:
+    - "Büros"
+  
+  BLDCTY8:
+    - "Läden und Büros"
+  
+  BLDCTY9:
+    - "Läden und Büros"
+  
+  BLDFOUNT:
+    - "Brunnen"
+  
+  BLDHALL1:
+    - "Konzerthalle"
+  
+  BLDHOU10:
+    - "Landhäuschen"
+  
+  BLDHOU11:
+    - "Doppel-Haus"
+  
+  BLDHOU12:
+    - "Haus"
+  
+  BLDHOU13:
+    - "Haus"
+  
+  BLDHOU14:
+    - "Bungalow"
+  
+  BLDHOU15:
+    - "Haus"
+  
+  BLDHOU16:
+    - "Läden und Büros"
+  
+  BLDHOU17:
+    - "Reihenhäuser"
+  
+  BLDHOU18:
+    - "Bungalow"
+  
+  BLDHOU19:
+    - "Haus"
+  
+  BLDHOU20:
+    - "Landhäuschen"
+  
+  BLDHOU21:
+    - "Haus"
+  
+  BLDHOU22:
+    - "Haus"
+  
+  BLDHOU23:
+    - "Haus"
+  
+  BLDHOU24:
+    - "Haus"
+  
+  BLDHOU25:
+    - "Haus"
+  
+  BLDHOUS2:
+    - "Reihenhäuser"
+  
+  BLDHOUS3:
+    - "Haus"
+  
+  BLDHOUS4:
+    - "Landhäuschen"
+  
+  BLDHOUS6:
+    - "Landhäuschen"
+  
+  BLDHOUS7:
+    - "Landhäuschen"
+  
+  BLDHOUS8:
+    - "Landhäuschen"
+  
+  BLDHOUS9:
+    - "Landhäuschen"
+  
+  BLDLIGHT:
+    - "Leuchtturm"
+  
+  BLDOFF1:
+    - "Hochhaus"
+  
+  BLDPARK1:
+    - "Rathausplatz"
+  
+  BLDPYLON:
+    - "Hochspannungsmast"
+  
+  BLDSHOP1:
+    - "Läden"
+  
+  BLDTRANS:
+    - "Sender"
+  
+  HQ1:
+    - "Unternehmenshauptsitz"
+  
+  BLDCTY10:
+    - "Büros"
+  
+  // Type 0x1D:
+  SCAFDEF:
+    - "Gerüst"
+  
+  // Type 0x1E:
+  BREWERY:
+    - "Brauerei"
+    - "„@  Brauerei"
+    - "Brauerei "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Brauerei"
+    - " Brauerein"
+  
+  CHEMWORK:
+    - "Chemiewerk"
+    - "„@  Chemiewerk"
+    - "Chemiewerk "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Chemiewerk"
+    - " Chemiewerke"
+  
+  COALPS:
+    - "Kohlekraftwerk"
+    - "„@  Kraftwerk"
+    - "Kraftwerk "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Kohlekraftwerk"
+    - " Kohlekraftwerk"
+  
+  FACTORY:
+    - "Fabrik"
+    - "„@  Fabrik"
+    - "Fabrik "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Fabrik"
+    - " Fabriken"
+  
+  FARM:
+    - "Getreidefarm"
+    - "„@  Farm"
+    - "Farm "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Getreidefarm"
+    - " Getreidefarmen"
+  
+  FARMUS:
+    - "Getreidefarm"
+    - "„@  Farm"
+    - "Farm "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Getreidefarm"
+    - " Getreidefarmen"
+  
+  FOODPROC:
+    - "Lebensmittelfabrik"
+    - "„@  Lebensmittelfabrik"
+    - "Lebensmittelfabrik "
+    - "ƒ wird geschlossenn!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Lebensmittelfabrik"
+    - " Lebensmittelfabriken"
+  
+  FOREST:
+    - "Baumschule"
+    - "„@  Wald"
+    - "Wald "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Baumschule"
+    - " Baumschulen"
+  
+  OILREFIN:
+    - "Ölraffinerie"
+    - "„@  Ölraffinerie"
+    - "Ölraffinerie "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Ölraffinerie"
+    - " Ölraffinerien"
+  
+  OILRIG:
+    - "Bohrinsel"
+    - "„@  Ölfeld"
+    - "Ölfeld "
+    - "ƒ hat keine Ölressourcen mehr und wird geschlossen!"
+    - "Neue Ölfunde bei ƒ - Produktionssteigerung!"
+    - "Schwächere Ölförderung bei ƒ - Produktionsrückgang!"
+    - " Bohrinsel"
+    - " Bohrinseln"
+  
+  OILWELL:
+    - "Ölquellen"
+    - "„@  Ölquellen"
+    - "Ölquellen "
+    - "ƒ hat keine Ölressourcen mehr und wird geschlossen!"
+    - "Neue Ölfunde beiƒ - Produktionssteigerung!"
+    - "Schwächere Ölförderung bei ƒ - Produktionsrückgang!"
+    - " Ölquelle"
+    - " Ölquellen"
+  
+  OREMINE:
+    - "Eisenerzminen"
+    - "„@  Eisenerzminen"
+    - "Eisenerzminen "
+    - "ƒ wird geschlossen!"
+    - "Neue Eisenerzfunde bei ƒ - Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Eisenerzmine"
+    - " Eisenerzminen"
+  
+  PAPERMIL:
+    - "Papiermühle"
+    - "„@  Papiermühle"
+    - "Papiermühle "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Papiermühle"
+    - " Papiermühlen"
+  
+  PRINTWRK:
+    - "Druckerei"
+    - "„@  Druckerei"
+    - "Druckerei "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Druckerei"
+    - " Druckereien"
+  
+  SAWMILL:
+    - "Sägewerk"
+    - "„@  Sägewerk"
+    - "Sägewerk "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Sägewerk"
+    - " Sägewerk"
+  
+  SKICENT:
+    - "Skigebiet"
+    - "„@  Skigebiet"
+    - "Skigebiet "
+    - "ƒ wird geschlossen!"
+    - " "
+    - " "
+    - " Skigebiet"
+    - " Skigebiete"
+  
+  STEELMIL:
+    - "Stahlwerk"
+    - "„@  Stahlwerk"
+    - "Stahlwerk "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Stahlwerk"
+    - " Stahlwerke"
+  
+  STOCKFRM:
+    - "Viehfarm"
+    - "„@  Farm"
+    - "Farm "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Viehfarm"
+    - " Viehfarmen"
+  
+  VINEYARD:
+    - "Weingut"
+    - "„@  Weingut"
+    - "Weingut "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Weingut"
+    - " Weingüter"
+  
+  WINDMILL:
+    - "Getreidemühle"
+    - "„@  Getreidemühlen"
+    - "Getreidemühlen "
+    - "ƒ werden geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Getreidemühle"
+    - " Getreidemühlen"
+  
+  WINERY:
+    - "Weinkellerei"
+    - "„@  Weinkellerei"
+    - "Weinkellerei "
+    - "ƒ wird geschlossen!"
+    - "ƒ mit Produktionssteigerung!"
+    - "ƒ mit Produktionsrückgang!"
+    - " Weinkellerei"
+    - " Weinkellerein"
+  
+  COALMINE:
+    - "Kohleminen"
+    - "„@  Kohleminen"
+    - "Kohleminen "
+    - "ƒ hat keine Kohleressourcen mehr und wird geschlossen!"
+    - "Neue Kohlenfunde bei ƒ - Produktionssteigerung!"
+    - "Minenunfall bei ƒ - Produktionsrückgang!"
+    - " Kohlemine"
+    - " Kohleminen"
+  
+  // Type 0x1F:
+  REGALP:
+    - "Alpingebirge"
+  
+  REGUK:
+    - "Großbritannien"
+  
+  REGUS:
+    - "Nordamerika"
+  
+  // Type 0x20:
+  COMP1:
+    - "ˆRonnie Riddlesworth"
+    - "Riddlesworth"
+  
+  COMP10:
+    - "ˆCharles Chilblain"
+    - "Chilblain"
+  
+  COMP11:
+    - "ˆWalter Wellington"
+    - "Wellington"
+  
+  COMP12:
+    - "ˆFoo Fandango"
+    - "Fandango"
+  
+  COMP13:
+    - "ˆHarriet Hatstand"
+    - "Hatstand"
+  
+  COMP14:
+    - "ˆKathy Kilowatt"
+    - "Kilowatt"
+  
+  COMP15:
+    - "ˆLizzy Leopard"
+    - "Leopard"
+  
+  COMP16:
+    - "ˆMarmaduke Muddleshop"
+    - "Muddleshop"
+  
+  COMP17:
+    - "ˆReginald Rottenfish"
+    - "Rottenfish"
+  
+  COMP18:
+    - "ˆIsaac Imperial"
+    - "Imperial"
+  
+  COMP19:
+    - "ˆWodger Whamjet"
+    - "Whamjet"
+  
+  COMP2:
+    - "ˆJillie Jamjar"
+    - "Jamjar"
+  
+  COMP20:
+    - "ˆDorothy Dumblebum"
+    - "Dumblebum"
+  
+  COMP21:
+    - "ˆEvelyn Eggburt"
+    - "Eggburt"
+  
+  COMP22:
+    - "ˆBasil Boombox"
+    - "Boombox"
+  
+  COMP23:
+    - "ˆCecil Cityscape"
+    - "Cityscape"
+  
+  COMP24:
+    - "ˆGary Gangle"
+    - "Gangley"
+  
+  COMP25:
+    - "ˆTheresa Tops"
+    - "Topsy"
+  
+  COMP26:
+    - "ˆMick Motormouth"
+    - "Motormouth"
+  
+  COMP27:
+    - "ˆDaisy Dastardly"
+    - "Daisy"
+  
+  COMP28:
+    - "ˆBo Buzzball"
+    - "Buzzy"
+  
+  COMP29:
+    - "ˆMr Big"
+    - "Big"
+  
+  COMP3:
+    - "ˆRosie Redbone"
+    - "Redbone"
+  
+  COMP30:
+    - "ˆMaggie Munchkins"
+    - "Munchkins"
+  
+  COMP31:
+    - "ˆTheodore Thin"
+    - "Thin"
+  
+  COMP32:
+    - "ˆPete Pennyweight"
+    - "Penny"
+  
+  COMP33:
+    - "ˆFreddy Fiddlestick"
+    - "Fiddlestick"
+  
+  COMP34:
+    - "ˆNaomi Nevermore"
+    - "Nevermore"
+  
+  COMP35:
+    - "ˆOliver Organic"
+    - "Organic"
+  
+  COMP36:
+    - "ˆSue Shaker"
+    - "Shaker"
+  
+  COMP37:
+    - "ˆTony Terrific"
+    - "Terrific"
+  
+  COMP38:
+    - "ˆRicky Ripoff"
+    - "Ripoff"
+  
+  COMP4:
+    - "ˆGuiseppe Gluck"
+    - "Gluck"
+  
+  COMP5:
+    - "ˆAlfred Ashdown"
+    - "Ashdown"
+  
+  COMP6:
+    - "ˆCorina Cross"
+    - "Cross"
+  
+  COMP7:
+    - "ˆDave Doorknob"
+    - "Doorknob"
+  
+  COMP8:
+    - "ˆJeremy Jewelfish"
+    - "Jewelfish"
+  
+  COMP9:
+    - "ˆAgnes Armchair"
+    - "Armchair"
+  
+  // Type 0x21:
+  STEX000:
+    - "Großbritannien & Irland 1900"
+    - "Bauen Sie eine Passagierverbindung in Großbritannien um 1900 auf"
+  
+  STEX001:
+    - "Großbritannien & Irland 1930"
+    - "Bauen Sie ein Transport-Netzwerk in Großbritannien um 1930 auf"
+  
+  STEX002:
+    - "Großbritannien & Irland 1955"
+    - "Bauen Sie ein erfolgreiches Transportunternehmen in Großbritannien um 1950 auf"
+  
+  STEX003:
+    - "Großbritannien & Irland - Jahrhundertherausforderung"
+    - "Bauen Sie ein Transport-Imperium in Großbritannien und Irland auf"
+  
+  STEX004:
+    - "Nordamerika (Osten) 1900"
+    - "Bauen Sie eine Passagierverbindung in den USA um 1900 auf"
+  
+  STEX005:
+    - "Nordamerika (Osten) 1950"
+    - "Bauen Sie ein Transport-Netzwerk in den USA um 1950 auf"
+  
+  STEX006:
+    - "Nordamerika (Osten) 1965"
+    - "Bauen Sie ein erfolgreiches Transportunternehmen in den USA der 60er\/70er Jahre auf"
+  
+  STEX007:
+    - "Nordamerika (Osten) - Jahrhundertherausforderung"
+    - "Bauen Sie ein Transport-Imperium in Nordamerika (Osten) auf"
+  
+  STEX008:
+    - "Nordamerika (Mittlerer Westen) 1920"
+    - "Bauen Sie eine Passagierverbindung in den USA um 1920 auf"
+  
+  STEX009:
+    - "Nordamerika (Mittlerer Westen) 1945"
+    - "Bauen Sie ein Transport-Netzwerk in den USA um 1940 auf"
+  
+  STEX010:
+    - "Nordamerika (Mittlerer Westen) 1970"
+    - "Bauen Sie ein erfolgreiches Transportunternehmen in den USA der 70er Jahre auf"
+  
+  STEX011:
+    - "Nordamerika (Mittlerer Westen) - Jahrhundertherausforderung"
+    - "Bauen Sie ein Transport-Imperium in Nordamerika (Mittlerer Westen) auf"
+  
+  STEX012:
+    - "Nordamerika (Westen) 1910"
+    - "Bauen Sie ein erfolgreiches Transport-Netzwerk in den USA um 1910 auf"
+  
+  STEX013:
+    - "Nordamerika (Westen) 1955"
+    - "Bauen Sie ein Transport-Netzwerk in den USA um 1950 auf"
+  
+  STEX014:
+    - "Nordamerika (Westen) 1980"
+    - "Bauen Sie ein erfolgreiches Transportunternehmen in den USA um 1980 auf"
+  
+  STEX015:
+    - "Nordamerika (Westen) - Jahrhundertherausforderung"
+    - "Bauen Sie ein Transport-Imperium in Nordamerika (Westen) auf"
+  
+  STEX016:
+    - "Schweizer Alpen 1905"
+    - "Bauen Sie ein Transportunternehmen in der Schweiz um 1900 auf"
+  
+  STEX017:
+    - "Schweizer Alpen 1930"
+    - "Bauen Sie eine Passagierverbindung in der Schweiz um 1930 auf"
+  
+  STEX018:
+    - "Schweizer Alpen 1960"
+    - "Bauen Sie ein erfolgreiches Transportunternehmen in der Schweiz um 1960 auf"
+  
+  STEX019:
+    - "Schweizer Alpen - Jahrhundertherausforderung"
+    - "Bauen Sie ein Transport-Imperium in den Schweizer Alpen auf"
+  
+  STEX020:
+    - "Nachrichtenfieber"
+    - "Transportieren Sie Rohholz zur Papiermühle und dann Papier zur Druckerei, damit die Nachfrage der Bevölkerung nach Zeitungen und Magazinen befriedigt werden kann"
+  
+  STEX021:
+    - "Zykladen-Zauber"
+    - "Transportieren Sie Vieh und Trauben von den Farmen und Weingütern dieser griechischen Inselgruppe"
+  
+  STEX022:
+    - "Das Dodekanes-Tagebuch"
+    - "Transportieren Sie Fracht zwischen den weit auseinanderliegenden Inseln"
+  
+  STEX023:
+    - "Gebirge-Chaos"
+    - "Bauen Sie ein erfolgreiches Transportunternehmen in einem von einer Bergkette zerfurchten Gebiet auf"
+  
+  STEX024:
+    - "Der Flaschenhals-Blues"
+    - "Meistern Sie die Herausforderung dieses schmalen Bergpasses zwischen zwei Gebirgsketten"
+  
+  STEX025:
+    - "Wüsten-Delirium"
+    - "Bauen Sie ein Transportunternehmen in diesem Wüstengebiet auf"
+  
+  STEX026:
+    - "Kühe und Weinberge"
+    - "Bauen Sie ein erfolgreiches Transportunternehmen durch den Transport von Kühen und Trauben in dieser reichen Anbaulandschaft auf"
+  
+  STEX027:
+    - "Kräftemessen"
+    - "Erobern Sie die Transporthoheit in diesem hart umkämpften Gebiet"
+  
+  STEX028:
+    - "Santarinos"
+    - "Bauen Sie eine Passagierverbindung für die Einwohner dieser O-förmigen Insel auf"
+  
+  STEX029:
+    - "Die gigantische Eiben-Insel"
+    - "Bauen Sie Ihr Transportunternehmen auf der gigantischen Eiben-Insel auf"
+  
+  STEX030:
+    - "Jurrasic Park"
+    - "Transportieren Sie Passagiere um und über die tropischen Hügel"
+  
+  STEX031:
+    - "Öl-Oase"
+    - "Bauen Sie ein Transport-Netzwerk für den Transport von Öl in diesem Wüstengebiet auf"
+  
+  STEX032:
+    - "Inselfreuden"
+    - "Bauen Sie Ihr Transportunternehmen auf dieser vergnüglichen Insel auf"
+  
+  STEX033:
+    - "Der Sprungbrettbau"
+    - "Verbinden Sie die Inseln, um Fracht von Küste zu Küste zu transportieren"
+  
+  STEX034:
+    - "Die Keystone Keys Islands"
+    - "Bauen Sie Transport- und Passagierverbindungen zwischen den Inseln von Keystone Keys auf"
+  
+  STEX035:
+    - "Der erloschene Vulkan"
+    - "Bauen Sie Ihr Transport-Imperium auf dieser Vulkaninsel auf"
+  
+  STEX036:
+    - "Nahrung für Flintrock"
+    - "Bauen Sie ein Transport-Netzwerk für Lebensmittel und Passagiere zur Versorgung der riesigen Stadt Flintrock auf"
+  
+  STEX037:
+    - "Sandkasten-Siedler"
+    - "Machen Sie Ihre ersten Gewinne in diesem Wüstengebiet"
+  
+  STEX038:
+    - "Felsige Versuchung"
+    - "Bauen Sie eine Transportverbindung auf dieser kleinen Insel auf"
+  
+  STEX039:
+    - "Schneegestöber"
+    - "Bauen Sie ein Transport-Netzwerk für den Transport von Touristen und Fracht in dieser Gebirgsregion auf"
+  
+  STEX040:
+    - "Kliffkletterer"
+    - "Bauen Sie eine Transportverbindung zum Transport von Fracht für die Industrien auf beiden Seiten des riesigen Kliffs auf"
+  
+  STEX041:
+    - "Schlaglochschrecken"
+    - "Transportieren Sie Passagiere und Fracht durch diese Schlaglochlandschaft"
+  
+  STEX042:
+    - "Schiene gegen Straße"
+    - "Bauen Sie ein erfolgreiches Zugtransport-Netzwerk auf und schlagen Sie die Konkurrenz der Straßentransport-Unternehmen"
+  
+  STEX043:
+    - "Flugangst"
+    - "Können Sie sich gegen die aggressive Konkurrenz der Fluglinien durchsetzen, wenn Sie nur auf Land- und Schiffstransporte setzen?"
+  
+  STEX044:
+    - "Weatherworld"
+    - "Bauen Sie eine Passagierverbindung zwischen den Städten in Weatherworld auf"
+  

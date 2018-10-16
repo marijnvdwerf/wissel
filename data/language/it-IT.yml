@@ -2183,3 +2183,1985 @@ strings:
   2128: In finestra
   2129: A schermo intero
   2130: A schermo intero (desktop)
+
+
+objects:
+  // Type 0x00:
+  INTERDEF:
+    - "Stile predefinito dell'interfaccia"
+  
+  // Type 0x01:
+  SNDA1:
+    - "Suono di aereo 1"
+  
+  SNDA2:
+    - "Suono di aereo 2"
+  
+  SNDA3:
+    - "Suono di aereo 3"
+  
+  SNDCH1A:
+    - "Sbuffo 1 (a)"
+  
+  SNDCH1AS:
+    - "Sbuffo 1 (a-vap)"
+  
+  SNDCH1B:
+    - "Sbuffo 1 (b)"
+  
+  SNDCH1BS:
+    - "Sbuffo 1 (b-vap)"
+  
+  SNDCH1C:
+    - "Sbuffo 1 (c)"
+  
+  SNDCH1CS:
+    - "Sbuffo 1 (c-vap)"
+  
+  SNDCH1D:
+    - "Sbuffo 1 (d)"
+  
+  SNDCH1DS:
+    - "Sbuffo 1 (d-vap)"
+  
+  SNDD1:
+    - "Suono di motore diesel 1"
+  
+  SNDD10:
+    - "Suono di motore diesel 10"
+  
+  SNDD11:
+    - "Suono di motore diesel 11"
+  
+  SNDD12:
+    - "Suono di motore diesel 12"
+  
+  SNDD2:
+    - "Suono di motore diesel 2"
+  
+  SNDD3:
+    - "Suono di motore diesel 3"
+  
+  SNDD4:
+    - "Suono di motore diesel 4"
+  
+  SNDD5:
+    - "Suono di motore diesel 5"
+  
+  SNDD6:
+    - "Suono di motore diesel 6"
+  
+  SNDD7:
+    - "Suono di motore diesel 7"
+  
+  SNDD8:
+    - "Suono di motore diesel 8"
+  
+  SNDD9:
+    - "Suono di motore diesel 9"
+  
+  SNDE1:
+    - "Suono elettrico 1"
+  
+  SNDH1:
+    - "Tromba di locomotiva 1"
+  
+  SNDH2:
+    - "Tromba di locomotiva 2"
+  
+  SNDH3:
+    - "Tromba di locomotiva 3"
+  
+  SNDH4:
+    - "Sirena di nave 4"
+  
+  SNDH5:
+    - "Sirena di nave 5"
+  
+  SNDH6:
+    - "Sirena di nave 6"
+  
+  SNDS1:
+    - "Suono di locomotiva a vapore 1"
+  
+  SNDTD1:
+    - "Atterraggio di aereo 1"
+  
+  SNDTD2:
+    - "Atterraggio di aereo 2"
+  
+  SNDTR1:
+    - "Suono di binario 1"
+  
+  SNDW1:
+    - "Fischio di locomotiva 1"
+  
+  SNDW2:
+    - "Fischio di locomotiva 2"
+  
+  SNDW3:
+    - "Fischio di locomotiva 3"
+  
+  SNDW4:
+    - "Fischio di locomotiva 4"
+  
+  SNDW5:
+    - "Fischio di locomotiva 5"
+  
+  SNDW6:
+    - "Fischio di locomotiva 6"
+  
+  SNDW7:
+    - "Fischio di locomotiva 7"
+  
+  SNDW8:
+    - "Fischio di locomotiva 8"
+  
+  // Type 0x02:
+  CURRDMRK:
+    - "Marchi tedeschi"
+    - ""
+    - "£"
+  
+  CURRDOLL:
+    - "Dollari"
+    - "£"
+    - ""
+  
+  CURREURO:
+    - "Euro"
+    - "£"
+    - ""
+  
+  CURRFREN:
+    - "Franchi"
+    - ""
+    - "£"
+  
+  CURRGUIL:
+    - "Fiorini"
+    - ""
+    - "£"
+  
+  CURRKRON:
+    - "Corone"
+    - ""
+    - "£"
+  
+  CURRLIRA:
+    - "Lire"
+    - "£"
+    - ""
+  
+  CURRNTDL:
+    - "Taiwanese Dollars"
+    - "£"
+    - ""
+  
+  CURRPNDS:
+    - "Sterline"
+    - "£"
+    - ""
+  
+  CURRPSTA:
+    - "Pesetas"
+    - ""
+    - "£"
+  
+  CURRWON:
+    - "Won"
+    - "£"
+    - ""
+  
+  CURRYEN:
+    - "Yen"
+    - "£"
+    - ""
+  
+  CURRZLOT:
+    - "Zloty"
+    - ""
+    - " £"
+  
+  // Type 0x03:
+  EXH1:
+    - "Scarico di motore diesel"
+  
+  EXH2:
+    - "Scarico di motore diesel"
+  
+  SPARK1:
+    - "Scintilla elettrica"
+  
+  STEAM:
+    - "Sbuffo di vapore"
+  
+  WWAKE1:
+    - "Scia di nave 1"
+  
+  // Type 0x04:
+  LSBROWN:
+    - "Roccia marrone"
+  
+  LSROCK:
+    - "Roccia"
+  
+  // Type 0x05:
+  WATER1:
+    - "Acqua"
+  
+  // Type 0x06:
+  GRASS1:
+    - "Erba"
+  
+  GRASSBR:
+    - "Erba secca"
+  
+  ROCK1:
+    - "Roccia grigia"
+  
+  ROCK2:
+    - "Roccia marrone"
+  
+  SAND1:
+    - "Sabbia"
+  
+  // Type 0x07:
+  ATOWNNAM:
+    - "Nomi di città in stile nordamericano"
+  
+  ETOWNNAM:
+    - "Nomi di città in stile inglese"
+  
+  FTOWNNAM:
+    - "Nomi di città in stile francese"
+  
+  GTOWNNAM:
+    - "Nomi di città in stile tedesco"
+  
+  LTOWNNAM:
+    - "Nomi di città in stile latino"
+  
+  STOWNNAM:
+    - "Nomi di città in stile buffo"
+  
+  // Type 0x08:
+  CHEMICAL:
+    - "Prodotti chimici"
+    - "tonnellate di prodotti chimici"
+    - "{ tonnellata di prodotti chimici"
+    - "{ tonnellate di prodotti chimici"
+  
+  COAL:
+    - "Carbone"
+    - "tonnellate di carbone"
+    - "{ tonnellata di carbone"
+    - "{ tonnellate di carbone"
+  
+  FOOD:
+    - "Cibo"
+    - "tonnellate di cibo"
+    - "{ tonnellata di cibo"
+    - "{ tonnellate di cibo"
+  
+  GOODS:
+    - "Merci"
+    - "casse di merci"
+    - "{ cassa di merci"
+    - "{ casse di merci"
+  
+  GRAPES:
+    - "Uva"
+    - "tonnellate di uva"
+    - "{ tonnellata di uva"
+    - "{ tonnellate di uva"
+  
+  IRONORE:
+    - "Minerale di ferro"
+    - "tonnellate di minerale di ferro"
+    - "{ tonnellata di minerale di ferro"
+    - "{ tonnellate di minerale di ferro"
+  
+  LIVESTCK:
+    - "Bestiame"
+    - "capi di bestiame"
+    - "{ capo di bestiame"
+    - "{ capi di bestiame"
+  
+  MAIL:
+    - "Posta"
+    - "sacchi di posta"
+    - "{ sacco di posta"
+    - "{ sacchi di posta"
+  
+  OIL:
+    - "Petrolio"
+    - "tonnellate di petrolio"
+    - "{ tonnellata di petrolio"
+    - "{ tonnellate di petrolio"
+  
+  PAPER:
+    - "Carta"
+    - "tonnellate di carta"
+    - "{ tonnellata di carta"
+    - "{ tonnellate di carta"
+  
+  PASS:
+    - "Passeggeri"
+    - "Passeggeri"
+    - "{ passeggero"
+    - "{ passeggeri"
+  
+  STEEL:
+    - "Acciaio"
+    - "tonnellate di acciaio"
+    - "{ tonnellata di acciaio"
+    - "{ tonnellate di acciaio"
+  
+  TIMBER:
+    - "Legname"
+    - "tonnellate di legname"
+    - "{ tonnellata di legname"
+    - "{ tonnellate di legname"
+  
+  GRAIN:
+    - "Grano"
+    - "tonnellate di grano"
+    - "{ tonnellata di grano"
+    - "{ tonnellate di grano"
+  
+  // Type 0x09:
+  BRWNWALG:
+    - "Muro"
+  
+  BRWNWALL:
+    - "Muro"
+  
+  FENCE1:
+    - "Recinto"
+  
+  FENCE1G:
+    - "Recinto"
+  
+  SECFENCE:
+    - "Recinto di sicurezza"
+  
+  SECFENCG:
+    - "Recinto di sicurezza"
+  
+  STONWALG:
+    - "Muro di pietra"
+  
+  STONWALL:
+    - "Muro di pietra"
+  
+  // Type 0x0A:
+  SIGC3:
+    - "Segnale luminoso"
+    - "Segnale a 3 aspetti,\u0005stile inglese"
+  
+  SIGC4:
+    - "Segnale luminoso (4 aspetti)"
+    - "Segnale a 4 aspetti,\u0005stile inglese"
+  
+  SIGCSW:
+    - "Segnale luminoso"
+    - "Segnale a luci colorate\u0005stile svizzero"
+  
+  SIGCUS:
+    - "Segnale luminoso"
+    - "Segnale a luci colorate,\u0005stile americano"
+  
+  SIGS:
+    - "Semaforo (QS)"
+    - "Semaforo ferroviario,\u0005stile inglese,\u0005Quadrante superiore"
+  
+  SIGSD:
+    - "Semaforo (QSP)"
+    - "Semaforo ferroviario,\u0005stile inglese,\u0005Quadrante superiore con protezione"
+  
+  SIGSDL:
+    - "Semaforo (QIP)"
+    - "Semaforo ferroviario,\u0005stile inglese,\u0005Quadrante inferiore con protezione"
+  
+  SIGSL:
+    - "Semaforo (QI)"
+    - "Semaforo ferroviario,\u0005stile inglese,\u0005Quadrante inferiore"
+  
+  SIGSUS:
+    - "Segnale luminoso"
+    - "Semaforo ferroviario,\u0005stile americano"
+  
+  SIGSW:
+    - "Semaforo"
+    - "Semaforo ferroviario,\u0005stile svizzero"
+  
+  // Type 0x0B:
+  LCROSS1:
+    - "Luci di passaggio a livello"
+  
+  LCROSS2:
+    - "Luci di passaggio a livello"
+  
+  LCROSS3:
+    - "Sbarre di passaggio a livello"
+  
+  LCROSS4:
+    - "Segnali di passaggio a livello"
+  
+  // Type 0x0C:
+  SLIGHT1:
+    - "Lampioni"
+  
+  // Type 0x0D:
+  TUNNEL1:
+    - "Galleria"
+  
+  TUNNEL2:
+    - "Galleria"
+  
+  // Type 0x0E:
+  BRDGBRCK:
+    - "Ponte di mattoni"
+  
+  BRDGGIRD:
+    - "Ponte di travi d'acciaio"
+  
+  BRDGSTAR:
+    - "Ponte ad arco d'acciaio"
+  
+  BRDGSUSP:
+    - "Ponte sospeso"
+  
+  BRDGWOOD:
+    - "Ponte di legno"
+  
+  // Type 0x0F:
+  TRSTAT1:
+  
+  TRSTAT2:
+  
+  TRSTAT3:
+  
+  TRSTAT4:
+  
+  TRSTAT5:
+  
+  // Type 0x10:
+  TREX3RL:
+    - "Terza rotaia elettrificata"
+  
+  TREXCAT1:
+    - "Linee elettriche aeree"
+  
+  TREXRACK:
+    - "Binario a cremagliera"
+  
+  // Type 0x11:
+  TRACKNG:
+    - "Binario a scartamento ridotto"
+  
+  TRACKST:
+    - "Binario ferroviario"
+  
+  // Type 0x12:
+  BUSSTOP:
+    - "Fermata passeggeri"
+  
+  RDSTAT1:
+    - "Terminale passeggeri"
+  
+  RDSTAT2:
+    - "Terminale passeggeri"
+  
+  RDSTAT3:
+    - "Terminale passeggeri"
+  
+  RDSTATL1:
+    - "Zona di carico merci"
+  
+  RDSTATL2:
+    - "Zona di carico merci"
+  
+  RDSTATL3:
+    - "Zona di carico merci"
+  
+  // Type 0x13:
+  RDEXCAT1:
+    - "Linee elettriche aeree"
+  
+  // Type 0x14:
+  ROADONE:
+    - "Strada a senso unico"
+  
+  ROADRGH:
+    - "Strada sterrata"
+  
+  ROADTMC:
+    - "Strada"
+  
+  ROADTRAM:
+    - "Binario del tram"
+  
+  ROADUS1:
+    - "Strada a senso unico"
+  
+  ROADUS2:
+    - "Strada"
+  
+  // Type 0x15:
+  AIRPORT1:
+    - "Aeroporto grande"
+  
+  AIRPORT2:
+    - "Aeroporto piccolo"
+  
+  AIRPORT3:
+    - "Aeroporto medio"
+  
+  HPORT1:
+    - "Eliporto cittadino"
+  
+  // Type 0x16:
+  SHIPST1:
+    - "Moli"
+  
+  // Type 0x17:
+  114:
+    - "Complesso diesel classe 114"
+  
+  142:
+    - "Complesso diesel classe 142"
+  
+  158:
+    - "Complesso diesel classe 158"
+  
+  2EPB:
+    - "Complesso elettrico 2-EPB"
+  
+  36R:
+    - "Autobus modello 36R"
+  
+  460:
+    - "Re 460"
+  
+  4F:
+    - "Fowler 4F"
+  
+  4MT:
+    - "BR Standard classe 4MT"
+  
+  508:
+    - "Complesso elettrico classe 508"
+  
+  656:
+    - "Classe 656"
+  
+  707:
+    - "707"
+  
+  737:
+    - "737"
+  
+  747:
+    - "747"
+  
+  777:
+    - "777"
+  
+  A3:
+    - "Gresley A3"
+  
+  A320:
+    - "A320"
+  
+  A380:
+    - "A380"
+  
+  A4:
+    - "Gresley A4"
+  
+  A5:
+    - "A5 Tri-Motor"
+  
+  AB139:
+    - "Elicottero AB139"
+  
+  AE47:
+    - "Ae 4\/7"
+  
+  AILSA1:
+    - "Autobus Ailsa"
+  
+  ALCOCENT:
+    - "Century"
+  
+  APT1:
+    - "Carrozza di comando dell'APT"
+  
+  APT2:
+    - "Carrozza passeggeri dell'APT"
+  
+  APT3:
+    - "Motrice dell'APT"
+  
+  BA146:
+    - "BAe 146"
+  
+  BALDWIN1:
+    - "Baldwin 2-8-0"
+  
+  BLACK5:
+    - "Stanier Black 5"
+  
+  C130:
+    - "C-130 Hercules"
+  
+  C33:
+    - "SLM C 3\/3"
+  
+  C56:
+    - "SLM C 5\/6"
+  
+  CARGOSH1:
+    - "Cargo"
+  
+  CARGOSH2:
+    - "Mercantile"
+  
+  CATTLE1:
+    - "Carro bestiame"
+  
+  CATTLE2:
+    - "Carro bestiame"
+  
+  CATTLE3:
+    - "Carro bestiame"
+  
+  CATTLEN1:
+    - "Carro bestiame"
+  
+  CE68:
+    - "Ce 6\/8 Crocodile"
+  
+  CL20:
+    - "Classe 20"
+  
+  CL37:
+    - "Classe 37"
+  
+  CL47:
+    - "Classe 47"
+  
+  CL55:
+    - "Classe 55 'Deltic'"
+  
+  CL58:
+    - "Classe 58"
+  
+  CL67:
+    - "Classe 67"
+  
+  CL71:
+    - "Classe 71"
+  
+  CL85:
+    - "Classe 85"
+  
+  CL86:
+    - "Classe 86"
+  
+  CL90:
+    - "Classe 90"
+  
+  CLASSIC:
+    - "GM Classic"
+  
+  CLIPPER:
+    - "Clipper"
+  
+  COAL1:
+    - "Vagone"
+  
+  COALSH:
+    - "Nave da carico"
+  
+  COMET:
+    - "Comet"
+  
+  CONCOR:
+    - "Concorde"
+  
+  COPTER1:
+    - "Elicottero S55"
+  
+  CTRUCK1:
+    - "Camion per bestiame"
+  
+  CTRUCK2:
+    - "Camion per bestiame"
+  
+  CTRUCK3:
+    - "Camion per bestiame"
+  
+  CTRUCK4:
+    - "Camion per bestiame"
+  
+  DASH7:
+    - "Dash-7"
+  
+  DC3:
+    - "DC-3"
+  
+  DEH46:
+    - "Deh 4\/6"
+  
+  DH16:
+    - "DH-16"
+  
+  E8:
+    - "Classe E8"
+  
+  EB35:
+    - "Eb 3\/5"
+  
+  EMU1:
+    - "Complesso elettrico"
+  
+  ESTAR1:
+    - "Motrice dell'Electra-Star"
+  
+  ESTAR2:
+    - "Carrozza passeggeri dell'Electra-Star"
+  
+  EWIV:
+    - "Carrozza passeggeri dell'EW-IV"
+  
+  EWIVDT:
+    - "Carrozza di comando dell'EW-IV"
+  
+  F27:
+    - "F-27"
+  
+  F7:
+    - "F-7"
+  
+  FERRY1:
+    - "Traghetto diesel"
+  
+  FERRY2:
+    - "Traghetto a vapore"
+  
+  FLATBED1:
+    - "Carro pianalato"
+  
+  FLATBED2:
+    - "Carro pianalato"
+  
+  FLTBEDN1:
+    - "Carro pianalato"
+  
+  FTRUCK1:
+    - "Camion pianalato"
+  
+  FTRUCK2:
+    - "Camion pianalato"
+  
+  FTRUCK3:
+    - "Camion pianalato"
+  
+  FTRUCK4:
+    - "Camion pianalato"
+  
+  GE442:
+    - "Ge 4\/4 II"
+  
+  GE443:
+    - "Ge 4\/4 III"
+  
+  GE66:
+    - "Ge 6\/6"
+  
+  GOODS1:
+    - "Carro merci"
+  
+  GOODS2:
+    - "Vagone merci chiuso"
+  
+  GOODS3:
+    - "Vagone merci chiuso"
+  
+  GOODSN1:
+    - "Carro merci"
+  
+  GRAINHP1:
+    - "Carro a tramoggia coperto"
+  
+  GRAINHP2:
+    - "Carro a tramoggia coperto"
+  
+  GTRUCK1:
+    - "Camion merci"
+  
+  GTRUCK2:
+    - "Camion merci"
+  
+  GTRUCK3:
+    - "Camion merci"
+  
+  GTRUCK4:
+    - "Camion merci"
+  
+  HCRAFT1:
+    - "Hovercraft SRN4"
+  
+  HFOIL1:
+    - "Aliscafo"
+  
+  HG23:
+    - "SLM HG 2\/3"
+  
+  HGE44:
+    - "HGe 4\/4"
+  
+  HGE442:
+    - "HGe 4\/4 II"
+  
+  HOPPER:
+    - "Carro a tramoggia"
+  
+  HOPPER2:
+    - "Carro a tramoggia"
+  
+  HST:
+    - "Motrice dell'HST"
+  
+  HTRUCK1:
+    - "Camion a tramoggia"
+  
+  HTRUCK2:
+    - "Camion a tramoggia"
+  
+  HTRUCK3:
+    - "Camion a tramoggia"
+  
+  HTRUCK4:
+    - "Camion a tramoggia"
+  
+  JFOIL1:
+    - "Nave aliscafo"
+  
+  JINTY:
+    - "3F 'Jinty'"
+  
+  JU52:
+    - "Ju-52"
+  
+  JUBILEE:
+    - "Stanier Jubilee"
+  
+  LEOP1:
+    - "Autobus Leopard"
+  
+  MAILSW1:
+    - "Vagone della posta"
+  
+  MAILSW4:
+    - "Vagone della posta"
+  
+  MAILUS1:
+    - "Vagone postale"
+  
+  MAILUS2:
+    - "Vagone postale"
+  
+  MK1:
+    - "Carrozza passeggeri Mk1"
+  
+  MK2:
+    - "Carrozza passeggeri Mk2"
+  
+  MK3:
+    - "Carrozza passeggeri Mk3"
+  
+  MTRUCK1:
+    - "Camion postale"
+  
+  MTRUCK2:
+    - "Camion postale"
+  
+  MTRUCK3:
+    - "Camion postale"
+  
+  OIL1:
+    - "Carro cisterna"
+  
+  OIL2:
+    - "Carro cisterna"
+  
+  OILN1:
+    - "Carro cisterna"
+  
+  OILSH:
+    - "Petroliera"
+  
+  OPENN1:
+    - "Vagone"
+  
+  PCAR1:
+    - "Carrozza passeggeri"
+  
+  PCAR2:
+    - "Carrozza passeggeri"
+  
+  PCARSW1:
+    - "Carrozza passeggeri"
+  
+  PCARUS2:
+    - "Carrozza passeggeri"
+  
+  PVAN1:
+    - "Carro per pacchi"
+  
+  PVAN2:
+    - "Furgone"
+  
+  RBE24:
+    - "RBe 2\/4"
+  
+  RE441:
+    - "Re 4\/4 I"
+  
+  RE442:
+    - "Re 4\/4 II"
+  
+  RTMASTER:
+    - "Autobus RMT"
+  
+  SD70MAC:
+    - "SD70"
+  
+  SPECIAL:
+    - "Special 2-4-2"
+  
+  ST8FT:
+    - "Stirling 8ft"
+  
+  STANCORR:
+    - "Stanier Coronation Pacific"
+  
+  SWISS1:
+    - "Carrozza passeggeri"
+  
+  SWISS2:
+    - "Carrozza passeggeri"
+  
+  SWISS3:
+    - "Carrozza passeggeri"
+  
+  SWISS4:
+    - "Carrozza passeggeri"
+  
+  SWISS5:
+    - "Carrozza passeggeri"
+  
+  TDH5301:
+    - "Autobus TDH 5301"
+  
+  TGV1:
+    - "Motrice del TGV"
+  
+  TGV2:
+    - "Carrozza passeggeri del TGV"
+  
+  TRAM1:
+    - "Tram Be 4\/4"
+  
+  TRAM2:
+    - "Tram Ce 2\/2"
+  
+  TRAM3:
+    - "Tram Coronation"
+  
+  TRAM4:
+    - "Tram Be 4\/6"
+  
+  TTRAIL2:
+    - "Rimorchio cisterna"
+  
+  TTRUCK1:
+    - "Autobotte"
+  
+  TTRUCK2:
+    - "Autobotte"
+  
+  TTRUCK3:
+    - "Autobotte"
+  
+  TTRUCK4:
+    - "Autobotte"
+  
+  USPACIF:
+    - "Pacific"
+  
+  V2:
+    - "Gresley V2"
+  
+  VISCOUNT:
+    - "Viscount"
+  
+  VULCAN:
+    - "Autobus Vulcan VSD"
+  
+  WMCBUS:
+    - "Autobus WMC"
+  
+  PCARUS1:
+    - "Carrozza passeggeri"
+  
+  TRAMCOMB:
+    - "Tram Combi"
+  
+  // Type 0x18:
+  BEECH:
+    - "Faggio comune"
+  
+  BIRCH:
+    - "Betulla bianca"
+  
+  BIRCH2:
+    - "Betulla bianca"
+  
+  BSPRUCE:
+    - "Abete blu"
+  
+  CACTUS1:
+    - "Cactus"
+  
+  CACTUS2:
+    - "Cactus"
+  
+  CACTUS3:
+    - "Cactus"
+  
+  CHESTNUT:
+    - "Castagno"
+  
+  COPBEACH:
+    - "Faggio rosso"
+  
+  DREDWOOD:
+    - "Sequoia"
+  
+  ELM:
+    - "Olmo"
+  
+  FRISIA:
+    - "Robinia Frisia"
+  
+  GFIR:
+    - "Abete"
+  
+  HCYPRESS:
+    - "Albero nano"
+  
+  HSTRAW:
+    - "Arbutus andrachoides"
+  
+  ICYPRESS:
+    - "Cipresso italiano"
+  
+  IYEW:
+    - "Tasso irlandese"
+  
+  JAPCRAB:
+    - "Melo selvatico"
+  
+  JOSHUA:
+    - "Yucca brevifolia"
+  
+  KBFIR:
+    - "Abete di Re Boris"
+  
+  LCEDAR:
+    - "Cedro del Libano"
+  
+  NASH:
+    - "Frassino"
+  
+  NMAPLE:
+    - "Acero"
+  
+  OAK:
+    - "Quercia"
+  
+  PCYPRESS:
+    - "Cipresso palustre"
+  
+  QPALM:
+    - "Palma brasiliana"
+  
+  RCEDAR:
+    - "Cedro rosso"
+  
+  RFIR:
+    - "Abete rosso"
+  
+  ROBINIA:
+    - "Robinia"
+  
+  SCPINE:
+    - "Pino silvestre"
+  
+  SCYPRESS:
+    - "Cipresso delle paludi"
+  
+  SMAPLE:
+    - "Acero da zucchero"
+  
+  SNOWBELL:
+    - "Storace"
+  
+  SPALM:
+    - "Palma argentata"
+  
+  SVPINE:
+    - "Pino argentato"
+  
+  WASH:
+    - "Frassino bianco"
+  
+  WILLOW:
+    - "Salice fragile"
+  
+  YEW:
+    - "Tasso"
+  
+  YUKKA:
+    - "Pianta di yucca"
+  
+  // Type 0x19:
+  SNOW:
+    - "Neve"
+  
+  // Type 0x1A:
+  CLIM1:
+    - "Clima alpino"
+  
+  CLIM2:
+    - "Clima inglese"
+  
+  CLIM3:
+    - "Clima nordamericano"
+  
+  CLIM4:
+    - "Clima australiano"
+  
+  CLIM5:
+    - "Clima alpino moderato"
+  
+  CLIM6:
+    - "Clima nordamericano senza neve"
+  
+  // Type 0x1B:
+  HS1:
+    - "Forme collinari 1"
+  
+  // Type 0x1C:
+  BLDALP1:
+    - "Palazzo"
+  
+  BLDALP10:
+    - "Negozi"
+  
+  BLDALP11:
+    - "Casa"
+  
+  BLDALP2:
+    - "Villetta"
+  
+  BLDALP3:
+    - "Villetta"
+  
+  BLDALP4:
+    - "Casa"
+  
+  BLDALP5:
+    - "Casa"
+  
+  BLDALP6:
+    - "Casa"
+  
+  BLDALP7:
+    - "Casa di città"
+  
+  BLDALP8:
+    - "Appartamenti"
+  
+  BLDALP9:
+    - "Casa di città"
+  
+  BLDCASTL:
+    - "Rovine di castello"
+  
+  BLDCRCH1:
+    - "Chiesa"
+  
+  BLDCRCH2:
+    - "Chiesa"
+  
+  BLDCRCH3:
+    - "Chiesa"
+  
+  BLDCTY1:
+    - "Uffici"
+  
+  BLDCTY11:
+    - "Uffici"
+  
+  BLDCTY12:
+    - "Torre di uffici"
+  
+  BLDCTY13:
+    - "Gruppo di uffici"
+  
+  BLDCTY14:
+    - "Uffici"
+  
+  BLDCTY15:
+    - "Palazzo di uffici"
+  
+  BLDCTY16:
+    - "Negozi e uffici"
+  
+  BLDCTY17:
+    - "Abitazioni"
+  
+  BLDCTY18:
+    - "Albergo"
+  
+  BLDCTY19:
+    - "Gruppo di uffici"
+  
+  BLDCTY2:
+    - "Gruppo di uffici"
+  
+  BLDCTY20:
+    - "Abitazioni"
+  
+  BLDCTY21:
+    - "Tribunale"
+  
+  BLDCTY22:
+    - "Casamento"
+  
+  BLDCTY23:
+    - "Casamento"
+  
+  BLDCTY24:
+    - "Casamento"
+  
+  BLDCTY25:
+    - "Negozi e appartamenti"
+  
+  BLDCTY26:
+    - "Negozi e appartamenti"
+  
+  BLDCTY27:
+    - "Negozi e appartamenti"
+  
+  BLDCTY28:
+    - "Gruppo di uffici"
+  
+  BLDCTY29:
+    - "Gruppo di uffici"
+  
+  BLDCTY3:
+    - "Gruppo di uffici"
+  
+  BLDCTY4:
+    - "Gruppo di uffici"
+  
+  BLDCTY5:
+    - "Gruppo di uffici"
+  
+  BLDCTY6:
+    - "Negozi e uffici"
+  
+  BLDCTY7:
+    - "Uffici"
+  
+  BLDCTY8:
+    - "Negozi e uffici"
+  
+  BLDCTY9:
+    - "Negozi e uffici"
+  
+  BLDFOUNT:
+    - "Fontana"
+  
+  BLDHALL1:
+    - "Sala da concerto"
+  
+  BLDHOU10:
+    - "Villetta"
+  
+  BLDHOU11:
+    - "Case bifamiliari"
+  
+  BLDHOU12:
+    - "Casa"
+  
+  BLDHOU13:
+    - "Casa"
+  
+  BLDHOU14:
+    - "Bungalow"
+  
+  BLDHOU15:
+    - "Casa"
+  
+  BLDHOU16:
+    - "Negozi e uffici"
+  
+  BLDHOU17:
+    - "Case a schiera"
+  
+  BLDHOU18:
+    - "Bungalow"
+  
+  BLDHOU19:
+    - "Casa"
+  
+  BLDHOU20:
+    - "Villetta"
+  
+  BLDHOU21:
+    - "Casa"
+  
+  BLDHOU22:
+    - "Casa"
+  
+  BLDHOU23:
+    - "Casa"
+  
+  BLDHOU24:
+    - "Casa"
+  
+  BLDHOU25:
+    - "Casa"
+  
+  BLDHOUS2:
+    - "Case a schiera"
+  
+  BLDHOUS3:
+    - "Casa"
+  
+  BLDHOUS4:
+    - "Villetta"
+  
+  BLDHOUS6:
+    - "Villetta"
+  
+  BLDHOUS7:
+    - "Villetta"
+  
+  BLDHOUS8:
+    - "Villette"
+  
+  BLDHOUS9:
+    - "Villetta"
+  
+  BLDLIGHT:
+    - "Faro"
+  
+  BLDOFF1:
+    - "Torre di appartamenti"
+  
+  BLDPARK1:
+    - "Piazza cittadina"
+  
+  BLDPYLON:
+    - "Traliccio dell'alta tensione"
+  
+  BLDSHOP1:
+    - "Negozi"
+  
+  BLDTRANS:
+    - "Trasmettitore"
+  
+  HQ1:
+    - "Sede centrale dell'azienda"
+  
+  BLDCTY10:
+    - "Uffici"
+  
+  // Type 0x1D:
+  SCAFDEF:
+    - "Ponteggio"
+  
+  // Type 0x1E:
+  BREWERY:
+    - "Fabbrica di birra"
+    - "Fabbrica di birra di „@ "
+    - "Fabbrica di birra "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " fabbrica di birra"
+    - " fabbriche di birra"
+  
+  CHEMWORK:
+    - "Stabilimento chimico"
+    - "Stabilimento chimico di „@ "
+    - "Stabilimento chimico "
+    - "Lo ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " stabilimento chimico"
+    - " stabilimenti chimici"
+  
+  COALPS:
+    - "Centrale elettrica a carbone"
+    - "Centrale elettrica di „@ "
+    - "Centrale elettrica "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " centrale elettrica a carbone"
+    - " centrali elettriche a carbone"
+  
+  FACTORY:
+    - "Fabbrica"
+    - "Fabbrica di „@ "
+    - "Fabbrica "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " fabbrica"
+    - " fabbriche"
+  
+  FARM:
+    - "Fattoria di grano"
+    - "Fattoria di grano di „@ "
+    - "Fattoria di grano "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " fattoria di grano"
+    - " fattorie di grano"
+  
+  FARMUS:
+    - "Fattoria di grano"
+    - "Fattoria di grano di „@ "
+    - "Fattoria di grano "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " fattoria di grano"
+    - " fattorie di grano"
+  
+  FOODPROC:
+    - "Stabilimento alimentare"
+    - "Stabilimento alimentare di „@ "
+    - "Stabilimento alimentare "
+    - "Lo ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " stabilimento alimentare"
+    - " stabilimenti alimentari"
+  
+  FOREST:
+    - "Foresta gestita"
+    - "Foresta di „@ "
+    - "Foresta "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " foresta gestita"
+    - " foreste gestite"
+  
+  OILREFIN:
+    - "Raffineria"
+    - "Raffineria di „@ "
+    - "Raffineria "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " raffineria"
+    - " raffinerie"
+  
+  OILRIG:
+    - "Piattaforma petrolifera"
+    - "Giacimento petrolifero di „@ "
+    - "Giacimento petrolifero "
+    - "La ƒ non estrae più nulla e sta chiudendo!"
+    - "Sono state scoperti nuovi giacimenti sotto: ƒ - la produzione aumenta!"
+    - "I giacimenti presso: ƒ si stanno esaurendo - la produzione diminuisce!"
+    - " piattaforma petrolifera"
+    - " piattaforme petrolifere"
+  
+  OILWELL:
+    - "Pozzi petroliferi"
+    - "Pozzi petroliferi di „@ "
+    - "Pozzi petroliferi "
+    - "I ƒ si sono esauriti e stanno chiudendo!"
+    - "Sono state scoperti nuovi giacimenti sotto i ƒ - la produzione aumenta!"
+    - "I giacimenti sotto i ƒ si stanno esaurendo - la produzione diminuisce!"
+    - " pozzi petroliferi"
+    - " pozzi petroliferi"
+  
+  OREMINE:
+    - "Miniere di ferro"
+    - "Miniere di ferro di „@ "
+    - "Miniere di ferro "
+    - "La ƒ sta chiudendo!"
+    - "È stato scoperto un nuovo giacimento nelle ƒ - la produzione aumenta!"
+    - "La produzione delle ƒ diminuisce!"
+    - " miniera di ferro"
+    - " miniere di ferro"
+  
+  PAPERMIL:
+    - "Cartiera"
+    - "Cartiera di „@ "
+    - "Cartiera "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " cartiera"
+    - " cartiere"
+  
+  PRINTWRK:
+    - "Stamperia"
+    - "Stamperia di „@ "
+    - "Stamperia "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " stamperia"
+    - " stamperie"
+  
+  SAWMILL:
+    - "Segheria"
+    - "Segheria di „@ "
+    - "Segheria "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " segheria"
+    - " segherie"
+  
+  SKICENT:
+    - "Centro sciistico"
+    - "Centro sciistico di „@ "
+    - "Centro sciistico "
+    - "Il ƒ sta chiudendo!"
+    - " "
+    - " "
+    - " centro sciistico"
+    - " centri sciistici"
+  
+  STEELMIL:
+    - "Acciaieria"
+    - "Acciaieria di „@ "
+    - "Acciaieria "
+    - "L'ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " acciaieria"
+    - " acciaierie"
+  
+  STOCKFRM:
+    - "Allevamento"
+    - "Allevamento di „@ "
+    - "Allevamento "
+    - "L'ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " allevamento"
+    - " allevamenti"
+  
+  VINEYARD:
+    - "Vigna"
+    - "Vigna di „@ "
+    - "Vigna "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " vigna"
+    - " vigne"
+  
+  WINDMILL:
+    - "Fabbrica di farina"
+    - "Fabbrica di farina di „@ "
+    - "Fabbrica di farina "
+    - "La ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " fabbrica di farina"
+    - " fabbriche di farina"
+  
+  WINERY:
+    - "Stabilimento vinicolo"
+    - "Stabilimento vinicolo di „@ "
+    - "Stabilimento vinicolo "
+    - "Lo ƒ sta chiudendo!"
+    - "ƒ - la produzione aumenta!"
+    - "ƒ - la produzione diminuisce!"
+    - " stabilimento vinicolo"
+    - " stabilimenti vinicoli"
+  
+  COALMINE:
+    - "Miniere di carbone"
+    - "Miniere di carbone di „@ "
+    - "Miniere di carbone "
+    - "Le ƒ sono rimaste senza carbone e stanno chiudendo!"
+    - "È stato scoperto un nuovo giacimento nelle ƒ - la produzione aumenta!"
+    - "Crolla un pozzo minerario nelle ƒ - la produzione diminuisce!"
+    - " miniera di carbone"
+    - " miniere di carbone"
+  
+  // Type 0x1F:
+  REGALP:
+    - "Montagne alpine"
+  
+  REGUK:
+    - "Gran Bretagna"
+  
+  REGUS:
+    - "Nordamerica"
+  
+  // Type 0x20:
+  COMP1:
+    - "ˆRonnie Riddlesworth"
+    - "Riddlesworth"
+  
+  COMP10:
+    - "ˆCharles Chilblain"
+    - "Chilblain"
+  
+  COMP11:
+    - "ˆWalter Wellington"
+    - "Wellington"
+  
+  COMP12:
+    - "ˆFoo Fandango"
+    - "Fandango"
+  
+  COMP13:
+    - "ˆHarriet Hatstand"
+    - "Hatstand"
+  
+  COMP14:
+    - "ˆKathy Kilowatt"
+    - "Kilowatt"
+  
+  COMP15:
+    - "ˆLizzy Leopard"
+    - "Leopard"
+  
+  COMP16:
+    - "ˆMarmaduke Muddleshop"
+    - "Muddleshop"
+  
+  COMP17:
+    - "ˆReginald Rottenfish"
+    - "Rottenfish"
+  
+  COMP18:
+    - "ˆIsaac Imperial"
+    - "Imperial"
+  
+  COMP19:
+    - "ˆWodger Whamjet"
+    - "Whamjet"
+  
+  COMP2:
+    - "ˆJillie Jamjar"
+    - "Jamjar"
+  
+  COMP20:
+    - "ˆDorothy Dumblebum"
+    - "Dumblebum"
+  
+  COMP21:
+    - "ˆEvelyn Eggburt"
+    - "Eggburt"
+  
+  COMP22:
+    - "ˆBasil Boombox"
+    - "Boombox"
+  
+  COMP23:
+    - "ˆCecil Cityscape"
+    - "Cityscape"
+  
+  COMP24:
+    - "ˆGary Gangle"
+    - "Gangley"
+  
+  COMP25:
+    - "ˆTheresa Tops"
+    - "Topsy"
+  
+  COMP26:
+    - "ˆMick Motormouth"
+    - "Motormouth"
+  
+  COMP27:
+    - "ˆDaisy Dastardly"
+    - "Daisy"
+  
+  COMP28:
+    - "ˆBo Buzzball"
+    - "Buzzy"
+  
+  COMP29:
+    - "ˆMr Big"
+    - "Big"
+  
+  COMP3:
+    - "ˆRosie Redbone"
+    - "Redbone"
+  
+  COMP30:
+    - "ˆMaggie Munchkins"
+    - "Munchkins"
+  
+  COMP31:
+    - "ˆTheodore Thin"
+    - "Thin"
+  
+  COMP32:
+    - "ˆPete Pennyweight"
+    - "Penny"
+  
+  COMP33:
+    - "ˆFreddy Fiddlestick"
+    - "Fiddlestick"
+  
+  COMP34:
+    - "ˆNaomi Nevermore"
+    - "Nevermore"
+  
+  COMP35:
+    - "ˆOliver Organic"
+    - "Organic"
+  
+  COMP36:
+    - "ˆSue Shaker"
+    - "Shaker"
+  
+  COMP37:
+    - "ˆTony Terrific"
+    - "Terrific"
+  
+  COMP38:
+    - "ˆRicky Ripoff"
+    - "Ripoff"
+  
+  COMP4:
+    - "ˆGuiseppe Gluck"
+    - "Gluck"
+  
+  COMP5:
+    - "ˆAlfred Ashdown"
+    - "Ashdown"
+  
+  COMP6:
+    - "ˆCorina Cross"
+    - "Cross"
+  
+  COMP7:
+    - "ˆDave Doorknob"
+    - "Doorknob"
+  
+  COMP8:
+    - "ˆJeremy Jewelfish"
+    - "Jewelfish"
+  
+  COMP9:
+    - "ˆAgnes Armchair"
+    - "Armchair"
+  
+  // Type 0x21:
+  STEX000:
+    - "Gran Bretagna e Irlanda - 1900"
+    - "Crea servizi di trasporto passeggeri nella Gran Bretagna del primo Novecento"
+  
+  STEX001:
+    - "Gran Bretagna e Irlanda - 1930"
+    - "Crea una rete di trasporti nella Gran Bretagna degli anni '30"
+  
+  STEX002:
+    - "Gran Bretagna e Irlanda - 1955"
+    - "Crea una fiorente azienda di trasporti nella Gran Bretagna degli anni '50"
+  
+  STEX003:
+    - "Gran Bretagna e Irlanda - sfida dei 100 anni"
+    - "Crea un impero dei trasporti in Gran Bretagna e Irlanda"
+  
+  STEX004:
+    - "Nordamerica (est) - 1900"
+    - "Crea servizi di trasporto passeggeri nell'America del primo Novecento"
+  
+  STEX005:
+    - "Nordamerica (est) - 1950"
+    - "Crea una rete di trasporti nell'America degli anni '50"
+  
+  STEX006:
+    - "Nordamerica (est) - 1965"
+    - "Crea una fiorente azienda di trasporti nell'America degli anni '60\/'70"
+  
+  STEX007:
+    - "Nordamerica (est) - sfida dei 100 anni"
+    - "Crea un impero dei trasporti nel Nordamerica orientale"
+  
+  STEX008:
+    - "Nordamerica (centro) - 1920"
+    - "Crea servizi di trasporto passeggeri nell'America degli anni '20"
+  
+  STEX009:
+    - "Nordamerica (centro) - 1945"
+    - "Crea una rete di trasporti nell'America dei tardi anni '40"
+  
+  STEX010:
+    - "Nordamerica (centro) - 1970"
+    - "Crea una fiorente azienda di trasporti nell'America degli anni '70"
+  
+  STEX011:
+    - "Nordamerica (centro) - sfida dei 100 anni"
+    - "Crea un impero dei trasporti nella zona centrale del Nordamerica"
+  
+  STEX012:
+    - "Nordamerica (ovest) - 1910"
+    - "Crea una redditizia rete di trasporti nell'America degli anni '10"
+  
+  STEX013:
+    - "Nordamerica (ovest) - 1955"
+    - "Crea una rete di trasporti nell'America degli anni '50"
+  
+  STEX014:
+    - "Nordamerica (ovest) - 1980"
+    - "Fonda una grande azienda di trasporti nell'America degli anni '80"
+  
+  STEX015:
+    - "Nordamerica (ovest) - sfida dei 100 anni"
+    - "Crea un impero dei trasporti nel Nordamerica occidentale"
+  
+  STEX016:
+    - "Alpi svizzere - 1905"
+    - "Fonda un'azienda di trasporti nella Svizzera del primo Novecento"
+  
+  STEX017:
+    - "Alpi svizzere - 1930"
+    - "Trasporta passeggeri nella Svizzera degli anni '30"
+  
+  STEX018:
+    - "Alpi svizzere - 1960"
+    - "Crea una fiorente azienda di trasporti nella Svizzera degli anni '60"
+  
+  STEX019:
+    - "Alpi svizzere - sfida dei 100 anni"
+    - "Crea un impero dei trasporti nelle Alpi svizzere"
+  
+  STEX020:
+    - "Corsa alla carta"
+    - "Trasporta il legname alle cartiere e poi la carta alle stamperie per soddisfare l'esigenza di libri e riviste della popolazione"
+  
+  STEX021:
+    - "Coltivazione delle Cicladi"
+    - "Trasporta il bestiame e l'uva delle fattorie e delle vigne di queste isole greche"
+  
+  STEX022:
+    - "Diari del Dodecaneso"
+    - "Trasporta le merci fra questo gruppo di isole assai sparpagliate"
+  
+  STEX023:
+    - "Montagna micidiale"
+    - "Fonda una grande azienda di trasporti in una zona isolata dalle montagne"
+  
+  STEX024:
+    - "Passo pericoloso"
+    - "Supera le sfide rappresentate dal passo che unisce due catene montuose"
+  
+  STEX025:
+    - "Delirio nel deserto"
+    - "Fonda un'azienda di trasporti in questa zona desertica"
+  
+  STEX026:
+    - "Vacche e vigne"
+    - "Ricava profitto trasportando bestiame e uva in questa ricca zona agricola"
+  
+  STEX027:
+    - "Scontro sostanziale"
+    - "Combatti per ottenere la supremazia dei trasporti in questo mondo frenetico"
+  
+  STEX028:
+    - "Santarinos"
+    - "Permetti ai passeggeri di muoversi intorno a questa isola a forma di 'O'"
+  
+  STEX029:
+    - "Yew Island"
+    - "Fonda la tua azienda di trasporti su questa gigantesca isola"
+  
+  STEX030:
+    - "Mondi perduti"
+    - "Trasporta passeggeri e merci in questa regione di colline tropicali"
+  
+  STEX031:
+    - "Oasi petrolifera"
+    - "Crea una rete di trasporti per trasferire il petrolio in questa zona desertica"
+  
+  STEX032:
+    - "Isola del sorriso"
+    - "Costruisci un impero dei trasporti su quest'isola dei divertimenti"
+  
+  STEX033:
+    - "Percorso guidato"
+    - "Collega le isole per trasportare le merci da una costa all'altra"
+  
+  STEX034:
+    - "Keystone Keys"
+    - "Gestisci il trasporto di merci e passeggeri fra le isole dei Keystone Keys"
+  
+  STEX035:
+    - "Vulcano volubile"
+    - "Costruisci un impero dei trasporti su quest'isola che ospita un vulcano spento"
+  
+  STEX036:
+    - "Fornitore di Flintrock"
+    - "Continua a fornire passeggeri e merci all'enorme città di Flintrock"
+  
+  STEX037:
+    - "Denaro dalle dune"
+    - "Realizza i tuoi primi profitti in questa zona desertica"
+  
+  STEX038:
+    - "Spaccapietre"
+    - "Fornisci servizi di trasporto su questa piccola isola"
+  
+  STEX039:
+    - "Cime nevose"
+    - "Trasporta turisti e fornisci materie prime agli stabilimenti di questa regione montuosa"
+  
+  STEX040:
+    - "Scalata stancante"
+    - "Ricava profitti trasportando merci fra gli stabilimenti ai due lati della gigantesca scarpata"
+  
+  STEX041:
+    - "Buche bizzarre"
+    - "Trasporta passeggeri e merci in questo paesaggio butterato"
+  
+  STEX042:
+    - "Binari contro strade"
+    - "Costruisci un'efficiente rete di trasporti ferroviari, trionfando sulle aziende concorrenti di trasporti stradali"
+  
+  STEX043:
+    - "Mal d'aria"
+    - "Riuscirai a competere con le intraprendenti compagnie aeree offrendo servizi di trasporto esclusivamente terrestri o acquatici?"
+  
+  STEX044:
+    - "Weatherworld"
+    - "Crea un servizio passeggeri fra le città di Weatherworld"
+  
