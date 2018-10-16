@@ -4,6 +4,7 @@
 #include "localisation/stringmgr.h"
 #include "types.hpp"
 #include "ui.h"
+#include "ui/WindowPalette.h"
 #include "ui/WindowType.h"
 
 namespace openloco::ui
@@ -303,7 +304,7 @@ namespace openloco::ui
                 uint8_t pad_883[1];
                 int8_t var_884;
                 uint8_t pad_885[1];
-                uint8_t colours[4]; // 0x886
+                WindowPalette palettes[4]; // 0x886
                 int16_t var_88A;
                 int16_t var_88C;
             };

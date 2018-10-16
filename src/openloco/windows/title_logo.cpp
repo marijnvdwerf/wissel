@@ -1,4 +1,3 @@
-#include "../graphics/colours.h"
 #include "../graphics/image_ids.h"
 #include "../interop/interop.hpp"
 #include "../openloco.h"
@@ -47,8 +46,8 @@ namespace openloco::ui::windows
 
         window->init_scroll_widgets();
 
-        window->colours[0] = colour::translucent(colour::grey);
-        window->colours[1] = colour::translucent(colour::grey);
+        window->palettes[0] = WindowPalette::translucent(Palette::grey);
+        window->palettes[1] = WindowPalette::translucent(Palette::grey);
 
         return window;
     }

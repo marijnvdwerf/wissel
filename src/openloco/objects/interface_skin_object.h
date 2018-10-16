@@ -1,6 +1,9 @@
 #pragma once
 
+#include "../graphics/Palette.h"
 #include "../localisation/stringmgr.h"
+
+using namespace openloco::graphics;
 
 namespace openloco
 {
@@ -9,24 +12,24 @@ namespace openloco
     {
         string_id name;
         uint32_t img;
-        uint8_t colour_06;
-        uint8_t colour_07;
-        uint8_t colour_08;
-        uint8_t colour_09;
-        uint8_t colour_0A;
-        uint8_t colour_0B;
-        uint8_t colour_0C;
-        uint8_t colour_0D;
-        uint8_t colour_0E;
-        uint8_t colour_0F;
-        uint8_t colour_10;
-        uint8_t colour_11;
-        uint8_t colour_12;
-        uint8_t colour_13;
-        uint8_t colour_14;
-        uint8_t colour_15;
-        uint8_t colour_16;
-        uint8_t colour_17;
+        Palette colour_06;
+        Palette colour_07;
+        Palette colour_08;
+        Palette colour_09;
+        Palette colour_0A;
+        Palette colour_0B;
+        Palette colour_0C;
+        Palette colour_0D;
+        Palette colour_0E;
+        Palette colour_0F;
+        Palette colour_10;
+        Palette colour_11;
+        Palette colour_12;
+        Palette colour_13;
+        Palette colour_14;
+        Palette colour_15;
+        Palette colour_16;
+        Palette colour_17;
     };
 
     namespace interface_skin::image_ids

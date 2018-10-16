@@ -2,7 +2,11 @@
 
 #include "../localisation/stringmgr.h"
 #include "../openloco.h"
+#include "IndexedColour.h"
+#include "TextPalette.h"
 #include <cstdint>
+
+using namespace openloco::graphics;
 
 namespace openloco::gfx
 {
@@ -85,19 +89,19 @@ namespace openloco::gfx
     int16_t clip_string(int16_t width, char* string);
     uint16_t get_string_width(const char* buffer);
 
-    gfx::point_t draw_string(drawpixelinfo_t* context, int16_t x, int16_t y, uint8_t colour, void* str);
+    gfx::point_t draw_string(drawpixelinfo_t* context, int16_t x, int16_t y, TextPalette colour, void* str);
 
     void draw_string_494B3F(
         drawpixelinfo_t& dpi,
         int16_t x,
         int16_t y,
-        uint8_t colour,
+        TextPalette colour,
         string_id stringId,
         const void* args);
     void draw_string_494B3F(
         drawpixelinfo_t& dpi,
         point_t* origin,
-        uint8_t colour,
+        TextPalette colour,
         string_id stringId,
         const void* args);
     void draw_string_494BBF(
@@ -105,14 +109,14 @@ namespace openloco::gfx
         int16_t x,
         int16_t y,
         int16_t width,
-        uint8_t colour,
+        TextPalette colour,
         string_id stringId,
         const void* args);
     void draw_string_centred(
         drawpixelinfo_t& dpi,
         int16_t x,
         int16_t y,
-        uint8_t colour,
+        TextPalette colour,
         string_id stringId,
         const char* args);
     void draw_string_centred_clipped(
@@ -120,14 +124,14 @@ namespace openloco::gfx
         int16_t x,
         int16_t y,
         int16_t width,
-        uint8_t colour,
+        TextPalette colour,
         string_id stringId,
         const char* args);
     void draw_string_centred_wrapped(
         drawpixelinfo_t* context,
         point_t* origin,
         uint16_t width,
-        uint8_t colour,
+        TextPalette colour,
         string_id stringId,
         const char* args = nullptr);
 
@@ -135,8 +139,8 @@ namespace openloco::gfx
     void draw_rect(gfx::drawpixelinfo_t* dpi, int16_t x, int16_t y, uint16_t dx, uint16_t dy, uint32_t color);
     void fill_rect_inset(gfx::drawpixelinfo_t* dpi, int16_t left, int16_t top, int16_t right, int16_t bottom, uint32_t color, uint8_t flags);
     void draw_image(gfx::drawpixelinfo_t* dpi, int16_t x, int16_t y, uint32_t image);
-    void draw_image_solid(gfx::drawpixelinfo_t* dpi, int16_t x, int16_t y, uint32_t image, uint8_t palette_index);
-    void draw_image_palette_set(gfx::drawpixelinfo_t* dpi, int16_t x, int16_t y, uint32_t image, uint8_t* palette);
+    void draw_image_solid(gfx::drawpixelinfo_t* dpi, int16_t x, int16_t y, uint32_t image, IndexedColour palette_index);
+    void draw_image_palette_set(gfx::drawpixelinfo_t* dpi, int16_t x, int16_t y, uint32_t image, IndexedColour* palette);
 
     void invalidate_screen();
     void set_dirty_blocks(int32_t left, int32_t top, int32_t right, int32_t bottom);

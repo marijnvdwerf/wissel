@@ -88,7 +88,7 @@ namespace openloco::ui::options
                 gfx::draw_image(ctx, pos.x, pos.y + 1, imageId);
             }
             gfx::draw_image(ctx, pos.x, pos.y, 0x40000000 | (51 << 19) | 2387);
-            gfx::draw_rect(ctx, pos.x, pos.y + 26, 31, 1, colour::get_shade(w->colours[1], 7));
+            gfx::draw_rect(ctx, pos.x, pos.y + 26, 31, 1, colour::get_shade(w->palettes[1].getPalette(), 7));
         }
     }
 
@@ -324,7 +324,7 @@ namespace openloco::ui::options
         static void construction_marker_mouse_down(window* w, widget_index wi)
         {
             widget_t dropdown = w->widgets[widx::construction_marker];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 2, 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], 2, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::white);
             dropdown::add(1, string_ids::dropdown_stringid, string_ids::translucent);
@@ -352,7 +352,7 @@ namespace openloco::ui::options
         static void vehicle_zoom_mouse_down(window* w, widget_index wi)
         {
             widget_t dropdown = w->widgets[widx::vehicles_min_scale];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 4, 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], 4, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::full_scale);
             dropdown::add(1, string_ids::dropdown_stringid, string_ids::half_scale);
@@ -382,7 +382,7 @@ namespace openloco::ui::options
         static void station_names_scale_mouse_down(window* w, widget_index wi)
         {
             widget_t dropdown = w->widgets[widx::station_names_min_scale];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 4, 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], 4, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::full_scale);
             dropdown::add(1, string_ids::dropdown_stringid, string_ids::half_scale);
@@ -425,7 +425,7 @@ namespace openloco::ui::options
         static void screen_mode_mouse_down(window* w, widget_index wi)
         {
             widget_t dropdown = w->widgets[widx::screen_mode];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 3, 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], 3, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::options_mode_windowed);
             dropdown::add(1, string_ids::dropdown_stringid, string_ids::options_mode_fullscreen);
@@ -458,7 +458,7 @@ namespace openloco::ui::options
             std::vector<Resolution> resolutions = getFullscreenResolutions();
 
             widget_t dropdown = w->widgets[widx::display_resolution];
-            dropdown::show_text_2(w->x + dropdown.left, w->y + dropdown.top, dropdown.width(), dropdown.height(), w->colours[1], (int8_t)resolutions.size(), 0x80);
+            dropdown::show_text_2(w->x + dropdown.left, w->y + dropdown.top, dropdown.width(), dropdown.height(), w->palettes[1], (int8_t)resolutions.size(), 0x80);
 
             auto& cfg = config::get();
             for (size_t i = 0; i < resolutions.size(); i++)
@@ -623,19 +623,19 @@ namespace openloco::ui::options
 
             int16_t x = w->x + 10;
             int16_t y = w->y + display::_widgets[display::widx::screen_mode].top + 1;
-            draw_string_494B3F(*dpi, x, y, colour::black, string_ids::options_screen_mode, nullptr);
+            draw_string_494B3F(*dpi, x, y, Palette::black, string_ids::options_screen_mode, nullptr);
 
             y = w->y + display::_widgets[display::widx::display_resolution].top + 1;
-            draw_string_494B3F(*dpi, x + 14, y, colour::black, string_ids::display_resolution, nullptr);
+            draw_string_494B3F(*dpi, x + 14, y, Palette::black, string_ids::display_resolution, nullptr);
 
             y = w->y + display::_widgets[display::widx::construction_marker].top + 1;
-            draw_string_494B3F(*dpi, x, y, colour::black, string_ids::construction_marker, nullptr);
+            draw_string_494B3F(*dpi, x, y, Palette::black, string_ids::construction_marker, nullptr);
 
             y = w->y + display::_widgets[display::widx::vehicles_min_scale].top + 1;
-            draw_string_494B3F(*dpi, x, y, colour::black, string_ids::vehicles_min_scale, nullptr);
+            draw_string_494B3F(*dpi, x, y, Palette::black, string_ids::vehicles_min_scale, nullptr);
 
             y = w->y + display::_widgets[display::widx::station_names_min_scale].top + 1;
-            draw_string_494B3F(*dpi, x, y, colour::black, string_ids::station_names_min_scale, nullptr);
+            draw_string_494B3F(*dpi, x, y, Palette::black, string_ids::station_names_min_scale, nullptr);
         }
 
         static const window_event_list init_events()
@@ -762,7 +762,7 @@ namespace openloco::ui::options
             if (devices.size() != 0)
             {
                 widget_t dropdown = w->widgets[widx::audio_device];
-                dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], (int8_t)devices.size(), 0x80);
+                dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], (int8_t)devices.size(), 0x80);
                 for (size_t i = 0; i < devices.size(); i++)
                 {
                     auto name = devices[i].c_str();
@@ -946,14 +946,14 @@ namespace openloco::ui::options
 
             common::draw_tabs(w, dpi);
 
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::currently_playing_btn].top, 0, string_ids::currently_playing, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::currently_playing_btn].top, Palette::black, string_ids::currently_playing, nullptr);
 
-            gfx::draw_string_494B3F(*dpi, w->x + 183, w->y + w->widgets[widx::volume].top + 7, 0, string_ids::volume, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 183, w->y + w->widgets[widx::volume].top + 7, Palette::black, string_ids::volume, nullptr);
 
-            gfx::draw_image(dpi, w->x + w->widgets[widx::volume].left, w->y + w->widgets[widx::volume].top, 0x20000000 | (w->colours[1] << 19) | image_ids::volume_slider_track);
+            gfx::draw_image(dpi, w->x + w->widgets[widx::volume].left, w->y + w->widgets[widx::volume].top, 0x20000000 | (w->palettes[1].getPalette() << 19) | image_ids::volume_slider_track);
 
             int16_t x = 90 + (config::get().volume / 32);
-            gfx::draw_image(dpi, w->x + w->widgets[widx::volume].left + x, w->y + w->widgets[widx::volume].top, 0x20000000 | (w->colours[1] << 19) | image_ids::volume_slider_thumb);
+            gfx::draw_image(dpi, w->x + w->widgets[widx::volume].left + x, w->y + w->widgets[widx::volume].top, 0x20000000 | (w->palettes[1].getPalette() << 19) | image_ids::volume_slider_thumb);
         }
 
         static void on_mouse_up(window* w, widget_index wi)
@@ -1095,7 +1095,7 @@ namespace openloco::ui::options
         static void music_playlist_mouse_down(window* w)
         {
             widget_t dropdown = w->widgets[widx::music_playlist];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 3, 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], 3, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::play_only_music_from_current_era);
             dropdown::add(1, string_ids::dropdown_stringid, string_ids::play_all_music);
@@ -1183,7 +1183,7 @@ namespace openloco::ui::options
             auto tracks = get_available_tracks();
 
             widget_t dropdown = w->widgets[widx::currently_playing];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], (int8_t)tracks.size(), 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], (int8_t)tracks.size(), 0x80);
 
             int index = -1;
             for (auto track : tracks)
@@ -1359,11 +1359,11 @@ namespace openloco::ui::options
             w->draw(dpi);
             common::draw_tabs(w, dpi);
 
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::language].top + 1, 0, string_ids::options_language, nullptr);
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::distance_speed].top + 1, 0, string_ids::distance_and_speed, nullptr);
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::heights].top + 1, 0, string_ids::heights, nullptr);
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::currency].top + 1, 0, string_ids::current_game_currency, nullptr);
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::preferred_currency].top + 1, 0, string_ids::new_game_currency, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::language].top + 1, Palette::black, string_ids::options_language, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::distance_speed].top + 1, Palette::black, string_ids::distance_and_speed, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::heights].top + 1, Palette::black, string_ids::heights, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::currency].top + 1, Palette::black, string_ids::current_game_currency, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::preferred_currency].top + 1, Palette::black, string_ids::new_game_currency, nullptr);
         }
 
         static void on_mouse_up(window* w, widget_index wi)
@@ -1451,7 +1451,7 @@ namespace openloco::ui::options
             uint8_t num_languages = static_cast<uint8_t>(lds.size());
 
             widget_t dropdown = w->widgets[widx::language];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], num_languages - 1, 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], num_languages - 1, 0x80);
 
             std::string& current_language = config::get_new().language;
 
@@ -1487,7 +1487,7 @@ namespace openloco::ui::options
             uint8_t* _11364A0 = (uint8_t*)*__11364A0;
 
             widget_t dropdown = w->widgets[widx::currency];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], _112C185, 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], _112C185, 0x80);
             int index = -1;
             for (auto object : objectmgr::getAvailableObjects(object_type::currency))
             {
@@ -1549,7 +1549,7 @@ namespace openloco::ui::options
         static void preferred_currency_mouse_down(window* w)
         {
             widget_t dropdown = w->widgets[widx::preferred_currency];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], _112C185, 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], _112C185, 0x80);
 
             int index = -1;
             for (auto object : objectmgr::getAvailableObjects(object_type::currency))
@@ -1633,7 +1633,7 @@ namespace openloco::ui::options
         static void distance_speed_mouse_down(window* w)
         {
             widget_t dropdown = w->widgets[widx::distance_speed];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 2, 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], 2, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::imperial);
             dropdown::add(1, string_ids::dropdown_stringid, string_ids::metric);
@@ -1664,7 +1664,7 @@ namespace openloco::ui::options
         static void heights_labels_mouse_down(window* w)
         {
             widget_t dropdown = w->widgets[widx::heights];
-            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 2, 0x80);
+            dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->palettes[1], 2, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::height_units);
             dropdown::add(1, string_ids::dropdown_stringid, string_ids::height_real_values);
@@ -1932,7 +1932,7 @@ namespace openloco::ui::options
             buffer[strlen(playerName)] = '\0';
 
             set_format_arg(0, string_id, string_ids::buffer_2039);
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::change_btn].top + 1, 0, string_ids::wcolour2_preferred_owner_name, _commonFormatArgs);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::change_btn].top + 1, Palette::black, string_ids::wcolour2_preferred_owner_name, _commonFormatArgs);
         }
 
         // 0x004C12D2
@@ -2153,8 +2153,8 @@ namespace openloco::ui::options
         window->var_840 = 0xFFFF;
 
         auto interface = objectmgr::get<interface_skin_object>();
-        window->colours[0] = interface->colour_0B;
-        window->colours[1] = interface->colour_10;
+        window->palettes[0] = interface->colour_0B;
+        window->palettes[1] = interface->colour_10;
 
         sub_4BF8CD();
         sub_4C1519();

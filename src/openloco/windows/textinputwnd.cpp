@@ -170,22 +170,22 @@ namespace openloco::ui::textinput
 
         caller = WindowManager::find(_callingWindowType, _callingWindowNumber);
 
-        window->colours[0] = caller->colours[0];
-        window->colours[1] = caller->colours[1];
+        window->palettes[0] = caller->palettes[0];
+        window->palettes[1] = caller->palettes[1];
         window->var_884 = caller->var_884;
 
         if (caller->type == WindowType::titleMenu)
         {
             interface_skin_object* interface = objectmgr::get<interface_skin_object>();
-            window->colours[0] = interface->colour_0B;
-            window->colours[1] = interface->colour_0C;
+            window->palettes[0] = interface->colour_0B;
+            window->palettes[1] = interface->colour_0C;
             window->var_884 = -1;
         }
 
         if (caller->type == WindowType::timeToolbar)
         {
             interface_skin_object* interface = objectmgr::get<interface_skin_object>();
-            window->colours[1] = interface->colour_0A;
+            window->palettes[1] = interface->colour_0A;
             window->var_884 = companymgr::get_controlling_id();
         }
 
@@ -264,7 +264,7 @@ namespace openloco::ui::textinput
         memcpy(&_commonFormatArgs[2], _formatArgs, 8);
 
         gfx::point_t position = { (int16_t)(window->x + window->width / 2), (int16_t)(window->y + 30) };
-        gfx::draw_string_centred_wrapped(context, &position, window->width - 8, 0, string_ids::wcolour2_stringid2, &_commonFormatArgs[0]);
+        gfx::draw_string_centred_wrapped(context, &position, window->width - 8, Palette::black, string_ids::wcolour2_stringid2, &_commonFormatArgs[0]);
 
         auto widget = &_widgets[widx::input];
         gfx::drawpixelinfo_t* clipped = nullptr;
@@ -279,7 +279,7 @@ namespace openloco::ui::textinput
         *((string_id*)(&_commonFormatArgs[0])) = string_ids::buffer_2039;
 
         position = { _xOffset, 1 };
-        gfx::draw_string_494B3F(*clipped, &position, 0, string_ids::white_stringid2, _commonFormatArgs);
+        gfx::draw_string_494B3F(*clipped, &position, Palette::black, string_ids::white_stringid2, _commonFormatArgs);
 
         if ((_cursorFrame % 32) >= 16)
         {
@@ -291,8 +291,8 @@ namespace openloco::ui::textinput
 
         *((string_id*)(&_commonFormatArgs[0])) = string_ids::buffer_2039;
         position = { _xOffset, 1 };
-        gfx::draw_string_494B3F(*clipped, &position, 0, string_ids::white_stringid2, _commonFormatArgs);
-        gfx::fill_rect(clipped, position.x, position.y, position.x, position.y + 9, colour::get_shade(window->colours[1], 9));
+        gfx::draw_string_494B3F(*clipped, &position, Palette::black, string_ids::white_stringid2, _commonFormatArgs);
+        gfx::fill_rect(clipped, position.x, position.y, position.x, position.y + 9, colour::get_shade(window->palettes[1].getPalette(), 9));
     }
 
     // 0x004CE8B6

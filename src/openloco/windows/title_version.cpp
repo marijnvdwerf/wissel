@@ -1,4 +1,3 @@
-#include "../graphics/colours.h"
 #include "../interop/interop.hpp"
 #include "../openloco.h"
 #include "../ui.h"
@@ -41,6 +40,8 @@ namespace openloco::ui::windows
     static void draw(ui::window* window, gfx::drawpixelinfo_t* dpi)
     {
         auto versionInfo = get_version_info();
-        gfx::draw_string(dpi, window->x, window->y, colour::white | format_flags::textflag_5, (void*)versionInfo.c_str());
+        TextPalette palette = Palette::white;
+        palette.setFlag5();
+        gfx::draw_string(dpi, window->x, window->y, palette, (void*)versionInfo.c_str());
     }
 }

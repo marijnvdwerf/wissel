@@ -11,8 +11,6 @@ using namespace openloco::interop;
 
 namespace openloco::ui::windows
 {
-    static loco_global<uint8_t[256], 0x001136BA4> byte_1136BA4;
-
     static station_id_t get_station_id(const window& w)
     {
         return w.number;
@@ -24,7 +22,7 @@ namespace openloco::ui::windows
     }
 
     // 0x0048EF02
-    static void draw_rating_bar(window& w, gfx::drawpixelinfo_t& dpi, int16_t x, int16_t y, uint8_t amount, colour_t colour)
+    static void draw_rating_bar(window& w, gfx::drawpixelinfo_t& dpi, int16_t x, int16_t y, uint8_t amount, Palette colour)
     {
         registers regs;
         regs.al = amount;
@@ -39,7 +37,7 @@ namespace openloco::ui::windows
     // 0x0048ED2F
     void station_2_scroll_paint(window& w, gfx::drawpixelinfo_t& dpi)
     {
-        auto paletteId = byte_1136BA4[w.colours[1] * 8];
+        auto paletteId = colour::get_shade(w.palettes[1].getPalette(), 4);
         gfx::clear_single(dpi, paletteId);
 
         const auto& station = get_station(w);
@@ -50,23 +48,23 @@ namespace openloco::ui::windows
             if (!cargo.empty())
             {
                 auto cargoObj = objectmgr::get<cargo_object>(i);
-                gfx::draw_string_494BBF(dpi, 1, y, 98, 0, string_ids::wcolour2_stringid2, &cargoObj->name);
+                gfx::draw_string_494BBF(dpi, 1, y, 98, Palette::black, string_ids::wcolour2_stringid2, &cargoObj->name);
 
                 auto rating = cargo.rating;
-                auto colour = colour::moss_green;
+                auto colour = Palette::moss_green;
                 if (rating < 100)
                 {
-                    colour = colour::dark_olive_green;
+                    colour = Palette::dark_olive_green;
                     if (rating < 50)
                     {
-                        colour = colour::saturated_red;
+                        colour = Palette::saturated_red;
                     }
                 }
                 uint8_t amount = (rating * 327) / 256;
                 draw_rating_bar(w, dpi, 100, y, amount, colour);
 
                 uint16_t percent = rating / 2;
-                gfx::draw_string_494B3F(dpi, 201, y, 0, string_ids::station_cargo_rating_percent, &percent);
+                gfx::draw_string_494B3F(dpi, 201, y, Palette::black, string_ids::station_cargo_rating_percent, &percent);
                 y += 10;
             }
         }

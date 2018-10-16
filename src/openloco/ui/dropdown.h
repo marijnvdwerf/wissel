@@ -1,5 +1,6 @@
-#include "../graphics/colours.h"
+#include "../graphics/Palette.h"
 #include "../localisation/stringmgr.h"
+#include "WindowPalette.h"
 #include <cstdlib>
 #include <vector>
 
@@ -45,7 +46,7 @@ namespace openloco::ui::dropdown
     void add(int16_t index, string_id title, format_arg l);
     void set_selection(int16_t index);
 
-    void show(int16_t x, int16_t y, int16_t width, int16_t height, colour_t colour, int8_t count, uint8_t flags);
-    void show_text(int16_t x, int16_t y, int16_t width, int16_t height, colour_t colour, int8_t count, uint8_t flags);
-    void show_text_2(int16_t x, int16_t y, int16_t width, int16_t height, colour_t colour, int8_t count, uint8_t flags);
+    void show(int16_t x, int16_t y, int16_t width, int16_t height, WindowPalette palette, int8_t count, uint8_t flags);
+    void show_text(int16_t x, int16_t y, int16_t width, int16_t height, WindowPalette palette, int8_t count, uint8_t flags);
+    void show_text_2(int16_t x, int16_t y, int16_t width, int16_t height, WindowPalette palette, int8_t count, uint8_t flags);
 }

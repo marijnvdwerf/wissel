@@ -1,5 +1,4 @@
 #include "../game_commands.h"
-#include "../graphics/colours.h"
 #include "../graphics/gfx.h"
 #include "../graphics/image_ids.h"
 #include "../input.h"
@@ -163,8 +162,8 @@ namespace openloco::ui::windows
 
         window->init_scroll_widgets();
 
-        window->colours[0] = colour::translucent(colour::saturated_green);
-        window->colours[1] = colour::translucent(colour::saturated_green);
+        window->palettes[0] = WindowPalette::translucent(Palette::saturated_green);
+        window->palettes[1] = WindowPalette::translucent(Palette::saturated_green);
         window->var_846 = 0;
 
         return window;
@@ -290,7 +289,7 @@ namespace openloco::ui::windows
                 string = string_ids::two_player_mode_connected;
             }
 
-            draw_string_centred_clipped(*dpi, x, y, ww - 4, colour::black, string, (char*)0x112c826);
+            draw_string_centred_clipped(*dpi, x, y, ww - 4, Palette::black, string, (char*)0x112c826);
         }
     }
 
@@ -389,7 +388,7 @@ namespace openloco::ui::windows
             window->y + widget->top,
             widget->width(),
             widget->height(),
-            colour::translucent(window->colours[0]),
+            WindowPalette::translucent(window->palettes[0]),
             3,
             0x80);
     }

@@ -1,4 +1,3 @@
-#include "../graphics/colours.h"
 #include "../graphics/gfx.h"
 #include "../graphics/image_ids.h"
 #include "../localisation/string_ids.h"
@@ -58,8 +57,8 @@ namespace openloco::ui::about
         window->init_scroll_widgets();
 
         auto interface = objectmgr::get<interface_skin_object>();
-        window->colours[0] = interface->colour_0B;
-        window->colours[1] = interface->colour_10;
+        window->palettes[0] = interface->colour_0B;
+        window->palettes[1] = interface->colour_10;
     }
 
     // 0x0043B4AF
@@ -86,37 +85,37 @@ namespace openloco::ui::about
         int16_t x = window->x + 200;
         int16_t y = window->y + 25;
 
-        draw_string_centred(*dpi, x, y, colour::black, string_ids::about_locomotion_69, nullptr);
+        draw_string_centred(*dpi, x, y, Palette::black, string_ids::about_locomotion_69, nullptr);
 
         y += 10;
-        draw_string_centred(*dpi, x, y, colour::black, string_ids::about_locomotion_70, nullptr);
+        draw_string_centred(*dpi, x, y, Palette::black, string_ids::about_locomotion_70, nullptr);
 
         // Chris Sawyer logo
         draw_image(dpi, window->x + 92, window->y + 52, image_ids::chris_sawyer_logo_small);
 
         y += 79;
-        draw_string_centred(*dpi, x, y, colour::black, string_ids::about_locomotion_71, nullptr);
+        draw_string_centred(*dpi, x, y, Palette::black, string_ids::about_locomotion_71, nullptr);
 
         y += 10;
-        draw_string_centred(*dpi, x, y, colour::black, string_ids::about_locomotion_72, nullptr);
+        draw_string_centred(*dpi, x, y, Palette::black, string_ids::about_locomotion_72, nullptr);
 
         y += 10;
-        draw_string_centred(*dpi, x, y, colour::black, string_ids::about_locomotion_73, nullptr);
+        draw_string_centred(*dpi, x, y, Palette::black, string_ids::about_locomotion_73, nullptr);
 
         y += 10;
-        draw_string_centred(*dpi, x, y, colour::black, string_ids::about_locomotion_74, nullptr);
+        draw_string_centred(*dpi, x, y, Palette::black, string_ids::about_locomotion_74, nullptr);
 
         y += 13;
-        draw_string_centred(*dpi, x, y, colour::black, string_ids::about_locomotion_75, nullptr);
+        draw_string_centred(*dpi, x, y, Palette::black, string_ids::about_locomotion_75, nullptr);
 
         y += 25;
-        draw_string_centred(*dpi, x, y, colour::black, string_ids::about_locomotion_76, nullptr);
+        draw_string_centred(*dpi, x, y, Palette::black, string_ids::about_locomotion_76, nullptr);
 
         y += 10;
-        draw_string_centred(*dpi, x, y, colour::black, string_ids::about_locomotion_77, nullptr);
+        draw_string_centred(*dpi, x, y, Palette::black, string_ids::about_locomotion_77, nullptr);
 
         // Licenced to Atari
         y += 25;
-        draw_string_centred(*dpi, x, y, colour::black, string_ids::licenced_to_atari_inc, nullptr);
+        draw_string_centred(*dpi, x, y, Palette::black, string_ids::licenced_to_atari_inc, nullptr);
     }
 }
