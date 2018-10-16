@@ -52,6 +52,8 @@ matrix:
             - mkdir build && cd build
             - cmake .. "-DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x86-osx
             - make -j2
+            - zip -r openloco-macos.zip openloco.app
+            - curl --progress-bar --upload-file openloco-macos.zip https://transfer.sh/openloco-macos.zip -o link && cat link;
         - os: osx
           osx_image: xcode9.2 # macOS 10.12 (lacks std::byte)
           language: cpp
