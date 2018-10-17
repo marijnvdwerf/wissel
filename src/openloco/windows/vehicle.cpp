@@ -53,17 +53,17 @@ namespace openloco::ui::vehicle
         {
             w->frame_no += 1;
             w->call_prepare_draw();
-            windowmgr::invalidate_widget(w->type, w->number, w->current_tab + 4);
+            WindowManager::invalidateWidget(w->type, w->number, w->current_tab + 4);
 
-            windowmgr::invalidate_widget(window_type::vehicle, w->number, 0x4);
-            windowmgr::invalidate_widget(window_type::vehicle, w->number, 0xA);
-            windowmgr::invalidate_widget(window_type::vehicle, w->number, 0xE);
-            windowmgr::invalidate_widget(window_type::vehicle, w->number, 0xD);
-            windowmgr::invalidate_widget(window_type::vehicle, w->number, 0xF);
+            WindowManager::invalidateWidget(WindowType::vehicle, w->number, 0x4);
+            WindowManager::invalidateWidget(WindowType::vehicle, w->number, 0xA);
+            WindowManager::invalidateWidget(WindowType::vehicle, w->number, 0xE);
+            WindowManager::invalidateWidget(WindowType::vehicle, w->number, 0xD);
+            WindowManager::invalidateWidget(WindowType::vehicle, w->number, 0xF);
 
             if (w->is_disabled(13))
             {
-                input::cancel_tool(window_type::vehicle, w->number);
+                input::cancel_tool(WindowType::vehicle, w->number);
                 return;
             }
 
@@ -74,13 +74,13 @@ namespace openloco::ui::vehicle
                 return;
             }
 
-            if (!windowmgr::is_in_front(w))
+            if (!WindowManager::is_in_front(w))
                 return;
 
             if (thing->var_21 != companymgr::get_controlling_id())
                 return;
 
-            if (!input::is_tool_active(window_type::vehicle, w->number))
+            if (!input::is_tool_active(WindowType::vehicle, w->number))
             {
                 sub_4B28E2(w, 13);
             }
@@ -94,7 +94,7 @@ namespace openloco::ui::vehicle
         {
             if (w->number == _1136156)
             {
-                if (windowmgr::find(window_type::drag_vehicle_part) == nullptr)
+                if (WindowManager::find(WindowType::dragVehiclePart) == nullptr)
                 {
                     _1136156 = -1;
                     _113614E = -1;
@@ -105,16 +105,16 @@ namespace openloco::ui::vehicle
             w->frame_no += 1;
             w->call_prepare_draw();
 
-            windowmgr::invalidate_widget(window_type::vehicle, w->number, 5);
+            WindowManager::invalidateWidget(WindowType::vehicle, w->number, 5);
 
             if (_1136156 == -1 && w->is_activated(11))
             {
-                windowmgr::invalidate_widget(window_type::vehicle, w->number, 11);
+                WindowManager::invalidateWidget(WindowType::vehicle, w->number, 11);
             }
 
             if (w->is_disabled(4))
             {
-                input::cancel_tool(window_type::vehicle, w->number);
+                input::cancel_tool(WindowType::vehicle, w->number);
                 return;
             }
 
@@ -122,13 +122,13 @@ namespace openloco::ui::vehicle
             if (thing->tile_x != -1 && (thing->var_38 & (1 << 4)) == 0)
                 return;
 
-            if (!windowmgr::is_in_front_alt(w))
+            if (!WindowManager::is_in_front_alt(w))
                 return;
 
             if (thing->var_21 != companymgr::get_controlling_id())
                 return;
 
-            if (!input::is_tool_active(window_type::vehicle, w->number))
+            if (!input::is_tool_active(WindowType::vehicle, w->number))
             {
                 sub_4B28E2(w, 10);
             }
@@ -142,16 +142,16 @@ namespace openloco::ui::vehicle
         {
             w->frame_no += 1;
             w->call_prepare_draw();
-            windowmgr::invalidate_widget(window_type::vehicle, w->number, 8);
+            WindowManager::invalidateWidget(WindowType::vehicle, w->number, 8);
 
             auto thing = thingmgr::get<openloco::vehicle>(w->number);
             if (thing->var_21 != companymgr::get_controlling_id())
                 return;
 
-            if (!windowmgr::is_in_front(w))
+            if (!WindowManager::is_in_front(w))
                 return;
 
-            if (input::is_tool_active(window_type::vehicle, w->number))
+            if (input::is_tool_active(WindowType::vehicle, w->number))
                 return;
 
             registers regs;

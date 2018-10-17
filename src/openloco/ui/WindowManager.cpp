@@ -4,12 +4,12 @@
 #include "../graphics/colours.h"
 #include "../input.h"
 #include "../interop/interop.hpp"
+#include "../map/tile.h"
 #include "../things/thingmgr.h"
 #include "../things/vehicle.h"
 #include "../tutorial.h"
 #include "../ui.h"
 #include "scrollview.h"
-#include "../map/tile.h"
 #include <algorithm>
 
 using namespace openloco::interop;

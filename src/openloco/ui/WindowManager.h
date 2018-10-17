@@ -40,6 +40,8 @@ namespace openloco::ui::WindowManager
     void closeTopmost();
     void allWheelInput();
     void sub_4C98CF();
+    bool is_in_front(ui::window* w);
+    bool is_in_front_alt(ui::window* w);
 }
 
 namespace openloco::ui::windows
