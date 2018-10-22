@@ -250,6 +250,7 @@ namespace openloco::ui
         }
 
         static viewport_pos map_from_3d(loc16 loc, int32_t rotation);
+        void centre_2d_coordinates(int16_t x, int16_t y, int16_t z, int16_t* outX, int16_t* outY);
     };
 
     struct viewport_config

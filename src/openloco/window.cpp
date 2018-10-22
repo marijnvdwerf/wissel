@@ -83,15 +83,6 @@ namespace openloco::ui
         call(0x004C68E4, regs);
     }
 
-    // 0x004CA444
-    static void centre_2d_coordinates(int16_t x, int16_t y, int16_t z, int16_t* outX, int16_t* outY, ui::viewport* vp)
-    {
-        auto centre = coordinate_3d_to_2d(x, y, z, gCurrentRotation);
-
-        *outX = centre.x - vp->view_width / 2;
-        *outY = centre.y - vp->view_height / 2;
-    }
-
     // 0x004C6456
     void window::viewports_update_position()
     {
@@ -118,7 +109,7 @@ namespace openloco::ui
 
                 viewport_set_underground_flag(underground, this, viewport);
 
-                centre_2d_coordinates(thing->x, thing->y, thing->z + 12, &centreX, &centreY, viewport);
+                viewport->centre_2d_coordinates(thing->x, thing->y, thing->z + 12, &centreX, &centreY);
             }
             else
             {
@@ -348,7 +339,7 @@ namespace openloco::ui
         int32_t base_height = map::tile_element_height(*map_x, *map_y);
         int16_t dest_x, dest_y;
         viewport* v = this->viewports[0];
-        centre_2d_coordinates(*map_x, *map_y, base_height, &dest_x, &dest_y, v);
+        v->centre_2d_coordinates(*map_x, *map_y, base_height, &dest_x, &dest_y);
 
         // Rebase mouse position onto centre of window, and compensate for zoom level.
         int16_t rebased_x = ((this->width >> 1) - mouse_x) * (1 << v->zoom),
@@ -366,7 +357,7 @@ namespace openloco::ui
         int16_t dest_x, dest_y;
         int32_t base_height = map::tile_element_height(map_x, map_y);
         viewport* v = this->viewports[0];
-        centre_2d_coordinates(map_x, map_y, base_height, &dest_x, &dest_y, v);
+        v->centre_2d_coordinates(map_x, map_y, base_height, &dest_x, &dest_y);
 
         // Get mouse position to offset against.
         int32_t mouse_x, mouse_y;
@@ -1104,5 +1095,14 @@ namespace openloco::ui
                 break;
         }
         return result;
+    }
+
+    // 0x004CA444
+    void viewport::centre_2d_coordinates(int16_t x, int16_t y, int16_t z, int16_t* outX, int16_t* outY)
+    {
+        auto centre = coordinate_3d_to_2d(x, y, z, gCurrentRotation);
+
+        *outX = centre.x - this->view_width / 2;
+        *outY = centre.y - this->view_height / 2;
     }
 }
