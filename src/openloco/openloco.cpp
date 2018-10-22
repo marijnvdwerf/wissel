@@ -21,10 +21,12 @@
 #include "audio/audio.h"
 #include "companymgr.h"
 #include "config.h"
+#include "console.h"
 #include "date.h"
 #include "environment.h"
 #include "graphics/colours.h"
 #include "graphics/gfx.h"
+#include "gui.h"
 #include "industrymgr.h"
 #include "input.h"
 #include "interop/interop.hpp"
@@ -312,7 +314,7 @@ namespace openloco
         intro::state(intro::intro_state::end);
 #endif
         call(0x0046AD7D);
-        call(0x00438A6C);
+        gui::init();
         gfx::clear(gfx::screen_dpi(), 0x0A0A0A0A);
     }
 
@@ -749,6 +751,15 @@ namespace openloco
 
             apply_patches();
             register_hooks();
+            register_hook(
+                0x004C57C0,
+                [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
+                    registers backup = regs;
+
+                    initialise_viewports();
+                    regs = backup;
+                    return 0;
+                });
 
             if (sub_4054B9())
             {

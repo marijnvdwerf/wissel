@@ -189,7 +189,7 @@ static void apply_patch_window_limit_increase()
 
 // TODO: free memory later...?
 // TODO: make the new ciewport limit configurable-at-startup-time (ensure that it's equal to the window limit!)
-static void apply_patch_viewport_limit_increase()
+void apply_patch_viewport_limit_increase()
 {
     constexpr auto oldaddr_viewport_list = 0x0113D758;
     constexpr auto oldaddr_new_viewport_pointer = 0x0113D820;
@@ -225,18 +225,7 @@ static void apply_patch_viewport_limit_increase()
     };
     static_assert(std::extent_v<decltype(refs_to_new_viewport_pointer)> == 15);
 
-    // allocate a new, larger buffer on the heap for viewport_list and new_viewport_pointer
-    const void* buf = ::malloc((new_viewport_limit * sizeof(ui::viewport)) + sizeof(uint32_t));
-    assert(buf != nullptr);
-
-    // ensure that the buffer was allocated in a 32-bit-addressable location
-    assert((uintptr_t)buf < std::numeric_limits<uint32_t>::max());
-
-    uint32_t newaddr_viewport_list = (uint32_t)buf;
-    uint32_t newaddr_new_viewport_pointer = newaddr_viewport_list + (new_viewport_limit * sizeof(ui::viewport));
-
-    // make the viewport list empty to start out
-    *(uint32_t*)newaddr_new_viewport_pointer = newaddr_viewport_list;
+    uint32_t nullAddress = 0;
 
     for (auto ref : refs_to_viewport_list)
     {
@@ -246,7 +235,7 @@ static void apply_patch_viewport_limit_increase()
         interop::read_memory(ref, &old, sizeof(old));
         assert(old == oldaddr_viewport_list);
 
-        interop::write_memory(ref, &newaddr_viewport_list, sizeof(newaddr_viewport_list));
+        interop::write_memory(ref, &nullAddress, sizeof(nullAddress));
     }
 
     for (auto ref : refs_to_new_viewport_pointer)
@@ -257,7 +246,7 @@ static void apply_patch_viewport_limit_increase()
         interop::read_memory(ref, &old, sizeof(old));
         assert(old == oldaddr_new_viewport_pointer);
 
-        interop::write_memory(ref, &newaddr_new_viewport_pointer, sizeof(newaddr_new_viewport_pointer));
+        interop::write_memory(ref, &nullAddress, sizeof(nullAddress));
     }
 
     // TODO: when viewport code is implemented, ensure that it uses our new pointers on the heap,
@@ -267,5 +256,5 @@ static void apply_patch_viewport_limit_increase()
 void openloco::interop::apply_patches()
 {
     apply_patch_window_limit_increase();
-    apply_patch_viewport_limit_increase();
+    //    apply_patch_viewport_limit_increase();
 }

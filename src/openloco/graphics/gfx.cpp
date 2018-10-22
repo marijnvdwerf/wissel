@@ -1,8 +1,10 @@
 #include "gfx.h"
+#include "../console.h"
 #include "../environment.h"
 #include "../interop/interop.hpp"
 #include "../localisation/languagefiles.h"
 #include "../ui.h"
+#include "../ui/WindowManager.h"
 #include "../utility/stream.hpp"
 #include "colours.h"
 #include "image_ids.h"
@@ -715,15 +717,43 @@ namespace openloco::gfx
         call(0x004C5C69, regs);
     }
 
-    // 0x004C5DD5
-    void redraw_screen_rect(int32_t left, int32_t top, int32_t right, int32_t bottom)
+    // 0x004C5EA9
+    static void window_draw(ui::window* w, int16_t left, int16_t top, int16_t right, int16_t bottom)
     {
         registers regs;
         regs.ax = left;
         regs.bx = top;
         regs.dx = right;
         regs.bp = bottom;
-        call(0x004C5DD5, regs);
+        regs.esi = (uintptr_t)w;
+
+        call(0x004C5EA9, regs);
+    }
+    /**
+     * 0x004C5DD5
+     *
+     * @param left @<ax>
+     * @param top @<bx>
+     * @param right @<dx>
+     * @param bottom @<bp>
+     */
+    void redraw_screen_rect(int16_t left, int16_t top, int16_t right, int16_t bottom)
+    {
+        for (auto i = 0; i < ui::WindowManager::count(); i++)
+        {
+            auto w = ui::WindowManager::get(i);
+
+            if ((w->flags & ui::window_flags::transparent) != 0)
+                continue;
+
+            if (right <= w->x || bottom <= w->y)
+                continue;
+
+            if (left >= w->x + w->width || top >= w->y + w->height)
+                continue;
+
+            window_draw(w, left, top, right, bottom);
+        }
     }
 
     void draw_image(gfx::drawpixelinfo_t* dpi, int16_t x, int16_t y, uint32_t image)

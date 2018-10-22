@@ -29,8 +29,9 @@ namespace openloco::ui::WindowManager
     void close(WindowType type);
     void close(WindowType type, uint16_t id);
     void close(window* window);
-    window* createWindow(WindowType type, int32_t x, int32_t y, int32_t width, int32_t height, int32_t flags, window_event_list* events);
-    window* createWindowCentred(WindowType type, int32_t width, int32_t height, int32_t flags, window_event_list* events);
+    window* createWindow(WindowType type, int16_t x, int16_t y, int16_t width, int16_t height, uint32_t flags, window_event_list* events);
+    window* createWindow(WindowType type, gfx::ui_size_t size, uint32_t flags, window_event_list* events);
+    window* createWindowCentred(WindowType type, uint16_t width, uint16_t height, uint32_t flags, window_event_list* events);
     void drawSingle(gfx::drawpixelinfo_t* dpi, window* w, int32_t left, int32_t top, int32_t right, int32_t bottom);
     void dispatchUpdateAll();
     void callViewportRotateEventOnAllWindows();
@@ -39,6 +40,7 @@ namespace openloco::ui::WindowManager
     void sub_4B93A5(window_number number);
     void closeTopmost();
     void allWheelInput();
+    void handle_input();
     void sub_4C98CF();
     bool is_in_front(ui::window* w);
     bool is_in_front_alt(ui::window* w);
