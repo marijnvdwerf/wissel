@@ -31,9 +31,9 @@ namespace openloco::colour
             _colour_map_a[i][7] = image->offset[252];
 
             _colour_map_b[i][8 - 8] = image->offset[253];
-            _colour_map_b[i][8 - 8] = image->offset[254];
-            _colour_map_b[i][8 - 8] = image->offset[255];
-            _colour_map_b[i][8 - 8] = image->offset[256];
+            _colour_map_b[i][9 - 8] = image->offset[254];
+            _colour_map_b[i][10 - 8] = image->offset[255];
+            _colour_map_b[i][11 - 8] = image->offset[256];
         }
     }
 
