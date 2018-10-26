@@ -201,11 +201,12 @@ set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/openloco/interop/in
 
 set(CMAKE_CXX_STANDARD 17)
 
+file(GLOB OLOCO_RESOURCES "data/language/*")
 if (MINGW)
     add_library(${PROJECT} ${OLOCO_SOURCES})
     target_link_libraries(${PROJECT} winmm)
 else ()
-    add_executable(${PROJECT} ${OLOCO_SOURCES} ${OLOCO_MM_SOURCES} ${LOCO_SECTIONS})
+    add_executable(${PROJECT} ${OLOCO_SOURCES} ${OLOCO_MM_SOURCES} ${LOCO_SECTIONS} ${OLOCO_RESOURCES})
     set_target_properties(${PROJECT} PROPERTIES LINK_FLAGS ${LOCO_SEGMENT_LINKER_FLAGS})
 endif ()
 
@@ -231,6 +232,15 @@ endif()
 
 if (APPLE)
     target_link_libraries(${PROJECT} "-framework Cocoa")
+    set_target_properties(
+        ${PROJECT} PROPERTIES
+        MACOSX_BUNDLE TRUE
+        RESOURCE ${OLOCO_RESOURCES})
+
+    set_property(
+        SOURCE ${OLOCO_RESOURCES}
+        PROPERTY MACOSX_PACKAGE_LOCATION "Resources/language"
+    )
 
     try_compile(SUPPORT_STD_BYTE ${CMAKE_BINARY_DIR} ${CMAKE_SOURCE_DIR}/cmake/std_byte.cpp CXX_STANDARD 17)
     if (NOT SUPPORT_STD_BYTE)
