@@ -1,6 +1,7 @@
 #include "WindowManager.h"
 #include "../companymgr.h"
 #include "../console.h"
+#include "../graphics/Palette.h"
 #include "../graphics/colours.h"
 #include "../input.h"
 #include "../interop/interop.hpp"
@@ -603,23 +604,23 @@ namespace openloco::ui::WindowManager
             return;
         }
 
-        loco_global<uint8_t[32], 0x9C645C> byte9C645C;
+        loco_global<Palette[32], 0x9C645C> byte9C645C;
 
-        // Company colour?
+        // Company Colour?
         if (w->var_884 != -1)
         {
-            w->colours[0] = byte9C645C[w->var_884];
+            w->palettes[0] = byte9C645C[w->var_884];
         }
 
         addr<0x1136F9C, int16_t>() = w->x;
         addr<0x1136F9E, int16_t>() = w->y;
 
-        loco_global<uint8_t[4], 0x1136594> windowColours;
+        loco_global<Palette[4], 0x1136594> windowColours;
         // Text colouring
-        windowColours[0] = colour::opaque(w->colours[0]);
-        windowColours[1] = colour::opaque(w->colours[1]);
-        windowColours[2] = colour::opaque(w->colours[2]);
-        windowColours[3] = colour::opaque(w->colours[3]);
+        windowColours[0] = w->palettes[0].getPalette();
+        windowColours[1] = w->palettes[1].getPalette();
+        windowColours[2] = w->palettes[2].getPalette();
+        windowColours[3] = w->palettes[3].getPalette();
 
         w->call_prepare_draw();
         w->call_draw(&dpi);

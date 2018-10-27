@@ -6,7 +6,6 @@
 #include <experimental/filesystem>
 #endif
 #include "../audio/audio.h"
-#include "../graphics/colours.h"
 #include "../input.h"
 #include "../interop/interop.hpp"
 #include "../openloco.h"
@@ -99,8 +98,8 @@ namespace openloco::ui::prompt_browse
             window->var_85A = 0xFFFF;
             addr<0x009DA285, uint8_t>() = 0;
             sub_4CEB67(addr<0x0050ADAC, int16_t>() - addr<0x0050ADAA, int16_t>());
-            window->colours[0] = colour::black;
-            window->colours[1] = colour::saturated_green;
+            window->palettes[0] = Palette::black;
+            window->palettes[1] = Palette::saturated_green;
             WindowManager::setCurrentModalType(WindowType::fileBrowserPrompt);
             prompt_tick_loop(
                 []() {

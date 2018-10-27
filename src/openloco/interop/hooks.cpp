@@ -9,7 +9,7 @@
 #include "../audio/audio.h"
 #include "../console.h"
 #include "../environment.h"
-#include "../graphics/colours.h"
+#include "../graphics/Palette.h"
 #include "../graphics/gfx.h"
 #include "../gui.h"
 #include "../input.h"
@@ -747,7 +747,7 @@ void openloco::interop::register_hooks()
         0x00451025,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
             registers backup = regs;
-            auto pos = gfx::draw_string((gfx::drawpixelinfo_t*)regs.edi, regs.cx, regs.dx, regs.al, (uint8_t*)regs.esi);
+            auto pos = gfx::draw_string((gfx::drawpixelinfo_t*)regs.edi, regs.cx, regs.dx, (TextPalette)regs.al, (uint8_t*)regs.esi);
             regs = backup;
             regs.cx = pos.x;
             regs.dx = pos.y;

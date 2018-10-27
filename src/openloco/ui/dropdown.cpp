@@ -72,16 +72,16 @@ namespace openloco::ui::dropdown
      * @param y
      * @param width
      * @param height
-     * @param colour
+     * @param palette
      * @param count
      * @param flags
      */
-    void show(int16_t x, int16_t y, int16_t width, int16_t height, colour_t colour, int8_t count, uint8_t flags)
+    void show(int16_t x, int16_t y, int16_t width, int16_t height, WindowPalette palette, int8_t count, uint8_t flags)
     {
         registers regs;
         regs.cx = x;
         regs.dx = y;
-        regs.al = colour;
+        regs.al = palette.value;
         regs.bl = count;
         regs.bh = flags;
         regs.bp = width;
@@ -100,12 +100,12 @@ namespace openloco::ui::dropdown
      * count @<bl>
      * flags @<bh>
      */
-    void show_text(int16_t x, int16_t y, int16_t width, int16_t height, colour_t colour, int8_t count, uint8_t flags)
+    void show_text(int16_t x, int16_t y, int16_t width, int16_t height, WindowPalette palette, int8_t count, uint8_t flags)
     {
         registers regs;
         regs.cx = x;
         regs.dx = y;
-        regs.al = colour;
+        regs.al = palette.value;
         regs.bl = count;
         regs.bh = flags;
         regs.bp = width;
@@ -124,12 +124,12 @@ namespace openloco::ui::dropdown
      * count @<bl>
      * flags @<bh>
      */
-    void show_text_2(int16_t x, int16_t y, int16_t width, int16_t height, colour_t colour, int8_t count, uint8_t flags)
+    void show_text_2(int16_t x, int16_t y, int16_t width, int16_t height, WindowPalette palette, int8_t count, uint8_t flags)
     {
         registers regs;
         regs.cx = x;
         regs.dx = y;
-        regs.al = colour;
+        regs.al = palette.value;
         regs.bl = count;
         regs.bh = flags;
         regs.bp = width;

@@ -1,6 +1,6 @@
 #include "window.h"
 #include "console.h"
-#include "graphics/colours.h"
+#include "graphics/Palette.h"
 #include "input.h"
 #include "interop/interop.hpp"
 #include "map/tile.h"
@@ -898,7 +898,7 @@ namespace openloco::ui
                 widgetFlags = 0x80;
             }
 
-            uint8_t colour = this->colours[widget->colour];
+            uint8_t colour = this->palettes[widget->colour].value;
 
             bool enabled = (this->enabled_widgets & (1ULL << widgetIndex)) != 0;
             bool disabled = (this->disabled_widgets & (1ULL << widgetIndex)) != 0;
@@ -1025,7 +1025,7 @@ namespace openloco::ui
                 this->y,
                 this->x + this->width - 1,
                 this->y + this->height - 1,
-                colour::white,
+                Palette::white,
                 0x10);
         }
     }

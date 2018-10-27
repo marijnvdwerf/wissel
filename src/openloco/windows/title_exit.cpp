@@ -1,5 +1,4 @@
 #include "../game_commands.h"
-#include "../graphics/colours.h"
 #include "../graphics/gfx.h"
 #include "../interop/interop.hpp"
 #include "../intro.h"
@@ -51,8 +50,8 @@ namespace openloco::ui::windows
 
         window->init_scroll_widgets();
 
-        window->colours[0] = colour::translucent(colour::saturated_green);
-        window->colours[1] = colour::translucent(colour::saturated_green);
+        window->palettes[0] = WindowPalette::translucent(Palette::saturated_green);
+        window->palettes[1] = WindowPalette::translucent(Palette::saturated_green);
 
         return window;
     }
@@ -66,7 +65,7 @@ namespace openloco::ui::windows
         int16_t x = window->x + window->width / 2;
         int16_t y = window->y + window->widgets[widx::exit_button].top + 8;
         gfx::point_t origin = { x, y };
-        gfx::draw_string_centred_wrapped(dpi, &origin, window->width, colour::black, string_ids::title_exit_game);
+        gfx::draw_string_centred_wrapped(dpi, &origin, window->width, Palette::black, string_ids::title_exit_game);
     }
 
     // 0x00439268

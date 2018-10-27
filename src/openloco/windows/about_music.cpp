@@ -1,4 +1,3 @@
-#include "../graphics/colours.h"
 #include "../graphics/gfx.h"
 #include "../graphics/image_ids.h"
 #include "../interop/interop.hpp"
@@ -69,8 +68,8 @@ namespace openloco::ui::about_music
         window->init_scroll_widgets();
 
         auto interface = objectmgr::get<interface_skin_object>();
-        window->colours[0] = interface->colour_0B;
-        window->colours[1] = interface->colour_10;
+        window->palettes[0] = interface->colour_0B;
+        window->palettes[1] = interface->colour_10;
     }
 
     // 0x0043BFB0
@@ -149,15 +148,15 @@ namespace openloco::ui::about_music
             // TODO: optimisation: don't draw past fold.
 
             // Song name
-            draw_string_centred(*dpi, x, y, colour::black, song_strings.first, nullptr);
+            draw_string_centred(*dpi, x, y, Palette::black, song_strings.first, nullptr);
             y += 10;
 
             // Credit line
-            draw_string_centred(*dpi, x, y, colour::black, song_strings.second, nullptr);
+            draw_string_centred(*dpi, x, y, Palette::black, song_strings.second, nullptr);
             y += 10;
 
             // Show CS' copyright after every two lines.
-            draw_string_centred(*dpi, x, y, colour::black, string_ids::music_copyright, nullptr);
+            draw_string_centred(*dpi, x, y, Palette::black, string_ids::music_copyright, nullptr);
             y += 14;
         }
     }
