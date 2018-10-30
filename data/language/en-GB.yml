@@ -760,7 +760,7 @@ strings:
   737: Screenshot
   738: Cancel or Show Last Announcement
   739: Send Message (2-player mode)
-
+  
   # Virtual-Key Codes
   740: ???
   741: ???
@@ -2322,67 +2322,67 @@ objects:
   CURRDMRK:
     - "Deutschmark"
     - ""
-    - "£"
+    - "\u00a4"
   
   CURRDOLL:
     - "Dollars"
-    - "£"
+    - "\u00a4"
     - ""
   
   CURREURO:
     - "Euros"
-    - "£"
+    - "\u00a4"
     - ""
   
   CURRFREN:
     - "Franc"
     - ""
-    - "£"
+    - "\u00a4"
   
   CURRGUIL:
     - "Guilders"
     - ""
-    - "£"
+    - "\u00a4"
   
   CURRKRON:
     - "Krona"
     - ""
-    - "£"
+    - "\u00a4"
   
   CURRLIRA:
     - "Lira"
-    - "£"
+    - "\u00a4"
     - ""
   
   CURRNTDL:
     - "Taiwanese Dollars"
-    - "£"
+    - "\u00a4"
     - ""
   
   CURRPNDS:
     - "Pounds"
-    - "£"
+    - "\u00a4"
     - ""
   
   CURRPSTA:
     - "Peseta"
     - ""
-    - "£"
+    - "\u00a4"
   
   CURRWON:
     - "Won"
-    - "£"
+    - "\u00a4"
     - ""
   
   CURRYEN:
     - "Yen"
-    - "£"
+    - "\u00a4"
     - ""
   
   CURRZLOT:
     - "Zlote"
     - ""
-    - " £"
+    - " \u00a4"
   
   // Type 0x03:
   EXH1:
@@ -2450,86 +2450,86 @@ objects:
   CHEMICAL:
     - "Chemicals"
     - "tonnes of chemicals"
-    - "{ tonne of Chemicals"
-    - "{ tonnes of Chemicals"
+    - "{INT32} tonne of Chemicals"
+    - "{INT32} tonnes of Chemicals"
   
   COAL:
     - "Coal"
     - "tonnes of coal"
-    - "{ tonne of Coal"
-    - "{ tonnes of Coal"
+    - "{INT32} tonne of Coal"
+    - "{INT32} tonnes of Coal"
   
   FOOD:
     - "Food"
     - "tonnes of food"
-    - "{ tonne of Food"
-    - "{ tonnes of Food"
+    - "{INT32} tonne of Food"
+    - "{INT32} tonnes of Food"
   
   GOODS:
     - "Goods"
     - "crates of goods"
-    - "{ crate of Goods"
-    - "{ crates of Goods"
+    - "{INT32} crate of Goods"
+    - "{INT32} crates of Goods"
   
   GRAPES:
     - "Grapes"
     - "tonnes of grapes"
-    - "{ tonne of Grapes"
-    - "{ tonnes of Grapes"
+    - "{INT32} tonne of Grapes"
+    - "{INT32} tonnes of Grapes"
   
   IRONORE:
     - "Iron Ore"
     - "tonnes of iron ore"
-    - "{ tonne of Iron Ore"
-    - "{ tonnes of Iron Ore"
+    - "{INT32} tonne of Iron Ore"
+    - "{INT32} tonnes of Iron Ore"
   
   LIVESTCK:
     - "Livestock"
     - "items of livestock"
-    - "{ item of Livestock"
-    - "{ items of Livestock"
+    - "{INT32} item of Livestock"
+    - "{INT32} items of Livestock"
   
   MAIL:
     - "Mail"
     - "bags of mail"
-    - "{ bag of Mail"
-    - "{ bags of Mail"
+    - "{INT32} bag of Mail"
+    - "{INT32} bags of Mail"
   
   OIL:
     - "Oil"
     - "tonnes of oil"
-    - "{ tonne of Oil"
-    - "{ tonnes of Oil"
+    - "{INT32} tonne of Oil"
+    - "{INT32} tonnes of Oil"
   
   PAPER:
     - "Paper"
     - "tonnes of paper"
-    - "{ tonne of Paper"
-    - "{ tonnes of Paper"
+    - "{INT32} tonne of Paper"
+    - "{INT32} tonnes of Paper"
   
   PASS:
     - "Passengers"
     - "passengers"
-    - "{ Passenger"
-    - "{ Passengers"
+    - "{INT32} Passenger"
+    - "{INT32} Passengers"
   
   STEEL:
     - "Steel"
     - "tonnes of steel"
-    - "{ tonne of Steel"
-    - "{ tonnes of Steel"
+    - "{INT32} tonne of Steel"
+    - "{INT32} tonnes of Steel"
   
   TIMBER:
     - "Lumber"
     - "tonnes of lumber"
-    - "{ tonne of Lumber"
-    - "{ tonnes of Lumber"
+    - "{INT32} tonne of Lumber"
+    - "{INT32} tonnes of Lumber"
   
   GRAIN:
     - "Grain"
     - "tonnes of grain"
-    - "{ tonne of Grain"
-    - "{ tonnes of Grain"
+    - "{INT32} tonne of Grain"
+    - "{INT32} tonnes of Grain"
   
   // Type 0x09:
   BRWNWALG:
@@ -2559,43 +2559,43 @@ objects:
   // Type 0x0A:
   SIGC3:
     - "Colourlight"
-    - "3-Aspect Signal,\u0005British style"
+    - "3-Aspect Signal,{NEWLINE}British style"
   
   SIGC4:
     - "Colourlight (4-aspect)"
-    - "4-Aspect Signal,\u0005British style"
+    - "4-Aspect Signal,{NEWLINE}British style"
   
   SIGCSW:
     - "Colourlight"
-    - "Colourlight Signal,\u0005Swiss style"
+    - "Colourlight Signal,{NEWLINE}Swiss style"
   
   SIGCUS:
     - "Colourlight"
-    - "Colourlight Signal,\u0005American style"
+    - "Colourlight Signal,{NEWLINE}American style"
   
   SIGS:
     - "Semaphore (UQ)"
-    - "Semaphore Signal,\u0005British style,\u0005Upper Quadrant"
+    - "Semaphore Signal,{NEWLINE}British style,{NEWLINE}Upper Quadrant"
   
   SIGSD:
     - "Semaphore (UQD)"
-    - "Semaphore Signal,\u0005British style,\u0005Upper Quadrant with Distant"
+    - "Semaphore Signal,{NEWLINE}British style,{NEWLINE}Upper Quadrant with Distant"
   
   SIGSDL:
     - "Semaphore (LQD)"
-    - "Semaphore Signal,\u0005British style,\u0005Lower Quadrant with Distant"
+    - "Semaphore Signal,{NEWLINE}British style,{NEWLINE}Lower Quadrant with Distant"
   
   SIGSL:
     - "Semaphore (LQ)"
-    - "Semaphore Signal,\u0005British style,\u0005Lower Quadrant"
+    - "Semaphore Signal,{NEWLINE}British style,{NEWLINE}Lower Quadrant"
   
   SIGSUS:
     - "Semaphore"
-    - "Semaphore Signal,\u0005American style"
+    - "Semaphore Signal,{NEWLINE}American style"
   
   SIGSW:
     - "Semaphore"
-    - "Semaphore Signal,\u0005Swiss style"
+    - "Semaphore Signal,{NEWLINE}Swiss style"
   
   // Type 0x0B:
   LCROSS1:
@@ -2639,14 +2639,19 @@ objects:
   
   // Type 0x0F:
   TRSTAT1:
+    - "City Station"
   
   TRSTAT2:
+    - "Station"
   
   TRSTAT3:
+    - "Station"
   
   TRSTAT4:
+    - "City Station"
   
   TRSTAT5:
+    - "Station"
   
   // Type 0x10:
   TREX3RL:
@@ -2789,7 +2794,7 @@ objects:
     - "AB139 Helicopter"
   
   AE47:
-    - "Ae 4\/7"
+    - "Ae 4\\\/7"
   
   AILSA1:
     - "Ailsa Bus"
@@ -2819,10 +2824,10 @@ objects:
     - "C-130 Hercules"
   
   C33:
-    - "SLM C 3\/3"
+    - "SLM C 3\\\/3"
   
   C56:
-    - "SLM C 5\/6"
+    - "SLM C 5\\\/6"
   
   CARGOSH1:
     - "Cargo Ship"
@@ -2843,7 +2848,7 @@ objects:
     - "Livestock Wagon"
   
   CE68:
-    - "Ce 6\/8 Crocodile"
+    - "Ce 6\\\/8 Crocodile"
   
   CL20:
     - "Class 20"
@@ -2915,7 +2920,7 @@ objects:
     - "DC-3"
   
   DEH46:
-    - "Deh 4\/6"
+    - "Deh 4\\\/6"
   
   DH16:
     - "DH-16"
@@ -2924,7 +2929,7 @@ objects:
     - "Class E8"
   
   EB35:
-    - "Eb 3\/5"
+    - "Eb 3\\\/5"
   
   EMU1:
     - "Electric Multiple Unit"
@@ -2975,13 +2980,13 @@ objects:
     - "Flatbed Truck"
   
   GE442:
-    - "Ge 4\/4 II"
+    - "Ge 4\\\/4 II"
   
   GE443:
-    - "Ge 4\/4 III"
+    - "Ge 4\\\/4 III"
   
   GE66:
-    - "Ge 6\/6"
+    - "Ge 6\\\/6"
   
   GOODS1:
     - "Goods Wagon"
@@ -3020,13 +3025,13 @@ objects:
     - "Hydrofoil"
   
   HG23:
-    - "SLM HG 2\/3"
+    - "SLM HG 2\\\/3"
   
   HGE44:
-    - "HGe 4\/4"
+    - "HGe 4\\\/4"
   
   HGE442:
-    - "HGe 4\/4 II"
+    - "HGe 4\\\/4 II"
   
   HOPPER:
     - "Hopper Wagon"
@@ -3128,13 +3133,13 @@ objects:
     - "Goods Van"
   
   RBE24:
-    - "RBe 2\/4 Railcar"
+    - "RBe 2\\\/4 Railcar"
   
   RE441:
-    - "Re 4\/4 I"
+    - "Re 4\\\/4 I"
   
   RE442:
-    - "Re 4\/4 II"
+    - "Re 4\\\/4 II"
   
   RTMASTER:
     - "RMT Bus"
@@ -3176,16 +3181,16 @@ objects:
     - "TGV Passenger Carriage"
   
   TRAM1:
-    - "Be 4\/4 Tram"
+    - "Be 4\\\/4 Tram"
   
   TRAM2:
-    - "Ce 2\/2 Tram"
+    - "Ce 2\\\/2 Tram"
   
   TRAM3:
     - "Coronation Tram"
   
   TRAM4:
-    - "Be 4\/6 Tram"
+    - "Be 4\\\/6 Tram"
   
   TTRAIL2:
     - "Tanker Trailer"
@@ -3604,223 +3609,223 @@ objects:
   // Type 0x1E:
   BREWERY:
     - "Brewery"
-    - "„@  Brewery"
-    - "Brewery "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " brewery"
-    - " breweries"
+    - "{TOWN} Brewery"
+    - "Brewery {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} brewery"
+    - "{INT16} breweries"
   
   CHEMWORK:
     - "Chemical Works"
-    - "„@  Chemical Works"
-    - "Chemical Works "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " chemical works"
-    - " chemical works"
+    - "{TOWN} Chemical Works"
+    - "Chemical Works {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} chemical works"
+    - "{INT16} chemical works"
   
   COALPS:
     - "Coal-Fired Power Station"
-    - "„@  Power Station"
-    - "Power Station "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " coal-fired power station"
-    - " coal-fired power stations"
+    - "{TOWN} Power Station"
+    - "Power Station {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} coal-fired power station"
+    - "{INT16} coal-fired power stations"
   
   FACTORY:
     - "Factory"
-    - "„@  Factory"
-    - "Factory "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " factory"
-    - " factories"
+    - "{TOWN} Factory"
+    - "Factory {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} factory"
+    - "{INT16} factories"
   
   FARM:
     - "Wheat Farm"
-    - "„@  Farm"
-    - "Farm "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " wheat farm"
-    - " wheat farms"
+    - "{TOWN} Farm"
+    - "Farm {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} wheat farm"
+    - "{INT16} wheat farms"
   
   FARMUS:
     - "Wheat Farm"
-    - "„@  Farm"
-    - "Farm "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " wheat farm"
-    - " wheat farms"
+    - "{TOWN} Farm"
+    - "Farm {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} wheat farm"
+    - "{INT16} wheat farms"
   
   FOODPROC:
     - "Food Processing Plant"
-    - "„@  Food Processing Plant"
-    - "Food Processing Plant "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " food processing plant"
-    - " food processing plants"
+    - "{TOWN} Food Processing Plant"
+    - "Food Processing Plant {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} food processing plant"
+    - "{INT16} food processing plants"
   
   FOREST:
     - "Managed Forest"
-    - "„@  Forest"
-    - "Forest "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " managed forest"
-    - " managed forests"
+    - "{TOWN} Forest"
+    - "Forest {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} managed forest"
+    - "{INT16} managed forests"
   
   OILREFIN:
     - "Oil Refinery"
-    - "„@  Oil Refinery"
-    - "Oil Refinery "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " oil refinery"
-    - " oil refineries"
+    - "{TOWN} Oil Refinery"
+    - "Oil Refinery {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} oil refinery"
+    - "{INT16} oil refineries"
   
   OILRIG:
     - "Oil Rig"
-    - "„@  Oilfield"
-    - "Oilfield "
-    - "ƒ has run dry and is closing down!"
-    - "New oil reserves found at ƒ - Production up!"
-    - "Oil reserves running low at ƒ - Production down!"
-    - " oil rig"
-    - " oil rigs"
+    - "{TOWN} Oilfield"
+    - "Oilfield {INT16}"
+    - "{5TRINGID} has run dry and is closing down!"
+    - "New oil reserves found at {5TRINGID} - Production up!"
+    - "Oil reserves running low at {5TRINGID} - Production down!"
+    - "{INT16} oil rig"
+    - "{INT16} oil rigs"
   
   OILWELL:
     - "Oil Wells"
-    - "„@  Oil Wells"
-    - "Oil Wells "
-    - "ƒ have run dry and are closing down!"
-    - "New oil reserves found at ƒ - Production up!"
-    - "Oil reserves running low at ƒ - Production down!"
-    - " oil well"
-    - " oil wells"
+    - "{TOWN} Oil Wells"
+    - "Oil Wells {INT16}"
+    - "{5TRINGID} have run dry and are closing down!"
+    - "New oil reserves found at {5TRINGID} - Production up!"
+    - "Oil reserves running low at {5TRINGID} - Production down!"
+    - "{INT16} oil well"
+    - "{INT16} oil wells"
   
   OREMINE:
     - "Iron Ore Mines"
-    - "„@  Iron Ore Mines"
-    - "Iron Ore Mines "
-    - "ƒ are closing down!"
-    - "New ore reserves located at ƒ - Production up!"
-    - "ƒ production down!"
-    - " iron ore mine"
-    - " iron ore mines"
+    - "{TOWN} Iron Ore Mines"
+    - "Iron Ore Mines {INT16}"
+    - "{5TRINGID} are closing down!"
+    - "New ore reserves located at {5TRINGID} - Production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} iron ore mine"
+    - "{INT16} iron ore mines"
   
   PAPERMIL:
     - "Paper Mill"
-    - "„@  Paper Mill"
-    - "Paper Mill "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " paper mill"
-    - " paper mills"
+    - "{TOWN} Paper Mill"
+    - "Paper Mill {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} paper mill"
+    - "{INT16} paper mills"
   
   PRINTWRK:
     - "Printing Works"
-    - "„@  Printing Works"
-    - "Printing Works "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " printing works"
-    - " printing works"
+    - "{TOWN} Printing Works"
+    - "Printing Works {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} printing works"
+    - "{INT16} printing works"
   
   SAWMILL:
     - "Sawmill"
-    - "„@  Sawmill"
-    - "Sawmill "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " sawmill"
-    - " sawmills"
+    - "{TOWN} Sawmill"
+    - "Sawmill {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} sawmill"
+    - "{INT16} sawmills"
   
   SKICENT:
     - "Ski Centre"
-    - "„@  Ski Centre"
-    - "Ski Centre "
-    - "ƒ is closing down!"
+    - "{TOWN} Ski Centre"
+    - "Ski Centre {INT16}"
+    - "{5TRINGID} is closing down!"
     - " "
     - " "
-    - " ski centre"
-    - " ski centres"
+    - "{INT16} ski centre"
+    - "{INT16} ski centres"
   
   STEELMIL:
     - "Steel Mill"
-    - "„@  Steel Mill"
-    - "Steel Mill "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " steel mill"
-    - " steel mills"
+    - "{TOWN} Steel Mill"
+    - "Steel Mill {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} steel mill"
+    - "{INT16} steel mills"
   
   STOCKFRM:
     - "Livestock Farm"
-    - "„@  Farm"
-    - "Farm "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " livestock farm"
-    - " livestock farms"
+    - "{TOWN} Farm"
+    - "Farm {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} livestock farm"
+    - "{INT16} livestock farms"
   
   VINEYARD:
     - "Vineyard"
-    - "„@  Vineyard"
-    - "Vineyard "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " vineyard"
-    - " vineyards"
+    - "{TOWN} Vineyard"
+    - "Vineyard {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} vineyard"
+    - "{INT16} vineyards"
   
   WINDMILL:
     - "Flour Mill"
-    - "„@  Flour Mills"
-    - "Flour Mills "
-    - "ƒ are closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " flour mill"
-    - " flour mills"
+    - "{TOWN} Flour Mills"
+    - "Flour Mills {INT16}"
+    - "{5TRINGID} are closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} flour mill"
+    - "{INT16} flour mills"
   
   WINERY:
     - "Winery"
-    - "„@  Winery"
-    - "Winery "
-    - "ƒ is closing down!"
-    - "ƒ production up!"
-    - "ƒ production down!"
-    - " winery"
-    - " wineries"
+    - "{TOWN} Winery"
+    - "Winery {INT16}"
+    - "{5TRINGID} is closing down!"
+    - "{5TRINGID} production up!"
+    - "{5TRINGID} production down!"
+    - "{INT16} winery"
+    - "{INT16} wineries"
   
   COALMINE:
     - "Coal Mines"
-    - "„@  Coal Mines"
-    - "Coal Mines "
-    - "ƒ have no more coal left and are closing down!"
-    - "New coal seam found at ƒ - Production up!"
-    - "Mine shaft collapse in ƒ - Production down!"
-    - " coal mine"
-    - " coal mines"
+    - "{TOWN} Coal Mines"
+    - "Coal Mines {INT16}"
+    - "{5TRINGID} have no more coal left and are closing down!"
+    - "New coal seam found at {5TRINGID} - Production up!"
+    - "Mine shaft collapse in {5TRINGID} - Production down!"
+    - "{INT16} coal mine"
+    - "{INT16} coal mines"
   
   // Type 0x1F:
   REGALP:
@@ -3834,155 +3839,155 @@ objects:
   
   // Type 0x20:
   COMP1:
-    - "ˆRonnie Riddlesworth"
+    - "{POP16}Ronnie Riddlesworth"
     - "Riddlesworth"
   
   COMP10:
-    - "ˆCharles Chilblain"
+    - "{POP16}Charles Chilblain"
     - "Chilblain"
   
   COMP11:
-    - "ˆWalter Wellington"
+    - "{POP16}Walter Wellington"
     - "Wellington"
   
   COMP12:
-    - "ˆFoo Fandango"
+    - "{POP16}Foo Fandango"
     - "Fandango"
   
   COMP13:
-    - "ˆHarriet Hatstand"
+    - "{POP16}Harriet Hatstand"
     - "Hatstand"
   
   COMP14:
-    - "ˆKathy Kilowatt"
+    - "{POP16}Kathy Kilowatt"
     - "Kilowatt"
   
   COMP15:
-    - "ˆLizzy Leopard"
+    - "{POP16}Lizzy Leopard"
     - "Leopard"
   
   COMP16:
-    - "ˆMarmaduke Muddleshop"
+    - "{POP16}Marmaduke Muddleshop"
     - "Muddleshop"
   
   COMP17:
-    - "ˆReginald Rottenfish"
+    - "{POP16}Reginald Rottenfish"
     - "Rottenfish"
   
   COMP18:
-    - "ˆIsaac Imperial"
+    - "{POP16}Isaac Imperial"
     - "Imperial"
   
   COMP19:
-    - "ˆWodger Whamjet"
+    - "{POP16}Wodger Whamjet"
     - "Whamjet"
   
   COMP2:
-    - "ˆJillie Jamjar"
+    - "{POP16}Jillie Jamjar"
     - "Jamjar"
   
   COMP20:
-    - "ˆDorothy Dumblebum"
+    - "{POP16}Dorothy Dumblebum"
     - "Dumblebum"
   
   COMP21:
-    - "ˆEvelyn Eggburt"
+    - "{POP16}Evelyn Eggburt"
     - "Eggburt"
   
   COMP22:
-    - "ˆBasil Boombox"
+    - "{POP16}Basil Boombox"
     - "Boombox"
   
   COMP23:
-    - "ˆCecil Cityscape"
+    - "{POP16}Cecil Cityscape"
     - "Cityscape"
   
   COMP24:
-    - "ˆGary Gangle"
+    - "{POP16}Gary Gangle"
     - "Gangley"
   
   COMP25:
-    - "ˆTheresa Tops"
+    - "{POP16}Theresa Tops"
     - "Topsy"
   
   COMP26:
-    - "ˆMick Motormouth"
+    - "{POP16}Mick Motormouth"
     - "Motormouth"
   
   COMP27:
-    - "ˆDaisy Dastardly"
+    - "{POP16}Daisy Dastardly"
     - "Daisy"
   
   COMP28:
-    - "ˆBo Buzzball"
+    - "{POP16}Bo Buzzball"
     - "Buzzy"
   
   COMP29:
-    - "ˆMr Big"
+    - "{POP16}Mr Big"
     - "Big"
   
   COMP3:
-    - "ˆRosie Redbone"
+    - "{POP16}Rosie Redbone"
     - "Redbone"
   
   COMP30:
-    - "ˆMaggie Munchkins"
+    - "{POP16}Maggie Munchkins"
     - "Munchkins"
   
   COMP31:
-    - "ˆTheodore Thin"
+    - "{POP16}Theodore Thin"
     - "Thin"
   
   COMP32:
-    - "ˆPete Pennyweight"
+    - "{POP16}Pete Pennyweight"
     - "Penny"
   
   COMP33:
-    - "ˆFreddy Fiddlestick"
+    - "{POP16}Freddy Fiddlestick"
     - "Fiddlestick"
   
   COMP34:
-    - "ˆNaomi Nevermore"
+    - "{POP16}Naomi Nevermore"
     - "Nevermore"
   
   COMP35:
-    - "ˆOliver Organic"
+    - "{POP16}Oliver Organic"
     - "Organic"
   
   COMP36:
-    - "ˆSue Shaker"
+    - "{POP16}Sue Shaker"
     - "Shaker"
   
   COMP37:
-    - "ˆTony Terrific"
+    - "{POP16}Tony Terrific"
     - "Terrific"
   
   COMP38:
-    - "ˆRicky Ripoff"
+    - "{POP16}Ricky Ripoff"
     - "Ripoff"
   
   COMP4:
-    - "ˆGuiseppe Gluck"
+    - "{POP16}Guiseppe Gluck"
     - "Gluck"
   
   COMP5:
-    - "ˆAlfred Ashdown"
+    - "{POP16}Alfred Ashdown"
     - "Ashdown"
   
   COMP6:
-    - "ˆCorina Cross"
+    - "{POP16}Corina Cross"
     - "Cross"
   
   COMP7:
-    - "ˆDave Doorknob"
+    - "{POP16}Dave Doorknob"
     - "Doorknob"
   
   COMP8:
-    - "ˆJeremy Jewelfish"
+    - "{POP16}Jeremy Jewelfish"
     - "Jewelfish"
   
   COMP9:
-    - "ˆAgnes Armchair"
+    - "{POP16}Agnes Armchair"
     - "Armchair"
   
   // Type 0x21:
@@ -4012,7 +4017,7 @@ objects:
   
   STEX006:
     - "North America (East) 1965"
-    - "Create a successful transport company in 60's\/70's America"
+    - "Create a successful transport company in 60's\\\/70's America"
   
   STEX007:
     - "North America (East) - 100 Year Challenge"
