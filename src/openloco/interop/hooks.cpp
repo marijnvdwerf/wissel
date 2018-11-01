@@ -7,6 +7,7 @@
 #include <unistd.h>
 #endif
 #include "../audio/audio.h"
+#include "../companymgr.h"
 #include "../console.h"
 #include "../environment.h"
 #include "../graphics/colours.h"
@@ -719,6 +720,15 @@ void openloco::interop::register_hooks()
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
             auto cursor = (ui::cursor_id)regs.edx;
             ui::set_cursor(cursor);
+            return 0;
+        });
+
+    register_hook(
+        0x004383ED,
+        [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
+            registers backup = regs;
+            companymgr::sub_4383ED();
+            regs = backup;
             return 0;
         });
 
