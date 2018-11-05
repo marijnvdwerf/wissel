@@ -23,6 +23,9 @@ namespace openloco::ui::WindowManager
     static loco_global<int32_t, 0x00525330> _cursorWheel;
     static loco_global<window[12], 0x011370AC> _windows;
     static loco_global<window*, 0x0113D754> _windowsEnd;
+    static loco_global<uint16_t, 0x00523390> _toolWindowNumber;
+    static loco_global<ui::WindowType, 0x00523392> _toolWindowType;
+    static loco_global<uint16_t, 0x00523394> _toolWidgetIdx;
 
 #define FOR_ALL_WINDOWS_FROM_FRONT_FROM(w, start) for (ui::window* w = start; w >= _windows; w--)
 #define FOR_ALL_WINDOWS_FROM_FRONT(w) FOR_ALL_WINDOWS_FROM_FRONT_FROM (w, _windowsEnd - 1)
@@ -604,6 +607,76 @@ namespace openloco::ui::WindowManager
 
         w->call_prepare_draw();
         w->call_draw(&dpi);
+    }
+
+    // 0x004C6EE6
+    static input::mouse_button game_get_next_input(uint32_t* x, int16_t* y)
+    {
+        registers regs;
+        call(0x004c6ee6, regs);
+
+        *x = regs.eax;
+        *y = regs.bx;
+
+        return (input::mouse_button)regs.cx;
+    }
+
+    // 0x004CD422
+    static void process_mouse_tool(int16_t x, int16_t y)
+    {
+        if (!input::has_flag(input::input_flags::tool_active))
+        {
+            return;
+        }
+
+        auto window = find(_toolWindowType, _toolWindowNumber);
+        if (window != nullptr)
+        {
+            window->call_tool_update(_toolWidgetIdx, x, y);
+        }
+        else
+        {
+            input::cancel_tool();
+        }
+    }
+
+    // 0x004C98CF
+    void sub_4C98CF()
+    {
+        for (window* window = _windowsEnd - 1; window >= _windows; window--)
+        {
+            window->call_8();
+        }
+
+        invalidateAllWindowsAfterInput();
+        call(0x004c6e65); // update_cursor_position
+
+        uint32_t x;
+        int16_t y;
+        input::mouse_button state;
+        while ((state = game_get_next_input(&x, &y)) != input::mouse_button::released)
+        {
+            input::handle_mouse(x, y, state);
+        }
+
+        if (input::has_flag(input::input_flags::flag5))
+        {
+            input::handle_mouse(x, y, state);
+        }
+        else if (x != 0x80000000)
+        {
+            x = std::clamp<int16_t>(x, 0, ui::width() - 1);
+            y = std::clamp<int16_t>(y, 0, ui::height() - 1);
+
+            input::handle_mouse(x, y, state);
+            input::process_mouse_over(x, y);
+            process_mouse_tool(x, y);
+        }
+
+        for (window* window = _windowsEnd - 1; window >= _windows; window--)
+        {
+            window->call_9();
+        }
     }
 
     // 0x004CD3D0
