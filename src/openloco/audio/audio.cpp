@@ -779,9 +779,72 @@ namespace openloco::audio
 
     static void sub_48A274(vehicle* v)
     {
-        registers regs;
-        regs.esi = (int32_t)v;
-        call(0x0048A274, regs);
+        if (v->var_44A == -1)
+            return;
+
+        // TODO: left or top?
+        if (v->sprite_left == (int16_t)0x8000u)
+            return;
+
+        uint8_t al = addr<0x0112C666, uint8_t>();
+        if (config::get().var_25 <= al)
+            return;
+
+        auto main = WindowManager::getMainWindow();
+        if (main != nullptr && main->viewports[0] != nullptr)
+        {
+            auto ebx = main->viewports[0];
+
+            auto ax = ebx->view_x;
+            auto cx = ebx->view_y;
+            auto bp = ebx->view_width / 4;
+            auto dx = ebx->view_height / 4;
+            ax -= bp;
+            cx -= dx;
+
+            if (ax < v->sprite_left && cx < v->sprite_top)
+            {
+                ax += ebx->view_width + bp * 2;
+                cx += ebx->view_height + dx * 2;
+                if (ax >= v->sprite_left && cx >= v->sprite_top)
+                {
+                    // jump + return
+                    addr<0x0112C666, uint8_t>() += 1;
+                    v->var_4A |= 1;
+                    v->var_4E = (uint8_t)main->type;
+                    v->var_4C = main->number;
+                    return;
+                }
+            }
+        }
+
+        if (WindowManager::count() == 0)
+            return;
+
+        auto spritePosition = viewport_pos(v->sprite_left, v->sprite_top);
+        for (auto i = (int32_t)WindowManager::count() - 1; i >= 0; i--)
+        {
+            auto w = WindowManager::get(i);
+
+            if (w->type == WindowType::main)
+                continue;
+
+            if (w->type == WindowType::unk_36)
+                continue;
+
+            auto viewport = w->viewports[0];
+            if (viewport == nullptr)
+                continue;
+
+            if (!viewport->contains(spritePosition))
+                continue;
+
+            addr<0x0112C666, uint8_t>() += 1;
+            v->var_4A |= 1;
+            v->var_4E = (uint8_t)main->type;
+            v->var_4C = main->number;
+            return;
+        }
     }
 
     static void off_4FEB58(vehicle* v, int32_t x)
