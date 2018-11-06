@@ -423,7 +423,7 @@ namespace openloco
             if (addr<0x00525340, int32_t>() == 1)
             {
                 addr<0x00525340, int32_t>() = 0;
-                addr<0x00508F10, uint16_t>() |= (1 << 1);
+                windowmgr::set_508F10(1);
             }
 
             input::handle_keyboard();

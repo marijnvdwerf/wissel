@@ -4,6 +4,7 @@
 #include "../graphics/colours.h"
 #include "../input.h"
 #include "../interop/interop.hpp"
+#include "../intro.h"
 #include "../tutorial.h"
 #include "../ui.h"
 #include "../viewportmgr.h"
@@ -18,6 +19,7 @@ namespace openloco::ui::WindowManager
         constexpr uint16_t by_type = 1 << 7;
     }
 
+    static loco_global<uint16_t, 0x00508F10> __508F10;
     static loco_global<uint8_t, 0x005233B6> _currentModalType;
     static loco_global<uint32_t, 0x00523508> _523508;
     static loco_global<int32_t, 0x00525330> _cursorWheel;
@@ -26,6 +28,7 @@ namespace openloco::ui::WindowManager
     static loco_global<uint16_t, 0x00523390> _toolWindowNumber;
     static loco_global<ui::WindowType, 0x00523392> _toolWindowType;
     static loco_global<uint16_t, 0x00523394> _toolWidgetIdx;
+    static loco_global<uint32_t, 0x00525E28> _525E28;
 
 #define FOR_ALL_WINDOWS_FROM_FRONT_FROM(w, start) for (ui::window* w = start; w >= _windows; w--)
 #define FOR_ALL_WINDOWS_FROM_FRONT(w) FOR_ALL_WINDOWS_FROM_FRONT_FROM (w, _windowsEnd - 1)
@@ -254,6 +257,14 @@ namespace openloco::ui::WindowManager
                 sub_4CEE0B((ui::window*)regs.esi);
                 regs = backup;
 
+                return 0;
+            });
+        register_hook(
+            0x004C96E7,
+            [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
+                registers backup = regs;
+                handle_input();
+                regs = backup;
                 return 0;
             });
     }
@@ -637,6 +648,153 @@ namespace openloco::ui::WindowManager
         else
         {
             input::cancel_tool();
+        }
+    }
+
+    static bool has_508F10(int i)
+    {
+        return (((uint16_t)__508F10) & (1 << i)) != 0;
+    }
+
+    bool set_508F10(int i)
+    {
+        bool val = (((uint16_t)__508F10) & (1 << i)) != 0;
+
+        __508F10 = __508F10 | ~(1 << i);
+        return val;
+    }
+
+    static bool reset_508F10(int i)
+    {
+        bool val = (((uint16_t)__508F10) & (1 << i)) != 0;
+
+        __508F10 = __508F10 & ~(1 << i);
+        return val;
+    }
+
+    // 0x004C96E7
+    void handle_input()
+    {
+        bool set;
+
+        if (reset_508F10(10))
+        {
+            call(0x00435ACC);
+        }
+
+        set = _525E28 & (1 << 2);
+        *_525E28 &= ~(1 << 2);
+        if (set)
+        {
+            if ((get_screen_flags() & 3) == 0)
+            {
+                if (tutorial::state() == tutorial::tutorial_state::none)
+                {
+                    call(0x4C95A6);
+                }
+            }
+        }
+
+        if (reset_508F10(5))
+        {
+            registers regs;
+            regs.bl = 1;
+            regs.dl = 2;
+            regs.di = 1;
+            do_game_command(21, regs);
+        }
+
+        if (has_508F10(0) && has_508F10(4))
+        {
+            if (reset_508F10(2))
+            {
+                call(0x004A0AB0);
+                call(0x004CF456);
+                registers regs;
+                regs.bl = 1;
+                do_game_command(69, regs);
+            }
+
+            if (reset_508F10(3))
+            {
+                call(0x004A0AB0);
+                call(0x004CF456);
+                registers regs;
+                regs.bl = 1;
+                do_game_command(70, regs);
+            }
+        }
+
+        if (reset_508F10(4))
+        {
+            registers regs;
+            regs.bl = 1;
+            do_game_command(72, regs);
+        }
+
+        if (reset_508F10(0))
+        {
+            // window_close_construction_windows();
+            call(0x004CF456);
+        }
+
+        if (reset_508F10(1))
+        {
+            registers regs;
+            regs.bl = 1;
+            regs.dl = 0;
+            regs.di = 2;
+            do_game_command(21, regs);
+        }
+
+        if (ui::dirty_blocks_initialised())
+        {
+            for (window* window = _windowsEnd - 1; window >= _windows; window--)
+            {
+                window->call_8();
+            }
+
+            invalidateAllWindowsAfterInput();
+            call(0x004c6e65); // update_cursor_position
+
+            uint32_t x;
+            int16_t y;
+            input::mouse_button state;
+            while ((state = game_get_next_input(&x, &y)) != input::mouse_button::released)
+            {
+                if (is_title_mode() && intro::is_active() && state == input::mouse_button::left_pressed)
+                {
+                    if (intro::state() == (intro::intro_state)9)
+                    {
+                        intro::state(intro::intro_state::end);
+                        continue;
+                    }
+                    else
+                    {
+                        intro::state((intro::intro_state)8);
+                    }
+                }
+                input::handle_mouse(x, y, state);
+            }
+
+            if (input::has_flag(input::input_flags::flag5))
+            {
+                input::handle_mouse(x, y, state);
+            }
+            else if (x != 0x80000000)
+            {
+                x = std::clamp<int16_t>(x, 0, ui::width() - 1);
+                y = std::clamp<int16_t>(y, 0, ui::height() - 1);
+
+                input::handle_mouse(x, y, state);
+                input::process_mouse_over(x, y);
+                process_mouse_tool(x, y);
+            }
+        }
+
+        for (window* window = _windowsEnd - 1; window >= _windows; window--)
+        {
+            window->call_9();
         }
     }
 
