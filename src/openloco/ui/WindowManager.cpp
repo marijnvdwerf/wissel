@@ -259,6 +259,16 @@ namespace openloco::ui::WindowManager
 
                 return 0;
             });
+
+        register_hook(
+            0x004CF456,
+            [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
+                registers backup = regs;
+                closeAllFloatingWindows();
+                regs = backup;
+                return 0;
+            });
+
         register_hook(
             0x004C96E7,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
@@ -709,7 +719,7 @@ namespace openloco::ui::WindowManager
             if (reset_508F10(2))
             {
                 call(0x004A0AB0);
-                call(0x004CF456);
+                closeAllFloatingWindows();
                 registers regs;
                 regs.bl = 1;
                 do_game_command(69, regs);
@@ -718,7 +728,7 @@ namespace openloco::ui::WindowManager
             if (reset_508F10(3))
             {
                 call(0x004A0AB0);
-                call(0x004CF456);
+                closeAllFloatingWindows();
                 registers regs;
                 regs.bl = 1;
                 do_game_command(70, regs);
@@ -734,8 +744,7 @@ namespace openloco::ui::WindowManager
 
         if (reset_508F10(0))
         {
-            // window_close_construction_windows();
-            call(0x004CF456);
+            closeAllFloatingWindows();
         }
 
         if (reset_508F10(1))
@@ -1242,5 +1251,31 @@ namespace openloco::ui::WindowManager
         }
 
         return true;
+    }
+
+    // 0x004CF456
+    void closeAllFloatingWindows()
+    {
+        close(WindowType::dropdown, 0);
+
+        bool changed = true;
+        while (changed)
+        {
+            changed = false;
+            FOR_ALL_WINDOWS_FROM_FRONT (w)
+            {
+                if ((w->flags & window_flags::stick_to_back) != 0)
+                    continue;
+
+                if ((w->flags & window_flags::stick_to_front) != 0)
+                    continue;
+
+                close(w);
+
+                // restart loop
+                changed = true;
+                break;
+            }
+        }
     }
 }

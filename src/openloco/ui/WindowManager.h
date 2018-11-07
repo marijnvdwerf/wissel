@@ -44,6 +44,7 @@ namespace openloco::ui::WindowManager
     bool isInFront(ui::window* w);
     bool isInFrontAlt(ui::window* w);
     bool set_508F10(int i);
+    void closeAllFloatingWindows();
 }
 
 namespace openloco::ui::windows
