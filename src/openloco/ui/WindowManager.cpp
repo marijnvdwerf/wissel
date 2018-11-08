@@ -44,6 +44,15 @@ namespace openloco::ui::WindowManager
     void registerHooks()
     {
         register_hook(
+            0x004C6A40,
+            [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
+                registers backup = regs;
+                sub_4C6A40((ui::window*)regs.edi, (ui::viewport*)regs.esi, regs.dx, regs.bp);
+                regs = backup;
+                return 0;
+            });
+
+        register_hook(
             0x0045EFDB,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
                 registers backup = regs;
@@ -1251,6 +1260,76 @@ namespace openloco::ui::WindowManager
         }
 
         return true;
+    }
+
+    /**
+     * 0x004C6A40
+     * openrct2: viewport_shift_pixels
+     *
+     * @param window @<edi>
+     * @param viewport @<esi>
+     */
+    static void sub_4C6A40(ui::window* window, ui::viewport* viewport, int16_t dX, int16_t dY)
+    {
+        for (auto w = window; w < _windowsEnd; w++)
+        {
+            if ((w->flags & window_flags::transparent) == 0)
+                continue;
+
+            if (viewport == w->viewports[0])
+                continue;
+
+            if (viewport == w->viewports[1])
+                continue;
+
+            if (viewport->x + viewport->width <= w->x)
+                continue;
+
+            if (w->x + w->width <= viewport->x)
+                continue;
+
+            if (viewport->y + viewport->height <= w->y)
+                continue;
+
+            if (w->y + w->height <= viewport->y)
+                continue;
+
+            int16_t ax, bx, dx, bp, cx;
+
+            ax = w->x;
+            bx = w->y;
+            dx = w->x + w->width;
+            bp = w->y + w->height;
+
+            // TODO: replace these with min/max
+            cx = viewport->x;
+            if (ax < cx)
+                ax = cx;
+
+            cx = viewport->x + viewport->width;
+            if (dx > cx)
+                dx = cx;
+
+            cx = viewport->y;
+            if (bx < cx)
+                bx = cx;
+
+            cx = viewport->y + viewport->height;
+            if (bp > cx)
+                bp = cx;
+
+            if (ax < dx && bx < bp)
+            {
+                gfx::redraw_screen_rect(ax, bx, dx, bp); // openrct2: window_draw_all
+            }
+        }
+
+        registers regs;
+        regs.edi = (uintptr_t)window;
+        regs.esi = (uintptr_t)viewport;
+        regs.dx = dX;
+        regs.bp = dY;
+        call(0x004C6B09, regs); // openrct2: viewport_redraw_after_shift
     }
 
     // 0x004CF456
