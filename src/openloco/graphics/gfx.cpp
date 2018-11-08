@@ -1,8 +1,10 @@
 #include "gfx.h"
+#include "../console.h"
 #include "../environment.h"
 #include "../interop/interop.hpp"
 #include "../localisation/languagefiles.h"
 #include "../ui.h"
+#include "../ui/WindowManager.h"
 #include "../utility/stream.hpp"
 #include "colours.h"
 #include "image_ids.h"
@@ -35,6 +37,8 @@ namespace openloco::gfx
     constexpr uint32_t g1_count_temporary = 0x1000;
 
     static loco_global<drawpixelinfo_t, 0x0050B884> _screen_dpi;
+    static loco_global<drawpixelinfo_t, 0x005233B8> _windowDPI;
+
     static loco_global<g1_element[g1_expected_count::disc + g1_count_temporary + g1_count_objects], 0x9E2424> _g1Elements;
 
     static std::unique_ptr<std::byte[]> _g1Buffer;
@@ -713,6 +717,64 @@ namespace openloco::gfx
         regs.dx = right;
         regs.bp = bottom;
         call(0x004C5C69, regs);
+    }
+
+    // 0x004C5EA9
+    static void window_draw(ui::window* w, int16_t left, int16_t top, int16_t right, int16_t bottom)
+    {
+        registers regs;
+        regs.ax = left;
+        regs.bx = top;
+        regs.dx = right;
+        regs.bp = bottom;
+        regs.esi = (uintptr_t)w;
+
+        call(0x004C5EA9, regs);
+    }
+
+    /**
+     * 0x004C5DD5
+     *
+     * @param left @<ax>
+     * @param top @<bx>
+     * @param right @<dx>
+     * @param bottom @<bp>
+     */
+    void redraw_screen_rect(int16_t left, int16_t top, int16_t right, int16_t bottom)
+    {
+        registers regs;
+        regs.ax = left;
+        regs.bx = top;
+        regs.cx = right - 1;
+        regs.dx = bottom - 1;
+        call(0x00451D98, regs);
+
+        drawpixelinfo_t windowDPI;
+        windowDPI.width = right - left;
+        windowDPI.height = bottom - top;
+        windowDPI.x = left;
+        windowDPI.y = top;
+        windowDPI.bits = _screen_dpi->bits + left + ((_screen_dpi->width + _screen_dpi->pitch) * top);
+        windowDPI.pitch = _screen_dpi->width + _screen_dpi->pitch + left - right;
+        windowDPI.zoom_level = 0;
+
+        // TODO: pass as parameter
+        _windowDPI = windowDPI;
+        for (size_t i = 0; i < ui::WindowManager::count(); i++)
+        {
+            auto w = ui::WindowManager::get(i);
+
+            if ((w->flags & ui::window_flags::transparent) != 0)
+                continue;
+
+            if (right <= w->x || bottom <= w->y)
+                continue;
+
+            if (left >= w->x + w->width || top >= w->y + w->height)
+                continue;
+
+            window_draw(w, left, top, right, bottom);
+        }
     }
 
     void draw_image(gfx::drawpixelinfo_t* dpi, int16_t x, int16_t y, uint32_t image)

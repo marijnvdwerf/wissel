@@ -35,6 +35,8 @@ namespace openloco::ui::WindowManager
 #define FOR_ALL_WINDOWS_FROM_BACK_FROM(w, start) for (ui::window* w = start; w != _windowsEnd; w++)
 #define FOR_ALL_WINDOWS_FROM_BACK(w) FOR_ALL_WINDOWS_FROM_BACK_FROM (w, &_windows[0])
 
+    static void sub_4C6A40(ui::window* window, ui::viewport* viewport, int16_t dX, int16_t dY);
+
     void init()
     {
         _windowsEnd = &_windows[0];
