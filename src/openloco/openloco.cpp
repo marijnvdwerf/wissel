@@ -747,6 +747,7 @@ namespace openloco
             const auto& cfg = config::read_new_config();
             environment::resolve_paths();
 
+            apply_patches();
             register_hooks();
             if (sub_4054B9())
             {

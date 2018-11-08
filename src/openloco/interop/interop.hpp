@@ -371,6 +371,7 @@ namespace openloco::interop
 
     void register_hooks();
     void load_sections();
+    void apply_patches();
 }
 
 // these safe string function convenience overloads are located in this header, rather than in utility/string.hpp,
