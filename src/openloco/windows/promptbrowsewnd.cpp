@@ -444,7 +444,7 @@ namespace openloco::ui::prompt_browse
             auto imageId = image_ids::random_map_watermark | (window.colours[1] << 19) | 0x20000000;
             gfx::draw_image(&dpi, x, y, imageId);
             gfx::point_t origin = { (int16_t)(x + 64), (int16_t)(y + 60) };
-            gfx::draw_string_centred_wrapped(&dpi, &origin, 128, 0, string_ids::randomly_generated_landscape, nullptr);
+            gfx::draw_string_centred_wrapped(&dpi, &origin, 128, 0, string_ids::randomly_generated_landscape);
         }
     }
 
@@ -484,14 +484,12 @@ namespace openloco::ui::prompt_browse
     // 0x00446314
     static void draw_scroll(ui::window* window, gfx::drawpixelinfo_t* dpi, uint32_t scrollIndex)
     {
-        loco_global<uint8_t[256], 0x001136BA4> byte_1136BA4;
         loco_global<char[16], 0x0112C826> _commonFormatArgs;
 
         static std::string _nameBuffer;
 
         // Background
-        auto paletteId = byte_1136BA4[window->colours[1] * 8];
-        gfx::clear_single(*dpi, paletteId);
+        gfx::clear_single(*dpi, colour::get_shade(window->colours[1], 4);
 
         // Directories / files
         auto y = 0;
@@ -579,7 +577,7 @@ namespace openloco::ui::prompt_browse
         _newFiles.clear();
         if (_directory[0] == '\0')
         {
-            auto drives = platform::get_drives();
+            auto drives = platform::getDrives();
             for (auto& drive : drives)
             {
 #ifdef _OPENLOCO_USE_BOOST_FS_
@@ -619,10 +617,6 @@ namespace openloco::ui::prompt_browse
         }
 
         std::sort(_newFiles.begin(), _newFiles.end(), [](const file_entry& a, const file_entry& b) -> bool {
-            if (!a.is_directory() && b.is_directory())
-                return false;
-            if (a.is_directory() && !b.is_directory())
-                return true;
             return a.get_name() < b.get_name();
         });
 
@@ -709,7 +703,7 @@ namespace openloco::ui::prompt_browse
         {
             if (sub_446F1D())
             {
-                windows::show_error(string_ids::error_invalid_filename, 0xFFFF);
+                windows::show_error(string_ids::error_invalid_filename);
             }
             else
             {
