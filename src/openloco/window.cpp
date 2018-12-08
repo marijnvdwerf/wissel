@@ -552,6 +552,22 @@ namespace openloco::ui
         event_handlers->on_close(this);
     }
 
+    void window::call_6()
+    {
+        if (event_handlers->event_06 == nullptr)
+            return;
+
+        if (is_interop_event(event_handlers->event_06))
+        {
+            registers regs;
+            regs.esi = (int32_t)this;
+            call((uint32_t)this->event_handlers->event_06, regs);
+            return;
+        }
+
+        event_handlers->event_06(this);
+    }
+
     void window::call_update()
     {
         if (event_handlers->on_update == nullptr)

@@ -155,7 +155,8 @@ namespace openloco::ui
         constexpr uint32_t flag_12 = 1 << 12;
         constexpr uint32_t flag_15 = 1 << 15;
         constexpr uint32_t flag_16 = 1 << 16;
-        constexpr uint32_t white_border_mask = (1 << 17) | (1 << 18);
+        constexpr uint32_t white_border_one = (1 << 17);
+        constexpr uint32_t white_border_mask = window_flags::white_border_one | (1 << 18);
     }
 
     struct window_event_list
@@ -171,7 +172,7 @@ namespace openloco::ui
                 uint32_t event_03;
                 void (*on_mouse_down)(window*, widget_index);
                 void (*on_dropdown)(window*, widget_index, int16_t);
-                uint32_t event_06;
+                void (*event_06)(window*);
                 void (*on_update)(window*);
                 uint32_t event_08;
                 uint32_t event_09;
@@ -389,6 +390,7 @@ namespace openloco::ui
         void call_3(int8_t widget_index);                                                                 // 3
         void call_on_mouse_down(int8_t widget_index);                                                     // 4
         void call_on_dropdown(widget_index widget_index, int16_t item_index);                             // 5
+        void call_6();                                                                                    // 6
         void call_update();                                                                               // 7
         void call_8();                                                                                    // 8
         void call_9();                                                                                    // 9

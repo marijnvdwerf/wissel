@@ -719,6 +719,12 @@ namespace openloco::gfx
         call(0x004C5C69, regs);
     }
 
+    // 0x004C5CFA
+    void draw_dirty_blocks()
+    {
+        call(0x004C5CFA);
+    }
+
     // 0x004C5EA9
     static void window_draw(ui::window* w, int16_t left, int16_t top, int16_t right, int16_t bottom)
     {
