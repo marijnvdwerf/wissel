@@ -19,6 +19,7 @@
 #include "../ui.h"
 #include "../ui/WindowManager.h"
 #include "../utility/string.hpp"
+#include "../viewportmgr.h"
 #include "interop.hpp"
 
 using namespace openloco;
@@ -826,6 +827,7 @@ void openloco::interop::register_hooks()
     ui::tooltip::register_hooks();
     ui::vehicle::registerHooks();
     ui::WindowManager::registerHooks();
+    ui::viewportmgr::registerHooks();
 
     register_hook(
         0x004AB655,
