@@ -210,14 +210,6 @@ namespace openloco
         return result != 0;
     }
 
-    static void sub_431A8A(uint16_t bx, uint16_t dx)
-    {
-        registers regs;
-        regs.bx = bx;
-        regs.dx = dx;
-        call(0x00431A8A, regs);
-    }
-
     // 0x00407FFD
     static bool is_already_running(const char* mutexName)
     {
@@ -557,6 +549,9 @@ namespace openloco
         addr<0x010E7D64, uint32_t>() = 0xD900BF;
     }
 
+    static loco_global<int8_t, 0x0050C197> _50C197;
+    static loco_global<string_id, 0x0050C198> _50C198;
+
     // 0x0046ABCB
     static void tick_logic()
     {
@@ -583,17 +578,17 @@ namespace openloco
         call(0x00444387);
 
         addr<0x009C871C, uint8_t>() = addr<0x00F25374, uint8_t>();
-        if (addr<0x0050C197, uint8_t>() != 0)
+        if (_50C197 != 0)
         {
-            uint16_t bx = 0x043A;
-            uint16_t dx = addr<0x0050C198, uint16_t>();
-            if (addr<0x0050C197, uint8_t>() == 0xFE)
+            auto title = string_ids::error_unable_to_load_saved_game;
+            auto message = _50C198;
+            if (_50C197 == -2)
             {
-                bx = addr<0x0050C198, uint16_t>();
-                dx = 0xFFFF;
+                title = _50C198;
+                message = string_ids::null;
             }
-            addr<0x0050C197, uint8_t>() = 0;
-            sub_431A8A(bx, dx);
+            _50C197 = 0;
+            ui::windows::show_error(title, message);
         }
     }
 

@@ -58,6 +58,8 @@ namespace openloco::ui::windows
 
     bool prompt_ok_cancel(string_id okButtonStringId);
     void map_center_on_view_point();
+
+    void show_error(string_id title, string_id message = string_ids::null);
 }
 
 namespace openloco::ui::about
