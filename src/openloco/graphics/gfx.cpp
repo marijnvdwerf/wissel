@@ -134,6 +134,11 @@ namespace openloco::gfx
         std::copy(elements.begin(), elements.end(), _g1Elements.get());
     }
 
+    g1_element* get_g1_element(uint32_t image)
+    {
+        return &_g1Elements[image];
+    }
+
     // 0x00447485
     // edi: dpi
     // ebp: fill
@@ -316,7 +321,7 @@ namespace openloco::gfx
                     uint32_t imageId = image & 0x7FFFF;
                     str += 4;
 
-                    if ((_currentFontFlags & text_draw_flags::outline) != 0)
+                    if ((_currentFontFlags & text_draw_flags::inset) != 0)
                     {
                         gfx::draw_image_solid(context, pos.x, pos.y, imageId, _textColours[3]);
                         gfx::draw_image_solid(context, pos.x + 1, pos.y + 1, imageId, _textColours[1]);
