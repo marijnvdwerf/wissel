@@ -151,10 +151,8 @@ namespace openloco::ui::windows
 
         auto window = openloco::ui::WindowManager::createWindow(
             WindowType::titleMenu,
-            (ui::width() - ww) / 2,
-            ui::height() - wh - 25,
-            ww,
-            wh,
+            gfx::Point((ui::width() - ww) / 2, ui::height() - wh - 25),
+            { ww, wh },
             window_flags::stick_to_front | window_flags::transparent | window_flags::no_background | window_flags::flag_6,
             &_events);
 

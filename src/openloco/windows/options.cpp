@@ -50,7 +50,7 @@ namespace openloco::ui::options
     {
         auto widget = &w->widgets[index];
 
-        gfx::point_t pos = {};
+        gfx::Point pos = gfx::Point();
         pos.x = widget->left + w->x;
         pos.y = widget->top + w->y;
 
@@ -213,7 +213,7 @@ namespace openloco::ui::options
 
     namespace display
     {
-        static const gfx::ui_size_t _window_size = { 366, 159 };
+        static const gfx::Size _window_size = { 366, 159 };
 
         namespace widx
         {
@@ -653,7 +653,7 @@ namespace openloco::ui::options
 
     namespace sound
     {
-        static const gfx::ui_size_t _window_size = { 366, 69 };
+        static const gfx::Size _window_size = { 366, 69 };
 
         namespace widx
         {
@@ -811,7 +811,7 @@ namespace openloco::ui::options
 
     namespace music
     {
-        static const gfx::ui_size_t _window_size = { 366, 129 };
+        static const gfx::Size _window_size = { 366, 129 };
 
         namespace widx
         {
@@ -1239,7 +1239,7 @@ namespace openloco::ui::options
 
     namespace regional
     {
-        static const gfx::ui_size_t _window_size = { 366, 167 };
+        static const gfx::Size _window_size = { 366, 167 };
 
         namespace widx
         {
@@ -1733,7 +1733,7 @@ namespace openloco::ui::options
             };
         }
 
-        static const gfx::ui_size_t _window_size = { 366, 87 };
+        static const gfx::Size _window_size = { 366, 87 };
 
         static widget_t _widgets[] = {
             common_options_widgets(_window_size, string_ids::options_title_controls),
@@ -1843,7 +1843,7 @@ namespace openloco::ui::options
 
     namespace misc
     {
-        static const gfx::ui_size_t _window_size = { 420, 102 };
+        static const gfx::Size _window_size = { 420, 102 };
 
         namespace widx
         {
@@ -2141,8 +2141,7 @@ namespace openloco::ui::options
         // 0x004BF833 (create_options_window)
         window = WindowManager::createWindowCentred(
             WindowType::options,
-            display::_window_size.width,
-            display::_window_size.height,
+            display::_window_size,
             0,
             &display::_events);
 
