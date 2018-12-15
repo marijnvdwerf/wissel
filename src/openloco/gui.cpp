@@ -29,10 +29,8 @@ namespace openloco::gui
         _mainWindowWidgets[0].right = uiWidth;
         auto window = WindowManager::createWindow(
             WindowType::main,
-            0,
-            0,
-            uiWidth,
-            uiHeight,
+            { 0, 0 },
+            gfx::Size(uiWidth, uiHeight),
             ui::window_flags::stick_to_back,
             (ui::window_event_list*)0x004FA1F4);
         window->widgets = _mainWindowWidgets;
@@ -61,10 +59,8 @@ namespace openloco::gui
 
             window = WindowManager::createWindow(
                 WindowType::topToolbar,
-                0,
-                0,
-                uiWidth,
-                28,
+                { 0, 0 },
+                gfx::Size(uiWidth, 28),
                 ui::window_flags::stick_to_front | ui::window_flags::transparent | ui::window_flags::no_background,
                 (ui::window_event_list*)0x4fa180);
             window->widgets = (ui::widget_t*)0x509c34;
@@ -82,10 +78,8 @@ namespace openloco::gui
 
             window = WindowManager::createWindow(
                 WindowType::playerInfoToolbar,
-                0,
-                uiHeight - 27,
-                140,
-                27,
+                gfx::Point(0, uiHeight - 27),
+                gfx::Size(140, 27),
                 ui::window_flags::stick_to_front | ui::window_flags::transparent | ui::window_flags::no_background,
                 (ui::window_event_list*)0x4fa024);
             window->widgets = (ui::widget_t*)0x509d08;
@@ -101,10 +95,8 @@ namespace openloco::gui
 
             window = WindowManager::createWindow(
                 WindowType::timeToolbar,
-                uiWidth - 140,
-                uiHeight - 27,
-                140,
-                27,
+                gfx::Point(uiWidth - 140, uiHeight - 27),
+                gfx::Size(140, 27),
                 ui::window_flags::stick_to_front | ui::window_flags::transparent | ui::window_flags::no_background,
                 (ui::window_event_list*)0x4fa098);
             window->widgets = (ui::widget_t*)0x509d5c;
@@ -124,10 +116,8 @@ namespace openloco::gui
 
                 window = WindowManager::createWindow(
                     WindowType::tutorial,
-                    140,
-                    uiHeight - 27,
-                    uiWidth - 280,
-                    27,
+                    gfx::Point(140, uiHeight - 27),
+                    gfx::Size(uiWidth - 280, 27),
                     ui::window_flags::stick_to_front | ui::window_flags::transparent | ui::window_flags::no_background,
                     (ui::window_event_list*)0x4fa10c);
                 window->widgets = (ui::widget_t*)0x509de0;

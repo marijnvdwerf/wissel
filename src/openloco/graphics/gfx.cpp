@@ -202,9 +202,9 @@ namespace openloco::gfx
         setTextColours(el->offset[colour * 4 + 0], el->offset[colour * 4 + 1], el->offset[colour * 4 + 2]);
     }
 
-    static gfx::point_t loop_newline(drawpixelinfo_t* context, gfx::point_t origin, uint8_t* str)
+    static gfx::Point loop_newline(drawpixelinfo_t* context, gfx::Point origin, uint8_t* str)
     {
-        gfx::point_t pos = origin;
+        gfx::Point pos = origin;
 
         while (true)
         {
@@ -418,10 +418,10 @@ namespace openloco::gfx
      * @param context @<edi>
      * @param text @<esi>
      */
-    gfx::point_t draw_string(drawpixelinfo_t* context, int16_t x, int16_t y, uint8_t colour, void* str)
+    gfx::Point draw_string(drawpixelinfo_t* context, int16_t x, int16_t y, uint8_t colour, void* str)
     {
         // 0x00E04348, 0x00E0434A
-        gfx::point_t origin = { x, y };
+        gfx::Point origin = { x, y };
 
         if (colour == format_flags::fe)
         {
@@ -546,7 +546,7 @@ namespace openloco::gfx
      */
     void draw_string_494B3F(
         drawpixelinfo_t& dpi,
-        point_t* origin,
+        Point* origin,
         uint8_t colour,
         string_id stringId,
         const void* args)
@@ -641,7 +641,7 @@ namespace openloco::gfx
      */
     void draw_string_centred_wrapped(
         drawpixelinfo_t* context,
-        point_t* origin,
+        Point* origin,
         uint16_t width,
         uint8_t colour,
         string_id stringId,

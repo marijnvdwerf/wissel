@@ -12,7 +12,7 @@ using namespace openloco::interop;
 
 namespace openloco::ui::windows
 {
-    static const gfx::ui_size_t window_size = { 40, 28 };
+    static const gfx::Size window_size = { 40, 28 };
 
     namespace widx
     {
@@ -39,10 +39,8 @@ namespace openloco::ui::windows
 
         auto window = openloco::ui::WindowManager::createWindow(
             WindowType::titleExit,
-            ui::width() - window_size.width,
-            ui::height() - window_size.height,
-            window_size.width,
-            window_size.height,
+            gfx::Point(ui::width() - window_size.width, ui::height() - window_size.height),
+            window_size,
             window_flags::stick_to_front | window_flags::transparent | window_flags::no_background | window_flags::flag_6,
             &_events);
 
@@ -65,7 +63,7 @@ namespace openloco::ui::windows
 
         int16_t x = window->x + window->width / 2;
         int16_t y = window->y + window->widgets[widx::exit_button].top + 8;
-        gfx::point_t origin = { x, y };
+        gfx::Point origin = { x, y };
         gfx::draw_string_centred_wrapped(dpi, &origin, window->width, colour::black, string_ids::title_exit_game);
     }
 

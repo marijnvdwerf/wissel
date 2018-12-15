@@ -64,16 +64,30 @@ namespace openloco::gfx
 
 #pragma pack(pop)
 
-    struct point_t
+    struct Point
     {
-        int16_t x;
-        int16_t y;
+        int16_t x = 0;
+        int16_t y = 0;
+
+        constexpr Point(){};
+
+        constexpr Point(int16_t x, int16_t y)
+            : x(x)
+            , y(y)
+        {
+        }
     };
 
-    struct ui_size_t
+    struct Size
     {
         uint16_t width;
         uint16_t height;
+
+        constexpr Size(uint16_t width, uint16_t height)
+            : width(width)
+            , height(height)
+        {
+        }
     };
 
     drawpixelinfo_t& screen_dpi();
@@ -86,7 +100,7 @@ namespace openloco::gfx
     int16_t clip_string(int16_t width, char* string);
     uint16_t get_string_width(const char* buffer);
 
-    gfx::point_t draw_string(drawpixelinfo_t* context, int16_t x, int16_t y, uint8_t colour, void* str);
+    gfx::Point draw_string(drawpixelinfo_t* context, int16_t x, int16_t y, uint8_t colour, void* str);
 
     void draw_string_494B3F(
         drawpixelinfo_t& dpi,
@@ -97,7 +111,7 @@ namespace openloco::gfx
         const void* args);
     void draw_string_494B3F(
         drawpixelinfo_t& dpi,
-        point_t* origin,
+        Point* origin,
         uint8_t colour,
         string_id stringId,
         const void* args);
@@ -126,7 +140,7 @@ namespace openloco::gfx
         const char* args);
     void draw_string_centred_wrapped(
         drawpixelinfo_t* context,
-        point_t* origin,
+        Point* origin,
         uint16_t width,
         uint8_t colour,
         string_id stringId,

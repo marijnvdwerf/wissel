@@ -153,8 +153,7 @@ namespace openloco::ui::textinput
 
         auto window = WindowManager::createWindowCentred(
             WindowType::textInput,
-            330,
-            90,
+            { 330, 90 },
             window_flags::stick_to_front | window_flags::flag_12,
             &_events);
         window->widgets = _widgets;
@@ -263,7 +262,7 @@ namespace openloco::ui::textinput
         *((string_id*)(&_commonFormatArgs[0])) = _message;
         memcpy(&_commonFormatArgs[2], _formatArgs, 8);
 
-        gfx::point_t position = { (int16_t)(window->x + window->width / 2), (int16_t)(window->y + 30) };
+        gfx::Point position = { (int16_t)(window->x + window->width / 2), (int16_t)(window->y + 30) };
         gfx::draw_string_centred_wrapped(context, &position, window->width - 8, 0, string_ids::wcolour2_stringid2, &_commonFormatArgs[0]);
 
         auto widget = &_widgets[widx::input];
