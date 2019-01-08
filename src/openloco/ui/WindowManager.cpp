@@ -173,7 +173,7 @@ namespace openloco::ui::WindowManager
                     w = find((WindowType)regs.cx, regs.dx);
                 }
 
-                regs.esi = (uintptr_t)w;
+                regs.esi = (loco_ptr)w;
                 if (w == nullptr)
                 {
                     return X86_FLAG_ZERO;
@@ -252,7 +252,7 @@ namespace openloco::ui::WindowManager
             [](registers& regs) -> uint8_t {
                 auto w = getMainWindow();
 
-                regs.esi = (uintptr_t)w;
+                regs.esi = (loco_ptr)w;
                 if (w == nullptr)
                 {
                     return X86_FLAG_CARRY;
@@ -514,7 +514,7 @@ namespace openloco::ui::WindowManager
     window* bringToFront(window* w)
     {
         registers regs;
-        regs.esi = (uint32_t)w;
+        regs.esi = (loco_ptr)w;
         call(0x004CC750, regs);
 
         return (window*)regs.esi;
@@ -543,7 +543,7 @@ namespace openloco::ui::WindowManager
         regs.eax = (origin.y << 16) | (origin.x & 0xFFFF);
         regs.ebx = (size.height << 16) | (size.width & 0xFFFF);
         regs.ecx = (uint8_t)type | (flags << 8);
-        regs.edx = (int32_t)events;
+        regs.edx = (loco_ptr)events;
         call(0x004C9F5D, regs);
         return (window*)regs.esi;
     }

@@ -44,9 +44,9 @@ namespace openloco::ui::widget
         regs.bx = width;
         regs.cx = x;
         regs.dx = y;
-        regs.esi = (uint32_t)window;
-        regs.edi = (uint32_t)dpi;
-        regs.ebp = (uint32_t)widget;
+        regs.esi = (loco_ptr)window;
+        regs.edi = (loco_ptr)dpi;
+        regs.ebp = (loco_ptr)widget;
         call(0x004CF3EB, regs);
     }
 

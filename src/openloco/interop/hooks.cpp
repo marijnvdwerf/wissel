@@ -702,7 +702,7 @@ void openloco::interop::register_hooks()
             // TODO: use utility::strlcpy with the buffer size instead of std::strcpy, if possible
             std::strcpy(buffer, path.make_preferred().u8string().c_str());
 #endif
-            regs.ebx = (int32_t)buffer;
+            regs.ebx = (loco_ptr)buffer;
             return 0;
         });
 
@@ -762,7 +762,7 @@ void openloco::interop::register_hooks()
             registers backup = regs;
             char* buffer = stringmgr::format_string((char*)regs.edi, regs.eax, (void*)regs.ecx);
             regs = backup;
-            regs.edi = (uint32_t)buffer;
+            regs.edi = (loco_ptr)buffer;
             return 0;
         });
 

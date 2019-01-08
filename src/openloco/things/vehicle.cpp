@@ -94,7 +94,7 @@ bool vehicle::update()
 {
     int32_t result = 0;
     registers regs;
-    regs.esi = (int32_t)this;
+    regs.esi = (loco_ptr)this;
     switch (type)
     {
         case thing_type::exhaust:
@@ -186,7 +186,7 @@ void vehicle::sub_4BA8D4()
 void vehicle::sub_4BAA76()
 {
     registers regs;
-    regs.esi = (int32_t)this;
+    regs.esi = (loco_ptr)this;
     call(0x004BAA76, regs);
 }
 
@@ -194,7 +194,7 @@ void vehicle::sub_4BAA76()
 int32_t openloco::vehicle::sub_4AA1D0()
 {
     registers regs;
-    regs.esi = (int32_t)this;
+    regs.esi = (loco_ptr)this;
 
     if (var_42 == 2 || var_42 == 3)
     {

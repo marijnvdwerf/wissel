@@ -89,7 +89,7 @@ namespace openloco::stringmgr
     {
         registers regs;
         regs.eax = (uint32_t)value;
-        regs.edi = (uint32_t)buffer;
+        regs.edi = (loco_ptr)buffer;
 
         call(0x00495F35, regs);
         return (char*)regs.edi;
@@ -99,7 +99,7 @@ namespace openloco::stringmgr
     {
         registers regs;
         regs.eax = (uint32_t)value;
-        regs.edi = (uint32_t)buffer;
+        regs.edi = (loco_ptr)buffer;
 
         call(0x495E2A, regs);
         return (char*)regs.edi;
@@ -110,7 +110,7 @@ namespace openloco::stringmgr
         registers regs;
         regs.eax = (uint32_t)value;
         regs.edx = (uint32_t)(value / (1ULL << 32)); // regs.dx = (uint16_t)(value >> 32);
-        regs.edi = (uint32_t)buffer;
+        regs.edi = (loco_ptr)buffer;
         regs.ebx = (uint32_t)separator;
 
         call(0x496052, regs);
@@ -121,7 +121,7 @@ namespace openloco::stringmgr
     {
         registers regs;
         regs.eax = (uint32_t)value;
-        regs.edi = (uint32_t)buffer;
+        regs.edi = (loco_ptr)buffer;
 
         call(0x4963FC, regs);
         return (char*)regs.edi;
@@ -131,7 +131,7 @@ namespace openloco::stringmgr
     {
         registers regs;
         regs.eax = (uint32_t)value;
-        regs.edi = (uint32_t)buffer;
+        regs.edi = (loco_ptr)buffer;
 
         call(0x4962F1, regs);
         return (char*)regs.edi;

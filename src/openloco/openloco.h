@@ -18,6 +18,23 @@ namespace openloco
         constexpr uint8_t unknown_6 = 1 << 6;
     }
 
+#pragma pack(push, 1)
+    struct loco_ptr
+    {
+        uintptr_t _ptr;
+        loco_ptr(const void* x)
+        {
+            _ptr = reinterpret_cast<uintptr_t>(x);
+        }
+        loco_ptr(int32_t x)
+        {
+            _ptr = x;
+        }
+        operator int32_t() const { return (int32_t)_ptr; }
+        operator uintptr_t() const { return _ptr; }
+    };
+#pragma pack(pop)
+
     extern const char version[];
 
     std::string get_version_info();

@@ -780,7 +780,7 @@ namespace openloco::audio
     static void sub_48A274(vehicle* v)
     {
         registers regs;
-        regs.esi = (int32_t)v;
+        regs.esi = (loco_ptr)v;
         call(0x0048A274, regs);
     }
 
