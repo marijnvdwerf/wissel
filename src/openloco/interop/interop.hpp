@@ -2,13 +2,12 @@
 
 #include "../compat.h"
 #include "../utility/string.hpp"
+#include "i386.h"
 #include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <stdexcept>
 #include <vector>
-
-#define assert_struct_size(x, y) static_assert(sizeof(x) == (y), "Improper struct size")
 
 #if defined(__GNUC__)
 #define FORCE_ALIGN_ARG_POINTER __attribute__((force_align_arg_pointer))
@@ -18,72 +17,6 @@
 
 namespace openloco::interop
 {
-#pragma pack(push, 1)
-    /**
-    * x86 register structure, only used for easy interop to Locomotion code.
-    */
-    struct registers
-    {
-        union
-        {
-            int32_t eax;
-            int16_t ax;
-            struct
-            {
-                int8_t al;
-                int8_t ah;
-            };
-        };
-        union
-        {
-            int32_t ebx;
-            int16_t bx;
-            struct
-            {
-                int8_t bl;
-                int8_t bh;
-            };
-        };
-        union
-        {
-            int32_t ecx;
-            int16_t cx;
-            struct
-            {
-                int8_t cl;
-                int8_t ch;
-            };
-        };
-        union
-        {
-            int32_t edx;
-            int16_t dx;
-            struct
-            {
-                int8_t dl;
-                int8_t dh;
-            };
-        };
-        union
-        {
-            int32_t esi;
-            int16_t si;
-        };
-        union
-        {
-            int32_t edi;
-            int16_t di;
-        };
-        union
-        {
-            int32_t ebp;
-            int16_t bp;
-        };
-
-        registers();
-    };
-    assert_struct_size(registers, 7 * 4);
-#pragma pack(pop)
 
 #ifndef USE_MMAP
     constexpr uintptr_t GOOD_PLACE_FOR_DATA_SEGMENT = 0x008A4000;
@@ -365,15 +298,6 @@ namespace openloco::interop
 
     void read_memory(uint32_t address, void* data, size_t size);
     void write_memory(uint32_t address, const void* data, size_t size);
-
-    using hook_function = uint8_t (*)(registers& regs);
-
-    void register_hook(uintptr_t address, hook_function function);
-    void write_ret(uint32_t address);
-    void write_jmp(uint32_t address, void* fn);
-    void write_nop(uint32_t address, size_t count);
-    void hook_dump(uint32_t address, void* fn);
-    void hook_lib(uint32_t address, void* fn);
 
     void register_hooks();
     void load_sections();
