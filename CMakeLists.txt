@@ -23,6 +23,7 @@ if(APPLE OR MINGW)
 endif()
 
 option(USE_BOOST_FILESYSTEM "Use Boost filesystem instead of C++17" ${USE_BOOST_FS_DEFAULT})
+option(I386 "Compile for native x86" ON)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake;${CMAKE_MODULE_PATH}")
 
@@ -94,6 +95,9 @@ set(COMMON_COMPILE_OPTIONS
 set(OBJ_FORMAT "elf32-i386")
 set(LINKER_SCRIPT "ld_script_i386.xc")
 
+if (I386)
+    set(TARGET_M "-m32")
+endif ()
 
 # Handle creating the rct2 text and data files on OS X and Linux
 # See details in src/openrct2.c:openrct2_setup_rct2_segment for how the values
@@ -163,7 +167,6 @@ if (APPLE)
 endif ()
 
 set(PIE_FLAG "-fno-pie")
-set(TARGET_M "-m32")
 
 # set necessary flags to compile code as is
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${TARGET_M} -std=gnu99 ${COMMON_COMPILE_OPTIONS} -Wimplicit")
