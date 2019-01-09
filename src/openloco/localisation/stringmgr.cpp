@@ -92,7 +92,7 @@ namespace openloco::stringmgr
         regs.edi = (loco_ptr)buffer;
 
         call(0x00495F35, regs);
-        return (char*)regs.edi;
+        return (char*)(uintptr_t)regs.edi;
     }
 
     static char* format_int32_ungrouped(int32_t value, char* buffer)
@@ -102,7 +102,7 @@ namespace openloco::stringmgr
         regs.edi = (loco_ptr)buffer;
 
         call(0x495E2A, regs);
-        return (char*)regs.edi;
+        return (char*)(uintptr_t)regs.edi;
     }
 
     static char* format_int48_grouped(uint64_t value, char* buffer, uint8_t separator)
@@ -114,7 +114,7 @@ namespace openloco::stringmgr
         regs.ebx = (uint32_t)separator;
 
         call(0x496052, regs);
-        return (char*)regs.edi;
+        return (char*)(uintptr_t)regs.edi;
     }
 
     static char* format_short_with_decimals(int16_t value, char* buffer)
@@ -124,7 +124,7 @@ namespace openloco::stringmgr
         regs.edi = (loco_ptr)buffer;
 
         call(0x4963FC, regs);
-        return (char*)regs.edi;
+        return (char*)(uintptr_t)regs.edi;
     }
 
     static char* format_int_with_decimals(int32_t value, char* buffer)
@@ -134,7 +134,7 @@ namespace openloco::stringmgr
         regs.edi = (loco_ptr)buffer;
 
         call(0x4962F1, regs);
-        return (char*)regs.edi;
+        return (char*)(uintptr_t)regs.edi;
     }
 
     // 0x00495D09
@@ -356,7 +356,7 @@ namespace openloco::stringmgr
 
                     case control_codes::string_ptr:
                     {
-                        const char* str = (char*)args.pop32();
+                        const char* str = (char*)(uintptr_t)args.pop32();
                         strcpy(buffer, str);
                         buffer += strlen(str);
                         break;

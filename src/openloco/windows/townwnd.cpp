@@ -26,6 +26,6 @@ namespace openloco::ui::windows
         registers regs;
         regs.dx = townId;
         call(0x00499B7E, regs);
-        return (window*)regs.esi;
+        return (window*)(uintptr_t)regs.esi;
     }
 }

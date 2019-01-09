@@ -658,7 +658,7 @@ static void register_audio_hooks()
     register_hook(
         0x0048A4BF,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
-            audio::play_sound((vehicle*)regs.esi);
+            audio::play_sound((vehicle*)(uintptr_t)regs.esi);
             return 0;
         });
     register_hook(
@@ -748,7 +748,7 @@ void openloco::interop::register_hooks()
         0x00451025,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
             registers backup = regs;
-            auto pos = gfx::draw_string((gfx::drawpixelinfo_t*)regs.edi, regs.cx, regs.dx, regs.al, (uint8_t*)regs.esi);
+            auto pos = gfx::draw_string((gfx::drawpixelinfo_t*)(uintptr_t)regs.edi, regs.cx, regs.dx, regs.al, (uint8_t*)(uintptr_t)regs.esi);
             regs = backup;
             regs.cx = pos.x;
             regs.dx = pos.y;
@@ -760,7 +760,7 @@ void openloco::interop::register_hooks()
         0x004958C6,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
             registers backup = regs;
-            char* buffer = stringmgr::format_string((char*)regs.edi, regs.eax, (void*)regs.ecx);
+            char* buffer = stringmgr::format_string((char*)(uintptr_t)regs.edi, regs.eax, (void*)(uintptr_t)regs.ecx);
             regs = backup;
             regs.edi = (loco_ptr)buffer;
             return 0;
@@ -769,7 +769,7 @@ void openloco::interop::register_hooks()
     register_hook(
         0x0049D3F6,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
-            ui::windows::construction_mouse_up(*((ui::window*)regs.esi), regs.dx);
+            ui::windows::construction_mouse_up(*((ui::window*)(uintptr_t)regs.esi), regs.dx);
             return 0;
         });
 
@@ -777,22 +777,22 @@ void openloco::interop::register_hooks()
         0x0048ED2F,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
             ui::windows::station_2_scroll_paint(
-                *((ui::window*)regs.esi),
-                *((gfx::drawpixelinfo_t*)regs.edi));
+                *((ui::window*)(uintptr_t)regs.esi),
+                *((gfx::drawpixelinfo_t*)(uintptr_t)regs.edi));
             return 0;
         });
 
     register_hook(
         0x00498E9B,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
-            openloco::ui::windows::sub_498E9B((openloco::ui::window*)regs.esi);
+            openloco::ui::windows::sub_498E9B((openloco::ui::window*)(uintptr_t)regs.esi);
             return 0;
         });
 
     register_hook(
         0x004BA8D4,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
-            auto v = (openloco::vehicle*)regs.esi;
+            auto v = (openloco::vehicle*)(uintptr_t)regs.esi;
             v->sub_4BA8D4();
             return 0;
         });
@@ -815,8 +815,8 @@ void openloco::interop::register_hooks()
         0x004CA4DF,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
             registers backup = regs;
-            auto window = (ui::window*)regs.esi;
-            auto dpi = (gfx::drawpixelinfo_t*)regs.edi;
+            auto window = (ui::window*)(uintptr_t)regs.esi;
+            auto dpi = (gfx::drawpixelinfo_t*)(uintptr_t)regs.edi;
             window->draw(dpi);
             regs = backup;
             return 0;
@@ -832,7 +832,7 @@ void openloco::interop::register_hooks()
     register_hook(
         0x004AB655,
         [](registers& regs) -> uint8_t {
-            auto v = (openloco::vehicle*)regs.esi;
+            auto v = (openloco::vehicle*)(uintptr_t)regs.esi;
             v->secondary_animation_update();
 
             return 0;
@@ -861,7 +861,7 @@ void openloco::interop::register_hooks()
         0x004C6456,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
             registers backup = regs;
-            auto window = (ui::window*)regs.esi;
+            auto window = (ui::window*)(uintptr_t)regs.esi;
             window->viewports_update_position();
             regs = backup;
             return 0;
@@ -871,7 +871,7 @@ void openloco::interop::register_hooks()
         0x004C9513,
         [](registers& regs) -> uint8_t {
             registers backup = regs;
-            auto window = (ui::window*)regs.esi;
+            auto window = (ui::window*)(uintptr_t)regs.esi;
             int16_t x = regs.ax;
             int16_t y = regs.bx;
 
@@ -895,7 +895,7 @@ void openloco::interop::register_hooks()
         0x004CA115,
         [](registers& regs) -> uint8_t {
             registers backup = regs;
-            auto window = (ui::window*)regs.esi;
+            auto window = (ui::window*)(uintptr_t)regs.esi;
             window->update_scroll_widgets();
             regs = backup;
 
@@ -906,7 +906,7 @@ void openloco::interop::register_hooks()
         0x004CA17F,
         [](registers& regs) -> uint8_t {
             registers backup = regs;
-            auto window = (ui::window*)regs.esi;
+            auto window = (ui::window*)(uintptr_t)regs.esi;
             window->init_scroll_widgets();
             regs = backup;
 

@@ -758,7 +758,7 @@ namespace openloco::gfx
         regs.dx = height;
         regs.cx = y;
         call(0x4cec50, regs);
-        *dst = (gfx::drawpixelinfo_t*)regs.edi;
+        *dst = (gfx::drawpixelinfo_t*)(uintptr_t)(loco_ptr)regs.edi;
 
         return *dst != nullptr;
     }

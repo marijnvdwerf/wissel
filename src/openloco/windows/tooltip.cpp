@@ -41,31 +41,31 @@ namespace openloco::ui::tooltip
         register_hook(
             0x004C906B,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
-                ui::tooltip::open((ui::window*)regs.esi, regs.edx, regs.ax, regs.bx);
+                ui::tooltip::open((ui::window*)(uintptr_t)regs.esi, regs.edx, regs.ax, regs.bx);
                 return 0;
             });
         register_hook(
             0x004C9216,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
-                ui::tooltip::update((ui::window*)regs.esi, regs.edx, regs.di, regs.ax, regs.bx);
+                ui::tooltip::update((ui::window*)(uintptr_t)regs.esi, regs.edx, regs.di, regs.ax, regs.bx);
                 return 0;
             });
         register_hook(
             0x004C9397,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
-                draw((ui::window*)regs.esi, (gfx::drawpixelinfo_t*)regs.edi);
+                draw((ui::window*)(uintptr_t)regs.esi, (gfx::drawpixelinfo_t*)(uintptr_t)regs.edi);
                 return 0;
             });
         register_hook(
             0x004C94F7,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
-                on_close((ui::window*)regs.esi);
+                on_close((ui::window*)(uintptr_t)regs.esi);
                 return 0;
             });
         register_hook(
             0x004C94FF,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
-                update((ui::window*)regs.esi);
+                update((ui::window*)(uintptr_t)regs.esi);
                 return 0;
             });
     }

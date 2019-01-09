@@ -76,7 +76,7 @@ namespace openloco::ui::textinput
             0x004CE523,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
                 registers backup = regs;
-                open_textinput((ui::window*)regs.esi, regs.ax, regs.bx, regs.cx, regs.dx, (void*)0x0112C836);
+                open_textinput((ui::window*)(uintptr_t)regs.esi, regs.ax, regs.bx, regs.cx, regs.dx, (void*)0x0112C836);
                 regs = backup;
                 return 0;
             });

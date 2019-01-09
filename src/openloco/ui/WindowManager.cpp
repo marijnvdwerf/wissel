@@ -48,7 +48,7 @@ namespace openloco::ui::WindowManager
             0x0045EFDB,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
                 registers backup = regs;
-                auto window = (ui::window*)regs.esi;
+                auto window = (ui::window*)(uintptr_t)regs.esi;
                 window->viewport_zoom_out(false);
                 regs = backup;
                 return 0;
@@ -58,7 +58,7 @@ namespace openloco::ui::WindowManager
             0x0045F015,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
                 registers backup = regs;
-                auto window = (ui::window*)regs.esi;
+                auto window = (ui::window*)(uintptr_t)regs.esi;
                 window->viewport_zoom_in(false);
                 regs = backup;
                 return 0;
@@ -98,7 +98,7 @@ namespace openloco::ui::WindowManager
             0x004C5FC8,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
                 auto dpi = &addr<0x005233B8, gfx::drawpixelinfo_t>();
-                auto window = (ui::window*)regs.esi;
+                auto window = (ui::window*)(uintptr_t)regs.esi;
 
                 // Make a copy to prevent overwriting from nested calls
                 auto regs2 = regs;
@@ -224,7 +224,7 @@ namespace openloco::ui::WindowManager
             0x004CC6EA,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
                 registers backup = regs;
-                auto window = (ui::window*)regs.esi;
+                auto window = (ui::window*)(uintptr_t)regs.esi;
                 close(window);
                 regs = backup;
                 return 0;
@@ -265,7 +265,7 @@ namespace openloco::ui::WindowManager
             0x004CEE0B,
             [](registers& regs) -> uint8_t {
                 registers backup = regs;
-                sub_4CEE0B((ui::window*)regs.esi);
+                sub_4CEE0B((ui::window*)(uintptr_t)regs.esi);
                 regs = backup;
 
                 return 0;
@@ -517,7 +517,7 @@ namespace openloco::ui::WindowManager
         regs.esi = (loco_ptr)w;
         call(0x004CC750, regs);
 
-        return (window*)regs.esi;
+        return (window*)(uintptr_t)regs.esi;
     }
 
     // 0x004CD3A9
@@ -528,7 +528,7 @@ namespace openloco::ui::WindowManager
         regs.dx = id;
         call(0x004CD3A9, regs);
 
-        return (window*)regs.esi;
+        return (window*)(uintptr_t)regs.esi;
     }
 
     // 0x004C9F5D
@@ -545,7 +545,7 @@ namespace openloco::ui::WindowManager
         regs.ecx = (uint8_t)type | (flags << 8);
         regs.edx = (loco_ptr)events;
         call(0x004C9F5D, regs);
-        return (window*)regs.esi;
+        return (window*)(uintptr_t)regs.esi;
     }
 
     window* createWindowCentred(WindowType type, gfx::Size size, uint32_t flags, window_event_list* events)
