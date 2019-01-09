@@ -186,7 +186,9 @@ namespace openloco
 
     static void sub_406417()
     {
+#ifdef __i386__
         ((void (*)())0x00406417)();
+#endif
     }
 
     static void sub_40567E()
@@ -221,8 +223,12 @@ namespace openloco
     // 0x00407FFD
     static bool is_already_running(const char* mutexName)
     {
+#ifdef __i386__
         auto result = ((int32_t(*)(const char*))(0x00407FFD))(mutexName);
         return result != 0;
+#else
+        return false;
+#endif
     }
 
     // 0x004BE621

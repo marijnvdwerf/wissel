@@ -427,7 +427,9 @@ namespace openloco::ui
     // 0x00406FBA
     static void enqueue_key(uint32_t keycode)
     {
+#ifdef __i386__
         ((void (*)(uint32_t))(0x00406FBA))(keycode);
+#endif
 
         switch (keycode)
         {
