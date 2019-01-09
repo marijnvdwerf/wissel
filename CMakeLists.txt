@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 
 set (PROJECT openloco)
 
-project(${PROJECT} CXX)
+project(${PROJECT} C CXX)
 
 if (APPLE)
     # Detection of this variable seems to fail with CMake.
@@ -168,8 +168,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDEBUG=${DEBUG_LEVEL}")
 # include lib
 include_directories("lib/")
 # add source files
-file(GLOB_RECURSE OLOCO_SOURCES "src/*.cpp")
-file(GLOB_RECURSE OLOCO_HEADERS "src/*.h" "src/*.hpp")
+file(GLOB_RECURSE OLOCO_SOURCES "src/openloco/*.cpp")
+file(GLOB_RECURSE OLOCO_HEADERS "src/openloco/*.h" "src/openloco/*.hpp")
 
 
 if (APPLE)
@@ -184,6 +184,10 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${TARGET_M} -std=gnu99 ${COMMON_COMPILE_OPTI
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TARGET_M} ${COMMON_COMPILE_OPTIONS} -Wnon-virtual-dtor")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${TARGET_M}")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${CMAKE_SHARED_LINKER_FLAGS} ${TARGET_M} ${PIE_FLAG}")
+
+file(GLOB_RECURSE LIB_SRCS "src/x86emu/*.c")
+add_library(x86emu ${LIB_SRCS})
+target_include_directories(x86emu INTERFACE "src/x86emu/include")
 
 find_package(SDL2 REQUIRED)
 if (NOT SDL2_LIBRARIES)
@@ -221,6 +225,7 @@ if (MINGW)
     target_link_libraries(${PROJECT} winmm)
 else ()
     add_executable(${PROJECT} ${OLOCO_SOURCES} ${OLOCO_MM_SOURCES} ${LOCO_SECTIONS} ${OLOCO_RESOURCES})
+    target_link_libraries(${PROJECT} x86emu)
     set_target_properties(${PROJECT} PROPERTIES LINK_FLAGS ${LOCO_SEGMENT_LINKER_FLAGS})
 endif ()
 
