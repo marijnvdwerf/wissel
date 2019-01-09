@@ -457,7 +457,7 @@ static int32_t STDCALL lib_CreateFileA(
         return -1;
     }
 
-    return (int32_t)pFILE;
+    return (loco_ptr)pFILE;
 }
 
 FORCE_ALIGN_ARG_POINTER
