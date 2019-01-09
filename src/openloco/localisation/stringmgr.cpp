@@ -4,6 +4,7 @@
 #include "../interop/interop.hpp"
 #include "../objects/currency_object.h"
 #include "../objects/objectmgr.h"
+#include "../openloco.h"
 #include "../townmgr.h"
 #include "argswrapper.hpp"
 #include "string_ids.h"
