@@ -36,6 +36,11 @@ using namespace openloco;
 #error Unknown compiler, please define STDCALL and CDECL
 #endif
 
+#ifdef __x86_64__
+#undef STDCALL
+#define STDCALL
+#endif
+
 #pragma warning(push)
 // MSVC ignores C++17's [[maybe_unused]] attribute on functions, so just disable the warning
 #pragma warning(disable : 4505) // unreferenced local function has been removed.
