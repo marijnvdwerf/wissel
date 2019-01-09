@@ -20,7 +20,7 @@ namespace openloco::ui
     template<typename T>
     static bool is_interop_event(T e)
     {
-        return (uint32_t)e < 0x004D7000;
+        return (uintptr_t)e < 0x004D7000;
     }
 
     bool window::can_resize()
@@ -545,7 +545,7 @@ namespace openloco::ui
         {
             registers regs;
             regs.esi = (loco_ptr)this;
-            call((uint32_t)this->event_handlers->on_close, regs);
+            call((uintptr_t)this->event_handlers->on_close, regs);
             return;
         }
 
@@ -645,7 +645,7 @@ namespace openloco::ui
     {
         registers regs;
         regs.esi = (loco_ptr)this;
-        call((uint32_t)this->event_handlers->on_resize, regs);
+        call((uintptr_t)this->event_handlers->on_resize, regs);
 
         return (window*)(uintptr_t)regs.esi;
     }
@@ -670,7 +670,7 @@ namespace openloco::ui
             regs.edx = widget_index;
             regs.esi = (loco_ptr)this;
             regs.edi = (loco_ptr) & this->widgets[widget_index];
-            call((uint32_t)this->event_handlers->on_mouse_down, regs);
+            call((uintptr_t)this->event_handlers->on_mouse_down, regs);
             return;
         }
 
@@ -688,7 +688,7 @@ namespace openloco::ui
             regs.ax = item_index;
             regs.edx = widget_index;
             regs.esi = (loco_ptr)this;
-            call((uint32_t)this->event_handlers->on_dropdown, regs);
+            call((uintptr_t)this->event_handlers->on_dropdown, regs);
             return;
         }
 
@@ -705,7 +705,7 @@ namespace openloco::ui
             registers regs;
             regs.eax = scrollIndex;
             regs.esi = (loco_ptr)this;
-            call((uint32_t)this->event_handlers->get_scroll_size, regs);
+            call((uintptr_t)this->event_handlers->get_scroll_size, regs);
             *scrollWidth = regs.cx;
             *scrollHeight = regs.dx;
             return;
@@ -721,7 +721,7 @@ namespace openloco::ui
         regs.esi = (loco_ptr)this;
         regs.cx = xPos;
         regs.dx = yPos;
-        call((uint32_t)this->event_handlers->scroll_mouse_down, regs);
+        call((uintptr_t)this->event_handlers->scroll_mouse_down, regs);
     }
 
     void window::call_scroll_mouse_over(int16_t xPos, int16_t yPos, uint8_t scroll_index)
@@ -731,7 +731,7 @@ namespace openloco::ui
         regs.esi = (loco_ptr)this;
         regs.cx = xPos;
         regs.dx = yPos;
-        call((uint32_t)this->event_handlers->scroll_mouse_over, regs);
+        call((uintptr_t)this->event_handlers->scroll_mouse_over, regs);
     }
 
     void window::call_viewport_rotate()
@@ -770,7 +770,7 @@ namespace openloco::ui
             registers regs;
             regs.ax = widget_index;
             regs.esi = (loco_ptr)this;
-            call((int32_t)this->event_handlers->tooltip, regs);
+            call((uintptr_t)this->event_handlers->tooltip, regs);
             return regs.ax != (int16_t)string_ids::null;
         }
 
@@ -796,7 +796,7 @@ namespace openloco::ui
         {
             registers regs;
             regs.esi = (loco_ptr)this;
-            call((int32_t)this->event_handlers->prepare_draw, regs);
+            call((uintptr_t)this->event_handlers->prepare_draw, regs);
             return;
         }
 
@@ -813,7 +813,7 @@ namespace openloco::ui
             registers regs;
             regs.esi = (loco_ptr)this;
             regs.edi = (loco_ptr)dpi;
-            call((int32_t)this->event_handlers->draw, regs);
+            call((uintptr_t)this->event_handlers->draw, regs);
             return;
         }
 
@@ -831,7 +831,7 @@ namespace openloco::ui
             regs.ax = scrollIndex;
             regs.esi = (loco_ptr)this;
             regs.edi = (loco_ptr)dpi;
-            call((int32_t)event_handlers->draw_scroll, regs);
+            call((uintptr_t)event_handlers->draw_scroll, regs);
             return;
         }
 
