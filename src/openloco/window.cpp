@@ -647,7 +647,7 @@ namespace openloco::ui
         regs.esi = (loco_ptr)this;
         call((uint32_t)this->event_handlers->on_resize, regs);
 
-        return (window*)regs.esi;
+        return (window*)(uintptr_t)regs.esi;
     }
 
     void window::call_3(int8_t widget_index)
