@@ -34,8 +34,49 @@
 
 #include "include/x86emu_int.h"
 #if defined(__i386__) || defined (__x86_64__)
-#include <sys/io.h>
+#include <sys/uio.h>
 #endif
+
+static inline void outb(unsigned short port, unsigned char value)
+{
+  __asm__ __volatile__ ("outb %1, %0" : : "dN" (port), "a" (value));
+
+}
+static inline unsigned char inb(unsigned short port)
+{
+  unsigned char value;
+  __asm__ __volatile__ ("inb %1, %0" : "=a"(value) : "Nd"(port));
+  return value;
+}
+
+static __inline unsigned short int inw (unsigned short int __port)
+{
+  unsigned short _v;
+
+  __asm__ __volatile__ ("inw %w1,%0":"=a" (_v):"Nd" (__port));
+  return _v;
+}
+
+static __inline void outw (unsigned short int __value, unsigned short int __port)
+{
+  __asm__ __volatile__ ("outw %w0,%w1": :"a" (__value), "Nd" (__port));
+
+}
+
+
+static __inline unsigned int
+inl (unsigned short int port)
+{
+  unsigned int _v;
+  __asm__ __volatile__ ("inl %w1,%0":"=a" (_v):"Nd" (port));
+  return _v;
+}
+
+static __inline void
+outl (unsigned int value, unsigned short int port)
+{
+  __asm__ __volatile__ ("outl %0,%w1": :"a" (value), "Nd" (port));
+}
 
 #define PERM16(a)	((a) + ((a) << 8))
 #define PERM32(a)	(PERM16(a) + (PERM16(a) << 16))

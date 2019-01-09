@@ -2299,7 +2299,7 @@ void div_byte(x86emu_t *emu, u8 s)
     }
 	div = dvd / (u8)s;
 	mod = dvd % (u8)s;
-	if (abs(div) > 0xff) {
+	if (div > 0xff) {
 		INTR_RAISE_DIV0(emu);
         return;
 	}
@@ -2322,7 +2322,7 @@ void div_word(x86emu_t *emu, u16 s)
     }
 	div = dvd / (u16)s;
 	mod = dvd % (u16)s;
-	if (abs(div) > 0xffff) {
+	if (div > 0xffff) {
 		INTR_RAISE_DIV0(emu);
 		return;
 	}
