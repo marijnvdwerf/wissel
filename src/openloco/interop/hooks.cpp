@@ -39,6 +39,8 @@ using namespace openloco;
 #ifdef __x86_64__
 #undef STDCALL
 #define STDCALL
+#undef CDECL
+#define CDECL
 #endif
 
 #pragma warning(push)
