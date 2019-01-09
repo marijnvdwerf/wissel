@@ -544,7 +544,7 @@ namespace openloco::ui
         if (is_interop_event(event_handlers->on_close))
         {
             registers regs;
-            regs.esi = (int32_t)this;
+            regs.esi = (loco_ptr)this;
             call((uint32_t)this->event_handlers->on_close, regs);
             return;
         }
@@ -560,7 +560,7 @@ namespace openloco::ui
         if (is_interop_event(event_handlers->on_update))
         {
             registers regs;
-            regs.esi = (int32_t)this;
+            regs.esi = (loco_ptr)this;
             call((uintptr_t)this->event_handlers->on_update, regs);
             return;
         }
@@ -644,7 +644,7 @@ namespace openloco::ui
     ui::window* window::call_on_resize()
     {
         registers regs;
-        regs.esi = (uint32_t)this;
+        regs.esi = (loco_ptr)this;
         call((uint32_t)this->event_handlers->on_resize, regs);
 
         return (window*)regs.esi;
@@ -654,8 +654,8 @@ namespace openloco::ui
     {
         registers regs;
         regs.edx = widget_index;
-        regs.esi = (uint32_t)this;
-        regs.edi = (uint32_t) & this->widgets[widget_index];
+        regs.esi = (loco_ptr)this;
+        regs.edi = (loco_ptr) & this->widgets[widget_index];
         call((uint32_t)this->event_handlers->event_03, regs);
     }
 
@@ -668,8 +668,8 @@ namespace openloco::ui
         {
             registers regs;
             regs.edx = widget_index;
-            regs.esi = (uint32_t)this;
-            regs.edi = (uint32_t) & this->widgets[widget_index];
+            regs.esi = (loco_ptr)this;
+            regs.edi = (loco_ptr) & this->widgets[widget_index];
             call((uint32_t)this->event_handlers->on_mouse_down, regs);
             return;
         }
@@ -687,7 +687,7 @@ namespace openloco::ui
             registers regs;
             regs.ax = item_index;
             regs.edx = widget_index;
-            regs.esi = (uint32_t)this;
+            regs.esi = (loco_ptr)this;
             call((uint32_t)this->event_handlers->on_dropdown, regs);
             return;
         }
@@ -704,7 +704,7 @@ namespace openloco::ui
         {
             registers regs;
             regs.eax = scrollIndex;
-            regs.esi = (uintptr_t)this;
+            regs.esi = (loco_ptr)this;
             call((uint32_t)this->event_handlers->get_scroll_size, regs);
             *scrollWidth = regs.cx;
             *scrollHeight = regs.dx;
@@ -737,7 +737,7 @@ namespace openloco::ui
     void window::call_viewport_rotate()
     {
         registers regs;
-        regs.esi = (int32_t)this;
+        regs.esi = (loco_ptr)this;
         call((int32_t)this->event_handlers->viewport_rotate, regs);
     }
 
@@ -769,7 +769,7 @@ namespace openloco::ui
         {
             registers regs;
             regs.ax = widget_index;
-            regs.esi = (int32_t)this;
+            regs.esi = (loco_ptr)this;
             call((int32_t)this->event_handlers->tooltip, regs);
             return regs.ax != (int16_t)string_ids::null;
         }
@@ -795,7 +795,7 @@ namespace openloco::ui
         if (is_interop_event(event_handlers->prepare_draw))
         {
             registers regs;
-            regs.esi = (int32_t)this;
+            regs.esi = (loco_ptr)this;
             call((int32_t)this->event_handlers->prepare_draw, regs);
             return;
         }
@@ -811,8 +811,8 @@ namespace openloco::ui
         if (is_interop_event(this->event_handlers->draw))
         {
             registers regs;
-            regs.esi = (int32_t)this;
-            regs.edi = (int32_t)dpi;
+            regs.esi = (loco_ptr)this;
+            regs.edi = (loco_ptr)dpi;
             call((int32_t)this->event_handlers->draw, regs);
             return;
         }
@@ -829,8 +829,8 @@ namespace openloco::ui
         {
             registers regs;
             regs.ax = scrollIndex;
-            regs.esi = (int32_t)this;
-            regs.edi = (int32_t)dpi;
+            regs.esi = (loco_ptr)this;
+            regs.edi = (loco_ptr)dpi;
             call((int32_t)event_handlers->draw_scroll, regs);
             return;
         }
