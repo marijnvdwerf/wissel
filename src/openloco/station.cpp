@@ -82,7 +82,7 @@ namespace openloco
     {
         registers regs;
         regs.ax = ax;
-        regs.ebp = (int32_t)this;
+        regs.ebp = (loco_ptr)this;
         call(0x00491FE0, regs);
         return regs.ebx;
     }
@@ -236,7 +236,7 @@ namespace openloco
     void station::sub_4929DB()
     {
         registers regs;
-        regs.ebp = (int32_t)this;
+        regs.ebp = (loco_ptr)this;
         call(0x004929DB, regs);
     }
 

@@ -1,5 +1,6 @@
 #include "company.h"
 #include "interop/interop.hpp"
+#include "openloco.h"
 #include <algorithm>
 #include <array>
 
@@ -34,7 +35,7 @@ namespace openloco
     void company::ai_think()
     {
         registers regs;
-        regs.esi = (int32_t)this;
+        regs.esi = (loco_ptr)this;
         call(0x00430762, regs);
     }
 }

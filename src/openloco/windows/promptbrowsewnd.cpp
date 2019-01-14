@@ -93,7 +93,7 @@ namespace openloco::ui::prompt_browse
             (ui::window_event_list*)0x004FB308);
         if (window != nullptr)
         {
-            window->widgets = (widget_t*)0x0050AD58;
+            window->widgets = (loco_ptr) (widget_t*)0x0050AD58;
             window->enabled_widgets = (1 << 2) | (1 << 4) | (1 << 6);
             window->init_scroll_widgets();
             addr<0x01136FA2, int16_t>() = -1;
@@ -218,9 +218,9 @@ namespace openloco::ui::prompt_browse
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
                 auto result = open(
                     (browse_type)regs.al,
-                    (char*)regs.ecx,
-                    (const char*)regs.edx,
-                    (const char*)regs.ebx);
+                    (char*)(uintptr_t)regs.ecx,
+                    (const char*)(uintptr_t)regs.edx,
+                    (const char*)(uintptr_t)regs.ebx);
                 regs.eax = result ? 1 : 0;
                 return 0;
             });
@@ -235,7 +235,7 @@ namespace openloco::ui::prompt_browse
         register_hook(
             0x00446E62,
             [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
-                append_directory((char*)regs.ebp);
+                append_directory((char*)(uintptr_t)regs.ebp);
                 return 0;
             });
     }

@@ -214,42 +214,6 @@ namespace openloco::audio
         }
     }
 
-    static std::vector<sample> load_sounds_from_css(const fs::path& path)
-    {
-        console::log_verbose("load_sounds_from_css(%s)", path.string().c_str());
-        std::vector<sample> results;
-#ifdef _OPENLOCO_USE_BOOST_FS_
-        std::ifstream fs(path.string(), std::ios::in | std::ios::binary);
-#else
-        std::ifstream fs(path, std::ios::in | std::ios::binary);
-#endif
-
-        if (fs.is_open())
-        {
-            auto numSounds = read_value<uint32_t>(fs);
-
-            std::vector<uint32_t> offsets(numSounds, 0);
-            read_data(fs, offsets.data(), numSounds);
-
-            std::vector<std::byte> pcm;
-            for (uint32_t i = 0; i < numSounds; i++)
-            {
-                // Navigate to beginning of wave data
-                fs.seekg(offsets[i]);
-
-                // Read length of wave data and load it into the pcm buffer
-                auto pcmLen = read_value<uint32_t>(fs);
-                auto format = read_value<WAVEFORMATEX>(fs);
-
-                pcm.resize(pcmLen);
-                read_data(fs, pcm.data(), pcmLen);
-
-                auto s = load_sound_from_wave_memory(format, pcm.data(), pcmLen);
-                results.push_back(s);
-            }
-        }
-        return results;
-    }
 
     static void dispose_samples()
     {
@@ -297,43 +261,8 @@ namespace openloco::audio
     // 0x00404E53
     void initialise_dsound()
     {
-        const char* deviceName = nullptr;
-        const auto& cfg = config::get_new();
-        if (!cfg.audio.device.empty())
-        {
-            deviceName = cfg.audio.device.c_str();
+        return;
 
-            // Use default device if config device could not be found
-            if (get_device_index(deviceName) == std::numeric_limits<size_t>().max())
-            {
-                deviceName = nullptr;
-            }
-        }
-
-        auto& format = _outputFormat;
-        format.frequency = MIX_DEFAULT_FREQUENCY;
-        format.format = MIX_DEFAULT_FORMAT;
-        format.channels = MIX_DEFAULT_CHANNELS;
-        if (Mix_OpenAudioDevice(format.frequency, format.format, format.channels, 1024, deviceName, 0) != 0)
-        {
-            console::error("Mix_OpenAudio failed: %s", Mix_GetError());
-            return;
-        }
-        Mix_AllocateChannels(num_reserved_channels + num_sound_channels);
-        Mix_ReserveChannels(num_reserved_channels);
-
-        for (size_t i = 0; i < _channels.size(); i++)
-        {
-            _channels[i] = channel(i);
-        }
-        for (size_t i = 0; i < _vehicle_channels.size(); i++)
-        {
-            _vehicle_channels[i] = vehicle_channel(channel(4 + i));
-        }
-
-        auto css1path = environment::get_path(environment::path_id::css1);
-        _samples = load_sounds_from_css(css1path);
-        _audio_initialised = 1;
     }
 
     // 0x00404E58
@@ -442,7 +371,7 @@ namespace openloco::audio
         auto w = WindowManager::find(WindowType::main, 0);
         if (w != nullptr)
         {
-            auto viewport = w->viewports[0];
+            auto viewport = (ui::viewport*)(uintptr_t )w->viewports[0];
             if (viewport != nullptr && viewport->contains(vpos))
             {
                 return viewport;
@@ -454,7 +383,7 @@ namespace openloco::audio
             w = WindowManager::get(i);
             if (w != nullptr && w->type != WindowType::main && w->type != WindowType::unk_36)
             {
-                auto viewport = w->viewports[0];
+                auto viewport = (ui::viewport*)(uintptr_t )w->viewports[0];
                 if (viewport != nullptr && viewport->contains(vpos))
                 {
                     return viewport;
@@ -780,7 +709,7 @@ namespace openloco::audio
     static void sub_48A274(vehicle* v)
     {
         registers regs;
-        regs.esi = (int32_t)v;
+        regs.esi = (loco_ptr)v;
         call(0x0048A274, regs);
     }
 

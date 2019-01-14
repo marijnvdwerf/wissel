@@ -31,7 +31,7 @@ namespace openloco::ui::windows
 
         registers regs;
         regs.edx = widgetIndex;
-        regs.esi = (int32_t)&w;
+        regs.esi = (loco_ptr)&w;
         switch (widgetIndex)
         {
             case widget_idx::close:
