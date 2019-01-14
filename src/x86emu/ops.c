@@ -67,6 +67,7 @@
 ****************************************************************************/
 
 
+#include <assert.h>
 #include "include/x86emu_int.h"
 
 /*----------------------------- Implementation ----------------------------*/
@@ -2342,6 +2343,7 @@ Handles opcode 0x9a
 ****************************************************************************/
 static void x86emuOp_call_far_IMM(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   u16 cs;
   u32 eip;
 
@@ -3628,6 +3630,7 @@ Handles opcode 0xc2
 ****************************************************************************/
 static void x86emuOp_ret_near_IMM(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   u32 imm;
 
   OP_DECODE("ret ");
@@ -3921,6 +3924,7 @@ Handles opcode 0xca
 ****************************************************************************/
 static void x86emuOp_ret_far_IMM(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   u16 cs;
   u32 imm, eip;
 
@@ -3951,6 +3955,7 @@ Handles opcode 0xcb
 ****************************************************************************/
 static void x86emuOp_ret_far(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   u16 cs;
   u32 eip;
 
@@ -4016,6 +4021,7 @@ Handles opcode 0xcf
 ****************************************************************************/
 static void x86emuOp_iret(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   u16 cs;
   u32 eip;
 
@@ -4276,6 +4282,7 @@ Handles opcode 0xe0
 ****************************************************************************/
 static void x86emuOp_loopne(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   s32 ofs;
   u32 eip;
 
@@ -4301,6 +4308,7 @@ Handles opcode 0xe1
 ****************************************************************************/
 static void x86emuOp_loope(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   s32 ofs;
   u32 eip;
 
@@ -4325,6 +4333,7 @@ Handles opcode 0xe2
 ****************************************************************************/
 static void x86emuOp_loop(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   s32 ofs;
   u32 eip;
 
@@ -4349,6 +4358,7 @@ Handles opcode 0xe3
 ****************************************************************************/
 static void x86emuOp_jcxz(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   s32 ofs;
   u32 eip;
 
@@ -4489,6 +4499,7 @@ Handles opcode 0xe9
 ****************************************************************************/
 static void x86emuOp_jump_near_IMM(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   s32 ofs;
   u32 eip;
 
@@ -4517,6 +4528,7 @@ Handles opcode 0xea
 ****************************************************************************/
 static void x86emuOp_jump_far_IMM(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   u16 cs;
   u32 eip;
 
@@ -4544,6 +4556,7 @@ Handles opcode 0xeb
 ****************************************************************************/
 static void x86emuOp_jump_byte_IMM(x86emu_t *emu, u8 op1)
 {
+  assert(0);
   s32 ofs;
   u32 eip;
 
@@ -5116,6 +5129,7 @@ static void x86emuOp_opcFE_byte_RM(x86emu_t *emu, u8 op1)
   }
 }
 
+int has_lib_hook(x86emu_t* emu, u32 address);
 
 /****************************************************************************
 REMARKS:
@@ -5174,6 +5188,7 @@ static void x86emuOp_opcFF_word_RM(x86emu_t *emu, u8 op1)
 
       case 4:	/* jmp */
         OP_DECODE("jmp ");
+        assert(0);
 
         if(MODE_DATA32) {
           reg32 = decode_rm_long_register(emu, rl);
@@ -5251,6 +5266,10 @@ static void x86emuOp_opcFF_word_RM(x86emu_t *emu, u8 op1)
         if(MODE_DATA32) {
           OP_DECODE("dword ");
           addr = decode_rm_address(emu, mod, rl);
+          if(has_lib_hook(emu, addr)) {
+            assert(0);
+            break;
+          }
           val = fetch_data_long(emu, addr);
           push_long(emu, emu->x86.R_EIP);
         }
@@ -5265,6 +5284,7 @@ static void x86emuOp_opcFF_word_RM(x86emu_t *emu, u8 op1)
 
       case 3:	/* call far */
         OP_DECODE("call far ");
+        assert(0);
 
         if(MODE_DATA32) {
           if(!MODE_CODE32) OP_DECODE("word ");
@@ -5295,6 +5315,11 @@ static void x86emuOp_opcFF_word_RM(x86emu_t *emu, u8 op1)
         if(MODE_DATA32) {
           OP_DECODE("dword ");
           addr = decode_rm_address(emu, mod, rl);
+          if (has_lib_hook(emu, addr))
+          {
+            assert(0);
+            break;
+          }
           val = fetch_data_long(emu, addr);
         }
         else {

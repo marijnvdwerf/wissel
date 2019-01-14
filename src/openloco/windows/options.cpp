@@ -48,7 +48,7 @@ namespace openloco::ui::options
     // 0x004CF194
     static void draw_tab(window* w, gfx::drawpixelinfo_t* ctx, int32_t imageId, widget_index index)
     {
-        auto widget = &w->widgets[index];
+        auto widget = w->getWidget(index);
 
         gfx::Point pos = gfx::Point();
         pos.x = widget->left + w->x;
@@ -305,11 +305,11 @@ namespace openloco::ui::options
                     auto main = WindowManager::getMainWindow();
                     if (main != nullptr)
                     {
-                        main->viewports[0]->var_12 &= ~(1 << 5);
+                        main->getViewport()->var_12 &= ~(1 << 5);
 
                         if ((cfg.flags & config::flags::gridlines_on_landscape) != 0)
                         {
-                            main->viewports[0]->var_12 |= (1 << 5);
+                            main->getViewport()->var_12 |= (1 << 5);
                         }
                     }
 
@@ -323,7 +323,7 @@ namespace openloco::ui::options
         // 0x004BFE2E
         static void construction_marker_mouse_down(window* w, widget_index wi)
         {
-            widget_t dropdown = w->widgets[widx::construction_marker];
+            widget_t dropdown = *w->getWidget(widx::construction_marker);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 2, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::white);
@@ -351,7 +351,7 @@ namespace openloco::ui::options
         // 0x004BFEBE
         static void vehicle_zoom_mouse_down(window* w, widget_index wi)
         {
-            widget_t dropdown = w->widgets[widx::vehicles_min_scale];
+            widget_t dropdown = *w->getWidget(widx::vehicles_min_scale);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 4, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::full_scale);
@@ -381,7 +381,7 @@ namespace openloco::ui::options
         // 0x004BFF72
         static void station_names_scale_mouse_down(window* w, widget_index wi)
         {
-            widget_t dropdown = w->widgets[widx::station_names_min_scale];
+            widget_t dropdown = *w->getWidget(widx::station_names_min_scale);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 4, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::full_scale);
@@ -424,7 +424,7 @@ namespace openloco::ui::options
 
         static void screen_mode_mouse_down(window* w, widget_index wi)
         {
-            widget_t dropdown = w->widgets[widx::screen_mode];
+            widget_t dropdown = *w->getWidget(widx::screen_mode);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 3, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::options_mode_windowed);
@@ -457,7 +457,7 @@ namespace openloco::ui::options
         {
             std::vector<Resolution> resolutions = getFullscreenResolutions();
 
-            widget_t dropdown = w->widgets[widx::display_resolution];
+            widget_t dropdown =* w->getWidget(widx::display_resolution);
             dropdown::show_text_2(w->x + dropdown.left, w->y + dropdown.top, dropdown.width(), dropdown.height(), w->colours[1], (int8_t)resolutions.size(), 0x80);
 
             auto& cfg = config::get();
@@ -552,18 +552,18 @@ namespace openloco::ui::options
         static void prepare_draw(window* w)
         {
             assert(w->current_tab == common::tab::display);
-            assert(w->widgets == _widgets);
+            assert(w->widgets == (uint32_t) (loco_ptr)_widgets);
 
             w->activated_widgets &= ~common::tabWidgets;
             w->activated_widgets |= 1ULL << (w->current_tab + 4);
 
-            w->widgets[common::widx::frame].right = w->width - 1;
-            w->widgets[common::widx::frame].bottom = w->height - 1;
-            w->widgets[common::widx::panel].right = w->width - 1;
-            w->widgets[common::widx::panel].bottom = w->height - 1;
-            w->widgets[common::widx::caption].right = w->width - 2;
-            w->widgets[common::widx::close_button].left = w->width - 15;
-            w->widgets[common::widx::close_button].right = w->width - 15 + 12;
+            w->getWidget(common::widx::frame)->right = w->width - 1;
+            w->getWidget(common::widx::frame)->bottom = w->height - 1;
+            w->getWidget(common::widx::panel)->right = w->width - 1;
+            w->getWidget(common::widx::panel)->bottom = w->height - 1;
+            w->getWidget(common::widx::caption)->right = w->width - 2;
+            w->getWidget(common::widx::close_button)->left = w->width - 15;
+            w->getWidget(common::widx::close_button)->right = w->width - 15 + 12;
 
             string_id screen_mode_string_id = string_ids::empty;
             switch (config::get_new().display.mode)
@@ -578,15 +578,15 @@ namespace openloco::ui::options
                     screen_mode_string_id = string_ids::options_mode_fullscreen_window;
                     break;
             }
-            w->widgets[widx::screen_mode].text = screen_mode_string_id;
+            w->getWidget(widx::screen_mode)->text = screen_mode_string_id;
 
             set_format_arg(0x10, uint16_t, config::get().resolution_width);
             set_format_arg(0x12, uint16_t, config::get().resolution_height);
 
             if (config::get().construction_marker)
-                w->widgets[widx::construction_marker].text = string_ids::translucent;
+                w->getWidget(widx::construction_marker)->text = string_ids::translucent;
             else
-                w->widgets[widx::construction_marker].text = string_ids::white;
+                w->getWidget(widx::construction_marker)->text = string_ids::white;
 
             static const string_id scale_string_ids[] = {
                 string_ids::full_scale,
@@ -595,8 +595,8 @@ namespace openloco::ui::options
                 string_ids::eighth_scale,
             };
 
-            w->widgets[widx::vehicles_min_scale].text = scale_string_ids[config::get().vehicles_min_scale];
-            w->widgets[widx::station_names_min_scale].text = scale_string_ids[config::get().station_names_min_scale];
+            w->getWidget(widx::vehicles_min_scale)->text = scale_string_ids[config::get().vehicles_min_scale];
+            w->getWidget(widx::station_names_min_scale)->text = scale_string_ids[config::get().station_names_min_scale];
 
             w->activated_widgets &= ~(1 << widx::landscape_smoothing);
             if ((config::get().flags & config::flags::landscape_smoothing) == 0)
@@ -680,18 +680,18 @@ namespace openloco::ui::options
         static void prepare_draw(window* w)
         {
             assert(w->current_tab == common::tab::sound);
-            assert(w->widgets == _widgets);
+            assert(w->widgets == (uint32_t )(loco_ptr) _widgets);
 
             w->activated_widgets &= ~common::tabWidgets;
             w->activated_widgets |= 1ULL << (w->current_tab + 4);
 
-            w->widgets[common::widx::frame].right = w->width - 1;
-            w->widgets[common::widx::frame].bottom = w->height - 1;
-            w->widgets[common::widx::panel].right = w->width - 1;
-            w->widgets[common::widx::panel].bottom = w->height - 1;
-            w->widgets[common::widx::caption].right = w->width - 2;
-            w->widgets[common::widx::close_button].left = w->width - 15;
-            w->widgets[common::widx::close_button].right = w->width - 15 + 12;
+            w->getWidget(common::widx::frame)->right = w->width - 1;
+            w->getWidget(common::widx::frame)->bottom = w->height - 1;
+            w->getWidget(common::widx::panel)->right = w->width - 1;
+            w->getWidget(common::widx::panel)->bottom = w->height - 1;
+            w->getWidget(common::widx::caption)->right = w->width - 2;
+            w->getWidget(common::widx::close_button)->left = w->width - 15;
+            w->getWidget(common::widx::close_button)->right = w->width - 15 + 12;
 
             set_format_arg(0x0, string_id, string_ids::audio_device_none);
 
@@ -761,7 +761,7 @@ namespace openloco::ui::options
             const auto& devices = audio::get_devices();
             if (devices.size() != 0)
             {
-                widget_t dropdown = w->widgets[widx::audio_device];
+                widget_t dropdown = *w->getWidget(widx::audio_device);
                 dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], (int8_t)devices.size(), 0x80);
                 for (size_t i = 0; i < devices.size(); i++)
                 {
@@ -890,18 +890,18 @@ namespace openloco::ui::options
         static void prepare_draw(window* w)
         {
             assert(w->current_tab == common::tab::music);
-            assert(w->widgets == _widgets);
+            assert(w->widgets == (uint32_t )(loco_ptr) _widgets);
 
             w->activated_widgets &= ~common::tabWidgets;
             w->activated_widgets |= 1ULL << (w->current_tab + 4);
 
-            w->widgets[common::widx::frame].right = w->width - 1;
-            w->widgets[common::widx::frame].bottom = w->height - 1;
-            w->widgets[common::widx::panel].right = w->width - 1;
-            w->widgets[common::widx::panel].bottom = w->height - 1;
-            w->widgets[common::widx::caption].right = w->width - 2;
-            w->widgets[common::widx::close_button].left = w->width - 15;
-            w->widgets[common::widx::close_button].right = w->width - 15 + 12;
+            w->getWidget(common::widx::frame)->right = w->width - 1;
+            w->getWidget(common::widx::frame)->bottom = w->height - 1;
+            w->getWidget(common::widx::panel)->right = w->width - 1;
+            w->getWidget(common::widx::panel)->bottom = w->height - 1;
+            w->getWidget(common::widx::caption)->right = w->width - 2;
+            w->getWidget(common::widx::close_button)->left = w->width - 15;
+            w->getWidget(common::widx::close_button)->right = w->width - 15 + 12;
 
             string_id songName = string_ids::music_none;
             if (_currentSong != -1)
@@ -946,14 +946,14 @@ namespace openloco::ui::options
 
             common::draw_tabs(w, dpi);
 
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::currently_playing_btn].top, 0, string_ids::currently_playing, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->getWidget(widx::currently_playing_btn)->top, 0, string_ids::currently_playing, nullptr);
 
-            gfx::draw_string_494B3F(*dpi, w->x + 183, w->y + w->widgets[widx::volume].top + 7, 0, string_ids::volume, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 183, w->y + w->getWidget(widx::volume)->top + 7, 0, string_ids::volume, nullptr);
 
-            gfx::draw_image(dpi, w->x + w->widgets[widx::volume].left, w->y + w->widgets[widx::volume].top, 0x20000000 | (w->colours[1] << 19) | image_ids::volume_slider_track);
+            gfx::draw_image(dpi, w->x + w->getWidget(widx::volume)->left, w->y + w->getWidget(widx::volume)->top, 0x20000000 | (w->colours[1] << 19) | image_ids::volume_slider_track);
 
             int16_t x = 90 + (config::get().volume / 32);
-            gfx::draw_image(dpi, w->x + w->widgets[widx::volume].left + x, w->y + w->widgets[widx::volume].top, 0x20000000 | (w->colours[1] << 19) | image_ids::volume_slider_thumb);
+            gfx::draw_image(dpi, w->x + w->getWidget(widx::volume)->left + x, w->y + w->getWidget(widx::volume)->top, 0x20000000 | (w->colours[1] << 19) | image_ids::volume_slider_thumb);
         }
 
         static void on_mouse_up(window* w, widget_index wi)
@@ -1030,7 +1030,7 @@ namespace openloco::ui::options
         {
             _clickRepeatTicks = 31;
 
-            int x = _5233A4 - w->x - w->widgets[widx::volume].left - 10;
+            int x = _5233A4 - w->x - w->getWidget(widx::volume)->left - 10;
             x = std::clamp(x, 0, 80);
 
             registers regs;
@@ -1094,7 +1094,7 @@ namespace openloco::ui::options
         // 0x004C07E4
         static void music_playlist_mouse_down(window* w)
         {
-            widget_t dropdown = w->widgets[widx::music_playlist];
+            widget_t dropdown = *w->getWidget(widx::music_playlist);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 3, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::play_only_music_from_current_era);
@@ -1182,7 +1182,7 @@ namespace openloco::ui::options
         {
             auto tracks = get_available_tracks();
 
-            widget_t dropdown = w->widgets[widx::currently_playing];
+            widget_t dropdown = *w->getWidget(widx::currently_playing);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], (int8_t)tracks.size(), 0x80);
 
             int index = -1;
@@ -1296,18 +1296,18 @@ namespace openloco::ui::options
         static void prepare_draw(window* w)
         {
             assert(w->current_tab == common::tab::regional);
-            assert(w->widgets == _widgets);
+            assert(w->widgets == (uint32_t )(loco_ptr) _widgets);
 
             w->activated_widgets &= ~common::tabWidgets;
             w->activated_widgets |= 1ULL << (w->current_tab + 4);
 
-            w->widgets[common::widx::frame].right = w->width - 1;
-            w->widgets[common::widx::frame].bottom = w->height - 1;
-            w->widgets[common::widx::panel].right = w->width - 1;
-            w->widgets[common::widx::panel].bottom = w->height - 1;
-            w->widgets[common::widx::caption].right = w->width - 2;
-            w->widgets[common::widx::close_button].left = w->width - 15;
-            w->widgets[common::widx::close_button].right = w->width - 15 + 12;
+            w->getWidget(common::widx::frame)->right = w->width - 1;
+            w->getWidget(common::widx::frame)->bottom = w->height - 1;
+            w->getWidget(common::widx::panel)->right = w->width - 1;
+            w->getWidget(common::widx::panel)->bottom = w->height - 1;
+            w->getWidget(common::widx::caption)->right = w->width - 2;
+            w->getWidget(common::widx::close_button)->left = w->width - 15;
+            w->getWidget(common::widx::close_button)->right = w->width - 15 + 12;
 
             auto& language = localisation::getDescriptorForLanguage(config::get_new().language);
             set_format_arg(0, const char*, language.native_name.c_str());
@@ -1359,11 +1359,11 @@ namespace openloco::ui::options
             w->draw(dpi);
             common::draw_tabs(w, dpi);
 
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::language].top + 1, 0, string_ids::options_language, nullptr);
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::distance_speed].top + 1, 0, string_ids::distance_and_speed, nullptr);
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::heights].top + 1, 0, string_ids::heights, nullptr);
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::currency].top + 1, 0, string_ids::current_game_currency, nullptr);
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::preferred_currency].top + 1, 0, string_ids::new_game_currency, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->getWidget(widx::language)->top + 1, 0, string_ids::options_language, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->getWidget(widx::distance_speed)->top + 1, 0, string_ids::distance_and_speed, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->getWidget(widx::heights)->top + 1, 0, string_ids::heights, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->getWidget(widx::currency)->top + 1, 0, string_ids::current_game_currency, nullptr);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->getWidget(widx::preferred_currency)->top + 1, 0, string_ids::new_game_currency, nullptr);
         }
 
         static void on_mouse_up(window* w, widget_index wi)
@@ -1450,7 +1450,7 @@ namespace openloco::ui::options
             auto& lds = localisation::getLanguageDescriptors();
             uint8_t num_languages = static_cast<uint8_t>(lds.size());
 
-            widget_t dropdown = w->widgets[widx::language];
+            widget_t dropdown = *w->getWidget(widx::language);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], num_languages - 1, 0x80);
 
             std::string& current_language = config::get_new().language;
@@ -1486,7 +1486,7 @@ namespace openloco::ui::options
         {
             uint8_t* _11364A0 = (uint8_t*)*__11364A0;
 
-            widget_t dropdown = w->widgets[widx::currency];
+            widget_t dropdown = *w->getWidget(widx::currency);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], _112C185, 0x80);
             int index = -1;
             for (auto object : objectmgr::getAvailableObjects(object_type::currency))
@@ -1548,7 +1548,7 @@ namespace openloco::ui::options
         // 0x004C0DCF
         static void preferred_currency_mouse_down(window* w)
         {
-            widget_t dropdown = w->widgets[widx::preferred_currency];
+            widget_t dropdown = *w->getWidget(widx::preferred_currency);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], _112C185, 0x80);
 
             int index = -1;
@@ -1632,7 +1632,7 @@ namespace openloco::ui::options
         // 0x004C0F49
         static void distance_speed_mouse_down(window* w)
         {
-            widget_t dropdown = w->widgets[widx::distance_speed];
+            widget_t dropdown = *w->getWidget(widx::distance_speed);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 2, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::imperial);
@@ -1663,7 +1663,7 @@ namespace openloco::ui::options
         // 0x004C0FFA
         static void heights_labels_mouse_down(window* w)
         {
-            widget_t dropdown = w->widgets[widx::heights];
+            widget_t dropdown = *w->getWidget(widx::heights);
             dropdown::show(w->x + dropdown.left, w->y + dropdown.top, dropdown.width() - 4, dropdown.height(), w->colours[1], 2, 0x80);
 
             dropdown::add(0, string_ids::dropdown_stringid, string_ids::height_units);
@@ -1750,18 +1750,18 @@ namespace openloco::ui::options
         static void prepare_draw(window* w)
         {
             assert(w->current_tab == common::tab::controls);
-            assert(w->widgets == _widgets);
+            assert(w->widgets == (uint32_t )(loco_ptr) _widgets);
 
             w->activated_widgets &= ~common::tabWidgets;
             w->activated_widgets |= 1ULL << (w->current_tab + 4);
 
-            w->widgets[common::widx::frame].right = w->width - 1;
-            w->widgets[common::widx::frame].bottom = w->height - 1;
-            w->widgets[common::widx::panel].right = w->width - 1;
-            w->widgets[common::widx::panel].bottom = w->height - 1;
-            w->widgets[common::widx::caption].right = w->width - 2;
-            w->widgets[common::widx::close_button].left = w->width - 15;
-            w->widgets[common::widx::close_button].right = w->width - 15 + 12;
+            w->getWidget(common::widx::frame)->right = w->width - 1;
+            w->getWidget(common::widx::frame)->bottom = w->height - 1;
+            w->getWidget(common::widx::panel)->right = w->width - 1;
+            w->getWidget(common::widx::panel)->bottom = w->height - 1;
+            w->getWidget(common::widx::caption)->right = w->width - 2;
+            w->getWidget(common::widx::close_button)->left = w->width - 15;
+            w->getWidget(common::widx::close_button)->right = w->width - 15 + 12;
 
             w->activated_widgets &= ~(1 << widx::edge_scrolling);
             if (config::get().edge_scrolling)
@@ -1879,18 +1879,18 @@ namespace openloco::ui::options
         static void prepare_draw(window* w)
         {
             assert(w->current_tab == common::tab::miscellaneous);
-            assert(w->widgets == _widgets);
+            assert(w->widgets == (uint32_t )(loco_ptr) _widgets);
 
             w->activated_widgets &= ~common::tabWidgets;
             w->activated_widgets |= 1ULL << (w->current_tab + 4);
 
-            w->widgets[common::widx::frame].right = w->width - 1;
-            w->widgets[common::widx::frame].bottom = w->height - 1;
-            w->widgets[common::widx::panel].right = w->width - 1;
-            w->widgets[common::widx::panel].bottom = w->height - 1;
-            w->widgets[common::widx::caption].right = w->width - 2;
-            w->widgets[common::widx::close_button].left = w->width - 15;
-            w->widgets[common::widx::close_button].right = w->width - 15 + 12;
+            w->getWidget(common::widx::frame)->right = w->width - 1;
+            w->getWidget(common::widx::frame)->bottom = w->height - 1;
+            w->getWidget(common::widx::panel)->right = w->width - 1;
+            w->getWidget(common::widx::panel)->bottom = w->height - 1;
+            w->getWidget(common::widx::caption)->right = w->width - 2;
+            w->getWidget(common::widx::close_button)->left = w->width - 15;
+            w->getWidget(common::widx::close_button)->right = w->width - 15 + 12;
 
             if (config::get_new().breakdowns_disabled)
                 w->activated_widgets |= (1 << widx::disable_vehicle_breakdowns);
@@ -1911,10 +1911,10 @@ namespace openloco::ui::options
                 w->disabled_widgets &= ~(1 << widx::change_btn);
             }
 
-            w->widgets[widx::export_plugin_objects].type = widget_type::none;
+            w->getWidget(widx::export_plugin_objects)->type = widget_type::none;
             if (_112A17E)
             {
-                w->widgets[widx::export_plugin_objects].type = widget_type::checkbox;
+                w->getWidget(widx::export_plugin_objects)->type = widget_type::checkbox;
             }
 
             sub_4C13BE(w);
@@ -1932,7 +1932,7 @@ namespace openloco::ui::options
             buffer[strlen(playerName)] = '\0';
 
             set_format_arg(0, string_id, string_ids::buffer_2039);
-            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->widgets[widx::change_btn].top + 1, 0, string_ids::wcolour2_preferred_owner_name, _commonFormatArgs);
+            gfx::draw_string_494B3F(*dpi, w->x + 10, w->y + w->getWidget(widx::change_btn)->top + 1, 0, string_ids::wcolour2_preferred_owner_name, _commonFormatArgs);
         }
 
         // 0x004C12D2
@@ -2104,13 +2104,13 @@ namespace openloco::ui::options
             w->disabled_widgets |= 1 << common::widx::tab_regional;
         }
 
-        int x = w->widgets[common::widx::tab_display].left;
+        int x = w->getWidget(common::widx::tab_display)->left;
         for (int i = common::widx::tab_display; i <= common::widx::tab_miscellaneous; i++)
         {
             if (!w->is_disabled(i))
             {
-                w->widgets[i].left = x;
-                w->widgets[i].right = x + 30;
+                w->getWidget(i)->left = x;
+                w->getWidget(i)->right = x + 30;
                 x += 31;
             }
         }
@@ -2145,7 +2145,7 @@ namespace openloco::ui::options
             0,
             &display::_events);
 
-        window->widgets = display::_widgets;
+        window->widgets = (loco_ptr) display::_widgets;
         window->number = 0;
         window->current_tab = 0;
         window->frame_no = 0;
@@ -2170,7 +2170,7 @@ namespace openloco::ui::options
 #endif
 
         window->holdable_widgets = 0;
-        window->event_handlers = &display::_events;
+        window->_event_handlers = (loco_ptr) &display::_events;
         window->activated_widgets = 0;
 
         window->call_on_resize();
@@ -2202,10 +2202,10 @@ namespace openloco::ui::options
         w->disabled_widgets = 0;
         w->holdable_widgets = 0;
         w->activated_widgets = 0;
-        if (w->viewports[0])
+        if (w->getViewport())
         {
-            w->viewports[0]->width = 0;
-            w->viewports[0] = nullptr;
+            w->getViewport()->width = 0;
+            w->viewports[0] = 0;
         }
 
         switch ((common::tab)w->current_tab)
@@ -2220,8 +2220,8 @@ namespace openloco::ui::options
                 w->disabled_widgets |= (1 << display::widx::screen_mode) | (1 << display::widx::screen_mode_btn) | (1 << display::widx::display_resolution) | (1 << display::widx::display_resolution_btn);
 #endif
 
-                w->event_handlers = &display::_events;
-                w->widgets = display::_widgets;
+                w->_event_handlers = (loco_ptr) &display::_events;
+                w->widgets = (loco_ptr) display::_widgets;
                 w->invalidate();
                 w->set_size(display::_window_size);
                 w->var_840 = 0xFFFF;
@@ -2231,8 +2231,8 @@ namespace openloco::ui::options
                 w->disabled_widgets = 0;
                 w->enabled_widgets = (1 << common::widx::close_button) | common::tabWidgets | (1 << sound::widx::audio_device) | (1 << sound::widx::audio_device_btn);
                 w->disabled_widgets = 0;
-                w->event_handlers = &sound::_events;
-                w->widgets = sound::_widgets;
+                w->_event_handlers = (loco_ptr) &sound::_events;
+                w->widgets = (loco_ptr) sound::_widgets;
                 w->invalidate();
                 w->set_size(sound::_window_size);
                 w->var_840 = 0xFFFF;
@@ -2241,8 +2241,8 @@ namespace openloco::ui::options
             case common::tab::music:
                 w->enabled_widgets = (1 << common::widx::close_button) | common::tabWidgets | (1 << music::widx::currently_playing) | (1 << music::widx::currently_playing_btn) | (1 << music::widx::music_controls_stop) | (1 << music::widx::music_controls_play) | (1 << music::widx::music_controls_next) | (1 << music::widx::volume) | (1 << music::widx::music_playlist) | (1 << music::widx::music_playlist_btn) | (1 << music::widx::edit_selection);
                 w->holdable_widgets = (1 << music::widx::volume);
-                w->event_handlers = &music::_events;
-                w->widgets = music::_widgets;
+                w->_event_handlers = (loco_ptr) &music::_events;
+                w->widgets =(loco_ptr)  music::_widgets;
                 w->invalidate();
                 w->set_size(music::_window_size);
                 w->var_840 = 0xFFFF;
@@ -2252,8 +2252,8 @@ namespace openloco::ui::options
                 w->disabled_widgets = 0;
                 w->enabled_widgets = (1 << common::widx::close_button) | common::tabWidgets | (1 << regional::widx::language) | (1 << regional::widx::language_btn) | (1 << regional::widx::distance_speed) | (1 << regional::widx::distance_speed_btn) | (1 << regional::widx::heights) | (1 << regional::widx::heights_btn) | (1 << regional::widx::currency) | (1 << regional::widx::currency_btn) | (1 << regional::widx::preferred_currency) | (1 << regional::widx::preferred_currency_btn) | (1 << regional::widx::preferred_currency_for_new_games) | (1 << regional::widx::preferred_currency_always);
                 w->holdable_widgets = 0;
-                w->event_handlers = &regional::_events;
-                w->widgets = regional::_widgets;
+                w->_event_handlers = (loco_ptr) &regional::_events;
+                w->widgets = (loco_ptr) regional::_widgets;
                 w->invalidate();
                 w->set_size(regional::_window_size);
                 break;
@@ -2261,8 +2261,8 @@ namespace openloco::ui::options
             case common::tab::controls:
                 w->disabled_widgets = 0;
                 w->enabled_widgets = (1 << common::widx::close_button) | common::tabWidgets | (1 << controls::widx::edge_scrolling) | (1 << controls::widx::customize_keys);
-                w->event_handlers = &controls::_events;
-                w->widgets = controls::_widgets;
+                w->_event_handlers = (loco_ptr) &controls::_events;
+                w->widgets = (loco_ptr) controls::_widgets;
                 w->invalidate();
                 w->set_size(controls::_window_size);
                 break;
@@ -2270,8 +2270,8 @@ namespace openloco::ui::options
             case common::tab::miscellaneous:
                 w->disabled_widgets = 0;
                 w->enabled_widgets = (1 << common::widx::close_button) | common::tabWidgets | (1 << misc::widx::disable_vehicle_breakdowns) | (1 << misc::widx::use_preferred_owner_name) | (1 << misc::widx::change_btn) | (1 << misc::widx::export_plugin_objects);
-                w->event_handlers = &misc::_events;
-                w->widgets = misc::_widgets;
+                w->_event_handlers = (loco_ptr) &misc::_events;
+                w->widgets = (loco_ptr) misc::_widgets;
                 w->invalidate();
                 w->set_size(misc::_window_size);
                 break;

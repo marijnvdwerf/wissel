@@ -312,7 +312,7 @@ namespace openloco::ui
         int32_t pitch = surface->pitch;
 
         gfx::drawpixelinfo_t dpi = { 0 };
-        dpi.bits = new uint8_t[surface->pitch * height];
+        dpi.bits = (loco_ptr) new uint8_t[surface->pitch * height];
         dpi.width = width;
         dpi.height = height;
         dpi.pitch = pitch - width;
@@ -376,9 +376,9 @@ namespace openloco::ui
 
             // Copy pixels from the virtual screen buffer to the surface
             auto& dpi = gfx::screen_dpi();
-            if (dpi.bits != nullptr)
+            if (dpi.bits != 0)
             {
-                std::memcpy(surface->pixels, dpi.bits, surface->pitch * surface->h);
+                std::memcpy(surface->pixels, (void*)(uintptr_t )dpi.bits, surface->pitch * surface->h);
             }
 
             // Unlock the surface

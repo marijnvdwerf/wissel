@@ -13,6 +13,7 @@
 #include "../openloco.h"
 #include "interop.hpp"
 
+#ifdef __i386__
 namespace openloco::interop
 {
     static void* _hookTableAddress;
@@ -287,3 +288,4 @@ namespace openloco::interop
         write_memory(address, buffer.data(), buffer.size());
     }
 }
+#endif

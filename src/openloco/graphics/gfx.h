@@ -10,7 +10,7 @@ namespace openloco::gfx
 
     struct drawpixelinfo_t
     {
-        uint8_t* bits;       // 0x00
+        uint32_t bits;       // 0x00
         int16_t x;           // 0x04
         int16_t y;           // 0x06
         int16_t width;       // 0x08

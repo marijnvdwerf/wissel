@@ -1,3 +1,4 @@
+#include "emu.h"
 #include <algorithm>
 #include <cinttypes>
 #include <cstring>
@@ -105,6 +106,7 @@ namespace openloco::interop
 
     static int32_t DISABLE_OPT call_byref(int32_t address, int32_t* _eax, int32_t* _ebx, int32_t* _ecx, int32_t* _edx, int32_t* _esi, int32_t* _edi, int32_t* _ebp)
     {
+        printf("Calling %x\n", address);
 #ifdef _LOG_INTEROP_CALLS_
         openloco::console::group("0x%x", address);
 #endif
@@ -259,7 +261,32 @@ namespace openloco::interop
             );
 // clang-format on
 #endif
-#endif // PLATFORM_X86
+#else // PLATFORM_X86
+
+        console::log("===");
+        emu->max_instr = 5;
+        x86emu_reset(emu);
+        x86emu_set_seg_register(emu, emu->x86.R_CS_SEL, 0);
+        emu->x86.R_CS_ACC |= (1 << 10);
+        emu->x86.R_EIP = address;
+        emu->x86.R_EAX = *_eax;
+        emu->x86.R_EBX = *_ebx;
+        emu->x86.R_ECX = *_ecx;
+        emu->x86.R_EDX = *_edx;
+        emu->x86.R_ESI = *_esi;
+        emu->x86.R_EDI = *_edi;
+        emu->x86.R_EBP = *_ebp;
+        x86emu_run(emu, 0);
+        x86emu_clear_log(emu, true);
+        *_eax = emu->x86.R_EAX;
+        *_ebx = emu->x86.R_EBX;
+        *_ecx = emu->x86.R_ECX;
+        *_edx = emu->x86.R_EDX;
+        *_esi = emu->x86.R_ESI;
+        *_edi = emu->x86.R_EDI;
+        *_ebp = emu->x86.R_EBP;
+        console::log("===");
+#endif
         _originalAddress = 0;
 
 #ifdef _LOG_INTEROP_CALLS_

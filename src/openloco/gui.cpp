@@ -33,7 +33,7 @@ namespace openloco::gui
             gfx::Size(uiWidth, uiHeight),
             ui::window_flags::stick_to_back,
             (ui::window_event_list*)0x004FA1F4);
-        window->widgets = _mainWindowWidgets;
+        window->widgets = (loco_ptr) _mainWindowWidgets;
         addr<0x00e3f0b8, int32_t>() = 0; // gCurrentRotation?
         openloco::ui::viewportmgr::create(window, 0, { window->x, window->y }, { window->width, window->height }, viewportmgr::ZoomLevel::full, { (map::map_rows * map::tile_size) / 2 - 1, (map::map_rows * map::tile_size) / 2 - 1, 480 });
 
@@ -63,7 +63,7 @@ namespace openloco::gui
                 gfx::Size(uiWidth, 28),
                 ui::window_flags::stick_to_front | ui::window_flags::transparent | ui::window_flags::no_background,
                 (ui::window_event_list*)0x4fa180);
-            window->widgets = (ui::widget_t*)0x509c34;
+            window->widgets = (loco_ptr)(ui::widget_t*)0x509c34;
             window->enabled_widgets = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10) | (1 << 11) | (1 << 12);
             window->init_scroll_widgets();
 
@@ -82,7 +82,7 @@ namespace openloco::gui
                 gfx::Size(140, 27),
                 ui::window_flags::stick_to_front | ui::window_flags::transparent | ui::window_flags::no_background,
                 (ui::window_event_list*)0x4fa024);
-            window->widgets = (ui::widget_t*)0x509d08;
+            window->widgets = (loco_ptr)(loco_ptr)(ui::widget_t*)0x509d08;
             window->enabled_widgets = (1 << 2) | (1 << 3) | (1 << 4);
             window->var_854 = 0;
             window->init_scroll_widgets();
@@ -99,7 +99,7 @@ namespace openloco::gui
                 gfx::Size(140, 27),
                 ui::window_flags::stick_to_front | ui::window_flags::transparent | ui::window_flags::no_background,
                 (ui::window_event_list*)0x4fa098);
-            window->widgets = (ui::widget_t*)0x509d5c;
+            window->widgets =(loco_ptr) (ui::widget_t*)0x509d5c;
             window->enabled_widgets = (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7);
             window->var_854 = 0;
             window->var_856 = 0;
@@ -120,7 +120,7 @@ namespace openloco::gui
                     gfx::Size(uiWidth - 280, 27),
                     ui::window_flags::stick_to_front | ui::window_flags::transparent | ui::window_flags::no_background,
                     (ui::window_event_list*)0x4fa10c);
-                window->widgets = (ui::widget_t*)0x509de0;
+                window->widgets = (loco_ptr)(ui::widget_t*)0x509de0;
                 window->init_scroll_widgets();
 
                 if (skin != nullptr)
@@ -153,15 +153,17 @@ namespace openloco::gui
             window->height = uiHeight;
             if (window->widgets)
             {
-                window->widgets[0].right = uiWidth;
-                window->widgets[0].bottom = uiHeight;
+                widget_t*widgets = (widget_t*)(uintptr_t )window->widgets;
+                widgets[0].right = uiWidth;
+                widgets[0].bottom = uiHeight;
             }
             if (window->viewports[0])
             {
-                window->viewports[0]->width = uiWidth;
-                window->viewports[0]->height = uiHeight;
-                window->viewports[0]->view_width = uiWidth << window->viewports[0]->zoom;
-                window->viewports[0]->view_height = uiHeight << window->viewports[0]->zoom;
+                viewport*vp = (viewport*)((uintptr_t )window->viewports[0]);
+                vp->width = uiWidth;
+                vp->height = uiHeight;
+                vp->view_width = uiWidth << vp->zoom;
+                vp->view_height = uiHeight << vp->zoom;
             }
         }
 

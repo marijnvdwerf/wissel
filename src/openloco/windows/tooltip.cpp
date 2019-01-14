@@ -121,7 +121,7 @@ namespace openloco::ui::tooltip
             gfx::Size(width, height),
             window_flags::stick_to_front | window_flags::transparent | window_flags::flag_7,
             (ui::window_event_list*)0x504774);
-        tooltip->widgets = _widgets;
+        tooltip->widgets = (loco_ptr)_widgets;
         _tooltipNotShownTicks = 0;
     }
 
@@ -135,7 +135,7 @@ namespace openloco::ui::tooltip
         }
 
         window->call_prepare_draw();
-        if (window->widgets[widgetIndex].tooltip == string_ids::null)
+        if (window->getWidget(widgetIndex)->tooltip == string_ids::null)
         {
             return;
         }
@@ -158,7 +158,7 @@ namespace openloco::ui::tooltip
 
         _currentTooltipStringId = -1;
 
-        common(window, widgetIndex, window->widgets[widgetIndex].tooltip, cursorX, cursorY);
+        common(window, widgetIndex, window->getWidget(widgetIndex)->tooltip, cursorX, cursorY);
     }
 
     // 0x004C9216

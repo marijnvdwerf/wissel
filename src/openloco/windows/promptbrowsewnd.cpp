@@ -93,7 +93,7 @@ namespace openloco::ui::prompt_browse
             (ui::window_event_list*)0x004FB308);
         if (window != nullptr)
         {
-            window->widgets = (widget_t*)0x0050AD58;
+            window->widgets = (loco_ptr) (widget_t*)0x0050AD58;
             window->enabled_widgets = (1 << 2) | (1 << 4) | (1 << 6);
             window->init_scroll_widgets();
             addr<0x01136FA2, int16_t>() = -1;

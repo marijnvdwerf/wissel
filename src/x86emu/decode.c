@@ -51,6 +51,8 @@ static unsigned emu_memio(x86emu_t *emu, u32 addr, u32 *val, unsigned type);
 static void idt_lookup(x86emu_t *emu, u8 nr, u32 *new_cs, u32 *new_eip);
 
 
+int has_hook(x86emu_t *emu);
+
 /****************************************************************************
 REMARKS:
 Main execution loop for the emulator. We return from here when the system
@@ -83,6 +85,7 @@ API_SYM unsigned x86emu_run(x86emu_t *emu, unsigned flags)
 #endif
 
   for(;;) {
+    printf("> 0x%08X\n", emu->x86.R_EIP);
     *(emu->x86.disasm_ptr = emu->x86.disasm_buf) = 0;
 
     emu->x86.instr_len = 0;
@@ -128,6 +131,15 @@ API_SYM unsigned x86emu_run(x86emu_t *emu, unsigned flags)
         rs |= X86EMU_RUN_NO_CODE;
         break;
       }
+    }
+
+    if (has_hook(emu))
+    {
+      continue;
+    }
+
+    if(emu->x86.R_EIP == 0) {
+      return -1;
     }
 
     memcpy(emu->x86.decode_seg, "[", 1);
@@ -184,6 +196,7 @@ API_SYM unsigned x86emu_run(x86emu_t *emu, unsigned flags)
     }
 
     if(MODE_HALTED) {
+      printf("  HALTED");
       rs |= X86EMU_RUN_NO_EXEC;
       emu->x86.R_EIP = emu->x86.saved_eip;
       break;
@@ -234,6 +247,7 @@ API_SYM unsigned x86emu_run(x86emu_t *emu, unsigned flags)
       if(rs) x86emu_stop(emu);
     }
 
+    printf("  opcode %02X\n", op1);
     (*x86emu_optab[op1])(emu, op1);
 
     *emu->x86.disasm_ptr = 0;

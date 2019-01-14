@@ -450,7 +450,7 @@ namespace openloco::ui::WindowManager
             if (w.number != number)
                 continue;
 
-            auto widget = w.widgets[widget_index];
+            auto widget = ((ui::widget_t*)(uintptr_t )w.widgets)[widget_index];
 
             if (widget.left != -2)
             {
@@ -664,16 +664,18 @@ namespace openloco::ui::WindowManager
         if (window == nullptr)
             return;
 
-        if (window->viewports[0] != nullptr)
+        if (window->viewports[0] != 0)
         {
-            window->viewports[0]->width = 0;
-            window->viewports[0] = nullptr;
+            auto vp = (ui::viewport*)(uintptr_t )window->viewports[0];
+            vp->width = 0;
+            window->viewports[0] = 0;
         }
 
-        if (window->viewports[1] != nullptr)
+        if (window->viewports[1] != 0)
         {
-            window->viewports[1]->width = 0;
-            window->viewports[1] = nullptr;
+            auto vp = (ui::viewport*)(uintptr_t )window->viewports[1];
+            vp->width = 0;
+            window->viewports[1] = 0;
         }
 
         window->invalidate();
@@ -727,16 +729,18 @@ namespace openloco::ui::WindowManager
                 newLocation += 8;
 
                 // Adjust the viewports if required.
-                if (w.viewports[0] != nullptr)
+                if (w.viewports[0] != 0)
                 {
-                    w.viewports[0]->x -= oldX - w.x;
-                    w.viewports[0]->y -= oldY - w.y;
+                    auto vp = (ui::viewport*)(uintptr_t)w.viewports[0];
+                    vp->x -= oldX - w.x;
+                    vp->y -= oldY - w.y;
                 }
 
-                if (w.viewports[1] != nullptr)
+                if (w.viewports[1] != 0)
                 {
-                    w.viewports[1]->x -= oldX - w.x;
-                    w.viewports[1]->y -= oldY - w.y;
+                    auto vp = (ui::viewport*)(uintptr_t)w.viewports[1];
+                    vp->x -= oldX - w.x;
+                    vp->y -= oldY - w.y;
                 }
             }
         }
@@ -781,15 +785,15 @@ namespace openloco::ui::WindowManager
                 w.y += dY;
                 w.invalidate();
 
-                if (w.viewports[0] != nullptr)
-                {
-                    w.viewports[0]->y += dY;
-                }
-
-                if (w.viewports[1] != nullptr)
-                {
-                    w.viewports[1]->y += dY;
-                }
+//                if (w.viewports[0] != nullptr)
+//                {
+//                    w.viewports[0]->y += dY;
+//                }
+//
+//                if (w.viewports[1] != nullptr)
+//                {
+//                    w.viewports[1]->y += dY;
+//                }
             }
         }
     }
@@ -834,7 +838,7 @@ namespace openloco::ui::WindowManager
     {
         int scrollIndex = window->get_scroll_data_index(widgetIndex);
         scroll_area_t* scroll = &window->scroll_areas[scrollIndex];
-        ui::widget_t* widget = &window->widgets[widgetIndex];
+        ui::widget_t* widget = &((ui::widget_t*)(uintptr_t) window->widgets)[widgetIndex];
 
         if (window->scroll_areas[scrollIndex].flags & 0b10000)
         {
@@ -862,7 +866,7 @@ namespace openloco::ui::WindowManager
     {
         int widgetIndex = -1;
         int scrollIndex = -1;
-        for (widget_t* widget = window->widgets; widget->type != widget_type::end; widget++)
+        for (widget_t* widget = (ui::widget_t*)(uintptr_t) window->widgets; widget->type != widget_type::end; widget++)
         {
             widgetIndex++;
 
@@ -983,7 +987,7 @@ namespace openloco::ui::WindowManager
                 auto widgetIndex = window->find_widget_at(x, y);
                 if (widgetIndex != -1)
                 {
-                    if (window->widgets[widgetIndex].type == widget_type::scrollview)
+                    if (((ui::widget_t*)(uintptr_t )window->widgets)[widgetIndex].type == widget_type::scrollview)
                     {
                         auto scrollIndex = window->get_scroll_data_index(widgetIndex);
                         if (window->scroll_areas[scrollIndex].flags & 0b10001)
