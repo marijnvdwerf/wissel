@@ -265,26 +265,33 @@ namespace openloco::interop
 
         console::log("===");
         emu->max_instr = 5;
-        x86emu_reset(emu);
-        x86emu_set_seg_register(emu, emu->x86.R_CS_SEL, 0);
-        emu->x86.R_CS_ACC |= (1 << 10);
-        emu->x86.R_EIP = address;
-        emu->x86.R_EAX = *_eax;
-        emu->x86.R_EBX = *_ebx;
-        emu->x86.R_ECX = *_ecx;
-        emu->x86.R_EDX = *_edx;
-        emu->x86.R_ESI = *_esi;
-        emu->x86.R_EDI = *_edi;
-        emu->x86.R_EBP = *_ebp;
-        x86emu_run(emu, 0);
-        x86emu_clear_log(emu, true);
-        *_eax = emu->x86.R_EAX;
-        *_ebx = emu->x86.R_EBX;
-        *_ecx = emu->x86.R_ECX;
-        *_edx = emu->x86.R_EDX;
-        *_esi = emu->x86.R_ESI;
-        *_edi = emu->x86.R_EDI;
-        *_ebp = emu->x86.R_EBP;
+
+        auto temp = x86emu_clone(emu);
+        x86emu_reset(temp);
+        x86emu_set_seg_register(temp, temp->x86.R_CS_SEL, 0);
+        temp->x86.R_CS_ACC |= (1 << 10);
+        temp->x86.R_CS_ACC |= (1 << 11);
+        temp->x86.R_CS_BASE = 0;
+        temp->x86.seg[3].limit = UINT32_MAX;
+        temp->x86.R_EIP = address;
+        temp->x86.R_EAX = *_eax;
+        temp->x86.R_EBX = *_ebx;
+        temp->x86.R_ECX = *_ecx;
+        temp->x86.R_EDX = *_edx;
+        temp->x86.R_ESI = *_esi;
+        temp->x86.R_EDI = *_edi;
+        temp->x86.R_EBP = *_ebp;
+        x86emu_run(temp, 0);
+        x86emu_clear_log(temp, true);
+        *_eax = temp->x86.R_EAX;
+        *_ebx = temp->x86.R_EBX;
+        *_ecx = temp->x86.R_ECX;
+        *_edx = temp->x86.R_EDX;
+        *_esi = temp->x86.R_ESI;
+        *_edi = temp->x86.R_EDI;
+        *_ebp = temp->x86.R_EBP;
+
+       x86emu_done(temp);
         console::log("===");
 #endif
         _originalAddress = 0;

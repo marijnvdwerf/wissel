@@ -593,7 +593,7 @@ u32 fetch_data_long_abs(x86emu_t *emu, sel_t *seg, u32 ofs)
 {
   u32 val;
 
-  check_data_access(emu, seg, ofs, 4);
+//  check_data_access(emu, seg, ofs, 4);
 
   decode_memio(emu, seg->base + ofs, &val, X86EMU_MEMIO_32 + X86EMU_MEMIO_R);
 
@@ -689,7 +689,7 @@ Writes a long value to an absolute memory location.
 ****************************************************************************/
 void store_data_long_abs(x86emu_t *emu, sel_t *seg, u32 ofs, u32 val)
 {
-  check_data_access(emu, seg, ofs, 4);
+//  check_data_access(emu, seg, ofs, 4);
 
   decode_memio(emu, seg->base + ofs, &val, X86EMU_MEMIO_32 + X86EMU_MEMIO_W);
 }

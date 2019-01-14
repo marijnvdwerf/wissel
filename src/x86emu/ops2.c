@@ -487,7 +487,6 @@ Handles opcode 0x0f,0x80-0x8F
 ****************************************************************************/
 static void x86emuOp2_long_jump(x86emu_t *emu, u8 op2)
 {
-  assert(0);
   s32 ofs;
   u32 eip;
   unsigned type = op2 & 0xf;

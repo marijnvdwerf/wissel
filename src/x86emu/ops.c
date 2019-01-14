@@ -4499,7 +4499,6 @@ Handles opcode 0xe9
 ****************************************************************************/
 static void x86emuOp_jump_near_IMM(x86emu_t *emu, u8 op1)
 {
-  assert(0);
   s32 ofs;
   u32 eip;
 
@@ -4556,7 +4555,6 @@ Handles opcode 0xeb
 ****************************************************************************/
 static void x86emuOp_jump_byte_IMM(x86emu_t *emu, u8 op1)
 {
-  assert(0);
   s32 ofs;
   u32 eip;
 
@@ -5267,7 +5265,6 @@ static void x86emuOp_opcFF_word_RM(x86emu_t *emu, u8 op1)
           OP_DECODE("dword ");
           addr = decode_rm_address(emu, mod, rl);
           if(has_lib_hook(emu, addr)) {
-            assert(0);
             break;
           }
           val = fetch_data_long(emu, addr);
@@ -5317,7 +5314,6 @@ static void x86emuOp_opcFF_word_RM(x86emu_t *emu, u8 op1)
           addr = decode_rm_address(emu, mod, rl);
           if (has_lib_hook(emu, addr))
           {
-            assert(0);
             break;
           }
           val = fetch_data_long(emu, addr);

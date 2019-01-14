@@ -183,35 +183,42 @@ static void CDECL fn_4081ad(int32_t wParam)
 
 ///endregion
 
+
+struct FileWrapper {
+    FILE* file;
+};
+
 FORCE_ALIGN_ARG_POINTER
-static uint32_t CDECL fn_FileSeekSet(FILE* a0, int32_t distance)
+static uint32_t CDECL fn_FileSeekSet(FileWrapper* a0, int32_t distance)
 {
     console::log_verbose("seek %d bytes from start", distance);
-    fseek(a0, distance, SEEK_SET);
-    return ftell(a0);
+    fseek(a0->file, distance, SEEK_SET);
+    return ftell(a0->file);
 }
 
 FORCE_ALIGN_ARG_POINTER
-static uint32_t CDECL fn_FileSeekFromCurrent(FILE* a0, int32_t distance)
+static uint32_t CDECL fn_FileSeekFromCurrent(FileWrapper* a0, int32_t distance)
 {
     console::log_verbose("seek %d bytes from current", distance);
-    fseek(a0, distance, SEEK_CUR);
-    return ftell(a0);
+    fseek(a0->file, distance, SEEK_CUR);
+    return ftell(a0->file);
 }
 
 FORCE_ALIGN_ARG_POINTER
-static uint32_t CDECL fn_FileSeekFromEnd(FILE* a0, int32_t distance)
+static uint32_t CDECL fn_FileSeekFromEnd(FileWrapper* a0, int32_t distance)
 {
     console::log_verbose("seek %d bytes from end", distance);
-    fseek(a0, distance, SEEK_END);
-    return ftell(a0);
+    fseek(a0->file, distance, SEEK_END);
+    return ftell(a0->file);
 }
 
+
+
 FORCE_ALIGN_ARG_POINTER
-static int32_t CDECL fn_FileRead(FILE* a0, char* buffer, int32_t size)
+static int32_t CDECL fn_FileRead(FileWrapper* a0, char* buffer, int32_t size)
 {
-    console::log_verbose("read %d bytes (%d)", size, fileno(a0));
-    size = fread(buffer, 1, size, a0);
+    console::log_verbose("read %d bytes (%d)", size, fileno(a0->file));
+    size = fread(buffer, 1, size, a0->file);
 
     return size;
 }
@@ -460,7 +467,9 @@ static int32_t STDCALL lib_CreateFileA(
         return -1;
     }
 
-    return (loco_ptr)pFILE;
+    auto wrapper = new FileWrapper;
+    wrapper->file = pFILE;
+    return (loco_ptr)wrapper;
 }
 
 FORCE_ALIGN_ARG_POINTER
@@ -495,9 +504,9 @@ static void* STDCALL lib_CreateMutexA(uintptr_t lmMutexAttributes, bool bInitial
 FORCE_ALIGN_ARG_POINTER
 static bool STDCALL lib_CloseHandle(void* hObject)
 {
-    auto file = (FILE*)hObject;
+    auto file = (FileWrapper*)hObject;
 
-    return fclose(file) == 0;
+    return fclose(file->file) == 0;
 }
 
 FORCE_ALIGN_ARG_POINTER

@@ -30,8 +30,8 @@ namespace openloco
         {
             _ptr = x;
         }
-        operator int32_t() const { return (int32_t)_ptr; }
-        operator uint32_t() const { return (uint32_t)_ptr; }
+        operator int32_t() const { assert(_ptr < UINT32_MAX); return (int32_t)_ptr; }
+        operator uint32_t() const { assert(_ptr < UINT32_MAX);  return (uint32_t)_ptr; }
         operator uintptr_t() const { return _ptr; }
     };
 #pragma pack(pop)
