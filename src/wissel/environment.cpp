@@ -96,7 +96,7 @@ namespace wissel::environment
         {
             std::cerr << "Unable to find install path for Locomotion." << std::endl
                       << "You will need to manually provide it." << std::endl;
-            ui::show_message_box("OpenLoco", "Select your Locomotion install path.");
+            ui::show_message_box("Wissel", "Select your Locomotion install path.");
             path = platform::prompt_directory("Select your Locomotion install path.");
             if (validate_loco_install_path(path))
             {
@@ -110,7 +110,7 @@ namespace wissel::environment
             }
 
             std::cerr << "Path is missing g1.dat." << std::endl;
-            ui::show_message_box("OpenLoco", "Path is missing Data/g1.DAT.");
+            ui::show_message_box("Wissel", "Path is missing Data/g1.DAT.");
             std::exit(-1);
         }
     }

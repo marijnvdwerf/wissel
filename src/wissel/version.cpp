@@ -1,6 +1,6 @@
 #include "wissel.h"
 
-#define NAME "OpenLoco"
+#define NAME "Wissel"
 #define VERSION "18.02.2"
 
 namespace wissel

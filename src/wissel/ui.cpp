@@ -44,7 +44,7 @@ namespace wissel::ui
 {
 #ifdef _LOCO_WIN32_
     constexpr auto WINDOW_CLASS_NAME = "Chris Sawyer's Locomotion";
-    constexpr auto WINDOW_TITLE = "OpenLoco";
+    constexpr auto WINDOW_TITLE = "Wissel";
 #endif // _WIN32
 
 #pragma pack(push, 1)
@@ -177,7 +177,7 @@ namespace wissel::ui
 
         // Create the window
         auto desc = get_window_desc(cfg);
-        window = SDL_CreateWindow("OpenLoco", desc.x, desc.y, desc.width, desc.height, desc.flags);
+        window = SDL_CreateWindow("Wissel", desc.x, desc.y, desc.width, desc.height, desc.flags);
         if (window == nullptr)
         {
             throw std::runtime_error("Unable to create SDL2 window.");
