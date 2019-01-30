@@ -63,7 +63,7 @@ fs::path wissel::platform::get_user_directory()
             path = path / fs::path(".config");
         }
     }
-    return path / fs::path("OpenLoco");
+    return path / fs::path("Wissel");
 }
 #endif
 

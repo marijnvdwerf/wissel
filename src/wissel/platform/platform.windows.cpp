@@ -27,7 +27,7 @@ namespace wissel::platform
         PWSTR path = nullptr;
         if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_DEFAULT, nullptr, &path)))
         {
-            result = fs::path(path) / "OpenLoco";
+            result = fs::path(path) / "Wissel";
         }
         CoTaskMemFree(path);
         return result;

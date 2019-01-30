@@ -13,7 +13,7 @@ fs::path wissel::platform::get_user_directory()
     {
         NSFileManager * filemanager = [NSFileManager defaultManager];
         NSURL *url = [[filemanager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"OpenLoco"];
+        url = [url URLByAppendingPathComponent:@"Wissel"];
         return url.path.UTF8String;
     }
 }
