@@ -381,9 +381,9 @@ strings:
   364: Landschap opslaan
   365: Spel opslaan
   366: Scenario opslaan
-  367: Opgeslagen spel van OpenLoco
-  368: Scenario van OpenLoco
-  369: Landschap van OpenLoco
+  367: Opgeslagen spel van Wissel
+  368: Scenario van Wissel
+  369: Landschap van Wissel
   370: Opslaan mislukt!
   371: Kon opgeslagen spel niet laden...{NEWLINE}Bestand bevat ongeldige gegevens!
   372: Decor en gebouwen verbergen
@@ -603,7 +603,7 @@ strings:
   582: "{CURRENCY32}"
   583: Kan dit hier niet bouwen...
   584: "{DATE MY}"
-  585: OpenLoco
+  585: Wissel
   586: "Please insert your Locomotion CD in the following drive:"
   587: "{COLOUR WINDOW_2}Inkomsten/uitgaven"
   588: Treininkomsten

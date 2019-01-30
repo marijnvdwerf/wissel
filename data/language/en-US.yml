@@ -186,8 +186,8 @@ strings:
   171: Too many objects in game
   172: Rotate Clockwise
   173: Rotate Anti-Clockwise
-  174: "OpenLoco: Starting for the first time..."
-  175: "OpenLoco: Checking object files..."
+  174: "Wissel: Starting for the first time..."
+  175: "Wissel: Checking object files..."
   176: Load Game
   177: Quit Game
   178: Quit Game
@@ -382,9 +382,9 @@ strings:
   364: Save Landscape
   365: Save Game
   366: Save Scenario
-  367: OpenLoco Saved Game File
-  368: OpenLoco Scenario File
-  369: OpenLoco Landscape File
+  367: Wissel Saved Game File
+  368: Wissel Scenario File
+  369: Wissel Landscape File
   370: Game Save Failed!
   371: Failed to load saved game...{NEWLINE}File contains invalid data!
   372: Hide foreground scenery & buildings
@@ -604,7 +604,7 @@ strings:
   582: "{CURRENCY32}"
   583: Can't build this here...
   584: "{DATE MY}"
-  585: OpenLoco
+  585: Wissel
   586: Please insert your Locomotion CD in the following drive:-
   587: "{COLOUR WINDOW_2}Expenditure/Income"
   588: Train Income
