@@ -1,4 +1,4 @@
-#include "openloco.h"
+#include "wissel.h"
 
 #define NAME "OpenLoco"
 #define VERSION "18.02.2"

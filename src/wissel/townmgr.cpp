@@ -1,7 +1,7 @@
 #include "townmgr.h"
 #include "companymgr.h"
 #include "interop/interop.hpp"
-#include "openloco.h"
+#include "wissel.h"
 
 using namespace wissel::interop;
 

@@ -34,7 +34,6 @@
 #include "localisation/languages.h"
 #include "localisation/string_ids.h"
 #include "objects/objectmgr.h"
-#include "openloco.h"
 #include "platform/platform.h"
 #include "progressbar.h"
 #include "scenariomgr.h"
@@ -46,6 +45,7 @@
 #include "ui/WindowManager.h"
 #include "utility/numeric.hpp"
 #include "viewportmgr.h"
+#include "wissel.h"
 
 #pragma warning(disable : 4611) // interaction between '_setjmp' and C++ object destruction is non - portable
 

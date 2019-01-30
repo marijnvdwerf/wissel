@@ -2,9 +2,9 @@
 #include "companymgr.h"
 #include "interop/interop.hpp"
 #include "messagemgr.h"
-#include "openloco.h"
 #include "ui/WindowManager.h"
 #include "viewportmgr.h"
+#include "wissel.h"
 
 using namespace wissel::interop;
 using namespace wissel::ui;

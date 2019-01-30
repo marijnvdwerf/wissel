@@ -1,8 +1,8 @@
 #include "../graphics/colours.h"
 #include "../graphics/image_ids.h"
 #include "../interop/interop.hpp"
-#include "../openloco.h"
 #include "../ui/WindowManager.h"
+#include "../wissel.h"
 
 using namespace wissel::interop;
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../localisation/stringmgr.h"
-#include "../openloco.h"
+#include "../wissel.h"
 #include <cstdint>
 
 namespace wissel::gfx

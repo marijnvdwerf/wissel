@@ -4,9 +4,9 @@
 #include "../interop/interop.hpp"
 #include "../intro.h"
 #include "../localisation/string_ids.h"
-#include "../openloco.h"
 #include "../ui.h"
 #include "../ui/WindowManager.h"
+#include "../wissel.h"
 
 using namespace wissel::interop;
 

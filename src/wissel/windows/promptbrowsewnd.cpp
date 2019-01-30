@@ -9,10 +9,10 @@
 #include "../graphics/colours.h"
 #include "../input.h"
 #include "../interop/interop.hpp"
-#include "../openloco.h"
 #include "../ui.h"
 #include "../ui/WindowManager.h"
 #include "../utility/string.hpp"
+#include "../wissel.h"
 
 using namespace wissel::interop;
 

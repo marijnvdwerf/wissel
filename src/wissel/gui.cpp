@@ -4,12 +4,12 @@
 #include "map/tile.h"
 #include "objects/interface_skin_object.h"
 #include "objects/objectmgr.h"
-#include "openloco.h"
 #include "tutorial.h"
 #include "ui.h"
 #include "ui/WindowManager.h"
 #include "viewportmgr.h"
 #include "window.h"
+#include "wissel.h"
 
 using namespace wissel::interop;
 using namespace wissel::ui;

@@ -2,9 +2,9 @@
 #include "../graphics/colours.h"
 #include "../input.h"
 #include "../interop/interop.hpp"
-#include "../openloco.h"
 #include "../ui.h"
 #include "../ui/WindowManager.h"
+#include "../wissel.h"
 #include <cstring>
 
 using namespace wissel::interop;

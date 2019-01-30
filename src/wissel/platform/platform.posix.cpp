@@ -2,7 +2,7 @@
 
 #include "../console.h"
 #include "../interop/interop.hpp"
-#include "../openloco.h"
+#include "../wissel.h"
 #include "platform.h"
 #include <iostream>
 #include <pwd.h>

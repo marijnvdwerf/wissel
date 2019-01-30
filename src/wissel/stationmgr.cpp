@@ -1,10 +1,10 @@
 #include "stationmgr.h"
 #include "companymgr.h"
 #include "interop/interop.hpp"
-#include "openloco.h"
 #include "townmgr.h"
 #include "ui/WindowManager.h"
 #include "window.h"
+#include "wissel.h"
 
 using namespace wissel::interop;
 using namespace wissel::ui;

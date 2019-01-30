@@ -1,9 +1,9 @@
 #include "../companymgr.h"
 #include "../input.h"
 #include "../interop/interop.hpp"
-#include "../openloco.h"
 #include "../things/thingmgr.h"
 #include "../ui/WindowManager.h"
+#include "../wissel.h"
 
 using namespace wissel::interop;
 

@@ -6,9 +6,9 @@
 #include "../map/tilemgr.h"
 #include "../objects/objectmgr.h"
 #include "../objects/vehicle_object.h"
-#include "../openloco.h"
 #include "../utility/numeric.hpp"
 #include "../viewportmgr.h"
+#include "../wissel.h"
 #include "misc.h"
 #include "thingmgr.h"
 #include <algorithm>
