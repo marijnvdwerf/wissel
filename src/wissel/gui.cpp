@@ -198,7 +198,7 @@ namespace wissel::gui
             window->y = uiHeight - 28;
         }
 
-        window = WindowManager::find(WindowType::openLocoVersion);
+        window = WindowManager::find(WindowType::buildVersion);
         if (window)
         {
             window->y = uiHeight - window->height;

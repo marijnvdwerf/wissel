@@ -22,7 +22,7 @@ namespace wissel::ui::windows
         auto width = 512;
         auto height = 16;
         auto window = wissel::ui::WindowManager::createWindow(
-            WindowType::openLocoVersion,
+            WindowType::buildVersion,
             gfx::Point(8, ui::height() - height),
             gfx::Size(width, height),
             window_flags::stick_to_front | window_flags::transparent | window_flags::no_background | window_flags::flag_6,

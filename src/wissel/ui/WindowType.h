@@ -62,7 +62,7 @@ namespace wissel::ui
         fileBrowserPrompt = 52,
 
         confirmationPrompt = 54,
-        openLocoVersion = 55,
+        buildVersion = 55,
         titleOptions = 56,
 
         undefined = 255
