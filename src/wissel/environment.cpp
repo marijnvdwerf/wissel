@@ -205,7 +205,7 @@ namespace wissel::environment
             case path_id::plugin2:
             case path_id::gamecfg:
             case path_id::scores:
-            case path_id::openloco_yml:
+            case path_id::config_yml:
                 return platform::get_user_directory();
             case path_id::language_files:
 #if defined(__APPLE__) && defined(__MACH__)

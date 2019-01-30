@@ -64,7 +64,7 @@ namespace wissel::environment
         tut800_1,
         tut800_2,
         tut800_3,
-        openloco_yml,
+        config_yml,
         language_files,
     };
 

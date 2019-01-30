@@ -57,7 +57,7 @@ namespace wissel::config
 
     new_config& read_new_config()
     {
-        auto configPath = environment::get_path(environment::path_id::openloco_yml);
+        auto configPath = environment::get_path(environment::path_id::config_yml);
 
         if (!fs::exists(configPath))
             return _new_config;
@@ -95,7 +95,7 @@ namespace wissel::config
 
     void write_new_config()
     {
-        auto configPath = environment::get_path(environment::path_id::openloco_yml);
+        auto configPath = environment::get_path(environment::path_id::config_yml);
         auto dir = configPath.parent_path();
         if (!fs::is_directory(dir))
         {
