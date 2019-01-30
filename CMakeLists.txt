@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-set (PROJECT openloco)
+set (PROJECT wissel)
 
 project(${PROJECT} CXX)
 
@@ -31,7 +31,7 @@ execute_process(
     COMMAND git describe HEAD
     COMMAND sed -E "s/-g.+$//"
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    OUTPUT_VARIABLE OPENLOCO_VERSION_TAG
+    OUTPUT_VARIABLE WISSEL_VERSION_TAG
     OUTPUT_STRIP_TRAILING_WHITESPACE
     # ERROR_QUIET
 )
@@ -40,7 +40,7 @@ execute_process(
 execute_process(
     COMMAND git rev-parse --abbrev-ref HEAD
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    OUTPUT_VARIABLE OPENLOCO_BRANCH
+    OUTPUT_VARIABLE WISSEL_BRANCH
     OUTPUT_STRIP_TRAILING_WHITESPACE
     ERROR_QUIET
 )
@@ -49,18 +49,18 @@ execute_process(
 execute_process(
     COMMAND git rev-parse --short HEAD
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    OUTPUT_VARIABLE OPENLOCO_COMMIT_SHA1_SHORT
+    OUTPUT_VARIABLE WISSEL_COMMIT_SHA1_SHORT
     OUTPUT_STRIP_TRAILING_WHITESPACE
     ERROR_QUIET
 )
 
 # To avoid unnecessary rebuilds, set the current branch and short sha1 hash
 # only for the one file that uses these definitions: version.cpp
-set_property(SOURCE ${CMAKE_SOURCE_DIR}/src/openloco/version.cpp
+set_property(SOURCE ${CMAKE_SOURCE_DIR}/src/wissel/version.cpp
     PROPERTY COMPILE_DEFINITIONS
-    OPENLOCO_VERSION_TAG="${OPENLOCO_VERSION_TAG}"
-    OPENLOCO_BRANCH="${OPENLOCO_BRANCH}"
-    OPENLOCO_COMMIT_SHA1_SHORT="${OPENLOCO_COMMIT_SHA1_SHORT}")
+    WISSEL_VERSION_TAG="${WISSEL_VERSION_TAG}"
+    WISSEL_BRANCH="${WISSEL_BRANCH}"
+    WISSEL_COMMIT_SHA1_SHORT="${WISSEL_COMMIT_SHA1_SHORT}")
 
 # Set some compiler features
 set(COMMON_COMPILE_OPTIONS "${COMMON_COMPILE_OPTIONS} -fstrict-aliasing -Werror -Wall")
@@ -100,8 +100,8 @@ set(LINKER_SCRIPT "ld_script_i386.xc")
 # were derived.
 if (UNIX)
     set(OLOCO_EXE ${CMAKE_CURRENT_SOURCE_DIR}/loco.exe)
-    set(OLOCO_TEXT ${CMAKE_BINARY_DIR}/openloco_text)
-    set(OLOCO_DATA ${CMAKE_BINARY_DIR}/openloco_data)
+    set(OLOCO_TEXT ${CMAKE_BINARY_DIR}/loco_text)
+    set(OLOCO_DATA ${CMAKE_BINARY_DIR}/loco_data)
 
     add_custom_command(
             OUTPUT ${OLOCO_TEXT}
@@ -122,26 +122,26 @@ if (UNIX)
         # format. We use specific section names which are then referenced in a
         # bespoke linker script so they can be placed at predefined VMAs.
         add_custom_command(
-            OUTPUT openloco_text_section.o
-            COMMAND objcopy --input binary --output ${OBJ_FORMAT} --binary-architecture i386 \"${OLOCO_TEXT}\" openloco_text_section.o --rename-section .data=.loco_text,contents,alloc,load,readonly,code
+            OUTPUT loco_text_section.o
+            COMMAND objcopy --input binary --output ${OBJ_FORMAT} --binary-architecture i386 \"${OLOCO_TEXT}\" loco_text_section.o --rename-section .data=.loco_text,contents,alloc,load,readonly,code
             DEPENDS segfiles
             WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
         )
         add_custom_command(
-            OUTPUT openloco_data_section.o
-            COMMAND objcopy --input binary --output ${OBJ_FORMAT} --binary-architecture i386 \"${OLOCO_DATA}\" openloco_data_section.o --rename-section .data=.loco_data,contents,alloc,load,readonly,data
+            OUTPUT loco_data_section.o
+            COMMAND objcopy --input binary --output ${OBJ_FORMAT} --binary-architecture i386 \"${OLOCO_DATA}\" loco_data_section.o --rename-section .data=.loco_data,contents,alloc,load,readonly,data
             DEPENDS segfiles
             WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
         )
-        add_custom_target(linkable_sections DEPENDS openloco_text_section.o openloco_data_section.o)
+        add_custom_target(linkable_sections DEPENDS loco_text_section.o loco_data_section.o)
         set_source_files_properties(
-            openloco_text_section.o openloco_data_section.o
+            loco_text_section.o loco_data_section.o
             PROPERTIES
             EXTERNAL_OBJECT true
             GENERATED true
         )
         # can't use GLOB here, as the files don't exist yet at cmake-time
-        set(LOCO_SECTIONS "${CMAKE_BINARY_DIR}/openloco_data_section.o" "${CMAKE_BINARY_DIR}/openloco_text_section.o")
+        set(LOCO_SECTIONS "${CMAKE_BINARY_DIR}/loco_data_section.o" "${CMAKE_BINARY_DIR}/loco_text_section.o")
         set(LOCO_SEGMENT_LINKER_FLAGS "-Wl,-T,\"${CMAKE_CURRENT_SOURCE_DIR}/distribution/linux/${LINKER_SCRIPT}\"")
     endif ()
 endif (UNIX)
@@ -197,7 +197,7 @@ endif()
 
 # Disable optimizations for interop.cpp for all compilers, to allow optimized
 # builds without need for -fno-omit-frame-pointer
-set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/openloco/interop/interop.cpp" PROPERTIES COMPILE_FLAGS -fno-omit-frame-pointer)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/wissel/interop/interop.cpp" PROPERTIES COMPILE_FLAGS -fno-omit-frame-pointer)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -221,7 +221,7 @@ target_compile_definitions(${PROJECT} PRIVATE _NO_LOCO_WIN32_=1)
 if (USE_BOOST_FILESYSTEM)
     target_link_libraries(${PROJECT} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY})
     target_include_directories(${PROJECT} PRIVATE ${Boost_INCLUDE_DIRS})
-    target_compile_definitions(${PROJECT} PRIVATE BOOST_SYSTEM_NO_DEPRECATED=1 BOOST_FILESYSTEM_NO_DEPRECATED=1 _OPENLOCO_USE_BOOST_FS_=1)
+    target_compile_definitions(${PROJECT} PRIVATE BOOST_SYSTEM_NO_DEPRECATED=1 BOOST_FILESYSTEM_NO_DEPRECATED=1 _USE_BOOST_FS_=1)
 else()
 	target_link_libraries(${PROJECT} stdc++fs)
 endif()
@@ -258,8 +258,8 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     set_target_properties(${PROJECT}-headers-check PROPERTIES LINKER_LANGUAGE CXX)
 	set_source_files_properties(${OLOCO_HEADERS} PROPERTIES LANGUAGE CXX)
     add_definitions("-x c++ -Wno-pragma-once-outside-header -Wno-unused-const-variable")
-	get_target_property(OPENLOCO_INCLUDE_DIRS ${PROJECT} INCLUDE_DIRECTORIES)
-	set_target_properties(${PROJECT}-headers-check PROPERTIES INCLUDE_DIRECTORIES "${OPENLOCO_INCLUDE_DIRS}")
+	get_target_property(WISSEL_INCLUDE_DIRS ${PROJECT} INCLUDE_DIRECTORIES)
+	set_target_properties(${PROJECT}-headers-check PROPERTIES INCLUDE_DIRECTORIES "${WISSEL_INCLUDE_DIRS}")
 else ()
     # Dummy target to ease invocation
     add_custom_target(${PROJECT}-headers-check)

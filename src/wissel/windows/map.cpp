@@ -1,0 +1,13 @@
+#include "../interop/interop.hpp"
+#include "../ui/WindowManager.h"
+
+using namespace wissel::interop;
+
+namespace wissel::ui::windows
+{
+    // 0x0046B5C0
+    void map_center_on_view_point()
+    {
+        call(0x0046B5C0);
+    }
+}

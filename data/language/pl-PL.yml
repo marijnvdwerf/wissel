@@ -377,9 +377,9 @@ strings:
   364: Zapisywanie Krajobrazu
   365: Zapisywanie Gry
   366: Zapisz Scenariusz
-  367: Plik Zapisanej Gry OpenLoco
-  368: Plik Zapisanego Scenariusza OpenLoco
-  369: Plik Zapisanego Krajobrazu OpenLoco
+  367: Plik Zapisanej Gry Wissel
+  368: Plik Zapisanego Scenariusza Wissel
+  369: Plik Zapisanego Krajobrazu Wissel
   370: Błąd Zapisu Gry!
   371: Nie udało się załadować zapisanej gry...{NEWLINE}Plik zawiera nieprawidłowe dane!
   372: Ukryj scenerię i budynki
@@ -599,7 +599,7 @@ strings:
   582: '{CURRENCY32}'
   583: Nie można tego tutaj zbudować...
   584: '{DATE MY}'
-  585: OpenLoco
+  585: Wissel
   586: 'Proszę włożyć płytę CD Locomotion do napędu:'
   587: '{COLOUR WINDOW_2}Wydatki/Przychody'
   588: Dochód z pociągów

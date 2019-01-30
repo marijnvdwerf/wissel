@@ -1,0 +1,15 @@
+#include "scenariomgr.h"
+#include "interop/interop.hpp"
+
+using namespace wissel::interop;
+
+namespace wissel::scenariomgr
+{
+    // 0x0044452F
+    void load_index(uint8_t al)
+    {
+        registers regs;
+        regs.al = al;
+        call(0x0044452F, regs);
+    }
+}

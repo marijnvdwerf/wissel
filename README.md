@@ -1,4 +1,4 @@
-# OpenLoco
+# Wissel
 An open source re-implementation of Chris Sawyer's Locomotion. A construction and management simulation video game that simulates running a transport company.
 
 ---
@@ -15,35 +15,23 @@ An open source re-implementation of Chris Sawyer's Locomotion. A construction an
 ---
 
 ### Build Status
-|             | Windows | Linux / Mac | Download |
+|             | ~~Windows~~ | Linux / Mac | Download |
 |-------------|---------|-------------|----------|
-| **master**  | [![AppVeyor](https://ci.appveyor.com/api/projects/status/fpq6ptmma5d3e389?svg=true)](https://ci.appveyor.com/project/IntelOrca/OpenLoco) | [![Travis CI](https://travis-ci.org/OpenRCT2/OpenLoco.svg?branch=master)](https://travis-ci.org/OpenRCT2/OpenLoco) | [![GitHub release](https://img.shields.io/github/release/OpenRCT2/OpenLoco.svg)](https://github.com/OpenRCT2/OpenLoco/releases) |
+| **master**  |  | [![Travis CI](https://travis-ci.org/marijnvdwerf/wissel.svg?branch=master)](https://travis-ci.org/marijnvdwerf/wissel) | [![GitHub release](https://img.shields.io/github/release/marijnvdwerf/wissel.svg)](https://github.com/marijnvdwerf/wissel/releases) |
 
-### Chat
-You only need a GitHub or Twitter account to access these channels.
-
-If you want to help *make* the game, join the developer channel.
-
-If you need help, want to talk to the developers, or just want to stay up to date then join the non-developer channel for your language.
-
-| Language | Non Developer | Developer |
-|----------|---------------|-----------|
-| English | [![Gitter](https://img.shields.io/badge/gitter-general-blue.svg)](https://gitter.im/OpenRCT2/OpenRCT2/non-dev) | [![Gitter](https://img.shields.io/badge/gitter-development-yellowgreen.svg)](https://gitter.im/OpenRCT2/OpenLoco) |
 ---
 
 # 1 Introduction
 
-**OpenLoco** is an open-source re-implementation of Chris Sawyer's Locomotion (CSL). CSL is the spiritual successor to Transport Tycoon and OpenLoco aims to improve the game similar to how [OpenTTD](http://openttd.org) improved Transport Tycoon and [OpenRCT2](http://openrct2.website) improved RollerCoaster Tycoon.
-
-Chris Sawyer's Locomotion was written by Chris Sawyer in x86 assembly building on top of his RollerCoaster Tycoon 2 engine. Much of the code is 1:1 with RollerCoaster Tycoon 2. This means that only select areas of the game such as the update logic should be written. The engine code such as audio, drawing and the window system should be left alone as it would only repeat the work that has already been done for OpenRCT2. It is more beneficial to share as much code as possible between OpenRCT2 and OpenLoco.
+**Wissel** is an open-source re-implementation of Chris Sawyer's Locomotion (CSL). CSL is the spiritual successor to Transport Tycoon and Wissel aims to improve the game similar to how [OpenTTD](http://openttd.org) improved Transport Tycoon and [OpenRCT2](http://openrct2.website) improved RollerCoaster Tycoon.
 
 ---
 
 # 2 Downloading the game (pre-built)
 
-OpenLoco requires original files of Chris Sawyer's Locomotion to play. It can be bought at either [Steam](http://store.steampowered.com/app/356430/) or [GOG.com](https://www.gog.com/game/chris_sawyers_locomotion).
+Wissel requires original files of Chris Sawyer's Locomotion to play. It can be bought at either [Steam](http://store.steampowered.com/app/356430/) or [GOG.com](https://www.gog.com/game/chris_sawyers_locomotion).
 
-The latest release can be found on [GitHub](https://github.com/OpenRCT2/OpenLoco/releases).
+The latest release can be found on [GitHub](https://github.com/marijnvdwerf/wissel/releases).
 
 ---
 
@@ -51,7 +39,7 @@ The latest release can be found on [GitHub](https://github.com/OpenRCT2/OpenLoco
 
 ## 3.1 Building prerequisites
 
-OpenLoco requires original files of Chris Sawyer's Locomotion to play. It can be bought at either [Steam](http://store.steampowered.com/app/356430/) or [GOG.com](https://www.gog.com/game/chris_sawyers_locomotion).
+Wissel requires original files of Chris Sawyer's Locomotion to play. It can be bought at either [Steam](http://store.steampowered.com/app/356430/) or [GOG.com](https://www.gog.com/game/chris_sawyers_locomotion).
 
 ### Windows:
 - 7 / 8 / 10
@@ -69,7 +57,7 @@ OpenLoco requires original files of Chris Sawyer's Locomotion to play. It can be
   - [SDL2](https://www.libsdl.org/download-2.0.php)
   - [SDL2_mixer](https://www.libsdl.org/projects/SDL_mixer/)
   - [yaml-cpp](https://github.com/jbeder/yaml-cpp)
-  - [Boost](http://www.boost.org/) (macOS only, [see wiki](https://github.com/OpenRCT2/OpenLoco/wiki/Compilation-on-macOS))
+  - [Boost](http://www.boost.org/) (macOS only)
 
 ---
 
@@ -100,11 +88,11 @@ cp -r ../data ./data
 ---
 
 # 4 Licence
-**OpenLoco** is licensed under the MIT License.
+**Wissel** is licensed under the MIT License.
 
 ---
 
 # 5 More information
-- [GitHub](https://github.com/OpenRCT2/OpenLoco)
+- [GitHub](https://github.com/marijnvdwerf/wissel)
 - [TT-Forums](https://www.tt-forums.net)
 - [Locomotion subreddit](https://www.reddit.com/r/locomotion/)
