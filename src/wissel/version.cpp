@@ -6,19 +6,19 @@
 namespace wissel
 {
     const char version[] = NAME ", "
-#ifdef OPENLOCO_VERSION_TAG
-        OPENLOCO_VERSION_TAG
+#ifdef WISSEL_VERSION_TAG
+        WISSEL_VERSION_TAG
 #else
                                 "v" VERSION
 #endif
-#if defined(OPENLOCO_BRANCH) || defined(OPENLOCO_COMMIT_SHA1_SHORT) || !defined(NDEBUG)
+#if defined(WISSEL_BRANCH) || defined(WISSEL_COMMIT_SHA1_SHORT) || !defined(NDEBUG)
                                 " ("
-#if defined(OPENLOCO_BRANCH) && defined(OPENLOCO_COMMIT_SHA1_SHORT)
-        OPENLOCO_COMMIT_SHA1_SHORT " on " OPENLOCO_BRANCH
-#elif defined(OPENLOCO_COMMIT_SHA1_SHORT)
-        OPENLOCO_COMMIT_SHA1_SHORT
-#elif defined(OPENLOCO_BRANCH)
-        OPENLOCO_BRANCH
+#if defined(WISSEL_BRANCH) && defined(WISSEL_COMMIT_SHA1_SHORT)
+        WISSEL_COMMIT_SHA1_SHORT " on " WISSEL_BRANCH
+#elif defined(WISSEL_COMMIT_SHA1_SHORT)
+        WISSEL_COMMIT_SHA1_SHORT
+#elif defined(WISSEL_BRANCH)
+        WISSEL_BRANCH
 #endif
 #ifndef NDEBUG
                                 ", DEBUG"
