@@ -4,7 +4,7 @@
 #include "audio.h"
 #include "channel.h"
 
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
 #include <boost/filesystem.hpp>
 #else
 #include <experimental/filesystem>
@@ -15,7 +15,7 @@ typedef struct _Mix_Music Mix_Music;
 
 namespace wissel::audio
 {
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
     namespace fs = boost::filesystem;
 #else
     namespace fs = std::experimental::filesystem;

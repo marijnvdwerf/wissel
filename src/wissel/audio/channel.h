@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
 #include <boost/filesystem.hpp>
 #else
 #include <experimental/filesystem>
@@ -12,7 +12,7 @@ namespace wissel::audio
 {
     struct sample;
 
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
     namespace fs = boost::filesystem;
 #else
     namespace fs = std::experimental::filesystem;

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
 #include <boost/filesystem.hpp>
 namespace fs = boost::filesystem;
 #else

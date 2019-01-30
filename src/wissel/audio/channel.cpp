@@ -41,7 +41,7 @@ bool channel::load(sample& sample)
 bool channel::load(const fs::path& path)
 {
     dispose_chunk();
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
     _chunk = Mix_LoadWAV(path.string().c_str());
 #else
     _chunk = Mix_LoadWAV(path.u8string().c_str());

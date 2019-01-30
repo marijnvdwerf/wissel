@@ -218,7 +218,7 @@ namespace wissel::audio
     {
         console::log_verbose("load_sounds_from_css(%s)", path.string().c_str());
         std::vector<sample> results;
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
         std::ifstream fs(path.string(), std::ios::in | std::ios::binary);
 #else
         std::ifstream fs(path, std::ios::in | std::ios::binary);

@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <cstring>
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
 #include <boost/filesystem.hpp>
 #else
 #include <experimental/filesystem>
@@ -16,7 +16,7 @@
 
 using namespace wissel::interop;
 
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
 namespace fs = boost::filesystem;
 #else
 namespace fs = std::experimental::filesystem;
@@ -78,7 +78,7 @@ namespace wissel::ui::prompt_browse
         utility::strcpy_safe(_title, title);
         utility::strcpy_safe(_filter, filter);
 
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
         utility::strcpy_safe(_directory, directory.make_preferred().string().c_str());
 #else
         utility::strcpy_safe(_directory, directory.make_preferred().u8string().c_str());
@@ -152,7 +152,7 @@ namespace wissel::ui::prompt_browse
 
     static std::string get_basename(const fs::path& path)
     {
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
         auto baseName = path.stem().string();
 #else
         auto baseName = path.stem().u8string();

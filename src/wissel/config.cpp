@@ -1,5 +1,5 @@
 
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
 #include <boost/filesystem.hpp>
 #else
 #include <experimental/filesystem>
@@ -19,7 +19,7 @@
 
 using namespace wissel::interop;
 
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
 namespace fs = boost::filesystem;
 #else
 namespace fs = std::experimental::filesystem;
@@ -104,7 +104,7 @@ namespace wissel::config
             fs::permissions(
                 dir,
                 fs::perms::owner_all |
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
                 fs::perms::group_read | fs::perms::group_exe |
                 fs::perms::others_read | fs::perms::others_exe
 #else
@@ -151,7 +151,7 @@ namespace wissel::config
         node["language"] = _new_config.language;
         node["breakdowns_disabled"] = _new_config.breakdowns_disabled;
 
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
         std::ofstream stream(configPath.string());
 #else
         std::ofstream stream(configPath);

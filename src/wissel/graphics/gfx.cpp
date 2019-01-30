@@ -67,7 +67,7 @@ namespace wissel::gfx
     void load_g1()
     {
         auto g1Path = environment::get_path(environment::path_id::g1);
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
         std::ifstream stream(g1Path.make_preferred().string(), std::ios::in | std::ios::binary);
 #else
         std::ifstream stream(g1Path, std::ios::in | std::ios::binary);

@@ -15,7 +15,7 @@ bool music_channel::is_playing() const
 
 bool music_channel::load(const fs::path& path)
 {
-#ifdef _OPENLOCO_USE_BOOST_FS_
+#ifdef _USE_BOOST_FS_
     auto paths = path.string();
 #else
     auto paths = path.u8string();
