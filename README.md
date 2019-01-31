@@ -28,7 +28,7 @@ If you need help, want to talk to the developers, or just want to stay up to dat
 
 | Language | Non Developer | Developer |
 |----------|---------------|-----------|
-| English | [![Gitter](https://img.shields.io/badge/gitter-general-blue.svg)](https://gitter.im/OpenRCT2/OpenRCT2/non-dev) | [![Gitter](https://img.shields.io/badge/gitter-development-yellowgreen.svg)](https://gitter.im/OpenRCT2/OpenLoco) |
+| English | [![Gitter](https://img.shields.io/badge/gitter-general-blue.svg)](https://gitter.im/OpenRCT2/OpenRCT2/non-dev) | [![Gitter](https://img.shields.io/badge/gitter-development-yellowgreen.svg)](https://gitter.im/OpenRCT2/OpenLoco) [![Join the chat at https://gitter.im/wisselgame/Lobby](https://badges.gitter.im/wisselgame/Lobby.svg)](https://gitter.im/wisselgame/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
 ---
 
 # 1 Introduction
