@@ -1820,7 +1820,7 @@ namespace openloco::ui::options
         // 0x004C118D
         static void open_keyboard_shortcuts()
         {
-            call(0x004BE6C7);
+            KeyboardShortcuts::open();
         }
 
         // 0x004C1195
@@ -2149,7 +2149,7 @@ namespace openloco::ui::options
         window->number = 0;
         window->current_tab = 0;
         window->frame_no = 0;
-        window->var_840 = 0xFFFF;
+        window->row_hover = -1;
 
         auto interface = objectmgr::get<interface_skin_object>();
         window->colours[0] = interface->colour_0B;
@@ -2224,7 +2224,7 @@ namespace openloco::ui::options
                 w->widgets = display::_widgets;
                 w->invalidate();
                 w->set_size(display::_window_size);
-                w->var_840 = 0xFFFF;
+                w->row_hover = -1;
                 break;
 
             case common::tab::sound:
@@ -2235,7 +2235,7 @@ namespace openloco::ui::options
                 w->widgets = sound::_widgets;
                 w->invalidate();
                 w->set_size(sound::_window_size);
-                w->var_840 = 0xFFFF;
+                w->row_hover = -1;
                 break;
 
             case common::tab::music:
@@ -2245,7 +2245,7 @@ namespace openloco::ui::options
                 w->widgets = music::_widgets;
                 w->invalidate();
                 w->set_size(music::_window_size);
-                w->var_840 = 0xFFFF;
+                w->row_hover = -1;
                 break;
 
             case common::tab::regional:

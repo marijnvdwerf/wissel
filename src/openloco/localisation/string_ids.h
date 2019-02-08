@@ -176,6 +176,16 @@ namespace openloco::string_ids
     constexpr string_id gridlines_on_landscape_tip = 666;
 
     constexpr string_id customise_keys = 701;
+    constexpr string_id str_702 = 702;
+    constexpr string_id str_703 = 703;
+    constexpr string_id str_704 = 704;
+    constexpr string_id str_705 = 705;
+    constexpr string_id str_996 = 996;
+    constexpr string_id str_997 = 997;
+    constexpr string_id str_998 = 998;
+    constexpr string_id str_999 = 999;
+    constexpr string_id str_1000 = 1000;
+    constexpr string_id str_1001 = 1001;
 
     constexpr string_id scroll_screen_edge = 1002;
     constexpr string_id scroll_screen_edge_tip = 1003;

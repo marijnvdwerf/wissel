@@ -29,6 +29,7 @@ namespace openloco::ui::WindowManager
     void close(WindowType type);
     void close(WindowType type, uint16_t id);
     void close(window* window);
+    window* createWindow(WindowType type, gfx::Size size, uint32_t flags, window_event_list* events);
     window* createWindow(WindowType type, gfx::Point origin, gfx::Size size, uint32_t flags, window_event_list* events);
     window* createWindowCentred(WindowType type, gfx::Size size, uint32_t flags, window_event_list* events);
     void drawSingle(gfx::drawpixelinfo_t* dpi, window* w, int32_t left, int32_t top, int32_t right, int32_t bottom);
@@ -63,6 +64,16 @@ namespace openloco::ui::windows
 namespace openloco::ui::about
 {
     void open();
+}
+
+namespace openloco::ui::KeyboardShortcuts
+{
+    window* open();
+}
+
+namespace openloco::ui::EditKeyboardShortcut
+{
+    window* open(uint8_t cheatId);
 }
 
 namespace openloco::ui::about_music

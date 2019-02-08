@@ -145,6 +145,7 @@ namespace openloco::ui
     {
         constexpr uint32_t stick_to_back = 1 << 0;
         constexpr uint32_t stick_to_front = 1 << 1;
+        constexpr uint32_t flag_2 = 1 << 2;
         constexpr uint32_t scrolling_to_location = 1 << 3;
         constexpr uint32_t transparent = 1 << 4;
         constexpr uint32_t no_background = 1 << 5;
@@ -182,9 +183,9 @@ namespace openloco::ui
                 uint32_t tool_abort;
                 uint32_t event_15;
                 void (*get_scroll_size)(window*, uint32_t scrollIndex, uint16_t* scrollWidth, uint16_t* scrollHeight);
-                uint32_t scroll_mouse_down;
+                void (*scroll_mouse_down)(ui::window*, int16_t x, int16_t y, uint8_t scroll_index);
                 uint32_t event_18;
-                uint32_t scroll_mouse_over;
+                void (*scroll_mouse_over)(ui::window* window, int16_t x, int16_t y, uint8_t scroll_index);
                 void (*text_input)(window*, widget_index, char*);
                 uint32_t viewport_rotate;
                 uint32_t event_22;
@@ -321,9 +322,11 @@ namespace openloco::ui
                 window_number number;              // 0x40
                 uint32_t flags;                    // 0x42
                 scroll_area_t scroll_areas[3];     // 0x46
-                uint8_t pad_7C[0x83E - 0x7C];
+                uint8_t pad_7C[0x83A - 0x7C];
+                uint16_t row_count; // 0x83A
+                uint16_t var_83C;
                 uint16_t var_83E;
-                uint16_t var_840;
+                uint16_t row_hover; // 0x840
                 uint8_t pad_842[0x846 - 0x842];
                 uint16_t var_846;
                 uint8_t pad_848[0x854 - 0x848];
