@@ -805,6 +805,13 @@ void openloco::interop::register_hooks()
         });
 
     register_hook(
+        0x004BE92A,
+        [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
+            input::handle_keyboard();
+            return 0;
+        });
+
+    register_hook(
         0x00438A6C,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
             gui::init();

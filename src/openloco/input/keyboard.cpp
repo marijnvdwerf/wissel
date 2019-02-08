@@ -23,7 +23,15 @@
 #include <shlobj.h>
 #include <windows.h>
 #endif
+#define DIK_LCONTROL 0x1D
+#define DIK_LSHIFT 0x2A
+#define DIK_RSHIFT 0x36
+#define DIK_RCONTROL 0x9D
 
+#define DIK_UP 0xC8
+#define DIK_LEFT 0xCB
+#define DIK_RIGHT 0xCD
+#define DIK_DOWN 0xD0
 #define DIK_INSERT 0xD2
 
 using namespace openloco::interop;
@@ -319,5 +327,135 @@ namespace openloco::input
             if (try_shortcut(Shortcut::screenshot, eax->keyCode, _keyModifier))
                 continue;
         }
+    }
+
+    static loco_global<int8_t, 0x00508F16> _screenshotCountdown;
+
+    loco_global<int32_t, 0x0113E72C> _cursorX;
+    loco_global<int32_t, 0x0113E730> _cursorY;
+
+    static void edgeScroll()
+    {
+        if (tutorial::state() != tutorial::tutorial_state::none)
+            return;
+
+        if (config::get().edge_scrolling == 0)
+            return;
+
+        if (input::state() != input_state::normal && input::state() != input_state::dropdown_active)
+            return;
+
+        if (has_key_modifier(key_modifier::shift) || has_key_modifier(key_modifier::control))
+            return;
+
+        auto delta = gfx::Point(0, 0);
+        auto cursor = gfx::Point(_cursorX, _cursorY);
+
+        if (cursor.x == 0)
+            delta.x -= 12;
+
+        if (cursor.x == ui::width() - 1)
+            delta.x += 12;
+
+        if (cursor.y == 0)
+            delta.y -= 12;
+
+        if (cursor.y == ui::height() - 1)
+            delta.y += 12;
+
+        auto main = WindowManager::getMainWindow();
+        if ((main->flags & window_flags::flag_2) != 0)
+            return;
+
+        if (openloco::is_title_mode())
+            return;
+
+        auto viewport = main->viewports[0];
+        if (viewport == nullptr)
+            return;
+
+        delta.x *= 1 << viewport->zoom;
+        delta.y *= 1 << viewport->zoom;
+        main->viewport_configurations[0].saved_view_x += delta.x;
+        main->viewport_configurations[0].saved_view_y += delta.y;
+        input::set_flag(input_flags::viewport_scrolling);
+    }
+
+    static void keyScroll()
+    {
+        if (tutorial::state() != tutorial::tutorial_state::none)
+            return;
+
+        if (_modalWindowType != WindowType::undefined)
+            return;
+
+        if (WindowManager::find(WindowType::textInput) != nullptr)
+            return;
+
+        int x = 0;
+        int y = 0;
+
+        if (_keyboardState[DIK_LEFT] & 0x80)
+            x -= 8;
+
+        if (_keyboardState[DIK_UP] & 0x80)
+            y -= 8;
+
+        if (_keyboardState[DIK_DOWN] & 0x80)
+            y += 8;
+
+        if (_keyboardState[DIK_RIGHT] & 0x80)
+            x += 8;
+
+        if (x == 0 && y == 0)
+            return;
+
+        auto main = WindowManager::getMainWindow();
+        if ((main->flags & window_flags::flag_2) != 0)
+            return;
+
+        if (openloco::is_title_mode())
+            return;
+
+        auto viewport = main->viewports[0];
+        if (viewport == nullptr)
+            return;
+
+        x *= 1 << viewport->zoom;
+        y *= 1 << viewport->zoom;
+        main->viewport_configurations[0].saved_view_x += x;
+        main->viewport_configurations[0].saved_view_y += y;
+        input::set_flag(input_flags::viewport_scrolling);
+    }
+
+    // 0x004BE92A
+    void handle_keyboard()
+    {
+        if (_screenshotCountdown != 0)
+        {
+        }
+
+        edgeScroll();
+
+        _keyModifier = _keyModifier & ~(key_modifier::shift | key_modifier::control | key_modifier::unknown);
+
+        if (addr<0x005251CC, uint8_t>() != 1)
+        {
+            return;
+        }
+
+        if (_keyboardState[DIK_LSHIFT] & 0x80)
+            _keyModifier |= key_modifier::shift;
+
+        if (_keyboardState[DIK_RSHIFT] & 0x80)
+            _keyModifier |= key_modifier::shift;
+
+        if (_keyboardState[DIK_LCONTROL] & 0x80)
+            _keyModifier |= key_modifier::control;
+
+        if (_keyboardState[DIK_RCONTROL] & 0x80)
+            _keyModifier |= key_modifier::control;
+
+        keyScroll();
     }
 }

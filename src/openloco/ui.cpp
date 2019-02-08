@@ -455,6 +455,7 @@ namespace openloco::ui
             case SDL_SCANCODE_LCTRL: return 0x1D;
             case SDL_SCANCODE_RCTRL: return 0x9D;
             case SDL_SCANCODE_INSERT: return 0xD2;
+            case SDL_SCANCODE_TAB: return 0xD2;
             default: return 0;
         }
     }

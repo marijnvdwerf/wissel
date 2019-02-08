@@ -2,6 +2,7 @@
 #include "audio/audio.h"
 #include "interop/interop.hpp"
 #include "localisation/string_ids.h"
+#include "tutorial.h"
 #include "ui.h"
 #include "ui/WindowManager.h"
 #include "ui/scrollview.h"
@@ -48,12 +49,6 @@ namespace openloco::input
     void state(input_state state)
     {
         _state = (uint8_t)state;
-    }
-
-    // 0x004BE92A
-    void handle_keyboard()
-    {
-        call(0x004BE92A);
     }
 
     // 0x00406FEC

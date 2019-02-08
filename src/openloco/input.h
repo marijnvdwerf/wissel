@@ -54,6 +54,7 @@ namespace openloco::input
     {
         constexpr uint8_t shift = 1 << 0;
         constexpr uint8_t control = 1 << 1;
+        constexpr uint8_t unknown = 1 << 2;
         constexpr uint8_t cheat = 1 << 7;
     };
 
