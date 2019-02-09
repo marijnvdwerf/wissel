@@ -9,6 +9,7 @@
 #include "../ui.h"
 #include "../viewportmgr.h"
 #include "scrollview.h"
+#include <memory>
 
 using namespace openloco::interop;
 
@@ -23,8 +24,6 @@ namespace openloco::ui::WindowManager
     static loco_global<uint8_t, 0x005233B6> _currentModalType;
     static loco_global<uint32_t, 0x00523508> _523508;
     static loco_global<int32_t, 0x00525330> _cursorWheel;
-    static loco_global<window[12], 0x011370AC> _windows;
-    static loco_global<window*, 0x0113D754> _windowsEnd;
     static loco_global<uint16_t, 0x0050C19C> time_since_last_tick;
     static loco_global<uint16_t, 0x0052334E> gWindowUpdateTicks;
     static loco_global<WindowType, 0x00523364> _callingWindowType;
@@ -35,16 +34,15 @@ namespace openloco::ui::WindowManager
     static loco_global<uint32_t, 0x00525E28> _525E28;
     static loco_global<uint32_t, 0x009DA3D4> _9DA3D4;
 
-#define FOR_ALL_WINDOWS_FROM_FRONT_FROM(w, start) for (ui::window* w = start; w >= _windows; w--)
-#define FOR_ALL_WINDOWS_FROM_FRONT(w) FOR_ALL_WINDOWS_FROM_FRONT_FROM (w, _windowsEnd - 1)
-#define FOR_ALL_WINDOWS_FROM_BACK_FROM(w, start) for (ui::window* w = start; w != _windowsEnd; w++)
-#define FOR_ALL_WINDOWS_FROM_BACK(w) FOR_ALL_WINDOWS_FROM_BACK_FROM (w, &_windows[0])
+    static std::vector<std::unique_ptr<window>> _windows;
+
+#define FOR_ALL_WINDOWS_FROM_BACK(w) for (auto& w : _windows)
 
     static void sub_4C6A40(ui::window* window, ui::viewport* viewport, int16_t dX, int16_t dY);
 
     void init()
     {
-        _windowsEnd = &_windows[0];
+        _windows.clear();
         _523508 = 0;
     }
 
@@ -296,12 +294,12 @@ namespace openloco::ui::WindowManager
 
     window* get(size_t index)
     {
-        return &_windows[index];
+        return _windows[index].get();
     }
 
     size_t count()
     {
-        return ((uintptr_t)*_windowsEnd - (uintptr_t)_windows.get()) / sizeof(window);
+        return _windows.size();
     }
 
     WindowType getCurrentModalType()
@@ -351,15 +349,18 @@ namespace openloco::ui::WindowManager
         if (gWindowUpdateTicks >= 1000)
         {
             gWindowUpdateTicks = 0;
-            for (ui::window* w = _windowsEnd - 1; w >= _windows; w--)
+            for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
             {
+                auto& w = *it;
                 w->call_6();
             }
         }
 
         // Border flash invalidation
-        for (ui::window* w = _windowsEnd - 1; w >= _windows; w--)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
+            auto& w = *it;
+
             if ((w->flags & window_flags::white_border_mask) != 0)
             {
                 // TODO: Replace with countdown
@@ -387,7 +388,7 @@ namespace openloco::ui::WindowManager
         {
             if (w->type == type)
             {
-                return w;
+                return w.get();
             }
         }
 
@@ -401,7 +402,7 @@ namespace openloco::ui::WindowManager
         {
             if (w->type == type && w->number == number)
             {
-                return w;
+                return w.get();
             }
         }
 
@@ -411,8 +412,10 @@ namespace openloco::ui::WindowManager
     // 0x004C9A95
     window* findAt(int16_t x, int16_t y)
     {
-        FOR_ALL_WINDOWS_FROM_FRONT (w)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
+            auto& w = *it;
+
             if (x < w->x)
                 continue;
 
@@ -441,7 +444,7 @@ namespace openloco::ui::WindowManager
                 return findAt(x, y);
             }
 
-            return w;
+            return &(*w);
         }
 
         return nullptr;
@@ -450,8 +453,10 @@ namespace openloco::ui::WindowManager
     // 0x004C9AFA
     window* findAtAlt(int16_t x, int16_t y)
     {
-        FOR_ALL_WINDOWS_FROM_FRONT (w)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
+            auto& w = *it;
+
             if (x < w->x)
                 continue;
 
@@ -477,7 +482,7 @@ namespace openloco::ui::WindowManager
                 return findAtAlt(x, y);
             }
 
-            return w;
+            return &(*w);
         }
 
         return nullptr;
@@ -542,8 +547,10 @@ namespace openloco::ui::WindowManager
             _523508++;
         }
 
-        FOR_ALL_WINDOWS_FROM_FRONT (w)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
+            auto& w = *it;
+
             w->update_scroll_widgets();
             w->invalidate_pressed_image_buttons();
             w->call_on_resize();
@@ -562,7 +569,7 @@ namespace openloco::ui::WindowManager
                 if (w->type != type)
                     continue;
 
-                close(w);
+                close(w.get());
                 repeat = true;
                 break;
             }
@@ -827,9 +834,10 @@ namespace openloco::ui::WindowManager
 
         if (ui::dirty_blocks_initialised())
         {
-            for (window* window = _windowsEnd - 1; window >= _windows; window--)
+            for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
             {
-                window->call_8();
+                auto& w = *it;
+                w->call_8();
             }
 
             invalidateAllWindowsAfterInput();
@@ -870,18 +878,20 @@ namespace openloco::ui::WindowManager
             }
         }
 
-        for (window* window = _windowsEnd - 1; window >= _windows; window--)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
-            window->call_9();
+            auto& w = *it;
+            w->call_9();
         }
     }
 
     // 0x004C98CF
     void sub_4C98CF()
     {
-        for (window* window = _windowsEnd - 1; window >= _windows; window--)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
-            window->call_8();
+            auto& w = *it;
+            w->call_8();
         }
 
         invalidateAllWindowsAfterInput();
@@ -909,9 +919,10 @@ namespace openloco::ui::WindowManager
             process_mouse_tool(x, y);
         }
 
-        for (window* window = _windowsEnd - 1; window >= _windows; window--)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
-            window->call_9();
+            auto& w = *it;
+            w->call_9();
         }
     }
 
@@ -921,8 +932,9 @@ namespace openloco::ui::WindowManager
         _523508++;
         companymgr::updating_company_id(companymgr::get_controlling_id());
 
-        FOR_ALL_WINDOWS_FROM_FRONT (w)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
+            auto& w = *it;
             w->call_update();
         }
 
@@ -963,13 +975,16 @@ namespace openloco::ui::WindowManager
 
         window->invalidate();
 
-        // Remove window from list and reshift all windows
-        _windowsEnd--;
-        int windowCount = *_windowsEnd - window;
-        if (windowCount > 0)
-        {
-            memmove(window, window + 1, windowCount * sizeof(ui::window));
-        }
+        console::log("Close window");
+        _windows.erase(
+            std::remove_if(
+                _windows.begin(),
+                _windows.end(),
+                [&window](std::unique_ptr<ui::window> const& w) {
+                    return w.get() == window;
+                }),
+            _windows.end());
+        delete window;
 
         viewportmgr::updatePointers();
     }
@@ -977,8 +992,9 @@ namespace openloco::ui::WindowManager
     // 0x0045F18B
     void callViewportRotateEventOnAllWindows()
     {
-        FOR_ALL_WINDOWS_FROM_FRONT (w)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
+            auto& w = *it;
             w->call_viewport_rotate();
         }
     }
@@ -1035,7 +1051,7 @@ namespace openloco::ui::WindowManager
 
         FOR_ALL_WINDOWS_FROM_BACK (w)
         {
-            if (w == self)
+            if (w.get() == self)
                 continue;
 
             if (w->flags & window_flags::stick_to_back)
@@ -1100,15 +1116,17 @@ namespace openloco::ui::WindowManager
     {
         close(WindowType::dropdown, 0);
 
-        FOR_ALL_WINDOWS_FROM_FRONT (w)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
+            auto& w = *it;
+
             if (w->flags & window_flags::stick_to_back)
                 continue;
 
             if (w->flags & window_flags::stick_to_front)
                 continue;
 
-            close(w);
+            close(w.get());
             break;
         }
     }
@@ -1284,9 +1302,10 @@ namespace openloco::ui::WindowManager
             }
         }
 
-        FOR_ALL_WINDOWS_FROM_FRONT (w)
+        for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
         {
-            if (windowWheelInput(w, wheel))
+            auto& w = *it;
+            if (windowWheelInput(w.get(), wheel))
             {
                 return;
             }
@@ -1295,8 +1314,14 @@ namespace openloco::ui::WindowManager
 
     bool isInFront(ui::window* window)
     {
-        FOR_ALL_WINDOWS_FROM_BACK_FROM (w, window + 1)
+        auto it = std::find_if(_windows.begin(), _windows.end(), [&window](std::unique_ptr<ui::window> const& w) {
+            return w.get() == window;
+        });
+
+        for (it++; it != _windows.end(); it++)
         {
+            auto& w = *it;
+
             if ((w->flags & window_flags::stick_to_front) != 0)
                 continue;
 
@@ -1308,8 +1333,14 @@ namespace openloco::ui::WindowManager
 
     bool isInFrontAlt(ui::window* window)
     {
-        FOR_ALL_WINDOWS_FROM_BACK_FROM (w, window + 1)
+        auto it = std::find_if(_windows.begin(), _windows.end(), [&window](std::unique_ptr<ui::window> const& w) {
+            return w.get() == window;
+        });
+
+        for (it++; it != _windows.end(); it++)
         {
+            auto& w = *it;
+
             if ((w->flags & window_flags::stick_to_front) != 0)
                 continue;
 
@@ -1331,8 +1362,13 @@ namespace openloco::ui::WindowManager
      */
     static void sub_4C6A40(ui::window* window, ui::viewport* viewport, int16_t dX, int16_t dY)
     {
-        for (auto w = window; w < _windowsEnd; w++)
+        auto it = std::find_if(_windows.begin(), _windows.end(), [&window](std::unique_ptr<ui::window> const& w) {
+            return w.get() == window;
+        });
+        for (; it != _windows.end(); it++)
         {
+            auto& w = *it;
+
             if ((w->flags & window_flags::transparent) == 0)
                 continue;
 
@@ -1401,15 +1437,17 @@ namespace openloco::ui::WindowManager
         while (changed)
         {
             changed = false;
-            FOR_ALL_WINDOWS_FROM_FRONT (w)
+            for (auto it = _windows.rbegin(); it != _windows.rend(); it++)
             {
+                auto& w = *it;
+
                 if ((w->flags & window_flags::stick_to_back) != 0)
                     continue;
 
                 if ((w->flags & window_flags::stick_to_front) != 0)
                     continue;
 
-                close(w);
+                close(w.get());
 
                 // restart loop
                 changed = true;
