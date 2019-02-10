@@ -33,13 +33,33 @@ namespace openloco
         uint16_t object_id; // 0x40
         uint8_t var_42;
         uint8_t pad_43;
-        int16_t var_44;
+        union
+        {
+            int16_t var_44;
+            struct
+            {
+                int8_t var_44A;
+                int8_t var_45;
+            };
+        };
         uint8_t var_46;
         uint8_t pad_47[0x4A - 0x47];
         uint16_t var_4A;
-        uint8_t cargo_type; // 0x4C
-        uint8_t pad_4D;
-        uint16_t cargo_origin; // 0x4E
+        union
+        {
+            struct
+            {
+                uint8_t cargo_type; // 0x4C
+                uint8_t pad_4D;
+                uint16_t cargo_origin; // 0x4E
+            };
+            struct
+            {
+                uint16_t var_4C; // 0x4C
+                uint8_t var_4E;  // 0x4E
+                uint8_t pad_4F;
+            };
+        };
         uint8_t pad_50;
         uint8_t cargo_quantity; // 0x51
         uint8_t pad_52[0x54 - 0x52];

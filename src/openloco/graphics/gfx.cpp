@@ -1,8 +1,10 @@
 #include "gfx.h"
+#include "../console.h"
 #include "../environment.h"
 #include "../interop/interop.hpp"
 #include "../localisation/languagefiles.h"
 #include "../ui.h"
+#include "../ui/WindowManager.h"
 #include "../utility/stream.hpp"
 #include "colours.h"
 #include "image_ids.h"
@@ -35,6 +37,8 @@ namespace openloco::gfx
     constexpr uint32_t g1_count_temporary = 0x1000;
 
     static loco_global<drawpixelinfo_t, 0x0050B884> _screen_dpi;
+    static loco_global<drawpixelinfo_t, 0x005233B8> _windowDPI;
+
     static loco_global<g1_element[g1_expected_count::disc + g1_count_temporary + g1_count_objects], 0x9E2424> _g1Elements;
 
     static std::unique_ptr<std::byte[]> _g1Buffer;
@@ -713,6 +717,166 @@ namespace openloco::gfx
         regs.dx = right;
         regs.bp = bottom;
         call(0x004C5C69, regs);
+    }
+
+    // 0x004C5CFA
+    void draw_dirty_blocks()
+    {
+        call(0x004C5CFA);
+    }
+
+    static void window_draw(drawpixelinfo_t* dpi, ui::window* w, int16_t left, int16_t top, int16_t right, int16_t bottom);
+
+    /**
+     * 0x004C5EA9
+     *
+     * @param dpi
+     * @param w @<esi>
+     * @param left @<ax>
+     * @param top @<bx>
+     * @param right @<dx>
+     * @param bottom @<bp>
+     * @return
+     */
+    static bool window_draw_split(gfx::drawpixelinfo_t* dpi, ui::window* w, int16_t left, int16_t top, int16_t right, int16_t bottom)
+    {
+        // Divide the draws up for only the visible regions of the window recursively
+        for (uint32_t index = ui::WindowManager::indexOf(w) + 1; index < ui::WindowManager::count(); index++)
+        {
+            auto topwindow = ui::WindowManager::get(index);
+
+            // Check if this window overlaps w
+            if (topwindow->x >= right || topwindow->y >= bottom)
+                continue;
+            if (topwindow->x + topwindow->width <= left || topwindow->y + topwindow->height <= top)
+                continue;
+            if (topwindow->flags & ui::window_flags::transparent)
+                continue;
+
+            // A window overlaps w, split up the draw into two regions where the window starts to overlap
+            if (topwindow->x > left)
+            {
+                // Split draw at topwindow.left
+                window_draw(dpi, w, left, top, topwindow->x, bottom);
+                window_draw(dpi, w, topwindow->x, top, right, bottom);
+            }
+            else if (topwindow->x + topwindow->width < right)
+            {
+                // Split draw at topwindow.right
+                window_draw(dpi, w, left, top, topwindow->x + topwindow->width, bottom);
+                window_draw(dpi, w, topwindow->x + topwindow->width, top, right, bottom);
+            }
+            else if (topwindow->y > top)
+            {
+                // Split draw at topwindow.top
+                window_draw(dpi, w, left, top, right, topwindow->y);
+                window_draw(dpi, w, left, topwindow->y, right, bottom);
+            }
+            else if (topwindow->y + topwindow->height < bottom)
+            {
+                // Split draw at topwindow.bottom
+                window_draw(dpi, w, left, top, right, topwindow->y + topwindow->height);
+                window_draw(dpi, w, left, topwindow->y + topwindow->height, right, bottom);
+            }
+
+            // Drawing for this region should be done now, exit
+            return true;
+        }
+
+        // No windows overlap
+        return false;
+    }
+
+    static bool window_is_visible(ui::window* w)
+    {
+        return true;
+    }
+
+    /**
+     * 0x004C5EA9
+     *
+     * @param w
+     * @param left @<ax>
+     * @param top @<bx>
+     * @param right @<dx>
+     * @param bottom @<bp>
+     */
+    static void window_draw(drawpixelinfo_t* dpi, ui::window* w, int16_t left, int16_t top, int16_t right, int16_t bottom)
+    {
+        if (!window_is_visible(w))
+            return;
+
+        // Split window into only the regions that require drawing
+        if (window_draw_split(dpi, w, left, top, right, bottom))
+            return;
+
+        // Clamp region
+        left = std::max(left, w->x);
+        top = std::max(top, w->y);
+        right = std::min<int16_t>(right, w->x + w->width);
+        bottom = std::min<int16_t>(bottom, w->y + w->height);
+        if (left >= right)
+            return;
+        if (top >= bottom)
+            return;
+
+        // Draw the window in this region
+        ui::WindowManager::drawSingle(dpi, w, left, top, right, bottom);
+
+        for (uint32_t index = ui::WindowManager::indexOf(w) + 1; index < ui::WindowManager::count(); index++)
+        {
+            auto v = ui::WindowManager::get(index);
+
+            // Don't draw overlapping opaque windows, they won't have changed
+            if ((v->flags & ui::window_flags::transparent) != 0)
+            {
+                ui::WindowManager::drawSingle(dpi, v, left, top, right, bottom);
+            }
+        }
+    }
+
+    /**
+     * 0x004C5DD5
+     * rct2: window_draw_all
+     *
+     * @param left @<ax>
+     * @param top @<bx>
+     * @param right @<dx>
+     * @param bottom @<bp>
+     */
+    void redraw_screen_rect(int16_t left, int16_t top, int16_t right, int16_t bottom)
+    {
+        registers regs;
+        regs.ax = left;
+        regs.bx = top;
+        regs.cx = right - 1;
+        regs.dx = bottom - 1;
+        call(0x00451D98, regs);
+
+        drawpixelinfo_t windowDPI;
+        windowDPI.width = right - left;
+        windowDPI.height = bottom - top;
+        windowDPI.x = left;
+        windowDPI.y = top;
+        windowDPI.bits = _screen_dpi->bits + left + ((_screen_dpi->width + _screen_dpi->pitch) * top);
+        windowDPI.pitch = _screen_dpi->width + _screen_dpi->pitch + left - right;
+        windowDPI.zoom_level = 0;
+
+        for (size_t i = 0; i < ui::WindowManager::count(); i++)
+        {
+            auto w = ui::WindowManager::get(i);
+
+            if ((w->flags & ui::window_flags::transparent) != 0)
+                continue;
+
+            if (right <= w->x || bottom <= w->y)
+                continue;
+
+            if (left >= w->x + w->width || top >= w->y + w->height)
+                continue;
+
+            window_draw(&windowDPI, w, left, top, right, bottom);
+        }
     }
 
     void draw_image(gfx::drawpixelinfo_t* dpi, int16_t x, int16_t y, uint32_t image)

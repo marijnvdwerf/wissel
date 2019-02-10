@@ -151,11 +151,14 @@ namespace openloco::ui
         constexpr uint32_t flag_6 = 1 << 6;
         constexpr uint32_t flag_7 = 1 << 7;
         constexpr uint32_t resizable = 1 << 9;
+        constexpr uint32_t no_auto_close = 1 << 10;
         constexpr uint32_t flag_11 = 1 << 11;
         constexpr uint32_t flag_12 = 1 << 12;
+        constexpr uint32_t flag_13 = 1 << 13;
         constexpr uint32_t flag_15 = 1 << 15;
         constexpr uint32_t flag_16 = 1 << 16;
-        constexpr uint32_t white_border_mask = (1 << 17) | (1 << 18);
+        constexpr uint32_t white_border_one = (1 << 17);
+        constexpr uint32_t white_border_mask = window_flags::white_border_one | (1 << 18);
     }
 
     struct window_event_list
@@ -171,11 +174,11 @@ namespace openloco::ui
                 uint32_t event_03;
                 void (*on_mouse_down)(window*, widget_index);
                 void (*on_dropdown)(window*, widget_index, int16_t);
-                uint32_t event_06;
+                void (*event_06)(window*);
                 void (*on_update)(window*);
                 uint32_t event_08;
                 uint32_t event_09;
-                uint32_t event_10;
+                uint32_t on_tool_update;
                 uint32_t on_tool_down;
                 uint32_t event_12;
                 uint32_t event_13;
@@ -320,26 +323,33 @@ namespace openloco::ui
                 uint16_t max_height;               // 0x3e
                 window_number number;              // 0x40
                 uint32_t flags;                    // 0x42
-                scroll_area_t scroll_areas[3];     // 0x46
-                uint8_t pad_7C[0x83E - 0x7C];
+                scroll_area_t scroll_areas[2];     // 0x46
+                uint8_t pad_6A[0x83A - 0x6A];
+                uint16_t var_83A;
+                uint16_t var_83C;
                 uint16_t var_83E;
                 uint16_t var_840;
                 uint8_t pad_842[0x846 - 0x842];
                 uint16_t var_846;
-                uint8_t pad_848[0x854 - 0x848];
+                uint16_t var_848;
+                uint16_t var_84A;
+                uint16_t var_84C;
+                uint16_t var_84E;
+                uint16_t var_850;
+                uint16_t var_852;
                 uint16_t var_854;
                 uint16_t var_856;
-                uint8_t pad_858[0x85A - 0x858];
+                uint16_t var_858;
                 uint16_t var_85A;
                 uint8_t pad_85C[0x870 - 0x85C];
                 uint16_t current_tab; // 0x870
                 uint16_t frame_no;    // 0x872
-                uint8_t pad_874[0x876 - 0x874];
+                uint16_t var_874;
                 viewport_config viewport_configurations[2]; // 0x876
                 WindowType type;                            // 0x882
                 uint8_t pad_883[1];
                 int8_t var_884;
-                uint8_t pad_885[1];
+                uint8_t var_885;
                 uint8_t colours[4]; // 0x886
                 int16_t var_88A;
                 int16_t var_88C;
@@ -387,7 +397,11 @@ namespace openloco::ui
         void call_3(int8_t widget_index);                                                                 // 3
         void call_on_mouse_down(int8_t widget_index);                                                     // 4
         void call_on_dropdown(widget_index widget_index, int16_t item_index);                             // 5
+        void call_6();                                                                                    // 6
         void call_update();                                                                               // 7
+        void call_8();                                                                                    // 8
+        void call_9();                                                                                    // 9
+        void call_tool_update(int16_t widget_index, int16_t xPos, int16_t yPos);                          // 10
         void call_tool_down(int16_t widget_index, int16_t xPos, int16_t yPos);                            // 11
         ui::cursor_id call_15(int16_t xPos, int16_t yPos, ui::cursor_id fallback, bool* out);             // 15
         void call_get_scroll_size(uint32_t scrollIndex, uint16_t* scrollWidth, uint16_t* scrollHeight);   // 16

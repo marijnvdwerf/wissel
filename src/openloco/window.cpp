@@ -552,6 +552,22 @@ namespace openloco::ui
         event_handlers->on_close(this);
     }
 
+    void window::call_6()
+    {
+        if (event_handlers->event_06 == nullptr)
+            return;
+
+        if (is_interop_event(event_handlers->event_06))
+        {
+            registers regs;
+            regs.esi = (int32_t)this;
+            call((uint32_t)this->event_handlers->event_06, regs);
+            return;
+        }
+
+        event_handlers->event_06(this);
+    }
+
     void window::call_update()
     {
         if (event_handlers->on_update == nullptr)
@@ -566,6 +582,57 @@ namespace openloco::ui
         }
 
         event_handlers->on_update(this);
+    }
+
+    void window::call_8()
+    {
+        if (event_handlers->event_08 == (uint32_t) nullptr)
+            return;
+
+        if (is_interop_event(event_handlers->event_08))
+        {
+            registers regs;
+            regs.esi = (int32_t)this;
+            call((uintptr_t)this->event_handlers->event_08, regs);
+            return;
+        }
+
+        assert(false);
+    }
+
+    void window::call_9()
+    {
+        if (event_handlers->event_09 == (uint32_t) nullptr)
+            return;
+
+        if (is_interop_event(event_handlers->event_09))
+        {
+            registers regs;
+            regs.esi = (int32_t)this;
+            call((uintptr_t)this->event_handlers->event_09, regs);
+            return;
+        }
+
+        assert(false);
+    }
+
+    void window::call_tool_update(int16_t widget_index, int16_t xPos, int16_t yPos)
+    {
+        if (event_handlers->on_tool_update == (uint32_t) nullptr)
+            return;
+
+        if (is_interop_event(event_handlers->on_tool_update))
+        {
+            registers regs;
+            regs.esi = (int32_t)this;
+            regs.dx = widget_index;
+            regs.ax = xPos;
+            regs.bx = yPos;
+            call((uintptr_t)this->event_handlers->on_tool_update, regs);
+            return;
+        }
+
+        assert(false);
     }
 
     void window::call_tool_down(int16_t widget_index, int16_t xPos, int16_t yPos)

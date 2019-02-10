@@ -7,12 +7,14 @@
 #include <unistd.h>
 #endif
 #include "../audio/audio.h"
+#include "../companymgr.h"
 #include "../console.h"
 #include "../environment.h"
 #include "../graphics/colours.h"
 #include "../graphics/gfx.h"
 #include "../gui.h"
 #include "../input.h"
+#include "../map/tile.h"
 #include "../platform/platform.h"
 #include "../station.h"
 #include "../things/vehicle.h"
@@ -723,6 +725,15 @@ void openloco::interop::register_hooks()
         });
 
     register_hook(
+        0x004383ED,
+        [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
+            registers backup = regs;
+            companymgr::sub_4383ED();
+            regs = backup;
+            return 0;
+        });
+
+    register_hook(
         0x0043B26C,
         [](registers& regs) FORCE_ALIGN_ARG_POINTER -> uint8_t {
             ui::about::open();
@@ -833,8 +844,25 @@ void openloco::interop::register_hooks()
     ui::textinput::register_hooks();
     ui::tooltip::register_hooks();
     ui::vehicle::registerHooks();
+    ui::build_vehicle::registerHooks();
     ui::WindowManager::registerHooks();
     ui::viewportmgr::registerHooks();
+
+    // Part of 0x004691FA
+    register_hook(
+        0x0046959C,
+        [](registers& regs) -> uint8_t {
+            registers backup = regs;
+            int16_t x = regs.eax;
+            int16_t i = regs.ebx / 6;
+            int16_t y = regs.ecx;
+            map::surface_element* surface = (map::surface_element*)regs.esi;
+
+            surface->loc_46959C(x, y, i);
+
+            regs = backup;
+            return 0;
+        });
 
     register_hook(
         0x004AB655,

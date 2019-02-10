@@ -15,4 +15,5 @@ namespace openloco::companymgr
     company* get(company_id_t id);
     company_id_t get_controlling_id();
     void update();
+    void sub_4383ED();
 }

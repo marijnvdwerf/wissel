@@ -13,6 +13,7 @@ namespace openloco::ui::WindowManager
     void setCurrentModalType(WindowType type);
     window* get(size_t index);
     size_t count();
+    int indexOf(window* window);
 
     void update();
     window* getMainWindow();
@@ -29,6 +30,7 @@ namespace openloco::ui::WindowManager
     void close(WindowType type);
     void close(WindowType type, uint16_t id);
     void close(window* window);
+    window* createWindow(WindowType type, gfx::Size size, uint32_t flags, window_event_list* events);
     window* createWindow(WindowType type, gfx::Point origin, gfx::Size size, uint32_t flags, window_event_list* events);
     window* createWindowCentred(WindowType type, gfx::Size size, uint32_t flags, window_event_list* events);
     void drawSingle(gfx::drawpixelinfo_t* dpi, window* w, int32_t left, int32_t top, int32_t right, int32_t bottom);
@@ -39,8 +41,12 @@ namespace openloco::ui::WindowManager
     void sub_4B93A5(window_number number);
     void closeTopmost();
     void allWheelInput();
+    void handle_input();
+    void sub_4C98CF();
     bool isInFront(ui::window* w);
     bool isInFrontAlt(ui::window* w);
+    bool set_508F10(int i);
+    void closeAllFloatingWindows();
 }
 
 namespace openloco::ui::windows
@@ -111,6 +117,11 @@ namespace openloco::ui::tooltip
 }
 
 namespace openloco::ui::vehicle
+{
+    void registerHooks();
+}
+
+namespace openloco::ui::build_vehicle
 {
     void registerHooks();
 }

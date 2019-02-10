@@ -423,7 +423,7 @@ namespace openloco
             if (addr<0x00525340, int32_t>() == 1)
             {
                 addr<0x00525340, int32_t>() = 0;
-                addr<0x00508F10, uint16_t>() |= (1 << 1);
+                windowmgr::set_508F10(1);
             }
 
             input::handle_keyboard();
@@ -555,6 +555,12 @@ namespace openloco
         addr<0x010E7D5C, uint32_t>() = 0x64700A3;
         addr<0x010E7D60, uint32_t>() = 0xCE0481;
         addr<0x010E7D64, uint32_t>() = 0xD900BF;
+    }
+
+    void do_game_command(int esi, registers& registers)
+    {
+        registers.esi = esi;
+        call(0x00431315, registers);
     }
 
     // 0x0046ABCB
@@ -741,6 +747,7 @@ namespace openloco
             const auto& cfg = config::read_new_config();
             environment::resolve_paths();
 
+            apply_patches();
             register_hooks();
             if (sub_4054B9())
             {

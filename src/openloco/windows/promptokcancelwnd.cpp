@@ -61,7 +61,7 @@ namespace openloco::ui::windows
                     WindowManager::dispatchUpdateAll();
                     input::process_keyboard_input();
                     WindowManager::update();
-                    call(0x004C98CF);
+                    WindowManager::sub_4C98CF();
                     call(0x004CF63B);
                     return WindowManager::find(WindowType::confirmationPrompt) != nullptr;
                 });
