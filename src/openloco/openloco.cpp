@@ -325,31 +325,31 @@ namespace openloco
     }
 
     // 0x00428E47
-    void sub_428E47()
+    static void sub_428E47()
     {
         call(0x00428E47);
     }
 
     // 0x004C96E7
-    void handle_input()
+    static void handle_input()
     {
         call(0x004C96E7);
     }
 
     // 0x004383ED
-    void sub_4383ED()
+    static void sub_4383ED()
     {
         call(0x004383ED);
     }
 
     // 0x0046E388
-    void sub_46E388()
+    static void sub_46E388()
     {
         call(0x0046E388);
     }
 
     // 0x004317BD
-    uint32_t sub_4317BD()
+    static uint32_t sub_4317BD()
     {
         registers regs;
         call(0x004317BD, regs);
@@ -358,12 +358,12 @@ namespace openloco
     }
 
     // 0x0046E4E3
-    void sub_46E4E3()
+    static void sub_46E4E3()
     {
         call(0x0046E4E3);
     }
 
-    void sub_431695()
+    static void sub_431695()
     {
         if (!isMultiplayer())
         {
