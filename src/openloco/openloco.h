@@ -34,6 +34,7 @@ namespace openloco
     utility::prng& gprng();
     void initialise_viewports();
 
+    void sub_431695();
     void main();
     void prompt_tick_loop(std::function<bool()> tickAction);
 }
