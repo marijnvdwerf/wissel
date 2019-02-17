@@ -363,7 +363,7 @@ namespace openloco
         call(0x0046E4E3);
     }
 
-    static void sub_431695()
+    void sub_431695()
     {
         if (!isMultiplayer())
         {
