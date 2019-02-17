@@ -131,7 +131,7 @@ namespace openloco
 
     bool isMultiplayer()
     {
-        return (_screen_flags & screen_flags::unknown_2) != 0;
+        return (_screen_flags & screen_flags::multiplayer) != 0;
     }
 
     bool is_unknown_4_mode()
@@ -569,7 +569,7 @@ namespace openloco
                 {
                     numUpdates = 1;
                 }
-                if ((_screen_flags & screen_flags::unknown_2) != 0)
+                if (isMultiplayer())
                 {
                     numUpdates = 1;
                 }
