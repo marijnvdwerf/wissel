@@ -12,6 +12,7 @@ matrix:
           name: macOS 10.12 Clang (Xcode 9.2)
           osx_image: xcode9.2 # macOS 10.12 (lacks std::byte)
           language: cpp
+          before_install: []
           script:
             - git describe HEAD
 
