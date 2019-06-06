@@ -516,7 +516,7 @@ namespace openloco::ui::windows::ScenarioOptions
         {
             // 0x0043EEFF start
             window = WindowManager::createWindowCentred(WindowType::scenarioOptions, otherWindowSize, 0, &challenge::events);
-            window->widgets =  (loco_ptr)challenge::widgets;
+            window->widgets = (loco_ptr)challenge::widgets;
             window->enabled_widgets = challenge::enabledWidgets;
             window->number = 0;
             window->current_tab = 0;
@@ -540,10 +540,10 @@ namespace openloco::ui::windows::ScenarioOptions
         window->current_tab = 0;
         window->invalidate();
 
-        window->widgets =  (loco_ptr)challenge::widgets;
+        window->widgets = (loco_ptr)challenge::widgets;
         window->enabled_widgets = challenge::enabledWidgets;
         window->holdable_widgets = challenge::holdableWidgets;
-        window->_event_handlers =  (loco_ptr)&challenge::events;
+        window->_event_handlers = (loco_ptr)&challenge::events;
         window->activated_widgets = 0;
 
         window->call_on_resize();
@@ -725,7 +725,7 @@ namespace openloco::ui::windows::ScenarioOptions
 
                 case widx::preferred_intelligence_btn:
                 {
-                    widget_t& target =* self->getWidget(widx::preferred_intelligence);
+                    widget_t& target = *self->getWidget(widx::preferred_intelligence);
                     dropdown::show(self->x + target.left, self->y + target.top, target.width() - 4, target.height(), self->colours[1], std::size(preferenceLabelIds), 0x80);
 
                     for (size_t i = 0; i < std::size(preferenceLabelIds); i++)
@@ -737,7 +737,7 @@ namespace openloco::ui::windows::ScenarioOptions
 
                 case widx::preferred_aggressiveness_btn:
                 {
-                    widget_t& target =* self->getWidget(widx::preferred_aggressiveness);
+                    widget_t& target = *self->getWidget(widx::preferred_aggressiveness);
                     dropdown::show(self->x + target.left, self->y + target.top, target.width() - 4, target.height(), self->colours[1], std::size(preferenceLabelIds), 0x80);
 
                     for (size_t i = 0; i < std::size(preferenceLabelIds); i++)
@@ -1175,9 +1175,9 @@ namespace openloco::ui::windows::ScenarioOptions
         {
             // Reset tab widgets if needed.
             auto tabWidgets = tabInformationByTabOffset[self->current_tab].widgets;
-            if (self->widgets != (uintptr_t) tabWidgets)
+            if (self->widgets != (uintptr_t)tabWidgets)
             {
-                self->widgets =  (loco_ptr)tabWidgets;
+                self->widgets = (loco_ptr)tabWidgets;
                 self->init_scroll_widgets();
             }
 
@@ -1213,9 +1213,9 @@ namespace openloco::ui::windows::ScenarioOptions
 
             self->enabled_widgets = *tabInfo.enabledWidgets;
             self->holdable_widgets = *tabInfo.holdableWidgets;
-            self->_event_handlers =  (loco_ptr)tabInfo.events;
+            self->_event_handlers = (loco_ptr)tabInfo.events;
             self->activated_widgets = 0;
-            self->widgets = (loco_ptr) tabInfo.widgets;
+            self->widgets = (loco_ptr)tabInfo.widgets;
 
             self->invalidate();
 
