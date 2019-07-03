@@ -21,6 +21,7 @@
 #include "audio/audio.h"
 #include "companymgr.h"
 #include "config.h"
+#include "console.h"
 #include "date.h"
 #include "environment.h"
 #include "graphics/colours.h"
@@ -50,7 +51,7 @@
 #pragma warning(disable : 4611) // interaction between '_setjmp' and C++ object destruction is non - portable
 
 using namespace openloco::interop;
-namespace windowmgr = openloco::ui::WindowManager;
+using namespace openloco::ui;
 using input_flags = openloco::input::input_flags;
 using input_state = openloco::input::input_state;
 
@@ -437,7 +438,7 @@ namespace openloco
             else
             {
                 uint16_t numUpdates = std::clamp<uint16_t>(time_since_last_tick / (uint16_t)31, 1, 3);
-                if (windowmgr::find(ui::WindowType::multiplayer, 0) != nullptr)
+                if (WindowManager::find(ui::WindowType::multiplayer, 0) != nullptr)
                 {
                     numUpdates = 1;
                 }
@@ -557,6 +558,121 @@ namespace openloco
         addr<0x010E7D64, uint32_t>() = 0xD900BF;
     }
 
+    loco_global<uint16_t*, 0x009DA3CC> _currentTitleCommand;
+    loco_global<uint16_t, 0x9DA3D0> _currentTitleCountdown;
+
+    static void load_title()
+    {
+        call(0x4442C4);
+    }
+
+    static void sub_444387()
+    {
+        if (!is_title_mode())
+        {
+            return;
+        }
+
+        _screen_age = 0;
+
+        if (_currentTitleCountdown != 0)
+        {
+            _currentTitleCountdown = _currentTitleCountdown - 1;
+            return;
+        }
+
+        do
+        {
+            uint16_t cmd = *(*_currentTitleCommand);
+            _currentTitleCommand++;
+
+            switch (cmd)
+            {
+                case 0: // wait(duration)
+                {
+                    uint16_t arg = *(*_currentTitleCommand);
+                    _currentTitleCommand++;
+                    _currentTitleCountdown = arg / 4;
+                    break;
+                }
+
+                case 1:
+                {
+                    uint16_t arg;
+                    do
+                    {
+                        arg = *(*_currentTitleCommand);
+                        _currentTitleCommand++;
+                    } while (arg != 0);
+
+                    load_title();
+                    gfx::invalidate_screen();
+                    _screen_age = 0;
+                    addr<0x50C19A, uint16_t>() = 55000;
+                    break;
+                }
+
+                case 2: // move(x, y)
+                {
+                    uint16_t argA = *(*_currentTitleCommand);
+                    _currentTitleCommand++;
+                    uint16_t argB = *(*_currentTitleCommand);
+                    _currentTitleCommand++;
+
+                    if (addr<0x00525E28, uint32_t>() & 1)
+                    {
+                        auto height = tile_element_height(argA * 32 + 16, argB * 32 + 16);
+                        auto main = WindowManager::getMainWindow();
+                        if (main != nullptr)
+                        {
+                            registers regs;
+
+                            regs.ax = argA * 32 + 16;
+                            regs.cx = argB * 32 + 16;
+                            regs.edx = height;
+                            regs.esi = (uintptr_t)main;
+                            call(0x004C6827, regs);
+                            main->flags &= ~ui::window_flags::scrolling_to_location;
+                            main->viewports_update_position();
+                        }
+                    }
+
+                    break;
+                }
+
+                case 3: // rotate()
+                {
+                    if (addr<0x00525E28, uint32_t>() & 1)
+                    {
+                        auto main = WindowManager::getMainWindow();
+                        if (main != nullptr)
+                        {
+                            main->viewport_rotate_right();
+                        }
+                    }
+
+                    break;
+                }
+
+                case 4: // reset
+                {
+                    _currentTitleCommand = (uint16_t*)0x4FB1F3;
+                    break;
+                }
+            }
+        } while (_currentTitleCountdown == 0);
+    }
+
+    static void sub_444357()
+    {
+        _currentTitleCommand = (uint16_t*)0x4FB1F3;
+        _currentTitleCountdown = 0;
+        load_title();
+        _screen_age = 0;
+        addr<0x50C19A, uint16_t>() = 55000;
+        sub_444387();
+    }
+
     // 0x0046ABCB
     static void tick_logic()
     {
@@ -580,7 +696,7 @@ namespace openloco
         invalidate_map_animations();
         audio::update_vehicle_noise();
         audio::update_ambient_noise();
-        call(0x00444387);
+        sub_444387();
 
         addr<0x009C871C, uint8_t>() = addr<0x00F25374, uint8_t>();
         if (addr<0x0050C197, uint8_t>() != 0)
